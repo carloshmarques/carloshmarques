@@ -91,6 +91,14 @@ By donating, you will help the development of this project, and *you will be fea
 
 ---
 
+## 🎞️ You tube Cards
+
+<!-- BEGIN YOUTUBE-CARDS -->
+
+<!-- END YOUTUBE-CARDS -->
+
+---
+
 ## 🎉 Was the "Github Profile" helpful? Help us raise these numbers up
 
 <div style="display: inline-block"><br>

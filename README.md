@@ -56,7 +56,7 @@
 <div style="display: inline-block"><br>
 
 <img height="180em" alt="github stats" src="https://github-readme-stats.vercel.app/api?username=carloshmarques&show_icons=true&layout=compac&theme=transparent" />
-<img height="180em alt="top langs" src="https://github-readme-stats.vercel.app/api/top-langs/?username=carloshmarques&layout=compact&langs_count=6&theme=transparent" />
+<img height="180em" alt="top langs" src="https://github-readme-stats.vercel.app/api/top-langs/?username=carloshmarques&layout=compact&langs_count=6&theme=transparent" />
 
 </div>
 

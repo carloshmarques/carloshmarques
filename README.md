@@ -2,7 +2,7 @@
 
 <!-- Write your README.md file. Build something amazing! This README.md template can guide you to build your project documentation, but feel free to modify it as you wish 🥰 -->
 
-# 🔥 **Hi, My name is Carlos Marques**
+# 🔥 **Hi, My name is Carlos Marques, welcome to my Github profile!**
 
 <div align="center">
   <!-- Change your logo -->
@@ -20,7 +20,7 @@
 
 ---
 
-## 🤔 **About the project**
+## 🤔 **About me:**
 
 * <!-- ... [WHY DID YOU CREATED THIS PROJECT?, MOTIVATION, PURPOSE, DESCRIPTION, OBJECTIVES, etc] -->
 

@@ -61,25 +61,25 @@
 
 </div>
 
----
+<!---
 
 <!-- ## 🌲 **Project tree**-->
 
 <!-- ... [SHOW YOUR PROJECT TREE HERE IF USEFUL] -->
 
----
+<!---
 
 <!-- ## 📝 **Additional notes** -->
 
 <!--* <!-- ... [ADD ADDITIONAL NOTES] -->
 
----
+<!---
 
 <!--## 📸 **Screenshots**
 
 <!-- ... [SOME DESCRIPTIVE IMAGES] -->
 
----
+<!---
 
 <!--## 🍰 **Supporters and donators**
 
@@ -99,7 +99,7 @@ By donating, you will help the development of this project, and *you will be fea
 
 <!-- LINK TO YOUR DONATING PAGES HERE -->
 
----
+<!---
 
 <!--carloshmarques was generated from *[Josee9988/project-template](https://github.com/Josee9988/project-template)* 📚
 
@@ -120,12 +120,12 @@ By donating, you will help the development of this project, and *you will be fea
 [![GitHub watchers](https://img.shields.io/github/watchers/carloshmarques/carloshmarques.svg?style=social)](https://github.com/carloshmarques/carloshmarques/watchers)
 [![GitHub forks](https://img.shields.io/github/forks/carloshmarques/carloshmarques.svg?style=social)](https://github.com/carloshmarques/carloshmarques/network/members)
 
-<div>
 <!-- MODIFY THIS LINK TO YOUR MAIN DONATING SITE IF YOU ARE NOT IN THE GITHUB SPONSORS PROGRAM -->
 
 [![Sponsor](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=github-sponsors&color=red&style=social)](https://github.com/sponsors/carloshmarques)
 
 Enjoy! 😃
+<div>
 
 ---
 

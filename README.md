@@ -53,11 +53,11 @@
 
 ## 🚀 **Usage**
 
-<div style="display: inline-block"><br>
+<div style="display: inline-block">
 
-<img  height="165em" alt="github stats" src="https://github-readme-stats.vercel.app/api?username=carloshmarques&show_icons=true&layout=compac&theme=transparent" /><br>
+<img height="170em" alt="github stats" src="https://github-readme-stats.vercel.app/api?username=carloshmarques&show_icons=true&layout=compac&theme=transparent" />
 
-<img  align="right" height="165em"  alt="top langs" src="https://github-readme-stats.vercel.app/api/top-langs/?username=carloshmarques&layout=compact&langs_count=6&theme=transparent" />
+<img align="right" height="170em"  alt="top langs" src="https://github-readme-stats.vercel.app/api/top-langs/?username=carloshmarques&layout=compact&langs_count=6&theme=transparent" />
 
 </div>
 

@@ -113,7 +113,8 @@ By donating, you will help the development of this project, and *you will be fea
 
 ## 🎉 Was the "Github Profile" helpful? Help us raise these numbers up
 
-<div style="display: inline-block">
+<br>
+<div style="display: inline-block"><br>
 
 [![GitHub followers](https://img.shields.io/github/followers/carloshmarques.svg?style=social)](https://github.com/carloshmarques)
 [![GitHub stars](https://img.shields.io/github/stars/carloshmarques/carloshmarques.svg?style=social)](https://github.com/carloshmarques/carloshmarques/stargazers)

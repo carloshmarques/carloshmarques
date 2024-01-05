@@ -20,11 +20,12 @@
 
 ---
 
-## 🤔 **About me:**
+🤔 **About me:**
 
-* <!-- ... [WHY DID YOU CREATED THIS PROJECT?, MOTIVATION, PURPOSE, DESCRIPTION, OBJECTIVES, etc] -->
-
----
+* I'm an aspiring programmer. I am interested in several programming languages, namely, for example:
+  Windows Form: Vb.net, C#;
+  Web design: Nodejs, Ruby, Jekyll, Gulp, Sass, Js, Jquery, etc.
+* I created this profile with the intention of, in addition to publishing achievements and projects, also, if possible, receiving tips from more experienced programmers, in order to progress in my learning and personal development.
 
 ## ⚡ **Installation**
 

@@ -57,9 +57,8 @@
 ## 🚀 **Usage**
 
 <div style="display: inline-block">
-<img align="left" height="160em"  width="49%" alt="github stats" src="https://github-readme-stats.vercel.app/api?username=carloshmarques&show_icons=true&layout=compact&theme=transparent" />
-<img  align="left" height="185em" width="44%" alt="top langs" src="https://github-readme-stats.vercel.app/api/top-langs/?username=carloshmarques&langs_count=5&layout=compact&theme=transparent" />  
-
+<img  height="175em" width="50%" alt="top langs" src="https://github-readme-stats.vercel.app/api/top-langs/?username=carloshmarques&langs_count=10&layout=compact&theme=transparent" />  
+<img height="200em"  width="35%" alt="github stats" src="https://github-readme-stats.vercel.app/api?username=carloshmarques&show_icons=true&layout=compact&theme=transparent" /> 
 </div>
 
 ---

@@ -103,7 +103,6 @@ By donating, you will help the development of this project, and *you will be fea
 <!-- BLOG-POST-LIST:START -->
 - [Património gastronómico, natural, cultural artesanal e arquitetónico da região de Aveiro, Parte 1](https://carlosmanuelhortam.wixsite.com/hydraprojects/post/patrim%C3%B3nio-gastron%C3%B3mico-natural-cultural-artesanal-e-arquitet%C3%B3nico-da-regi%C3%A3o-de-aveiro-parte-1)
 - [Como limpar cache do seu computador, com ficheiro CMD](https://carlosmanuelhortam.wixsite.com/hydraprojects/post/como-limpar-cache-do-seu-computar-com-ficheiro-cmd)
-- [Teste post](https://carlosmanuelhortam.wixsite.com/hydraprojects/post/teste-post)
 <!-- BLOG-POST-LIST:END -->
 
 ---

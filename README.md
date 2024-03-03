@@ -68,7 +68,7 @@
 <!-- Change your small logo -->
 
 <a href="https://github.com/carloshmarques/carloshmarques">
-  <img alt="@carloshmarques/carloshmarques's brand logo without text" align="right" src="https://i.imgur.com/EywWORF.png" width="10%" />
+  <img alt="@carloshmarques/carloshmarques's brand logo without text" align="right" src="https://i.imgur.com/i8hCIzh.jpg" width="10%" />
 </a>
 <p>We are currently looking for new donators to help and maintain this project of personal development! ❤️
 By donating, you will help the development of this project, and *you will be featured in this <span style="color:darkolivegreen;font-weight:bold">carloshmarques's README.md*</span>, so everyone can see your kindness and visit your content ⭐.</p>

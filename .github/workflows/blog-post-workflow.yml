@@ -13,7 +13,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2 # Update to Node.js 20
+        uses: actions/checkout@v4 # Update to Node.js 20
+        # Reference a specific version
+      - uses: actions/checkout@v4.2.0
+        # Reference a branch
+      - uses: actions/checkout@master
       - name: Pull in blog posts
         uses: gautamkrishnar/blog-post-workflow@master
         with:

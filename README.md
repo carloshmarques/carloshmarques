@@ -102,7 +102,10 @@ By donating, you will help the development of this project, and *you will be fea
 ## 📰 What's new
 
 <!-- BLOG-POST-LIST:START -->
-
+- [HydraLifeOS](https://carlosmhm.wixsite.com/lifeciclehub/post/hydralifeos)
+- [Learning Gulpjs](https://carlosmhm.wixsite.com/lifeciclehub/post/aprendendo-linguagem-de-c%C3%B3digo-gulp-js)
+- [Património gastronómico, natural, cultural artesanal e arquitetónico da região de Aveiro, Parte 1](https://carlosmhm.wixsite.com/lifeciclehub/post/patrim%C3%B3nio-gastron%C3%B3mico-natural-cultural-artesanal-e-arquitet%C3%B3nico-da-regi%C3%A3o-de-aveiro-parte-1)
+- [Como limpar cache do seu computador, com ficheiro CMD](https://carlosmhm.wixsite.com/lifeciclehub/post/como-limpar-cache-do-seu-computar-com-ficheiro-cmd)
 <!-- BLOG-POST-LIST:END -->
 
 ---

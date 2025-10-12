@@ -19,5 +19,5 @@ jobs:
       - name: Pull in blog posts
         uses: gautamkrishnar/blog-post-workflow@master
         with:
-          feed_list: "https://carlosmanuelhortam.wixsite.com/hydraprojects/blog-feed.xml"
+          feed_list: "https://carlosmhm.wixsite.com/lifeciclehub/blog-feed.xml"
 

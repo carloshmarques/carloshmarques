@@ -27,6 +27,8 @@
   Web design: Nodejs, Ruby, Jekyll, Gulp, Sass, Js, Jquery, etc.
 * I created this profile with the intention of, in addition to publishing achievements and projects, also, if possible, receiving tips from more experienced programmers, in order to progress in my learning and personal development.
 
+🔧 Currently working on: [HydraLife](https://github.com/carloshmarques/HydraLife)
+
 <div style="display: inline-block">
 
 ## ⚡ **Programming Languages**

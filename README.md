@@ -48,20 +48,9 @@
 
 ## ❄️ **Tools & code processors**
 
-<img align="center" alt="visual studio" height="30" width="50" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/visualstudio/visualstudio-plain.svg" />
-<img align="center" alt="sass icon" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg" />
-<img align="center" alt="gulp icon" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gulp/gulp-plain.svg" />
-<img align="center" alt="ruby icon" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ruby/ruby-original.svg" />
-<img align="center" alt="nodejs icon" height="30" width="40" src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white" />
-</div>
-
----
-
-## 🚀 **Usage**
-
 <div style="display: inline-block">
 <img  height="175em" width="50%" alt="top langs" src="https://github-readme-stats.vercel.app/api/top-langs/?username=carloshmarques&langs_count=5&layout=compact&theme=transparent" />  
-<img height="200em"  width="35%" alt="github stats" src="https://github-readme-stats.vercel.app/api?username=carloshmarques&show_icons=true&layout=compact&theme=transparent" /> 
+<img height="200em"  width="50%" alt="github stats" src="https://github-readme-stats.vercel.app/api?username=carloshmarques&show_icons=true&layout=compact&theme=transparent" /> 
 </div>
 
 ---

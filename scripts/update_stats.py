@@ -24,7 +24,8 @@ sorted_langs = sorted(languages.items(), key=lambda x: x[1], reverse=True)
 output = "### Linguagens mais usadas (atualizado automaticamente)\n\n"
 for lang, count in sorted_langs[:5]:
     output += f"- **{lang}** — {count} bytes de código\n"
-
+with open("README.md", "r", encoding="utf-8") as f:
+    readme = f.read()
 # Atualizar README
 start = "<!--LANG-STATS-START-->"
 end = "<!--LANG-STATS-END-->"

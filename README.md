@@ -32,8 +32,10 @@
 <div style="display: inline-block">
 
 ## ⚡ **Programming Languages**
+
 <!--LANG-STATS-START-->
 <!--LANG-STATS-END-->
+
 
 
 <img align="center" alt="visual studio" height="30" width="50" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/visualstudio/visualstudio-plain.svg" />

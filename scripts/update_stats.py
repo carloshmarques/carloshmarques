@@ -28,14 +28,12 @@ for lang, count in sorted_langs[:5]:
 # Atualizar README
 with open("README.md", "r", encoding="utf-8") as f:
     readme = f.read()
-
-start = "<!--LANG-STATS-START-->"
-end = "<!--LANG-STATS-END-->"
-
-before = readme.split(start)[0]
-after = readme.split(end)[1]
-
-new_readme = before + start + "\n" + output + "\n" + end + after
+    start = "<!--LANG-STATS-START-->"    
+    end = "<!--LANG-STATS-END-->"
+    if start not in readme or end not in readme:
+        raise Exception("Marcadores não encontrados no README.md")
+    before = readme.split(start)[0]
+    after = readme.split(end)[-1]  # usa o último elemento, evita IndexError
 
 with open("README.md", "w", encoding="utf-8") as f:
     f.write(new_readme)

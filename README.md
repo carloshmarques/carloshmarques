@@ -33,16 +33,7 @@
 
 ## ⚡ **Programming Languages**
 
-<!--LANG-STATS-START-->
-### Linguagens mais usadas (atualizado automaticamente)
 
-- **C#** — 1071147 bytes de código
-- **CSS** — 813893 bytes de código
-- **Jupyter Notebook** — 271015 bytes de código
-- **QML** — 121088 bytes de código
-- **JavaScript** — 74520 bytes de código
-
-<!--LANG-STATS-END-->
 
 
 
@@ -61,10 +52,16 @@
 
 ## ❄️ **Tools & code processors**
 
-<div style="display: inline-block">
-<img  height="175em" width="50%" alt="top langs" src="https://github-readme-stats.vercel.app/api/top-langs/?username=carloshmarques&langs_count=5&layout=compact&theme=transparent" />  
-<img height="200em"  width="50%" alt="github stats" src="https://github-readme-stats.vercel.app/api?username=carloshmarques&show_icons=true&layout=compact&theme=transparent" /> 
-</div>
+<!--LANG-STATS-START-->
+### Linguagens mais usadas (atualizado automaticamente)
+
+- **C#** — 1071147 bytes de código
+- **CSS** — 813893 bytes de código
+- **Jupyter Notebook** — 271015 bytes de código
+- **QML** — 121088 bytes de código
+- **JavaScript** — 74520 bytes de código
+
+<!--LANG-STATS-END-->
 
 ---
 

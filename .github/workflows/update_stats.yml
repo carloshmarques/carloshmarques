@@ -1,14 +1,12 @@
 name: Update Language Stats
-env:
-  GH_TOKEN: ${{ secrets.GH_TOKEN }}
+
 on:
   schedule:
-    # Run workflow automatically
-    - cron: '0 * * * *' # Runs every hour, on the hour
+    - cron: '0 * * * *'
   workflow_dispatch:
-    # Run workflow manually (without waiting for the cron to be called), through the GitHub Actions Workflow page directly
+
 permissions:
-  contents: write # To write the generated contents to the readme
+  contents: write
 
 jobs:
   build:
@@ -28,17 +26,18 @@ jobs:
 
       - name: Run script
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}   # <-- AGORA ESTÁ CERTO
         run: python scripts/update_stats.py
 
       - name: Push changes
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}   # <-- TINHA DE ESTAR AQUI, BEM INDENTADO
         run: |
-            git config --global user.name "CarlosBot"
-            git config --global user.email "bot@carlos.dev"
-            git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/carloshmarques/carloshmarques.git
-            git add README.md
-            git commit -m "Atualização automática das linguagens"
-            git push origin master
-               env:
-                 GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          git config --global user.name "CarlosBot"
+          git config --global user.email "bot@carlos.dev"
+          git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/carloshmarques/carloshmarques.git
+          git add README.md
+          git commit -m "Atualização automática das linguagens" || echo "Nada para commitar"
+          git push origin master
+
 

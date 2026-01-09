@@ -28,10 +28,14 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python scripts/update_stats.py
 
-      - name: Commit changes
+      - name: Push changes
         run: |
-          git config --global user.name "CarlosBot"
-          git config --global user.email "actions@github.com"
-          git add README.md
-          git commit -m "Atualização automática das linguagens"
-          git push
+            git config --global user.name "CarlosBot"
+            git config --global user.email "bot@carlos.dev"
+            git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/carloshmarques/carloshmarques.git
+            git add README.md
+            git commit -m "Atualização automática das linguagens"
+            git push origin master
+               env:
+                 GH_TOKEN: ${{ secrets.GH_TOKEN }}
+

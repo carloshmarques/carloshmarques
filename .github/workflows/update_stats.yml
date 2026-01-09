@@ -1,4 +1,6 @@
 name: Update Language Stats
+env:
+  GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
 on:
   schedule:

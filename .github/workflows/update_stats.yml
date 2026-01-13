@@ -70,6 +70,7 @@ jobs:
             git add "$file"
           done < allowed.txt
 
+          git pull
           git commit -m "Atualização automática das linguagens" || echo "Nada para commitar"
           git push origin master
 

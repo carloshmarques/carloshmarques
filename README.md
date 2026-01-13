@@ -82,12 +82,7 @@
   <summary>Clique para expandir a árvore...</summary>
   
 <!--TREE-START-->
-```
-.
-`-- scripts
 
-1 directory
-```
 <!--TREE-END-->
 
 </details>

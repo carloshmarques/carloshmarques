@@ -64,36 +64,13 @@
 ---
 
 <!--LANG-STATS-START-->
-<div style="display:flex; justify-content:space-between; align-items:center; border:2px solid #00ffff; border-radius:8px; padding:12px;">
+### Linguagens mais usadas (atualizado automaticamente)
 
-  <!-- Coluna da imagem à esquerda -->
-  <div style="flex-shrink:0; padding-right:20px;">
-   <img src="painel_mutacao.png"
-     style="max-width: 320px; height: auto; border: 2px solid #00ffff; border-radius: 6px; box-shadow: 0 0 12px #00ffff;">
-
-  </div>
-
-  <!-- Coluna das frases ao centro -->
-  <div style="flex:1; padding:0 20px;">
-    <p style="margin:6px 0; text-align:center;">
-      <em>“Tudo flui, nada permanece.” — Heraclito</em>
-    </p>
-    <p style="margin:6px 0; text-align:center;">
-      <em>“Nada se perde, tudo se transforma.” — Lavoisier</em>
-    </p>
-    <p style="margin:6px 0; text-align:center;">
-      <em><a href="https://github.com/carloshmarques/HydraLife" target="_blank" style="color:#00ffff;">“O software é uma entidade viva.” — HydraLife</a></em>
-    </p>
-  </div>
-
-  <!-- Coluna do gráfico à direita -->
-  <div style="flex-shrink:0; padding-left:20px;">
-    <img src="language_stats.png"
-         style="max-width: 360px; height:auto; border:2px solid #00ffff; border-radius:6px; box-shadow:0 0 10px #00ffff;">
-  </div>
-
-</div>
-
+- **C#** — 1071147 bytes de código
+- **CSS** — 813893 bytes de código
+- **Jupyter Notebook** — 271015 bytes de código
+- **QML** — 121088 bytes de código
+- **JavaScript** — 74520 bytes de código
 
 <!--LANG-STATS-END-->
 

@@ -69,7 +69,7 @@
   <!-- Coluna da imagem à esquerda -->
   <div style="flex-shrink:0; padding-right:20px;">
    <img src="painel_mutacao.png"
-     style="max-width: 320px; height: auto; border: 2px solid #00ffff; border-radius: 6px; box-shadow: 0 0 12px #00ffff;">
+     style="max-width: 360px; height: 180px; border: 2px solid #00ffff; border-radius: 6px; box-shadow: 0 0 12px #00ffff;">
 
   </div>
 
@@ -89,7 +89,7 @@
   <!-- Coluna do gráfico à direita -->
   <div style="flex-shrink:0; padding-left:20px;">
     <img src="language_stats.png"
-         style="max-width: 360px; height:auto; border:2px solid #00ffff; border-radius:6px; box-shadow:0 0 10px #00ffff;">
+         style="max-width: 360px; height:180px; border:2px solid #00ffff; border-radius:6px; box-shadow:0 0 10px #00ffff;">
   </div>
 
 </div>

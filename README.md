@@ -64,35 +64,24 @@
 ---
 
 <!--LANG-STATS-START-->
-<div style="display:flex; justify-content:space-between; align-items:center; border:2px solid #00ffff; border-radius:8px; padding:12px;">
+<table>
+  <tr>
+    <td>
+      <img src="painel_mutacao.png" width="320px" style="border:2px solid #00ffff; border-radius:6px;">
+    </td>
+    <td style="text-align:center; padding:0 20px;">
+      <em>“Tudo flui, nada permanece.” — Heraclito</em><br><br>
+      <em>“Nada se perde, tudo se transforma.” — Lavoisier</em><br><br>
+      <em><a href="https://github.com/carloshmarques/HydraLife" style="color:#00ffff;">“O software é uma entidade viva.” — HydraLife</a></em>
+    </td>
+    <td>
+      <img src="language_stats.png" width="380px" style="border:2px solid #00ffff; border-radius:6px;">
+    </td>
+  </tr>
+</table>
 
-  <!-- Coluna da imagem à esquerda -->
-  <div style="flex-shrink:0; padding-right:20px;">
-   <img src="painel_mutacao.png"
-     style="max-width: 400px; height: 180px; border: 2px solid #00ffff; border-radius: 6px; box-shadow: 0 0 12px #00ffff;">
 
-  </div>
-
-  <!-- Coluna das frases ao centro -->
-  <div style="flex:1; padding:0 20px;">
-    <p style="margin:6px 0; text-align:center;">
-      <em>“Tudo flui, nada permanece.” — Heraclito</em>
-    </p>
-    <p style="margin:6px 0; text-align:center;">
-      <em>“Nada se perde, tudo se transforma.” — Lavoisier</em>
-    </p>
-    <p style="margin:6px 0; text-align:center;">
-      <em><a href="https://github.com/carloshmarques/HydraLife" target="_blank" style="color:#00ffff;">“O software é uma entidade viva.” — HydraLife</a></em>
-    </p>
-  </div>
-
-  <!-- Coluna do gráfico à direita -->
-  <div style="flex-shrink:0; padding-left:20px;">
-    <img src="language_stats.png"
-         style="max-width: 360px; height:180px; border:2px solid #00ffff; border-radius:6px; box-shadow:0 0 10px #00ffff;">
-  </div>
-
-</div>
+ 
 
 
 <!--LANG-STATS-END-->

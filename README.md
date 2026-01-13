@@ -64,28 +64,14 @@
 ---
 
 <!--LANG-STATS-START-->
+### Linguagens mais usadas (atualizado automaticamente)
 
-## 📊 Estatísticas Gerais
+- **C#** — 1071147 bytes de código
+- **CSS** — 813893 bytes de código
+- **Jupyter Notebook** — 271015 bytes de código
+- **QML** — 121088 bytes de código
+- **JavaScript** — 74520 bytes de código
 
-<div style="display:flex; justify-content:space-between; align-items:center; border:2px solid #00ffff; border-radius:8px; padding:12px;">
-
-  <!-- Imagem à esquerda -->
-<img src="painel_mutacao.png" style="max-width:360px; height:250px; object-fit:contain; border:2px solid #00ffff; border-radius:6px; box-shadow:0 0 12px #00ffff;">
-<div style="flex:1; padding:0 32px;">
-  <p style="margin:6px 0; text-align:center;">
-    <em>“Tudo flui, nada permanece.” — Heraclito</em>
-  </p>
-  <p style="margin:6px 0; text-align:center;">
-    <em>“Nada se perde, tudo se transforma.” — Lavoisier</em>
-  </p>
-  <p style="margin:6px 0; text-align:center;">
-    <em><a href="https://github.com/carloshmarques/HydraLife" target="_blank" style="color:#00ffff;">“O software é uma entidade viva.” — HydraLife</a></em>
-  </p>
-</div>
-
-<!-- Imagem à direita -->
-<img src="language_stats.png" style="max-width:400px; height:250px; object-fit:contain; border:2px solid #00ffff; border-radius:6px; box-shadow:0 0 10px #00ffff;">
-</div>
 <!--LANG-STATS-END-->
 
 ---
@@ -96,6 +82,12 @@
   <summary>Clique para expandir a árvore...</summary>
   
 <!--TREE-START-->
+```
+.
+`-- scripts
+
+1 directory
+```
 <!--TREE-END-->
 
 </details>

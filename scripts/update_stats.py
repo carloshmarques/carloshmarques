@@ -1,5 +1,7 @@
 from github import Github, Auth
 import os
+print("GH_TOKEN =", os.environ.get("GH_TOKEN"))
+
 import json
 
 # ---------------------------------------------------------

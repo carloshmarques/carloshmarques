@@ -15,29 +15,61 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # evita conflitos com histórico
 
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
-      - name: Install dependencies
-        run: pip install PyGithub
+      - name: Install dependencies 
+        run: pip install PyGithub matplotlib
+      
+      - name: Install tree
+        run: sudo apt-get install tree
 
-      - name: Run script
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}   # <-- AGORA ESTÁ CERTO
-        run: python scripts/update_stats.py
+      - name: Generate directory tree
+        run: tree -d -L 2 > directory_tree.txt
 
-      - name: Push changes
+      - name: Update directory tree in README
+        run: python scripts/update_tree.py
+
+      - name: Update README and generate image
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}   # <-- TINHA DE ESTAR AQUI, BEM INDENTADO
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
-          git config --global user.name "CarlosBot"
-          git config --global user.email "bot@carlos.dev"
+          python scripts/update_stats.py
+          python scripts/generate_language_image.py
+        
+      - name: Update changelog 
+        run: python scripts/update_changelog.py  
+
+      - name: Commit only allowed files
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
+          git config user.name "CarlosBot"
+          git config user.email "bot@carlos.dev"
           git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/carloshmarques/carloshmarques.git
-          git add README.md
+
+          # Lista ficheiros alterados
+          git diff --name-only > changed.txt
+
+          # Filtra apenas os ficheiros permitidos
+          grep -E 'README.md|stats.json|language_stats.png|evolucao_linguagens.png|CHANGELOG.md|directory_tree.txt' changed.txt > allowed.txt || true
+
+          # Se não houver alterações permitidas, cancela
+          if [ ! -s allowed.txt ]; then
+            echo "Nenhuma alteração permitida encontrada. Push cancelado."
+            exit 0
+          fi
+
+          # Adiciona apenas os ficheiros permitidos
+          while read file; do
+            git add "$file"
+          done < allowed.txt
+
           git commit -m "Atualização automática das linguagens" || echo "Nada para commitar"
           git push origin master
-
 

@@ -1,49 +1,72 @@
 from github import Github, Auth
 import os
+import json
 
-# Autenticação
+# ---------------------------------------------------------
+# 1. Autenticação
+# ---------------------------------------------------------
+
 token = os.getenv("GH_TOKEN")
-g = Github(auth=Auth.Token(token))
+if not token:
+    raise RuntimeError("GH_TOKEN não encontrado nas variáveis de ambiente.")
 
+g = Github(auth=Auth.Token(token))
 user = g.get_user("carloshmarques")
 
 languages = {}
 
-# Recolher linguagens
+# ---------------------------------------------------------
+# 2. Recolher linguagens de todos os repositórios
+# ---------------------------------------------------------
+
 for repo in user.get_repos():
     try:
         langs = repo.get_languages()
         for lang, count in langs.items():
             languages[lang] = languages.get(lang, 0) + count
-    except:
+    except Exception:
         pass
 
-# Ordenar linguagens
+# Ordenar linguagens (maior → menor)
 sorted_langs = sorted(languages.items(), key=lambda x: x[1], reverse=True)
 
-# Criar texto
-output = "### Linguagens mais usadas (atualizado automaticamente)\n\n"
-for lang, count in sorted_langs[:5]:
-    output += f"- **{lang}** — {count} bytes de código\n"
+# ---------------------------------------------------------
+# 3. Guardar stats.json (fonte de verdade para o gerador de imagem)
+# ---------------------------------------------------------
 
-# Ler README
+with open("stats.json", "w", encoding="utf-8") as f:
+    json.dump(dict(sorted_langs), f, indent=4, ensure_ascii=False)
+
+# ---------------------------------------------------------
+# 4. Criar texto para o README
+# ---------------------------------------------------------
+
+output_lines = []
+output_lines.append("### Linguagens mais usadas (atualizado automaticamente)\n")
+
+for lang, count in sorted_langs[:5]:
+    output_lines.append(f"- **{lang}** — {count} bytes de código")
+
+output = "\n".join(output_lines) + "\n"
+
+# ---------------------------------------------------------
+# 5. Atualizar README entre os marcadores
+# ---------------------------------------------------------
+
 with open("README.md", "r", encoding="utf-8") as f:
     readme = f.read()
 
 start = "<!--LANG-STATS-START-->"
 end = "<!--LANG-STATS-END-->"
 
-# Verificar marcadores
 if start not in readme or end not in readme:
-    raise Exception("Marcadores não encontrados no README.md")
+    raise Exception("Marcadores <!--LANG-STATS-START/END--> não encontrados no README.md")
 
-# Dividir de forma segura
 before, _, rest = readme.partition(start)
 _, _, after = rest.partition(end)
 
-# Construir novo README
 new_readme = before + start + "\n" + output + "\n" + end + after
 
-# Guardar
 with open("README.md", "w", encoding="utf-8") as f:
     f.write(new_readme)
+

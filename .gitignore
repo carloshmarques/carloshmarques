@@ -1,25 +1,63 @@
 ###> carloshmarques/carloshmarques ###
 
-##### Folders #####
-build/
-dist/
-node_modules/
-vendor/
-var/
-.tmp/
-
-# IDE's
-.vscode/
-.idea/
-
-
-##### Files #####
-ignore.*
-*.ignore.*
-
-# Environment variables and secret keys
+# -------------------------
+# Python
+# -------------------------
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
 .env
-.env.test
-*.pem
+.venv
+venv/
+
+# -------------------------
+# VS Code
+# -------------------------
+.vscode/
+*.code-workspace
+
+# -------------------------
+# Sistema / OS
+# -------------------------
+.DS_Store
+Thumbs.db
+
+# -------------------------
+# Logs
+# -------------------------
+*.log
+
+# -------------------------
+# Ficheiros temporários
+# -------------------------
+*.tmp
+*.temp
+*.bak
+*.swp
+
+# -------------------------
+# GitHub Actions (artefactos temporários)
+# -------------------------
+changed.txt
+allowed.txt
+directory_tree.txt
+
+# -------------------------
+# Imagens geradas automaticamente
+# (NÃO ignorar as que queres no README)
+# -------------------------
+# evolucao_linguagens.png   # manter
+# language_stats.png        # manter
+# painel_mutacao.png        # manter
+
+# -------------------------
+# Node / Web (para futuro portfólio)
+# -------------------------
+node_modules/
+#dist/
+.cache/
+
 
 ###< carloshmarques/carloshmarques ###

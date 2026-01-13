@@ -31,11 +31,15 @@
 
 <div style="display: inline-block">
 
+---
+
 ## ⚡ **Programming Languages**
 
 <img align="center" alt="visual studio" height="30" width="50" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/visualstudio/visualstudio-plain.svg" />
 <img align="center" alt="c#" height="30" width="50" src="https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white" />
 <img align="center" alt="python icon" height="30" width="60" src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" />
+
+---
 
 ## 🎒 **Libraries**
 
@@ -46,18 +50,55 @@
 <img align="center" alt=".net" height="30" width="50" src="https://img.shields.io/badge/.NET-5C2D91?style=for-the-badge&logo=.net&logoColor=white" />
 <img align="center" alt="python icon" height="30" width="60" src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" />
 
+---
+
 ## ❄️ **Tools & code processors**
 
+<img align="center" alt="visual studio" height="30" width="50" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/visualstudio/visualstudio-plain.svg" />
+<img align="center" alt="sass icon" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg" />
+<img align="center" alt="gulp icon" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gulp/gulp-plain.svg" />
+<img align="center" alt="ruby icon" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ruby/ruby-original.svg" />
+<img align="center" alt="nodejs icon" height="30" width="40" src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white" />
+</div>
+
+---
+
 <!--LANG-STATS-START-->
-### Linguagens mais usadas (atualizado automaticamente)
 
-- **C#** — 1071147 bytes de código
-- **CSS** — 813893 bytes de código
-- **Jupyter Notebook** — 271015 bytes de código
-- **QML** — 121088 bytes de código
-- **JavaScript** — 74520 bytes de código
+## 📊 Estatísticas Gerais
 
+<div style="display:flex; justify-content:space-between; align-items:center; border:2px solid #00ffff; border-radius:8px; padding:12px;">
+
+  <!-- Imagem à esquerda -->
+<img src="painel_mutacao.png" style="max-width:360px; height:250px; object-fit:contain; border:2px solid #00ffff; border-radius:6px; box-shadow:0 0 12px #00ffff;">
+<div style="flex:1; padding:0 32px;">
+  <p style="margin:6px 0; text-align:center;">
+    <em>“Tudo flui, nada permanece.” — Heraclito</em>
+  </p>
+  <p style="margin:6px 0; text-align:center;">
+    <em>“Nada se perde, tudo se transforma.” — Lavoisier</em>
+  </p>
+  <p style="margin:6px 0; text-align:center;">
+    <em><a href="https://github.com/carloshmarques/HydraLife" target="_blank" style="color:#00ffff;">“O software é uma entidade viva.” — HydraLife</a></em>
+  </p>
+</div>
+
+<!-- Imagem à direita -->
+<img src="language_stats.png" style="max-width:400px; height:250px; object-fit:contain; border:2px solid #00ffff; border-radius:6px; box-shadow:0 0 10px #00ffff;">
+</div>
 <!--LANG-STATS-END-->
+
+---
+
+## 🌿 Estrutura do Projeto
+
+<details>
+  <summary>Clique para expandir a árvore...</summary>
+  
+<!--TREE-START-->
+<!--TREE-END-->
+
+</details>
 
 ---
 

@@ -64,12 +64,13 @@
 ---
 
 <!--LANG-STATS-START-->
+
 <div style="display:flex; justify-content:space-between; align-items:center; border:2px solid #00ffff; border-radius:8px; padding:12px;">
 
   <!-- Coluna da imagem à esquerda -->
   <div style="flex-shrink:0; padding-right:20px;">
    <img src="painel_mutacao.png"
-     style="max-width: 360px; height: 180px; border: 2px solid #00ffff; border-radius: 6px; box-shadow: 0 0 12px #00ffff;">
+     style="max-width: 400px; height: 180px; border: 2px solid #00ffff; border-radius: 6px; box-shadow: 0 0 12px #00ffff;">
 
   </div>
 
@@ -91,9 +92,7 @@
     <img src="language_stats.png"
          style="max-width: 360px; height:180px; border:2px solid #00ffff; border-radius:6px; box-shadow:0 0 10px #00ffff;">
   </div>
-
 </div>
-
 
 <!--LANG-STATS-END-->
 

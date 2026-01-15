@@ -59,35 +59,44 @@
 <img align="center" alt="gulp icon" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gulp/gulp-plain.svg" />
 <img align="center" alt="ruby icon" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ruby/ruby-original.svg" />
 <img align="center" alt="nodejs icon" height="30" width="40" src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white" />
+
 </div>
 
 ---
 
 <!--LANG-STATS-START-->
-<table>
+
+<table width="100%" style="border:2px solid #00ffff; border-radius:6px;" >
   <tr>
     <td>
-      <img src="painel_mutacao.png" width="320px" style="border:2px solid #00ffff; border-radius:6px;">
+      <img src="screenshots/painel_mutacao.png" width="320px" height="250px" style="border:2px solid #00ffff; border-radius:6px;">
     </td>
-    <td style="text-align:center; padding:0 20px;">
+    <td style="text-align:left; padding:0 20px;">
       <em>“Tudo flui, nada permanece.” — Heraclito</em><br><br>
       <em>“Nada se perde, tudo se transforma.” — Lavoisier</em><br><br>
       <em><a href="https://github.com/carloshmarques/HydraLife" style="color:#00ffff;">“O software é uma entidade viva.” — HydraLife</a></em>
     </td>
     <td>
-      <img src="language_stats.png" width="380px" style="border:2px solid #00ffff; border-radius:6px;">
+      <img src="screenshots/language_stats.png" textalign="left" width="320px" height="250px" style="border:2px solid #00ffff; border-radius:6px;">
     </td>
   </tr>
 </table>
-
-
- 
-
 
 <!--LANG-STATS-END-->
 
 ---
 
+## 📸 Screenshots
+
+<details>
+  <summary>Clique para ver as capturas cerimoniais</summary>
+  <div align="left"> 
+    <img src="Screenshots/painel_mutacao.png" width="300"/>
+    <img src="Screenshots/language_stats.png" width="300"/>
+  </div>
+</details>
+
+---
 ## 🌿 Estrutura do Projeto
 
 <details>
@@ -103,6 +112,20 @@
 <!--TREE-END-->
 
 </details>
+
+---
+
+## 🌿 Gulp Workflow
+
+Este projeto usa Gulp para compilar Sass, minificar JS, otimizar imagens e gerar HTML via Pug.
+
+- Sass: `assets/sass/**/*.scss` → `dist/css/`
+- Estilo: `expanded` em desenvolvimento, `compressed` em produção
+- Ambiente controlado por `NODE_ENV`
+
+Para adaptar ao teu workspace:
+- Edita os caminhos no `gulpfile.js`
+- Usa `npm run dev` ou `NODE_ENV=production npm run build`
 
 ---
 

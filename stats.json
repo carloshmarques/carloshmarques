@@ -1,3 +1,13 @@
 {
-  "html_content": "<table width=\"100%\" style=\"border:2px solid #00ffff; border-radius:6px;\"><tr><td><img src=\"screenshots/painel_mutacao.png\" width=\"320px\" height=\"250px\" style=\"border:2px solid #00ffff; border-radius:6px;\"></td><td style=\"text-align:left; padding:0 20px;\"><em>“Tudo flui, nada permanece.” — Heraclito</em><br><br><em>“Nada se perde, tudo se transforma.” — Lavoisier</em><br><br><em><a href=\"https://github.com/carloshmarques/HydraLife\" style=\"color:#00ffff;\">“O software é uma entidade viva.” — HydraLife</a></em></td><td><img src=\"screenshots/language_stats.png\" textalign=\"left\" width=\"320px\" height=\"250px\" style=\"border:2px solid #00ffff; border-radius:6px;\"></td></tr></table>"
+    "C#": 1071147,
+    "CSS": 813893,
+    "Jupyter Notebook": 271015,
+    "QML": 121088,
+    "JavaScript": 77241,
+    "Python": 16522,
+    "HTML": 10454,
+    "SCSS": 3490,
+    "Shell": 2092,
+    "PowerShell": 1403,
+    "Pug": 1304
 }

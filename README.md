@@ -65,22 +65,13 @@
 ---
 
 <!--LANG-STATS-START-->
+### Linguagens mais usadas (atualizado automaticamente)
 
-<table width="100%" style="border:2px solid #00ffff; border-radius:6px;" >
-  <tr>
-    <td>
-      <img src="screenshots/painel_mutacao.png" width="320px" height="250px" style="border:2px solid #00ffff; border-radius:6px;">
-    </td>
-    <td style="text-align:left; padding:0 20px;">
-      <em>“Tudo flui, nada permanece.” — Heraclito</em><br><br>
-      <em>“Nada se perde, tudo se transforma.” — Lavoisier</em><br><br>
-      <em><a href="https://github.com/carloshmarques/HydraLife" style="color:#00ffff;">“O software é uma entidade viva.” — HydraLife</a></em>
-    </td>
-    <td>
-      <img src="screenshots/language_stats.png" textalign="left" width="320px" height="250px" style="border:2px solid #00ffff; border-radius:6px;">
-    </td>
-  </tr>
-</table>
+- **C#** — 1071147 bytes de código
+- **CSS** — 813893 bytes de código
+- **Jupyter Notebook** — 271015 bytes de código
+- **QML** — 121088 bytes de código
+- **JavaScript** — 77241 bytes de código
 
 <!--LANG-STATS-END-->
 
@@ -105,9 +96,14 @@
 <!--TREE-START-->
 ```
 .
+├── assets
+│   ├── js
+│   ├── pug
+│   └── scss
+├── screenshots
 └── scripts
 
-2 directories
+7 directories
 ```
 <!--TREE-END-->
 

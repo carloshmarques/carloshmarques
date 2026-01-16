@@ -4,10 +4,23 @@
     "Jupyter Notebook": 271015,
     "QML": 121088,
     "JavaScript": 82190,
-    "Python": 21325,
+    "Python": 20557,
     "HTML": 11184,
     "SCSS": 4649,
     "Shell": 2092,
     "Pug": 1892,
-    "PowerShell": 1403
+    "PowerShell": 1403,
+    "colors": {
+        "C#": "#00bfff",
+        "CSS": "#ff00ff",
+        "HTML": "#00ffcc",
+        "JavaScript": "#9933ff",
+        "Jupyter Notebook": "#00ffff",
+        "PowerShell": "#ff8800",
+        "Pug": "#ff4444",
+        "Python": "#44ff44",
+        "QML": "#ffcc00",
+        "SCSS": "#cc00ff",
+        "Shell": "#00bfff"
+    }
 }

@@ -1,29 +1,42 @@
 {
-    "html_content": "<table width=\"100%\" style=\"border:2px solid #00ffff; border-radius:6px;\">\n<tr>\n<td>\n<img src=\"screenshots/painel_mutacao.png\" width=\"320px\" height=\"250px\"\nstyle=\"border:2px solid #00ffff; border-radius:6px;\">\n</td>\n\n<td style=\"text-align:left; padding:0 20px;\">\n<em>“Tudo flui, nada permanece.” — Heraclito</em><br><br>\n<em>“Nada se perde, tudo se transforma.” — Lavoisier</em><br><br>\n<em><a href=\"https://github.com/carloshmarques/HydraLife\" style=\"color:#00ffff;\">\n“O software é uma entidade viva.” — HydraLife</a></em>\n</td>\n\n<td>\n<img src=\"screenshots/language_pie.png\" width=\"320px\" height=\"250px\"\nstyle=\"border:2px solid #00ffff; border-radius:6px;\">\n</td>\n</tr>\n</table>",
+    "html_content": "<table width=\"100%\" style=\"border:2px solid #00ffff; border-radius:6px;\">\n<tr>\n<td>\n<img src=\"screenshots/evolucao_linguagens.png\" width=\"500px\" height=\"250px\"\nstyle=\"border:2px solid #00ffff; border-radius:6px;\">\n</td>\n\n<td style=\"text-align:left; padding:0 20px;\">\n<em>“Tudo flui, nada permanece.” — Heraclito</em><br><br>\n<em>“Nada se perde, tudo se transforma.” — Lavoisier</em><br><br>\n<em><a href=\"https://github.com/carloshmarques/HydraLife\" style=\"color:#00ffff;\">\n“O software é uma entidade viva.” — HydraLife</a></em>\n</td>\n</tr>\n</table>",
     "previous_stats": {
         "C#": 1071147,
         "CSS": 813893,
         "Jupyter Notebook": 271015,
         "QML": 121088,
         "JavaScript": 82190,
-        "Python": 21325,
+        "Python": 20557,
         "HTML": 11184,
         "SCSS": 4649,
         "Shell": 2092,
         "Pug": 1892,
-        "PowerShell": 1403
+        "PowerShell": 1403,
+        "colors": {
+            "C#": "#00bfff",
+            "CSS": "#ff00ff",
+            "HTML": "#00ffcc",
+            "JavaScript": "#9933ff",
+            "Jupyter Notebook": "#00ffff",
+            "PowerShell": "#ff8800",
+            "Pug": "#ff4444",
+            "Python": "#44ff44",
+            "QML": "#ffcc00",
+            "SCSS": "#cc00ff",
+            "Shell": "#00bfff"
+        }
     },
     "previous_pie": {
-        "C#": 44.59622845123691,
-        "CSS": 33.885692778733976,
-        "Jupyter Notebook": 11.283462357372024,
-        "QML": 5.041388446873655,
-        "JavaScript": 3.421905692129242,
-        "Python": 0.887846926446722,
-        "HTML": 0.4656356401116127,
-        "SCSS": 0.19355687507858432,
-        "Shell": 0.08709851208096331,
-        "Pug": 0.07877169448240086,
-        "PowerShell": 0.05841262545391565
+        "C#": 44.61049264715069,
+        "CSS": 33.89653118765904,
+        "Jupyter Notebook": 11.287071396145949,
+        "QML": 5.043000945396088,
+        "JavaScript": 3.423000195742802,
+        "Python": 0.8561456992807492,
+        "HTML": 0.4657845746342317,
+        "SCSS": 0.19361878464543483,
+        "Shell": 0.08712637072020857,
+        "Pug": 0.07879688977181387,
+        "PowerShell": 0.05843130885298882
     }
 }

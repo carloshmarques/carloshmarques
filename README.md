@@ -73,7 +73,6 @@ style="border:2px solid #00ffff; border-radius:6px;">
 </td>
 
 <td style="text-align:left; padding:0 20px;">
-<em><strong>Linguagem mais usada: C#</strong></em><br><br>
 <em>“Tudo flui, nada permanece.” — Heraclito</em><br><br>
 <em>“Nada se perde, tudo se transforma.” — Lavoisier</em><br><br>
 <em><a href="https://github.com/carloshmarques/HydraLife" style="color:#00ffff;">
@@ -91,17 +90,15 @@ style="border:2px solid #00ffff; border-radius:6px;">
 <td style="vertical-align:top; padding-right:20px;">
 <h3>Linguagens mais usadas (atualizado automaticamente)</h3>
 <ul>
-<li><strong>C#</strong> — 1071147 bytes de código</li>
-<li><strong>CSS</strong> — 813893 bytes de código</li>
-<li><strong>Jupyter Notebook</strong> — 271015 bytes de código</li>
-<li><strong>QML</strong> — 121088 bytes de código</li>
-<li><strong>JavaScript</strong> — 82190 bytes de código</li>
+<li><strong style="color:#00bfff">C#</strong> — 1071147 bytes de código</li>
+<li><strong style="color:#ff00ff">CSS</strong> — 813893 bytes de código</li>
+<li><strong style="color:#00ffff">Jupyter Notebook</strong> — 271015 bytes de código</li>
+<li><strong style="color:#ffcc00">QML</strong> — 121088 bytes de código</li>
+<li><strong style="color:#9933ff">JavaScript</strong> — 82190 bytes de código</li>
 </ul>
 </td>
-
 <td style="text-align:center;">
-<img src="screenshots/language_pie.png" width="360px" height="240px"
-style="border:2px solid #00ffff; border-radius:6px;">
+<img src="screenshots/language_pie.png" width="500px" height="250px" style="border:2px solid #00ffff; border-radius:6px;">
 </td>
 </tr>
 </table>

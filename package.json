@@ -31,6 +31,7 @@
   "devDependencies": {
     "autoprefixer": "^10.4.23",
     "browser-sync": "^3.0.4",
+    "browserify": "^17.0.1",
     "cssnano": "^7.1.2",
     "gulp": "^5.0.1",
     "gulp-imagemin": "^6.2.0",
@@ -40,6 +41,8 @@
     "gulp-sass": "^6.0.1",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-terser": "^2.1.0",
-    "sass": "^1.97.2"
+    "sass": "^1.97.2",
+    "vinyl-buffer": "^1.0.1",
+    "vinyl-source-stream": "^2.0.0"
   }
 }

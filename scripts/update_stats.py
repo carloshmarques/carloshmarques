@@ -103,6 +103,7 @@ def collect_language_stats():
 # ---------------------------------------------------------
 # 5. Construir tabela HTML cerimonial
 # ---------------------------------------------------------
+
 def build_html_panel():
     return """
 <table width="100%" style="border:2px solid #00ffff; border-radius:6px;">
@@ -120,12 +121,13 @@ style="border:2px solid #00ffff; border-radius:6px;">
 </td>
 
 <td>
-<img src="language_pie.png" width="320px" height="250px"
+<img src="screenshots/language_pie.png" width="320px" height="250px"
 style="border:2px solid #00ffff; border-radius:6px;">
 </td>
 </tr>
 </table>
 """.strip()
+
 
 
 

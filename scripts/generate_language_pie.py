@@ -1,30 +1,30 @@
 import json
-import math
 import matplotlib.pyplot as plt
 
+# Caminho de saída
+OUTPUT_PNG = "screenshots/language_pie.png"
 MAX_SLICES = 5
-OUTPUT_PNG = "language_pie.png"
 
 
+# 1. Ler stats.json
 def load_stats(path="stats.json"):
     with open(path, "r", encoding="utf-8") as f:
-        data = json.load(f)
-    return data
+        return json.load(f)
 
 
+# 2. Extrair top linguagens
 def get_top_languages(stats, max_slices=MAX_SLICES):
     sorted_langs = sorted(stats.items(), key=lambda x: x[1], reverse=True)
-    top = sorted_langs[:max_slices]
-    return top
+    return sorted_langs[:max_slices]
 
 
+# 3. Gerar gráfico circular
 def generate_pie_chart(stats_path="stats.json", output_path=OUTPUT_PNG):
     stats = load_stats(stats_path)
-    top_langs = get_top_languages(stats)
+    top = get_top_languages(stats)
 
-    labels = [lang for lang, _ in top_langs]
-    values = [v for _, v in top_langs]
-
+    labels = [lang for lang, _ in top]
+    values = [v for _, v in top]
     total = sum(values) if sum(values) > 0 else 1
     percentages = [v / total * 100 for v in values]
 
@@ -34,9 +34,8 @@ def generate_pie_chart(stats_path="stats.json", output_path=OUTPUT_PNG):
 
     colors = ["#00ffff", "#0066ff", "#7f00ff", "#00ff99", "#ff00aa"]
 
-    wedges, texts, autotexts = ax.pie(
+    wedges, _, autotexts = ax.pie(
         values,
-        labels=None,
         colors=colors[:len(values)],
         startangle=90,
         counterclock=False,
@@ -45,11 +44,11 @@ def generate_pie_chart(stats_path="stats.json", output_path=OUTPUT_PNG):
         textprops={"color": "#00ffff", "fontsize": 10},
     )
 
-    # Legenda ao lado
     legend_labels = [
         f"{lang}: {val} bytes ({pct:.1f}%)"
-        for (lang, val), pct in zip(top_langs, percentages)
+        for (lang, val), pct in zip(top, percentages)
     ]
+
     ax.legend(
         wedges,
         legend_labels,
@@ -70,5 +69,6 @@ def generate_pie_chart(stats_path="stats.json", output_path=OUTPUT_PNG):
     print(f"[Hydra] Pie chart gerado em: {output_path}")
 
 
+# 4. Executar
 if __name__ == "__main__":
     generate_pie_chart()

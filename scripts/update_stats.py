@@ -21,20 +21,28 @@ def load_previous_stats():
 
     return prev, html
 
-
+def compute_pie_percentages(stats):
+    total = sum(stats.values()) if sum(stats.values()) > 0 else 1
+    return {lang: (value / total) * 100 for lang, value in stats.items()}
 # ---------------------------------------------------------
 # 2. Guardar novo estado no stats-lock.json
 # ---------------------------------------------------------
 def save_new_stats(html_content, new_stats):
+    pie = compute_pie_percentages(new_stats)
+
     data = {
         "html_content": html_content,
-        "previous_stats": new_stats
+        "previous_stats": new_stats,
+        "previous_pie": pie
     }
 
     with open(LOCK_PATH, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=4, ensure_ascii=False)
 
-    print("[Hydra] stats-lock.json atualizado.")
+    print("[Hydra] stats-lock.json atualizado com pie chart.")
+
+
+
 
 
 # ---------------------------------------------------------
@@ -112,12 +120,13 @@ style="border:2px solid #00ffff; border-radius:6px;">
 </td>
 
 <td>
-<img src="language_stats.png" width="320px" height="250px"
+<img src="language_pie.png" width="320px" height="250px"
 style="border:2px solid #00ffff; border-radius:6px;">
 </td>
 </tr>
 </table>
 """.strip()
+
 
 
 

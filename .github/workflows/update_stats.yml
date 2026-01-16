@@ -26,8 +26,8 @@ jobs:
           python-version: '3.11'
 
       - name: Install dependencies 
-        run: pip install PyGithub matplotlib
-      
+        run: pip install PyGithub matplotlib cairosvg
+
       - name: Install tree
         run: sudo apt-get install tree
 

@@ -64,6 +64,10 @@
 
 ---
 
+<!--HYDRA-CHAMBER-OPEN-->
+
+<!--HYDRA-CHAMBER-CLOSE-->
+
 <!--LANG-STATS-START-->
 ### Linguagens mais usadas (atualizado automaticamente)
 

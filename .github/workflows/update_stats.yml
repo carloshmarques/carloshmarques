@@ -43,6 +43,11 @@ jobs:
         run: |
           python scripts/update_stats.py
           python scripts/generate_language_image.py
+
+      - name: Gerar gráfico circular (Hydra Pie)
+        run: |
+          python scripts/generate_language_pie.py
+
         
       - name: Update changelog 
         run: python scripts/update_changelog.py  
@@ -59,7 +64,7 @@ jobs:
           git diff --name-only > changed.txt
 
           # Filtra apenas os ficheiros permitidos
-          grep -E 'README.md|stats.json|language_stats.png|evolucao_linguagens.png|CHANGELOG.md|directory_tree.txt' changed.txt > allowed.txt || true
+          grep -E 'README.md|stats.json|language_stats.png|language_pie.png|evolucao_linguagens.png|CHANGELOG.md|directory_tree.txt' changed.txt > allowed.txt || true
 
           # Se não houver alterações permitidas, cancela
           if [ ! -s allowed.txt ]; then

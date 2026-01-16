@@ -75,7 +75,7 @@
 - **CSS** — 813893 bytes de código
 - **Jupyter Notebook** — 271015 bytes de código
 - **QML** — 121088 bytes de código
-- **JavaScript** — 77241 bytes de código
+- **JavaScript** — 82190 bytes de código
 
 <!--LANG-STATS-END-->
 
@@ -103,11 +103,14 @@
 ├── assets
 │   ├── js
 │   ├── pug
-│   └── scss
+│   └── sass
+├── dev
+│   ├── css
+│   └── js
 ├── screenshots
 └── scripts
 
-7 directories
+10 directories
 ```
 <!--TREE-END-->
 

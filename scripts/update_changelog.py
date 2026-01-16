@@ -4,6 +4,7 @@ import re
 
 CHANGELOG_PATH = "CHANGELOG.md"
 
+
 def has_structural_changes():
     """Verifica se houve mudanças estruturais reais."""
     changed_files = os.popen("git diff --name-only").read().splitlines()
@@ -11,29 +12,33 @@ def has_structural_changes():
     structural = [
         "scripts/update_stats.py",
         "scripts/generate_language_image.py",
+        "scripts/generate_language_pie.py",
         "stats.json",
-        "language_stats.png",
         "README.md",
     ]
 
     return any(f in changed_files for f in structural)
 
-def get_next_version():
-    """Lê o CHANGELOG e calcula a próxima versão."""
-    with open(CHANGELOG_PATH, "r", encoding="utf-8") as f:
-        content = f.read()
 
-    versions = re.findall(r"\[(\d+\.\d+\.\d+)\]", content)
+def get_next_version():
+    """Lê o CHANGELOG e calcula a próxima versão (incrementando o patch)."""
+    if not os.path.exists(CHANGELOG_PATH):
+        return "0.1.0"
+
+    with open(CHANGELOG_PATH, "r", encoding="utf-8") as f:
+        content = f.read() 
+        versions = re.findall(r"\[(\d+\.\d+\.\d+)\]", content)
 
     if not versions:
         return "0.1.0"
 
-    major, minor, patch = map(int, versions[0].split("."))
+    last = versions[-1]
+    major, minor, patch = map(int, last.split("."))
+    return f"{major}.{minor}.{patch + 1}"
 
-    return f"{major}.{minor + 1}.0"
 
 def append_changelog(version):
-    timestamp = datetime.datetime.now().strftime("%Y-%m-%d")
+    timestamp = datetime.date.today().isoformat()
 
     entry = f"""
 ## [{version}] - {timestamp}
@@ -55,11 +60,11 @@ def append_changelog(version):
     with open(CHANGELOG_PATH, "a", encoding="utf-8") as f:
         f.write(entry)
 
+
 if __name__ == "__main__":
     if has_structural_changes():
         version = get_next_version()
         append_changelog(version)
-        print(f"CHANGELOG atualizado com versão {version}")
+        print(f"[Hydra] CHANGELOG atualizado com versão {version}")
     else:
-        print("Nenhuma mudança estrutural detectada. CHANGELOG não modificado.")
-# scripts/update_changelog.py
+        print("[Hydra] Nenhuma mudança estrutural detectada. CHANGELOG não modificado.")

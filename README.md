@@ -65,7 +65,26 @@
 ---
 
 <!--HYDRA-CHAMBER-OPEN-->
+<table width="100%" style="border:2px solid #00ffff; border-radius:6px;">
+<tr>
+<td>
+<img src="screenshots/painel_mutacao.png" width="320px" height="250px"
+style="border:2px solid #00ffff; border-radius:6px;">
+</td>
 
+<td style="text-align:left; padding:0 20px;">
+<em>“Tudo flui, nada permanece.” — Heraclito</em><br><br>
+<em>“Nada se perde, tudo se transforma.” — Lavoisier</em><br><br>
+<em><a href="https://github.com/carloshmarques/HydraLife" style="color:#00ffff;">
+“O software é uma entidade viva.” — HydraLife</a></em>
+</td>
+
+<td>
+<img src="language_stats.png" width="320px" height="250px"
+style="border:2px solid #00ffff; border-radius:6px;">
+</td>
+</tr>
+</table>
 <!--HYDRA-CHAMBER-CLOSE-->
 
 <!--LANG-STATS-START-->

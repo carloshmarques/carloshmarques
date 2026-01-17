@@ -142,12 +142,10 @@ style="border:2px solid #00ffff; border-radius:6px;">
 │   ├── js
 │   ├── pug
 │   └── sass
-├── dev
-│   └── js
 ├── screenshots
 └── scripts
 
-9 directories
+7 directories
 ```
 <!--TREE-END-->
 </details>

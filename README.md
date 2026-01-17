@@ -85,9 +85,11 @@ style="border:2px solid #00ffff; border-radius:6px;">
 ---
 
 <!--LANG-STATS-START-->
+
 <table width="100%" style="border:2px solid #00ffff; border-radius:6px;">
 <tr>
-<td style="vertical-align:top; padding-right:20px;">
+
+<td width="50%" style="vertical-align:top; padding:10px;">
 <h3>Linguagens mais usadas (atualizado automaticamente)</h3>
 <ul>
 <li><strong style="color:#00bfff">C#</strong> — 1071147 bytes de código</li>
@@ -95,13 +97,18 @@ style="border:2px solid #00ffff; border-radius:6px;">
 <li><strong style="color:#00ffff">Jupyter Notebook</strong> — 271015 bytes de código</li>
 <li><strong style="color:#ffcc00">QML</strong> — 121088 bytes de código</li>
 <li><strong style="color:#9933ff">JavaScript</strong> — 82190 bytes de código</li>
+
 </ul>
 </td>
-<td style="text-align:center;">
-<img src="screenshots/language_pie.png" width="320px" height="250px" style="border:2px solid #00ffff; border-radius:6px;">
+
+<td width="50%" style="text-align:center; padding:10px;">
+<img src="screenshots/language_pie.png"
+     style="width:100%; height:auto; border:2px solid #00ffff; border-radius:6px;">
 </td>
+
 </tr>
 </table>
+
 <!--LANG-STATS-END-->
 
 ---

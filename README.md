@@ -68,7 +68,7 @@
 <table width="100%" style="border:2px solid #00ffff; border-radius:6px;">
 <tr>
 <td>
-<img src="screenshots/painel_mutacao.png" width="320px" height="250px"
+<img src="screenshots/evolucao_linguagens.png" width="500px" height="250px"
 style="border:2px solid #00ffff; border-radius:6px;">
 </td>
 
@@ -77,11 +77,6 @@ style="border:2px solid #00ffff; border-radius:6px;">
 <em>“Nada se perde, tudo se transforma.” — Lavoisier</em><br><br>
 <em><a href="https://github.com/carloshmarques/HydraLife" style="color:#00ffff;">
 “O software é uma entidade viva.” — HydraLife</a></em>
-</td>
-
-<td>
-<img src="screenshots/language_pie.png" width="320px" height="250px"
-style="border:2px solid #00ffff; border-radius:6px;">
 </td>
 </tr>
 </table>
@@ -103,7 +98,7 @@ style="border:2px solid #00ffff; border-radius:6px;">
 </ul>
 </td>
 <td style="text-align:center;">
-<img src="screenshots/language_pie.png" width="500px" height="250px" style="border:2px solid #00ffff; border-radius:6px;">
+<img src="screenshots/language_pie.png" width="320px" height="250px" style="border:2px solid #00ffff; border-radius:6px;">
 </td>
 </tr>
 </table>

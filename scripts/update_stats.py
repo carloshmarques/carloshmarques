@@ -136,7 +136,7 @@ def update_readme_stats(stats):
 
     html += '</ul>\n</td>\n'
     html += '<td style="text-align:center;">\n'
-    html += '<img src="screenshots/language_pie.png" width="500px" height="250px" style="border:2px solid #00ffff; border-radius:6px;">\n'
+    html += '<img src="screenshots/language_pie.png" width="320px" height="250px" style="border:2px solid #00ffff; border-radius:6px;">\n'
     html += '</td>\n</tr>\n</table>'
 
     with open(README_PATH, "r", encoding="utf-8") as f:

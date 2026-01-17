@@ -7,7 +7,7 @@
 <div align="center">
   <!-- Change your logo -->
   <a href="https://github.com/carloshmarques/carloshmarques">
-    <img width="100%" src="https://i.imgur.com/tkFcQ4p.png" alt="@carloshmarques/carloshmarques's logo">
+    <img width="100%" src="https://i.imgur.com/tkFcQ4p.png" alt="@carloshmarques/carloshmarques's banner">
   </a>
   <br>
   <a href="https://github.com/carloshmarques/carloshmarques/issues">
@@ -118,6 +118,7 @@ style="border:2px solid #00ffff; border-radius:6px;">
   <div align="left"> 
     <img src="Screenshots/painel_mutacao.png" width="300"/>
     <img src="Screenshots/language_stats.png" width="300"/>
+    <img width="300" src="https://i.imgur.com/tkFcQ4p.png" alt="@carloshmarques/carloshmarques's banner">
   </div>
 </details>
 

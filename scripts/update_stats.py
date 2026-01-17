@@ -126,18 +126,30 @@ def update_readme_stats(stats):
     top = [(k, v) for k, v in stats.items() if k != "colors"][:5]
     colors = stats.get("colors", {})
 
-    html = '<table width="100%" style="border:2px solid #00ffff; border-radius:6px;">\n<tr>\n'
-    html += '<td style="vertical-align:top; padding-right:20px;">\n'
-    html += '<h3>Linguagens mais usadas (atualizado automaticamente)</h3>\n<ul>\n'
+    html = """
+<table width="100%" style="border:2px solid #00ffff; border-radius:6px;">
+<tr>
 
+<td width="50%" style="vertical-align:top; padding:10px;">
+<h3>Linguagens mais usadas (atualizado automaticamente)</h3>
+<ul>
+"""
     for lang, count in top:
         color = colors.get(lang, "#00ffff")
         html += f'<li><strong style="color:{color}">{lang}</strong> — {count} bytes de código</li>\n'
 
-    html += '</ul>\n</td>\n'
-    html += '<td style="text-align:center;">\n'
-    html += '<img src="screenshots/language_pie.png" width="320px" height="250px" style="border:2px solid #00ffff; border-radius:6px;">\n'
-    html += '</td>\n</tr>\n</table>'
+    html += """
+</ul>
+</td>
+
+<td width="50%" style="text-align:center; padding:10px;">
+<img src="screenshots/language_pie.png"
+     style="width:100%; height:auto; border:2px solid #00ffff; border-radius:6px;">
+</td>
+
+</tr>
+</table>
+"""
 
     with open(README_PATH, "r", encoding="utf-8") as f:
         readme = f.read()
@@ -153,7 +165,8 @@ def update_readme_stats(stats):
     with open(README_PATH, "w", encoding="utf-8") as f:
         f.write(new_readme)
 
-    print("[Hydra] README atualizado com lista + pie chart.")
+    print("[Hydra] README atualizado com lista + pie chart harmonizados.")
+
 
 
 # ---------------------------------------------------------

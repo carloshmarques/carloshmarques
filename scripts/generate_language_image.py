@@ -19,7 +19,8 @@ def load_stats(path="stats.json"):
 
 # 2. Extrair top linguagens
 def get_top_languages(stats, max_slices=MAX_BARS):
-    sorted_langs = sorted(stats.items(), key=lambda x: x[1], reverse=True)
+    filtered = {k: v for k, v in stats.items() if isinstance(v, int)}
+    sorted_langs = sorted(filtered.items(), key=lambda x: x[1], reverse=True)
     return sorted_langs[:max_slices]
 
 

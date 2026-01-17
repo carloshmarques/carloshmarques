@@ -1,74 +1,74 @@
 import json
 import matplotlib.pyplot as plt
-
-# Caminho de saída
-OUTPUT_PNG = "screenshots/language_pie.png"
-MAX_SLICES = 5
+import numpy as np
+import os
 
 
+STATS_PATH = "stats.json"
+OUTPUT_PATH = "screenshots/evolucao_linguagens.png"
+
+
+# ---------------------------------------------------------
 # 1. Ler stats.json
-def load_stats(path="stats.json"):
-    with open(path, "r", encoding="utf-8") as f:
+# ---------------------------------------------------------
+def load_stats():
+    with open(STATS_PATH, "r", encoding="utf-8") as f:
         return json.load(f)
 
 
-# 2. Extrair top linguagens
-def get_top_languages(stats, max_slices=MAX_SLICES):
-    sorted_langs = sorted(stats.items(), key=lambda x: x[1], reverse=True)
-    return sorted_langs[:max_slices]
+# ---------------------------------------------------------
+# 2. Obter top linguagens (ignorando "colors")
+# ---------------------------------------------------------
+def get_top_languages(stats, limit=5):
+    # Filtrar apenas linguagens com valores numéricos
+    filtered = {k: v for k, v in stats.items() if isinstance(v, int)}
+
+    # Ordenar por número de bytes
+    sorted_langs = sorted(filtered.items(), key=lambda x: x[1], reverse=True)
+
+    return sorted_langs[:limit]
 
 
-# 3. Gerar gráfico circular
-def generate_pie_chart(stats_path="stats.json", output_path=OUTPUT_PNG):
-    stats = load_stats(stats_path)
-    top = get_top_languages(stats)
+# ---------------------------------------------------------
+# 3. Gerar gráfico de barras com cores estáveis
+# ---------------------------------------------------------
+def generate_bar_chart(top_langs, colors):
+    labels = [lang for lang, _ in top_langs]
+    values = [count for _, count in top_langs]
 
-    labels = [lang for lang, _ in top]
-    values = [v for _, v in top]
-    total = sum(values) if sum(values) > 0 else 1
-    percentages = [v / total * 100 for v in values]
+    # Obter cores estáveis
+    bar_colors = [colors.get(lang, "#00ffff") for lang in labels]
 
-    fig, ax = plt.subplots(figsize=(6, 6), dpi=150)
-    fig.patch.set_facecolor("black")
-    ax.set_facecolor("black")
+    y_pos = np.arange(len(labels))
 
-    colors = ["#00ffff", "#0066ff", "#7f00ff", "#00ff99", "#ff00aa"]
-
-    wedges, _, autotexts = ax.pie(
-        values,
-        colors=colors[:len(values)],
-        startangle=90,
-        counterclock=False,
-        autopct=lambda pct: f"{pct:.1f}%",
-        pctdistance=0.8,
-        textprops={"color": "#00ffff", "fontsize": 10},
-    )
-
-    legend_labels = [
-        f"{lang}: {val} bytes ({pct:.1f}%)"
-        for (lang, val), pct in zip(top, percentages)
-    ]
-
-    ax.legend(
-        wedges,
-        legend_labels,
-        title="Linguagens mais usadas",
-        loc="center left",
-        bbox_to_anchor=(1, 0, 0.5, 1),
-        facecolor="black",
-        edgecolor="#00ffff",
-        labelcolor="#00ffff",
-    )
-
-    ax.set_title("Linguagens mais usadas", color="#00ffff", fontsize=14, pad=20)
+    plt.figure(figsize=(10, 5))
+    plt.barh(y_pos, values, color=bar_colors)
+    plt.yticks(y_pos, labels)
+    plt.xlabel("Bytes de código")
+    plt.title("Linguagens mais usadas — Evolução Cerimonial Hydra")
 
     plt.tight_layout()
-    plt.savefig(output_path, transparent=True, facecolor=fig.get_facecolor())
-    plt.close(fig)
-
-    print(f"[Hydra] Pie chart gerado em: {output_path}")
+    plt.savefig(OUTPUT_PATH)
+    plt.close()
 
 
-# 4. Executar
+# ---------------------------------------------------------
+# 4. Fluxo principal
+# ---------------------------------------------------------
+def main():
+    stats = load_stats()
+
+    # Obter top linguagens
+    top = get_top_languages(stats)
+
+    # Obter mapa de cores estável
+    colors = stats.get("colors", {})
+
+    # Gerar gráfico
+    generate_bar_chart(top, colors)
+
+    print("[Hydra] evolucao_linguagens.png regenerado com dignidade.")
+
+
 if __name__ == "__main__":
-    generate_pie_chart()
+    main()

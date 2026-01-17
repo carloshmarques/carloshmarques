@@ -1,0 +1,23 @@
+@use '../modules/colors' as clr;
+@use '../modules/typography' as typo;
+@use '../modules/spacing' as space;
+
+
+
+body {
+  background-color: clr.$venus;
+  color: clr.$text-color;
+  font-family: typo.$font-family;
+  font-size: typo.$font-size-base;
+  line-height: typo.$line-height-base;
+  padding: space.$spacing-unit;
+}
+a {
+  color: clr.$primary;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+

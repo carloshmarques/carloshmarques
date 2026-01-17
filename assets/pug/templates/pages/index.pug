@@ -1,20 +1,7 @@
-doctype html
-html(lang="pt")
-  head
-    meta(charset="utf-8")
-    meta(name="viewport" content="width=device-width, initial-scale=1.0")
-    title(Simple Website) #{title}
-    // Normalize (sempre ativo, recomendado)
-    link(rel="stylesheet" href="css/normalize.min.css")
+extends ../sections/layout.pug
 
-    // CSS principal com suporte a temas
-    link(rel="stylesheet" href="css/main.min.css")
+block content
+  include ../sections/body.pug
 
-    body(class=theme)
-    include ../sections/header.pug
 
-    block content
-
-    include ../sections/footer.pug
-    script(src="https://code.jquery.com/jquery-3.6.0.min.js")
-    script(type="module" src="js/main.min.js")
+   

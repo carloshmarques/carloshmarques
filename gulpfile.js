@@ -52,21 +52,26 @@ const paths = {
     sass: 'assets/sass/**/*.scss',
     js: 'assets/js/**/*.js',
     img: 'assets/img/**/*',
-    pug: 'assets/pug/templates/pages/*.pug',
+    pug: 'assets/pug/templates/pages/*.pug'
+
+
 };
 
 
 // Compilar Sass
+const isDev = process.env.NODE_ENV === 'development';
+
 function css() {
     return gulp.src(paths.sass)
         .pipe(sourcemaps.init())
-        .pipe(sass({ outputStyle: sassStyle }).on('error', sass.logError))
-        .pipe(postcss([autoprefixer(), cssnano()]))
-        .pipe(rename({ suffix: '.min' }))
+        .pipe(sass({ outputStyle: isDev ? 'expanded' : 'compressed' }).on('error', sass.logError))
+        .pipe(postcss(isDev ? [autoprefixer()] : [autoprefixer(), cssnano()]))
+        .pipe(rename({ suffix: isDev ? '' : '.min' }))
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest(outputDir + 'css'))
         .pipe(browserSync.stream());
 }
+
 
 // Minificar JS
 function bundleJS() { 
@@ -83,7 +88,11 @@ function bundleJS() {
 // Pug → HTML
 function html() {
     return gulp.src(paths.pug)
-        .pipe(pug({ pretty: env !== 'production' }))
+        .pipe(pug({
+    pretty: env !== 'production',
+    locals: { env }
+}))
+
         .pipe(gulp.dest(outputDir))
         .pipe(browserSync.stream());
 }

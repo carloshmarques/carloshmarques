@@ -3,13 +3,35 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title Simple Website></title>
-    <!-- Normalize (sempre ativo, recomendado)-->
+    <title></title>
     <link rel="stylesheet" href="css/normalize.min.css">
-    <!-- CSS principal com suporte a temas-->
-    <link rel="stylesheet" href="css/main.min.css">
-    <body></body>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script type="module" src="js/main.min.js"></script>
+    <link rel="stylesheet" href="css/main.css">
   </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <h1 class="site-title">My Website</h1>
+      </div>
+      <nav class="navbar">
+        <ul class="nav-list">
+          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <h1>pug is nice</h1>
+    <footer class="site-footer">
+      <p>© 2026 My Website</p>
+      <nav class="footer-nav">
+        <ul class="footer-list">
+          <li class="footer-item"><a class="footer-link" href="#privacy">Privacy Policy</a></li>
+          <li class="footer-item"><a class="footer-link" href="#terms">Terms of Service</a></li>
+          <li class="footer-item"><a class="footer-link" href="#contact">Contact Us</a></li>
+        </ul>
+      </nav>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="module" src="js/main.js"></script>
+  </body>
 </html>

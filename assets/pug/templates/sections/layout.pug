@@ -1,0 +1,27 @@
+doctype html
+html(lang="pt")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title #{title}
+
+    link(rel="stylesheet", href="css/normalize.min.css")
+
+    if env === 'production'
+      link(rel="stylesheet", href="css/main.min.css")
+    else
+      link(rel="stylesheet", href="css/main.css")
+
+  body
+    include header.pug
+
+    block content
+
+    include footer.pug
+
+    script(src="https://code.jquery.com/jquery-3.6.0.min.js")
+
+    if env === 'production'
+      script(type="module", src="js/main.min.js")
+    else
+      script(type="module", src="js/main.js")

@@ -134,7 +134,6 @@ style="border:2px solid #00ffff; border-radius:6px;">
 <details>
   <summary>Clique para expandir a árvore...</summary> 
 <!--TREE-START-->
-
 ```
 .
 ├── assets

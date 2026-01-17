@@ -3,7 +3,8 @@
    ============================ */
 
 /* Módulos base */
-@use 'modules/variables';
+@use 'modules/variables' as variables;
+
 @use 'modules/mixins';
 @use 'modules/config';
 @use 'modules/normalize';
@@ -29,9 +30,10 @@
 
 @use 'themes/light';
 @use 'themes/dark';
-@use 'themes/hydra' with (
-  $accent-color: #ff00ff
-);
+@use 'themes/hydra';
+
+
+
 
 @use 'themes/solarized';
 @use 'themes/dracula';

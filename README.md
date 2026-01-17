@@ -124,6 +124,7 @@ style="border:2px solid #00ffff; border-radius:6px;">
     <img src="screenshots/language_pie.png" width="300" height="150"/>
     <img src="screenshots/painel_mutacao.png" width="300" height="150"/>
     <img src="screenshots/language_stats.png" width="300" height="150"/>
+     <img src="screenshots/kennedy.jpg" width="300" height="150"/>
   </div>
 </details>
 

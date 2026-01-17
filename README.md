@@ -96,7 +96,7 @@ style="border:2px solid #00ffff; border-radius:6px;">
 <li><strong style="color:#ff00ff">CSS</strong> — 813893 bytes de código</li>
 <li><strong style="color:#00ffff">Jupyter Notebook</strong> — 271015 bytes de código</li>
 <li><strong style="color:#ffcc00">QML</strong> — 121088 bytes de código</li>
-<li><strong style="color:#9933ff">JavaScript</strong> — 82188 bytes de código</li>
+<li><strong style="color:#9933ff">JavaScript</strong> — 82335 bytes de código</li>
 
 </ul>
 </td>
@@ -143,12 +143,11 @@ style="border:2px solid #00ffff; border-radius:6px;">
 │   ├── pug
 │   └── sass
 ├── dev
-│   ├── css
 │   └── js
 ├── screenshots
 └── scripts
 
-10 directories
+9 directories
 ```
 <!--TREE-END-->
 </details>

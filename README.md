@@ -253,6 +253,4 @@ Watch the changes in the '**[CHANGELOG.md](CHANGELOG.md)**' file.
 ---
 
 # carloshmarques was generated from *[Josee9988/project-template](https://github.com/Josee9988/project-template)* 📚
-# teste
-# teste
-# teste
+

@@ -70,9 +70,9 @@ function css() {
 
 // Minificar JS
 function bundleJS() { 
-    return browserify('assets/js/index.js') 
+    return browserify('assets/js/main.js') 
     .bundle() 
-    .pipe(source('index.min.js')) 
+    .pipe(source('main.min.js')) 
     .pipe(buffer()) 
     .pipe(env === 'production' ? terser() : rename({})) 
     .pipe(gulp.dest(outputDir + 'js')) 

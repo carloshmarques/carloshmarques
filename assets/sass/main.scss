@@ -1,77 +1,39 @@
-/* Configurações e temas *
-/
-@import 'config';
-// Reset e normalização
-@import 'normalize';
+/* ============================
+   Configurações e Temas
+   ============================ */
 
-// Mixins e variáveis
-@import 'mixins';
+/* Módulos base */
+@use 'modules/variables';
+@use 'modules/mixins';
+@use 'modules/config';
+@use 'modules/normalize';
+@use 'modules/reset';
 
-// Estrutura base
-@import 'home';
-@import 'menu';
-@import 'about';
-@import 'projects';
-@import 'contact';
+/* ============================
+   Estrutura Base
+   ============================ */
 
-// Responsividade
-@import 'responsive';
+/* Componentes principais */
+@use 'components/home';
+@use 'components/menu';
+@use 'components/about';
+@use 'components/projects';
+@use 'components/contact';
 
-// Temas (novo bloco)
-@import 'themes/light';
-@import 'themes/dark';
-// @import 'themes/hydra'; // quando quiseres ativar o modo Hydra
-*/
-:root {
-  --green: #00FF00;
-  --white: #FFFFFF;
-  --black: #000000;
-}
+/* Responsividade */
+@use 'responsive';
 
-body {
-  background: var(--bg);
-  color: var(--fontColor);
-  font-family: helvetica;
-}
+/* ============================
+   Temas
+   ============================ */
 
-ul {
-  font-family: helvetica;
-}
+@use 'themes/light';
+@use 'themes/dark';
+@use 'themes/hydra' with (
+  $accent-color: #ff00ff
+);
 
-li {
-  list-style: circle;
-}
+@use 'themes/solarized';
+@use 'themes/dracula';
+@use 'themes/neon';
 
-.list {
-  list-style: square;
-}
-
-#msg {
-  font-family: monospace;
-}
-
-.light-theme {
-  --bg: var(--green);
-  --fontColor: var(--black);
-  --btnBg: var(--black);
-  --btnFontColor: var(--white);
-}
-
-.dark-theme {
-  --bg: var(--black);
-  --fontColor: var(--green);
-  --btnBg: var(--white);
-  --btnFontColor: var(--black);
-}
-
-.btn {
-  position: absolute;
-  top: 20px;
-  left: 250px;
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
-  border: none;
-  color: var(--btnFontColor);
-  background-color: var(--btnBg);
-}

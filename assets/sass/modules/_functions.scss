@@ -1,0 +1,6 @@
+@use 'sass:map';
+@use '../modules/typography' as typo;
+
+@function weight($weight-name) {
+   @return map.get(typo.$font-weights, $weight-name);
+}

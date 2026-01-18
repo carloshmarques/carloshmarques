@@ -3,7 +3,7 @@ var logger = require('./modules/logger');
 var core = require('./modules/core');
 
 // Mensagem inicial
-logger.log("User successfully authenticated, profile ready!");
+logger.log("Visitor successfully authenticated, profile ready!");
 
 // Quando o documento estiver pronto
 $(document).ready(function () {

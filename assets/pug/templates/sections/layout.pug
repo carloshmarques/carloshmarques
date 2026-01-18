@@ -4,7 +4,7 @@ html(lang="pt")
     meta(charset="utf-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title #{title}
-
+ 
     if env === 'production'
       link(rel="stylesheet", href="css/normalize.min.css")
       link(rel="stylesheet", href="css/main.min.css")
@@ -13,7 +13,8 @@ html(lang="pt")
       link(rel="stylesheet", href="css/main.css")
     //- Removido o include header daqui, a menos que ele contenha apenas METAS
   
-  body
+body(class=(theme || 'dark') + "-theme")
+
     include header.pug
 
     block content 
@@ -21,7 +22,15 @@ html(lang="pt")
 
     include footer.pug
 
-    script(src="https://code.jquery.com")
-    script(type="module", src=env === 'production' ? "js/main.min.js" : "js/main.js")
+    script(src="https://code.jquery.com/jquery-3.7.1.min.js")
+
+
+    if env === 'production'
+      script(src="js/main.min.js")
+      
+    else
+      script(src="js/main.js")
+      
+   
 
 

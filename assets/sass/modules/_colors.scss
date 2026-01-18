@@ -12,30 +12,32 @@ $lime: #00ff00;
 $limeGreen: #32cd32;
 $accent-color: #ff00ff;
 $primary: #007bff;
-$secondary: #6c757d;    
+$secondary: #6c757d;
 $jetBlack: #343a40;
 $redOrange: #ff4500;
 $yellow: #ffff00;
 $goldenRod: #daa520;
 $goldYellow: #ffdf00;
-$goldenRod: #daa520;
 $orange: #ffa500;
-$darkOrange: #ff8c00;       
+$darkOrange: #ff8c00;
 $bourbon: #ae5d29;
-$bronze: #cd7f32;   
+$bronze: #cd7f32;
 $carrett: #ff7f50;
 $coral: #ff7f50;
 $vibrantOrange: #ff5e00;
+$pink: #ffc0cb;
+$lightPink: #ffb6c1;
 
-$primary-color: $jetBlack;
-$secondary-color: $vibrantOrange;
+$primary-color: #fff;
+$secondary-color: #000;
+$text-color: #333;
+$light-background: #ffffff;
+$light-text: #000000;
 
-$background-color: $jetBlack;
-$text-color: $white;
+$dark-background: #101010;
+$dark-text: #ffffff;
 
-$link-color: $blue;
 $border-radius: 4px;
-
 $border-color: $lightGray;
 
 $button-primary-background-color: $green;
@@ -67,3 +69,4 @@ $navbar-text-color: $darkGray;
 
 $footer-background-color: $black;
 $footer-text-color: $white;
+$highlight-color: #ff0;

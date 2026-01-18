@@ -3,21 +3,94 @@
    Configurações e Temas
    ============================ */
 /* Módulos base */
-body {
-  background-color: #343a40;
-  color: #ffffff;
-  font-family: "Helvetica, sans-serif";
-  font-size: 16px;
-  line-height: 1.5;
-  padding: 8px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-a {
-  color: #007bff;
-  text-decoration: none;
+/* ============================
+   Configurações e Temas
+   ============================ */
+/* Módulos base */
+body {
+  background-color: #fff;
+  color: #333;
 }
-a:hover {
-  text-decoration: underline;
+body .main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: "row";
+  width: 80%;
+  margin: 0 auto;
+}
+@media (max-width: 768px) {
+  body .main {
+    flex-direction: column;
+  }
+}
+body .main .main_paragraph {
+  font-weight: 700;
+  line-height: 1.6;
+}
+body .main .main_paragraph:hover {
+  color: #000;
+}
+
+.light-theme {
+  background-color: #ffffff;
+  color: #000000;
+}
+.light-theme a {
+  color: #000000;
+}
+.light-theme a:hover {
+  color: #000;
+}
+
+.dark-theme {
+  background-color: #101010;
+  color: #ffffff;
+}
+.dark-theme a {
+  color: #ffffff;
+}
+.dark-theme a:hover {
+  color: #000;
+}
+
+.hydra-theme {
+  background-color: #0a0a0a;
+  color: #00ffea;
+}
+.hydra-theme a {
+  color: #00ffea;
+}
+.hydra-theme a:hover {
+  color: #000;
+}
+
+.solarized-theme {
+  background-color: #fdf6e3;
+  color: #657b83;
+}
+.solarized-theme a {
+  color: #657b83;
+}
+.solarized-theme a:hover {
+  color: #000;
+}
+
+.dracula-theme {
+  background-color: #282a36;
+  color: #f8f8f2;
+}
+.dracula-theme a {
+  color: #f8f8f2;
+}
+.dracula-theme a:hover {
+  color: #000;
 }
 
 /* ============================

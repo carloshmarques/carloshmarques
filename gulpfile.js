@@ -19,7 +19,10 @@ const cached = require('gulp-cached');
 // Ambiente
 const env = process.env.NODE_ENV || 'development';
 const isDev = env === 'development';
+
+// msg de ambiente
 console.log(`Running in ${env} mode`);
+
 // Pastas de input
 let inputDir = './assets/';
 // Pastas de saída
@@ -54,25 +57,26 @@ function bundleJS() {
     return browserify('assets/js/main.js')
         .bundle()
         .on('error', function(err) { console.error(err.message); this.emit('end'); })
-        .pipe(source('main.min.js'))
+        .pipe(source(env === 'production' ? 'main.min.js' : 'main.js'))
         .pipe(buffer())
         .pipe(sourcemaps.init({ loadMaps: true }))
         .pipe(env === 'production' ? terser() : rename({}))
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest(outputDir + 'js'))
-        .pipe(browserSync.stream());
+        .pipe(browserSync.stream()); // Injecta o JS novo
 }
 
 // Pug → HTML
 function html() {
     return gulp.src(paths.pug)
-        .pipe(cached('pug'))
+        
         .pipe(pug({
             pretty: env !== 'production',
-            locals: { env, title: 'Github Portfolio' }
+            locals: { env, title: 'Github Portfolio',
+            description: 'A portfolio template available on GitHub.' }
         }))
         .pipe(gulp.dest(outputDir))
-        .on('change', browserSync.reload);
+        .on('end', browserSync.reload); // Força reload no fim da task
 }
 
 // Imagens
@@ -85,29 +89,42 @@ function images() {
 
 // wath task + server
 
+// Função para observar ficheiros (Watch)
 function watchFiles() {
-    gulp.watch(paths.sass, gulp.series(css, browserSync.reload));
-    gulp.watch(paths.js, gulp.series(bundleJS, browserSync.reload));
-    gulp.watch('assets/pug/**/*.pug', gulp.series(html, browserSync.reload));
+    // Observa SASS: se mudar, corre a task css
+    // O browserSync.stream() dentro da task css já trata do refresh do CSS sem reload total
+    gulp.watch(paths.sass, css);
 
-    gulp.watch(outputDir + '*.html').on('change', browserSync.reload);
-   
+    // Observa JS: se mudar, corre bundleJS e depois faz reload
+    gulp.watch(paths.js, bundleJS);
 
+    // Observa PUG: Se QUALQUER ficheiro .pug na pasta assets mudar (incluindo layouts/includes), 
+    // corre a task html que processa apenas as páginas principais
+    gulp.watch('assets/pug/**/*.pug', html);
+
+    // Observa Imagens
+    gulp.watch(paths.img, images);
+
+    // Opcional: Se quiseres que o browser faça reload manual quando o HTML final for gerado
+    // Nota: Adicionei o pipe(browserSync.stream()) ou .on('end', browserSync.reload) nas tasks abaixo
 }
 // Servidor + Watch
 function serve() { 
 
-    browserSync.init
-    ({ 
-        server: { baseDir: outputDir }    
+    browserSync.init({ 
+        server: { 
+            baseDir: outputDir }    
     });
     watchFiles(); // <-- chama aqui }
 
    
 }
 
-// Default
-exports.default = gulp.series(css, bundleJS, html, images, serve);
+// Default Task
+exports.default = gulp.series(
+    gulp.parallel(css, bundleJS, html, images, 
+    serve)
+);
 
 // Build
 gulp.task('build', gulp.series(css, bundleJS, html, images));

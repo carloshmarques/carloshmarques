@@ -1,0 +1,28 @@
+// assets/sass/modules/_themes.scss
+
+$themes: (
+  light: (
+    background: #ffffff,
+    text: #000000
+  ),
+  dark: (
+    background: #101010,
+    text: #ffffff
+  ),
+  hydra: (
+    background: #0a0a0a,
+    text: #00ffea
+  ),
+  dracula: (
+    background: #282a36,
+    text: #f8f8f2
+  ),
+  neon: (
+    background: #000000,
+    text: #39ff14
+  ),
+  solarized: (
+    background: #fdf6e3,
+    text: #657b83
+  )
+);

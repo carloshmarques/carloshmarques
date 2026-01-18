@@ -5,23 +5,23 @@ html(lang="pt")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title #{title}
 
-    link(rel="stylesheet", href="css/normalize.min.css")
-
     if env === 'production'
+      link(rel="stylesheet", href="css/normalize.min.css")
       link(rel="stylesheet", href="css/main.min.css")
     else
+      link(rel="stylesheet", href="css/normalize.css")
       link(rel="stylesheet", href="css/main.css")
-
+    //- Removido o include header daqui, a menos que ele contenha apenas METAS
+  
   body
     include header.pug
 
-    block content
+    block content 
+      
 
     include footer.pug
 
-    script(src="https://code.jquery.com/jquery-3.6.0.min.js")
+    script(src="https://code.jquery.com")
+    script(type="module", src=env === 'production' ? "js/main.min.js" : "js/main.js")
 
-    if env === 'production'
-      script(type="module", src="js/main.min.js")
-    else
-      script(type="module", src="js/main.js")
+

@@ -1,0 +1,31 @@
+@charset "UTF-8";
+/* ============================
+   Configurações e Temas
+   ============================ */
+/* Módulos base */
+body {
+  background-color: #343a40;
+  color: #ffffff;
+  font-family: "Helvetica, sans-serif";
+  font-size: 16px;
+  line-height: 1.5;
+  padding: 8px;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* ============================
+   Estrutura Base
+   ============================ */
+/* Componentes principais */
+/* Responsividade */
+/* ============================
+   Temas
+   ============================ */
+/*# sourceMappingURL=main.css.map */

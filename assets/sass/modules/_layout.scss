@@ -1,54 +1,67 @@
-@use '../modules/reset' as reset;
-@use '../modules/colors' as clr;
-@use '../modules/typography' as typo;
-@use '../modules/spacing' as space;
-@use '../modules/functions' as fnc;
-@use '../modules/mixins' as mxn;
-@use '../modules/themes' as t;
-@use 'sass:map';
+@use './colors' as *;
+@use './spacing' as *;
+@use './mixins' as *;
+@use './responsive' as resp;
+@use './typography' as *;
+@use './functions' as *;
+@use './themes' as *;
 
 body {
-  background-color: clr.$primary-color;
-  color: clr.$text-color;
+  background-color: $primary-color;
+  color: $text-color;
 
   .main {
-    @include mxn.flex-center('row');
-    width: 80%;
-    margin: 0 auto;
+    @include flex-center(row);
+    width: 80%; /// you can adjust this value as needed with calc()
 
-    @include mxn.mobile {
-      flex-direction: column;
+    margin: 0 auto;
+    gap: $lg;
+
+    @include resp.respond(tablet) {
+      width: 90%;
+      gap: $md;
     }
 
-    .main_paragraph {
-      font-weight: fnc.weight('bold');
-      line-height: 1.6;
+    @include resp.respond(mobile) {
+      flex-direction: column;
+      width: 95%;
+      gap: $sm;
+    }
 
-      &:hover {
-        color: clr.$secondary-color;
+    &_paragraph1 { 
+      font-weight: weight('bold'); 
+      line-height: 1.6; 
+      
+      &:hover { 
+        color: $lightGray; 
+      }
+    } 
+        
+    &_paragraph2 { 
+      @extend .main_paragraph1; 
+      
+      &:hover { 
+        color: $secondary-color; 
+      }
+
+      @include resp.respond(tablet) {
+        max-width: 90%;
+        text-align: center;
+      }
+
+      @include resp.respond(mobile) {
+        font-size: $font-size-sm;
+        text-align: center;
       }
     }
   }
 }
 
-.light-theme {
-  @include mxn.theme(light);
-}
+.light-theme     { @include theme(light); }
+.dark-theme      { @include theme(dark); }
+.hydra-theme     { @include theme(hydra); }
+.solarized-theme { @include theme(solarized); }
+.dracula-theme   { @include theme(dracula); }
+.neon-theme      { @include theme(neon); }
 
-.dark-theme {
-  @include mxn.theme(dark);
-}
-
-.hydra-theme {
-  @include mxn.theme(hydra);
-}
-
-.solarized-theme {
-  @include mxn.theme(solarized);
-}
-
-.dracula-theme {
-  @include mxn.theme(dracula);
-}
-
-
+// Fim do arquivo _layout.scss

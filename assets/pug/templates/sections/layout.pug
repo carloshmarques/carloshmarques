@@ -4,32 +4,33 @@ html(lang="pt")
     meta(charset="utf-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title #{title}
- 
+    meta(name="description" content=description)
+    meta(name="environment" content=env)
+
+    script.
+      window.availableThemes = !{JSON.stringify(themes)};
+
     if env === 'production'
       link(rel="stylesheet", href="css/normalize.min.css")
       link(rel="stylesheet", href="css/main.min.css")
     else
       link(rel="stylesheet", href="css/normalize.css")
       link(rel="stylesheet", href="css/main.css")
-    //- Removido o include header daqui, a menos que ele contenha apenas METAS
-  
-body(class=(theme || 'dark') + "-theme")
 
+  body(class=(theme || 'hydra') + "-theme")
     include header.pug
 
-    block content 
-      
+    block content
 
     include footer.pug
 
     script(src="https://code.jquery.com/jquery-3.7.1.min.js")
 
-
     if env === 'production'
       script(src="js/main.min.js")
-      
     else
       script(src="js/main.js")
+
       
    
 

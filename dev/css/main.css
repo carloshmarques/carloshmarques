@@ -2,7 +2,6 @@
 /* ============================
    Configurações e Temas
    ============================ */
-/* Módulos base */
 * {
   margin: 0;
   padding: 0;
@@ -10,9 +9,8 @@
 }
 
 /* ============================
-   Configurações e Temas
+   Tipografia — Escala Modular
    ============================ */
-/* Módulos base */
 body {
   background-color: #fff;
   color: #333;
@@ -21,21 +19,45 @@ body .main {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: "row";
+  flex-direction: row;
   width: 80%;
   margin: 0 auto;
+  gap: 2rem;
+}
+@media (max-width: 1024px) {
+  body .main {
+    width: 90%;
+    gap: 1rem;
+  }
 }
 @media (max-width: 768px) {
   body .main {
     flex-direction: column;
+    width: 95%;
+    gap: 0.5rem;
   }
 }
-body .main .main_paragraph {
+body .main_paragraph1, body .main_paragraph2 {
   font-weight: 700;
   line-height: 1.6;
 }
-body .main .main_paragraph:hover {
+body .main_paragraph1:hover, body .main_paragraph2:hover {
+  color: #d3d3d3;
+}
+body .main_paragraph2:hover {
   color: #000;
+}
+@media (max-width: 1024px) {
+  body .main_paragraph2 {
+    max-width: 90%;
+    text-align: center;
+  }
+}
+@media (max-width: 768px) {
+  body .main_paragraph2 {
+    font-size: 0.875rem;
+    text-align: center;
+  }
 }
 
 .light-theme {
@@ -93,12 +115,14 @@ body .main .main_paragraph:hover {
   color: #000;
 }
 
-/* ============================
-   Estrutura Base
-   ============================ */
-/* Componentes principais */
-/* Responsividade */
-/* ============================
-   Temas
-   ============================ */
+.neon-theme {
+  background-color: #0aff9d;
+  color: #000000;
+}
+.neon-theme a {
+  color: #000000;
+}
+.neon-theme a:hover {
+  color: #000;
+}
 /*# sourceMappingURL=main.css.map */

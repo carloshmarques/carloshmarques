@@ -67,17 +67,24 @@ function bundleJS() {
 }
 
 // Pug → HTML
+
+
 function html() {
     return gulp.src(paths.pug)
-        
         .pipe(pug({
-            pretty: env !== 'production',
-            locals: { env, title: 'Github Portfolio',
-            description: 'A portfolio template available on GitHub.' }
+            pretty: env !== 'production', // Identação amigável em dev
+            locals: { 
+                env: env, 
+                title: 'Github Portfolio',
+                description: 'A portfolio template available on GitHub.',
+                themes: ['light', 'dark', 'solarized', 'dracula', 'hydra', 'neon'] ,
+                theme: '', // default theme empty for user selection
+            }
         }))
         .pipe(gulp.dest(outputDir))
-        .on('end', browserSync.reload); // Força reload no fim da task
+        .on('end', browserSync.reload);
 }
+
 
 // Imagens
 function images() {

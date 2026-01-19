@@ -1,3 +1,20 @@
+// modules/_breakpoints.scss
+
+
+// Breakpoints principais (desktop-first)
 $mobile: 768px;
 $tablet: 1024px;
+$laptop: 1280px;
 $desktop: 1440px;
+$wide: 1920px;
+$ultra-wide: 2560px;
+// Você pode ajustar esses valores conforme necessário
+// Exemplo de uso em mixins ou media queries:
+// @media (max-width: $mobile) {
+//   // estilos para dispositivos móveis
+// }
+// @media (min-width: $desktop) {
+//   // estilos para desktops
+// }
+// Mixin de media query pode ser definido em outro arquivo, como _mixins.scss
+

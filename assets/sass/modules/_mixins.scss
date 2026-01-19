@@ -1,6 +1,6 @@
 @use '../modules/colors' as clr;
 @use '../modules/themes' as t;
- @use '../modules/breakpoints' as bp;
+@use '../modules/breakpoints' as bp;
 @use 'sass:meta'; 
 @use 'sass:map';
 
@@ -34,6 +34,7 @@
       color: clr.$secondary-color;
     }
   }
+  
 }
 
 @mixin mobile {

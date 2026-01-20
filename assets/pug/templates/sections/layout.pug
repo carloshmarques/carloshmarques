@@ -17,7 +17,7 @@ html(lang="pt")
       link(rel="stylesheet", href="css/normalize.css")
       link(rel="stylesheet", href="css/main.css")
 
-  body(class=(theme || 'hydra') + "-theme")
+  body(class=`${theme || 'hydra'}-theme`)
     include header.pug
 
     block content

@@ -1,54 +1,60 @@
 /* ============================
-   Configurações e Temas
-   ============================ */
-/// Global Stylesheet
-/// ============================================================
-/// 
-/// Importa todos os módulos necessários para o funcionamento dos estilos globais.
-/// ============================================================
-/// 
-/// Módulos Importados
-/// ===========================
-///   
-/// - mixins: Mixin SASS reutilizáveis para layout e temas.
-/// - responsive: Mixin para media queries responsivas.
-/// ============================================================
-/// 
-/// Importação de Módulos
-/// ============================================================
-/// 
-/// 
-/// 
-@use 'modules' as *;
+   Configurações Globais
+============================ */
 
-// Estrutura
+/// 1. Variáveis primeiro
+@use 'modules/variables' as *;
+
+/// 2. Funções
+@use 'modules/functions' as *;
+
+/// 3. Mixins e responsive
+@use 'modules/mixins' as *;
+@use 'modules/responsive' as resp;
+
+/// 4. Base e resets
+@use 'modules/reset';
+
+/* ============================
+   Hydra Healing Layer Overrides
+   (ativar/desativar tratamentos)
+============================ */
+
+/*
+  Estes valores controlam o comportamento do heal.scss.
+  Coloca-os ANTES do @use 'modules/heal' para que Sass
+  consiga sobrescrever os defaults do módulo.
+eample:
+$heal-box-model: false;     // desativa cura do box-model
+$heal-media-shift: false;   // desativa cura de CLS em imagens/vídeos
+$heal-forms: false;         // desativa uniformização de inputs/botões
+
+*/
+
+
+
+@use 'modules/heal';
+
+
+/// 5. Tokens de design
+@use 'modules/colors';
+@use 'modules/spacing';
+@use 'modules/typography';
+@use 'modules/shadows';
+
+/// 6. Estrutura global
 @use 'modules/layout';
 @use 'modules/buttons';
-@use 'modules/shadows';
-@use 'modules/mixins';
-@use 'modules/colors';
-@use 'modules/breakpoints';
-@use 'modules/typography';
-@use 'modules/responsive';
 
-@use 'modules/spacing'; 
-@use 'modules/functions';
-@use 'modules/config';
-
-
-// Componentes
+/// 7. Componentes
 @use 'components/home';
 @use 'components/menu';
 @use 'components/about';
 @use 'components/projects';
 @use 'components/contact';
 
-// Temas
-@use 'themes/light';
-@use 'themes/dark';
-@use 'themes/hydra';
-@use 'themes/solarized';
-@use 'themes/dracula';
-@use 'themes/neon';
-// Animações
+/// 8. Temas (apenas UM sistema)
+@use 'modules/themes'; // usa mixins e classes .light-theme, etc.
+
+/// 9. Animações
 @use 'animations/animations';

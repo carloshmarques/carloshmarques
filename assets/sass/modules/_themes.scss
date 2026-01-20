@@ -1,29 +1,52 @@
-// assets/sass/modules/_themes.scss
+@use '../themes/light' as light;
+@use '../themes/dark' as dark;
+@use '../themes/hydra' as hydra;
+@use '../themes/solarized' as solarized;
+@use '../themes/dracula' as dracula;
+@use '../themes/neon' as neon;
+@use "sass:map";
 
-$themes: (
-  light: (
-    background: #ffffff,
-    text: #000000
-  ),
-  dark: (
-    background: #101010,
-    text: #ffffff
-  ),
-  hydra: (
-    background: #0a0a0a,
-    text: #00ffea
-  ),
-  dracula: (
-    background: #282a36,
-    text: #f8f8f2
-  ),
-  neon: (
-  background: #0aff9d,
-  text: #000000
-),
+/* ---------------------------------------------------------
+   Mixin universal para aplicar variáveis de um tema
+--------------------------------------------------------- */
 
-  solarized: (
-    background: #fdf6e3,
-    text: #657b83
-  )
-);
+@mixin apply-theme($theme) {
+  background-color: map.get($theme, background);
+  color: map.get($theme, text);
+
+  a {
+    color: map.get($theme, link);
+
+    &:hover {
+      color: map.get($theme, link-hover);
+    }
+  }
+}
+
+/* ---------------------------------------------------------
+   Classes de tema aplicáveis no HTML
+--------------------------------------------------------- */
+
+.light-theme {
+  @include apply-theme(light.$theme);
+}
+
+.dark-theme {
+  @include apply-theme(dark.$theme);
+}
+
+.hydra-theme {
+  @include apply-theme(hydra.$theme);
+}
+
+.solarized-theme {
+  @include apply-theme(solarized.$theme);
+}
+
+.dracula-theme {
+  @include apply-theme(dracula.$theme);
+}
+
+.neon-theme {
+  @include apply-theme(neon.$theme);
+}

@@ -1,16 +1,260 @@
 @charset "UTF-8";
 /* ============================
-   Configurações e Temas
-   ============================ */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
+   Configurações Globais
+============================ */
 /* ============================
    Tipografia — Escala Modular
    ============================ */
+/* ---------------------------------------------------------
+   Mixin universal para aplicar variáveis de um tema
+--------------------------------------------------------- */
+/* ---------------------------------------------------------
+   Classes de tema aplicáveis no HTML
+--------------------------------------------------------- */
+.light-theme {
+  background-color: #ffffff;
+  color: #333333;
+}
+.light-theme a {
+  color: #000000;
+}
+.light-theme a:hover {
+  color: #555555;
+}
+
+.dark-theme {
+  background-color: #101010;
+  color: #ffffff;
+}
+.dark-theme a {
+  color: #ffffff;
+}
+.dark-theme a:hover {
+  color: #00ffea;
+}
+
+.hydra-theme {
+  background-color: #0a0a0a;
+  color: #00ff00;
+}
+.hydra-theme a {
+  color: #00ff00;
+}
+.hydra-theme a:hover {
+  color: #b6ffb6;
+}
+
+.solarized-theme {
+  background-color: #fdf6e3;
+  color: #657b83;
+}
+.solarized-theme a {
+  color: #586e75;
+}
+.solarized-theme a:hover {
+  color: #000000;
+}
+
+.dracula-theme {
+  background-color: #282a36;
+  color: #f8f8f2;
+}
+.dracula-theme a {
+  color: #bd93f9;
+}
+.dracula-theme a:hover {
+  color: #ff79c6;
+}
+
+.neon-theme {
+  background-color: #0aff9d;
+  color: #000000;
+}
+.neon-theme a {
+  color: #000000;
+}
+.neon-theme a:hover {
+  color: #ffffff;
+}
+
+/* ============================================
+   _reset.scss — Hydra Reset (2026)
+   Remove apenas o essencial.
+   Não destrói estilos úteis.
+   Trabalha em conjunto com normalize.scss.
+============================================ */
+/* 1. Remove margens padrão dos elementos mais problemáticos */
+body, h1, h2, h3, h4, h5, h6, p, figure {
+  margin: 0;
+}
+
+/* 2. Remove padding inesperado */
+ul, ol {
+  padding: 0;
+}
+
+/* 3. Remove bullets padrão (o normalize já trata de parte disto) */
+ul, ol {
+  list-style: none;
+}
+
+/* 4. Garantir que botões não têm estilos nativos inconsistentes */
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* 5. Inputs e buttons sem estilos herdados estranhos */
+input, button, textarea, select {
+  font: inherit;
+  color: inherit;
+}
+
+/* 6. Remove bordas e outlines agressivos (mas mantém acessibilidade) */
+input, textarea, select {
+  border: none;
+  outline: none;
+}
+
+/* 7. Garantir que imagens não têm bordas antigas (IE legacy) */
+img {
+  border-style: none;
+}
+
+/* 8. Remove estilos nativos de anchors */
+a {
+  text-decoration: none;
+}
+
+/* 9. Remove comportamento estranho de <strong> e <em> em alguns browsers */
+strong {
+  font-weight: bold;
+}
+
+em {
+  font-style: italic;
+}
+
+/* 10. Remove espaçamento entre elementos inline-block */
+:where(*) {
+  letter-spacing: normal;
+  word-spacing: normal;
+}
+
+/* 11. Tabelas sem bordas e espaçamentos inesperados */
+/* fim do _reset.scss */
+/* ============================
+   Hydra Healing Layer Overrides
+   (ativar/desativar tratamentos)
+============================ */
+/*
+  Estes valores controlam o comportamento do heal.scss.
+  Coloca-os ANTES do @use 'modules/heal' para que Sass
+  consiga sobrescrever os defaults do módulo.
+eample:
+$heal-box-model: false;     // desativa cura do box-model
+$heal-media-shift: false;   // desativa cura de CLS em imagens/vídeos
+$heal-forms: false;         // desativa uniformização de inputs/botões
+
+*/
+/* ============================================================
+   heal.scss — Hydra Healing Layer (2026)
+   ------------------------------------------------------------
+   Este módulo atua como um "soro corretivo" para o layout.
+   Corrige malfunctions comuns antes de o design entrar em cena.
+   Modular, opcional e expansível.
+============================================================ */
+/* ------------------------------------------------------------
+   1. Configurações (ativar/desativar tratamentos)
+------------------------------------------------------------ */
+/* ------------------------------------------------------------
+   2. Box Model Healing
+------------------------------------------------------------ */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* ------------------------------------------------------------
+   3. Media Healing (imagens, vídeos, canvas, svg)
+------------------------------------------------------------ */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  content-visibility: auto;
+}
+
+/* ------------------------------------------------------------
+   4. Typography Healing
+------------------------------------------------------------ */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  margin: 0;
+}
+
+/* ------------------------------------------------------------
+   5. Forms Healing
+------------------------------------------------------------ */
+button, input, select, textarea {
+  font: inherit;
+  color: inherit;
+}
+
+textarea {
+  resize: vertical;
+}
+
+/* ------------------------------------------------------------
+   6. Lists Healing
+------------------------------------------------------------ */
+ul, ol {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* ------------------------------------------------------------
+   7. Tables Healing
+------------------------------------------------------------ */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* ------------------------------------------------------------
+   8. Interaction Healing (anchors)
+------------------------------------------------------------ */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ============================================================
+   Fim do Hydra Healing Layer
+============================================================ */
+/* ============================
+   Configurações Globais
+============================ */
+/* -----------------------------------------
+   Base reutilizável para parágrafos da main
+------------------------------------------ */
+body .main_paragraph2, body .main_paragraph1 {
+  font-weight: 700;
+  line-height: 1.6;
+}
+body .main_paragraph2:hover, body .main_paragraph1:hover {
+  color: #d3d3d3;
+}
+
+/* -----------------------------------------
+   Layout principal
+------------------------------------------ */
 body {
   background-color: #fff;
   color: #333;
@@ -37,15 +281,8 @@ body .main {
     gap: 0.5rem;
   }
 }
-body .main_paragraph1, body .main_paragraph2 {
-  font-weight: 700;
-  line-height: 1.6;
-}
-body .main_paragraph1:hover, body .main_paragraph2:hover {
-  color: #d3d3d3;
-}
 body .main_paragraph2:hover {
-  color: #000;
+  color: #ff0;
 }
 @media (max-width: 1024px) {
   body .main_paragraph2 {
@@ -58,71 +295,5 @@ body .main_paragraph2:hover {
     font-size: 0.875rem;
     text-align: center;
   }
-}
-
-.light-theme {
-  background-color: #ffffff;
-  color: #000000;
-}
-.light-theme a {
-  color: #000000;
-}
-.light-theme a:hover {
-  color: #000;
-}
-
-.dark-theme {
-  background-color: #101010;
-  color: #ffffff;
-}
-.dark-theme a {
-  color: #ffffff;
-}
-.dark-theme a:hover {
-  color: #000;
-}
-
-.hydra-theme {
-  background-color: #0a0a0a;
-  color: #00ffea;
-}
-.hydra-theme a {
-  color: #00ffea;
-}
-.hydra-theme a:hover {
-  color: #000;
-}
-
-.solarized-theme {
-  background-color: #fdf6e3;
-  color: #657b83;
-}
-.solarized-theme a {
-  color: #657b83;
-}
-.solarized-theme a:hover {
-  color: #000;
-}
-
-.dracula-theme {
-  background-color: #282a36;
-  color: #f8f8f2;
-}
-.dracula-theme a {
-  color: #f8f8f2;
-}
-.dracula-theme a:hover {
-  color: #000;
-}
-
-.neon-theme {
-  background-color: #0aff9d;
-  color: #000000;
-}
-.neon-theme a {
-  color: #000000;
-}
-.neon-theme a:hover {
-  color: #000;
 }
 /*# sourceMappingURL=main.css.map */

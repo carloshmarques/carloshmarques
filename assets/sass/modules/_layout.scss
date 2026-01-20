@@ -4,16 +4,30 @@
 @use './responsive' as resp;
 @use './typography' as *;
 @use './functions' as *;
-@use './themes' as *;
+@use './variables' as *;
 
+/* -----------------------------------------
+   Base reutilizável para parágrafos da main
+------------------------------------------ */
+%paragraph-base {
+  font-weight: weight('bold');
+  line-height: 1.6;
+
+  &:hover {
+    color: $lightGray; // ← valor original
+  }
+}
+
+/* -----------------------------------------
+   Layout principal
+------------------------------------------ */
 body {
   background-color: $primary-color;
   color: $text-color;
 
   .main {
     @include flex-center(row);
-    width: 80%; /// you can adjust this value as needed with calc()
-
+    width: 80%;
     margin: 0 auto;
     gap: $lg;
 
@@ -28,20 +42,15 @@ body {
       gap: $sm;
     }
 
-    &_paragraph1 { 
-      font-weight: weight('bold'); 
-      line-height: 1.6; 
-      
-      &:hover { 
-        color: $lightGray; 
-      }
-    } 
-        
-    &_paragraph2 { 
-      @extend .main_paragraph1; 
-      
-      &:hover { 
-        color: $secondary-color; 
+    &_paragraph1 {
+      @extend %paragraph-base;
+    }
+
+    &_paragraph2 {
+      @extend %paragraph-base;
+
+      &:hover {
+        color: $highlight-color; // ← valor original
       }
 
       @include resp.respond(tablet) {
@@ -56,12 +65,3 @@ body {
     }
   }
 }
-
-.light-theme     { @include theme(light); }
-.dark-theme      { @include theme(dark); }
-.hydra-theme     { @include theme(hydra); }
-.solarized-theme { @include theme(solarized); }
-.dracula-theme   { @include theme(dracula); }
-.neon-theme      { @include theme(neon); }
-
-// Fim do arquivo _layout.scss

@@ -1,18 +1,19 @@
 'use strict';
-var logger = require('./modules/logger');
-var core = require('./modules/core');
 
-// Mensagem inicial
-logger.log("Visitor successfully authenticated, profile ready!");
+import { Core } from "./modules/core.js";
+import { initNavigation } from "./modules/navigation.js";
+import { Theme } from "./theme.js";
+import { log } from "./modules/logger.js";
 
-// Quando o documento estiver pronto
-$(document).ready(function () {
+document.addEventListener("DOMContentLoaded", () => {
+  log.info("Sistema iniciado");
 
-    // Frase aleatória do core
-    const frase = core.frases[Math.floor(Math.random() * core.frases.length)];
-    core.log(frase);
+  Core.init();
+  Theme.init();
+  initNavigation();
 
-    // Mensagem final
-    console.log('Document ready for code injection!');
+  log.info("Document ready for code injection");
 });
+
+
 

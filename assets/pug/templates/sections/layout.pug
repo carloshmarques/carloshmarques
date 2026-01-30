@@ -3,7 +3,11 @@ html(lang="pt")
   head
     meta(charset="utf-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    title #{title}
+
+    - const pageTitle = currentPage ? currentPage.charAt(0).toUpperCase() + currentPage.slice(1) : 'Home'
+    title #{title} | #{pageTitle}
+
+    link(rel="icon" href="/assets/img/favicon.ico" type="image/x-icon")
     meta(name="description" content=description)
     meta(name="environment" content=env)
 
@@ -17,21 +21,18 @@ html(lang="pt")
       link(rel="stylesheet", href="css/normalize.css")
       link(rel="stylesheet", href="css/main.css")
 
-  body(class=`${theme || 'hydra'}-theme`)
+  body(class=`${theme || 'dark'}-theme`)
     include header.pug
 
-    block content
+    main.site-main
+      block content
 
     include footer.pug
 
     script(src="https://code.jquery.com/jquery-3.7.1.min.js")
+    script(src="https://kit.fontawesome.com/6f7d0688fd.js" crossorigin="anonymous")
 
     if env === 'production'
       script(src="js/main.min.js")
     else
       script(src="js/main.js")
-
-      
-   
-
-

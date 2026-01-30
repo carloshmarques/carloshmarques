@@ -296,4 +296,58 @@ body .main_paragraph2:hover {
     text-align: center;
   }
 }
+
+.nav {
+  background: transparent;
+}
+.nav .menu-nav {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+.nav .menu-nav .menu-nav_item.active .menu-nav_link {
+  color: cyan;
+  font-weight: bold;
+}
+.nav .menu-nav .menu-nav_item .menu-nav_link {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.nav .menu-nav .menu-nav_item .menu-nav_link:hover {
+  color: cyan;
+}
+
+.menu-btn {
+  display: none;
+  cursor: pointer;
+}
+.menu-btn .menu-btn_burguer {
+  width: 30px;
+  height: 3px;
+  background: white;
+  transition: 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .menu-btn {
+    display: block;
+  }
+  .menu-nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    flex-direction: column;
+    background: #000;
+    width: 70%;
+    height: 100vh;
+    padding-top: 5rem;
+    transition: right 0.4s ease;
+  }
+  .menu-nav.open {
+    right: 0;
+  }
+}
 /*# sourceMappingURL=main.css.map */

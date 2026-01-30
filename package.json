@@ -23,13 +23,16 @@
   "co-authors": [
     "Microsoft Bing AI"
   ],
-  "type": "commonjs",
+ "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "\"\""
   },
   "devDependencies": {
+    "@babel/core": "^7.28.6",
+    "@babel/preset-env": "^7.28.6",
     "autoprefixer": "^10.4.23",
+    "babelify": "^10.0.0",
     "browser-sync": "^3.0.4",
     "browserify": "^17.0.1",
     "cssnano": "^7.1.2",

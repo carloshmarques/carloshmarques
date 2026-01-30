@@ -1,10 +1,49 @@
 header.site-header
   .container
-    h1.site-title #{title}
-  nav.navbar
-    ul.nav-list
-      li.nav-item: a.nav-link(href="#home") Home
-      li.nav-item: a.nav-link(href="#about") About
-      li.nav-item: a.nav-link(href="#contact") Contact
-      li.nav-item: a.nav-link(href="#services") Services
+    a.logo(href="index.html")
+      img(src="/assets/img/logo.svg" alt="CM Logo")
+      span.sr-only #{siteName}
 
+    h1.site-title #{siteName}
+
+  .menu-btn
+    span.menu-btn_burguer
+
+  nav.nav
+    ul.menu-nav
+      li.menu-nav_item(class=currentPage === 'home' ? 'active' : '')
+        a.menu-nav_link(href="index.html")
+          i.fas.fa-home
+          |  Home
+
+      li.menu-nav_item(class=currentPage === 'about' ? 'active' : '')
+        a.menu-nav_link(href="about.html")
+          i.fas.fa-info-circle
+          |  About
+
+      li.menu-nav_item(class=currentPage === 'contact' ? 'active' : '')
+        a.menu-nav_link(href="contact.html")
+          i.fas.fa-envelope
+          |  Contact
+
+      li.menu-nav_item(class=currentPage === 'projects' ? 'active' : '')
+        a.menu-nav_link(href="projects.html")
+          i.fas.fa-code
+          |  Projects
+
+      // DROPDOWN DE TEMAS
+      li.menu-nav_item.menu-nav_dropdown(class=currentPage === 'themes' ? 'active' : '')
+        a.menu-nav_link(href="themes.html")
+          i.fas.fa-palette
+          |  Themes
+        ul.dropdown-menu
+          each themeName in themes
+            li
+              a(href=`themes.html?theme=${themeName}`) #{themeName}
+
+      // ADMIN OPCIONAL
+      if showAdmin
+        li.menu-nav_item(class=currentPage === 'admin' ? 'active' : '')
+          a.menu-nav_link(href="admin.html")
+            i.fas.fa-user-shield
+            |  Admin

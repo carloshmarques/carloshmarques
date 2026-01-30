@@ -1,0 +1,64 @@
+.nav {
+  background: transparent;
+
+  .menu-nav {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+
+    .menu-nav_item {
+      &.active .menu-nav_link {
+        color: cyan;
+        font-weight: bold;
+      }
+
+      .menu-nav_link {
+        color: white;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: .5rem;
+
+        &:hover {
+          color: cyan;
+        }
+      }
+    }
+  }
+}
+
+// HAMBURGUER
+.menu-btn {
+  display: none;
+  cursor: pointer;
+
+  .menu-btn_burguer {
+    width: 30px;
+    height: 3px;
+    background: white;
+    transition: .3s ease;
+  }
+}
+
+// MOBILE
+@media (max-width: 768px) {
+  .menu-btn {
+    display: block;
+  }
+
+  .menu-nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    flex-direction: column;
+    background: #000;
+    width: 70%;
+    height: 100vh;
+    padding-top: 5rem;
+    transition: right .4s ease;
+  }
+
+  .menu-nav.open {
+    right: 0;
+  }
+}

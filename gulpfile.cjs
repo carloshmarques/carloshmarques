@@ -1,14 +1,13 @@
 'use strict';
 
 /* ============================================================
-   Hydra Starter Kit — Gulpfile (2026)
+   Starter Kit — Gulpfile (2026)
    ------------------------------------------------------------
-   Este gulpfile foi criado para ser:
-   - simples para iniciantes
-   - poderoso para utilizadores avançados
-   - modular, rápido e fácil de manter
-   - compatível com ambientes (dev, prod, staging, deployment)
-   - totalmente alinhado com Sass, Pug, Browserify e BrowserSync
+   Simples, modular e compatível com:
+   - Sass
+   - Pug
+   - Browserify + Babelify (ES Modules)
+   - BrowserSync
 ============================================================ */
 
 const gulp = require('gulp');
@@ -22,10 +21,11 @@ const imagemin = require('gulp-imagemin');
 const sourcemaps = require('gulp-sourcemaps');
 const rename = require('gulp-rename');
 const browserSync = require('browser-sync').create();
+
 const browserify = require('browserify');
 const source = require('vinyl-source-stream');
 const buffer = require('vinyl-buffer');
-// const del = require('del'); // ativar se quiseres usar a task clean()
+
 
 /* ============================================================
    Ambiente
@@ -33,7 +33,7 @@ const buffer = require('vinyl-buffer');
 const env = process.env.NODE_ENV || 'development';
 const isDev = env === 'development';
 
-console.log(`Hydra Gulp running in ${env} mode`);
+console.log(`Gulp is now running in ${env} mode`);
 
 /* ============================================================
    Pastas de saída por ambiente
@@ -73,9 +73,19 @@ function css() {
    Task: JS (Browserify Bundle)
 ============================================================ */
 function bundleJS() {
-  return browserify('assets/js/main.js')
+  return browserify({
+      entries: ['assets/js/main.js'],
+      debug: true
+    })
+    .transform('babelify', {
+      presets: ['@babel/preset-env'],
+      sourceMaps: true
+    })
     .bundle()
-    .on('error', err => { console.error(err.message); this?.emit('end'); })
+    .on('error', function (err) {
+      console.error(err.message);
+      this.emit('end');
+    })
     .pipe(source(isDev ? 'main.js' : 'main.min.js'))
     .pipe(buffer())
     .pipe(sourcemaps.init({ loadMaps: true }))
@@ -84,6 +94,8 @@ function bundleJS() {
     .pipe(gulp.dest(outputDir + 'js'))
     .pipe(browserSync.stream());
 }
+
+
 
 /* ============================================================
    Task: HTML (Pug → HTML)
@@ -94,10 +106,19 @@ function html() {
       pretty: isDev,
       locals: {
         env,
-        title: 'Github Portfolio',
+        title: 'CM',
         description: 'A portfolio template available on GitHub.',
+
+        name: '',
+
         themes: ['light', 'dark', 'solarized', 'dracula', 'hydra', 'neon'],
-        theme: ''
+        tags: ['portfolio', 'template', 'github', 'web development'],
+
+        theme: '',
+        currentPage: 'home', // ou 'admin', etc.
+
+        siteName: 'CM',
+        pageTitle: '',
       }
     }))
     .pipe(gulp.dest(outputDir))
@@ -177,7 +198,7 @@ Definir ambiente antes de correr o gulp:
 Padrão: development
 /* correr gulp em development globalmente interpretado em distros que suportam Node.js 
 
-Node_ENV="development"; gulp
+Node_ENV=development gulp
 NODE_ENV=production gulp
 NODE_ENV=staging gulp
 NODE_ENV=deployment gulp
@@ -294,6 +315,6 @@ Isto garante builds 100% limpos.
 
 
 ============================================================
-FIM DO GULPFILE HYDRA EDITION
+FIM DO GULPFILE STARTER EDITION
 ============================================================
 */

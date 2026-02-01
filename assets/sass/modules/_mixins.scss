@@ -1,5 +1,5 @@
 @use '../modules/colors' as clr;
-@use '../modules/themes' as t;
+
 @use '../modules/breakpoints' as bp;
 @use 'sass:meta'; 
 @use 'sass:map';
@@ -20,22 +20,7 @@
   }
 }
 
-@mixin theme($theme-name) {
-  $theme-map: map.get(t.$themes, $theme-name);
-  $background: map.get($theme-map, background);
-  $text: map.get($theme-map, text);
 
-  background-color: $background;
-  color: $text;
-
-  a {
-    color: $text;
-    &:hover {
-      color: clr.$secondary-color;
-    }
-  }
-  
-}
 
 @mixin mobile {
   @media (max-width: bp.$mobile) {

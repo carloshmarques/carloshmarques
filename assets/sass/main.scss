@@ -1,60 +1,52 @@
 /* ============================
-   Configurações Globais
+   1. Variáveis e funções base
 ============================ */
-
-/// 1. Variáveis primeiro
 @use 'modules/variables' as *;
-
-/// 2. Funções
 @use 'modules/functions' as *;
 
-/// 3. Mixins e responsive
+/* ============================
+   2. Mixins e responsive
+============================ */
 @use 'modules/mixins' as *;
 @use 'modules/responsive' as resp;
 
-/// 4. Base e resets
-@use 'modules/reset';
-
 /* ============================
-   Hydra Healing Layer Overrides
-   (ativar/desativar tratamentos)
+   3. Reset + Heal (juntos)
 ============================ */
-
-/*
-  Estes valores controlam o comportamento do heal.scss.
-  Coloca-os ANTES do @use 'modules/heal' para que Sass
-  consiga sobrescrever os defaults do módulo.
-eample:
-$heal-box-model: false;     // desativa cura do box-model
-$heal-media-shift: false;   // desativa cura de CLS em imagens/vídeos
-$heal-forms: false;         // desativa uniformização de inputs/botões
-
-*/
-
-
-
+@use 'modules/reset';
 @use 'modules/heal';
 
-
-/// 5. Tokens de design
+/* ============================
+   4. Tokens de design
+============================ */
 @use 'modules/colors';
 @use 'modules/spacing';
 @use 'modules/typography';
 @use 'modules/shadows';
 
-/// 6. Estrutura global
+/* ============================
+   5. Temas (ANTES do layout!)
+============================ */
+@use 'modules/themes';
+
+/* ============================
+   6. Estrutura global
+============================ */
 @use 'modules/layout';
+
 @use 'modules/buttons';
 
-/// 7. Componentes
+/* ============================
+   7. Componentes
+============================ */
+@use 'components/logo';
 @use 'components/home';
 @use 'components/menu';
 @use 'components/about';
 @use 'components/projects';
 @use 'components/contact';
 
-/// 8. Temas (apenas UM sistema)
-@use 'modules/themes'; // usa mixins e classes .light-theme, etc.
-
-/// 9. Animações
+/* ============================
+   8. Animações
+============================ */
 @use 'animations/animations';

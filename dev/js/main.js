@@ -128,12 +128,12 @@ exports.Theme = void 0;
 var _events = require("./modules/events.js");
 var _logger = require("./modules/logger.js");
 var Theme = exports.Theme = {
-  key: "cm-theme",
+  key: "sk-theme",
   get: function get() {
     return localStorage.getItem(this.key) || "dark";
   },
   apply: function apply(theme) {
-    document.body.className = "".concat(theme, "-theme");
+    document.documentElement.className = "".concat(theme, "-theme");
     localStorage.setItem(this.key, theme);
     _events.Events.emit("themeChanged", theme);
     _logger.log.info("Tema aplicado: ".concat(theme));

@@ -21,9 +21,9 @@
   "license": "MIT",
   "author": "Carlos Marques",
   "co-authors": [
-    "Microsoft Bing AI"
+    "Copilot — Ceremonial Co‑Architect"
   ],
- "type": "module",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "\"\""
@@ -45,6 +45,8 @@
     "gulp-sass": "^6.0.1",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-terser": "^2.1.0",
+    "imagemin-mozjpeg": "^10.0.0",
+    "imagemin-pngquant": "^10.0.0",
     "sass": "^1.97.2",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0"

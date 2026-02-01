@@ -1,67 +1,103 @@
-@use './colors' as *;
-@use './spacing' as *;
-@use './mixins' as *;
-@use './responsive' as resp;
-@use './typography' as *;
-@use './functions' as *;
-@use './variables' as *;
+/* ============================================================
+   LAYOUT GLOBAL — Starter Kit
+   ------------------------------------------------------------
+   Usa apenas variáveis CSS (var(--bg), var(--text-primary), etc.)
+   Compatível com todos os temas e com o theme.js
+============================================================ */
+/* ============================================================
+   LAYOUT GLOBAL — Starter Kit
+============================================================ */
 
-/* -----------------------------------------
-   Base reutilizável para parágrafos da main
------------------------------------------- */
-%paragraph-base {
-  font-weight: weight('bold');
-  line-height: 1.6;
-
-  &:hover {
-    color: $lightGray; // ← valor original
-  }
+/* Evita flicker de tema */
+html {
+  visibility: hidden;
 }
 
-/* -----------------------------------------
-   Layout principal
------------------------------------------- */
+  html.light-theme,
+  html.dark-theme,
+  html.hydra-theme,
+  html.dracula-theme,
+  html.neon-theme,
+  html.solarized-theme {
+    visibility: visible;
+  }
+
+/* Agora sim, o layout */
 body {
-  background-color: $primary-color;
-  color: $text-color;
+  
+  background-color: var(--bg);
+  color: var(--text-primary);
+  background-image: var(--bg-img);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family, "Inter", sans-serif);
+}
 
+
+/* LINKS */
+a {
+  color: var(--link);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--link-hover);
+}
+
+/* MAIN WRAPPER */
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: min(90%, 1200px);
+  margin: 0 auto;
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+/* PARÁGRAFOS — estilo base */
+.main_paragraph1,
+.main_paragraph2 {
+  font-weight: 600;
+  line-height: 1.6;
+  transition: color 0.2s ease;
+}
+
+/* Hover do parágrafo 1 — destaque forte */
+.main_paragraph1:hover {
+  color: var(--accent); // destaque forte
+}
+
+/* Parágrafo 2 herda tudo, mas tem hover diferente */
+.main_paragraph2:hover {
+  color: var(--link-hover);     // mais suave
+  //text-decoration: underline;   // ou outro gesto
+}
+
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
   .main {
-    @include flex-center(row);
-    width: 80%;
-    margin: 0 auto;
-    gap: $lg;
-
-    @include resp.respond(tablet) {
-      width: 90%;
-      gap: $md;
-    }
-
-    @include resp.respond(mobile) {
-      flex-direction: column;
-      width: 95%;
-      gap: $sm;
-    }
-
-    &_paragraph1 {
-      @extend %paragraph-base;
-    }
-
-    &_paragraph2 {
-      @extend %paragraph-base;
-
-      &:hover {
-        color: $highlight-color; // ← valor original
-      }
-
-      @include resp.respond(tablet) {
-        max-width: 90%;
-        text-align: center;
-      }
-
-      @include resp.respond(mobile) {
-        font-size: $font-size-sm;
-        text-align: center;
-      }
-    }
+    flex-direction: column;
+    gap: 1.5rem;
   }
 }
+
+@media (max-width: 480px) {
+  .main {
+    width: 95%;
+    gap: 1rem;
+  }
+
+  .main_paragraph1,
+  .main_paragraph2 {
+    font-size: 0.9rem;
+    text-align: center;
+  }
+}
+

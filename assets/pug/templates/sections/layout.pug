@@ -1,18 +1,37 @@
 doctype html
 html(lang="pt")
   head
+    //- script de tema imediato para evitar flicker
+    script.
+      const savedTheme = localStorage.getItem('sk-theme') || 'light';
+      document.documentElement.className = savedTheme + '-theme';
+
     meta(charset="utf-8")
-    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
 
-    - const pageTitle = currentPage ? currentPage.charAt(0).toUpperCase() + currentPage.slice(1) : 'Home'
-    title #{title} | #{pageTitle}
+    //- Título dinâmico usando os locals: title ('SK') e pageTitle
+    - const displayPageTitle = pageTitle ? pageTitle.charAt(0).toUpperCase() + pageTitle.slice(1) : 'Home'
+    title #{title} | #{displayPageTitle}
 
-    link(rel="icon" href="/assets/img/favicon.ico" type="image/x-icon")
+    //- Favicon (Apenas atributos técnicos)
+    link(rel="icon" href="https://cdn-icons-png.flaticon.com" type="image/png")
+
+    //- Metadados usando as variáveis do Gulp
     meta(name="description" content=description)
+    meta(name="keywords" content=tags.join(', '))
+    meta(name="author" content="Carlos H. Marques")
+    meta(name="environment" content=env)
+
+    script.
+      //- Passa o array de temas do Gulp para o cliente
+      window.availableThemes = !{JSON.stringify(themes)};
+
     meta(name="environment" content=env)
 
     script.
       window.availableThemes = !{JSON.stringify(themes)};
+ 
+
 
     if env === 'production'
       link(rel="stylesheet", href="css/normalize.min.css")
@@ -21,7 +40,7 @@ html(lang="pt")
       link(rel="stylesheet", href="css/normalize.css")
       link(rel="stylesheet", href="css/main.css")
 
-  body(class=`${theme || 'dark'}-theme`)
+  body
     include header.pug
 
     main.site-main

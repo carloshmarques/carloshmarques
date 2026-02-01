@@ -1,52 +1,61 @@
-@use '../themes/light' as light;
-@use '../themes/dark' as dark;
-@use '../themes/hydra' as hydra;
-@use '../themes/solarized' as solarized;
-@use '../themes/dracula' as dracula;
-@use '../themes/neon' as neon;
-@use "sass:map";
-
-/* ---------------------------------------------------------
-   Mixin universal para aplicar variáveis de um tema
---------------------------------------------------------- */
-
-@mixin apply-theme($theme) {
-  background-color: map.get($theme, background);
-  color: map.get($theme, text);
-
-  a {
-    color: map.get($theme, link);
-
-    &:hover {
-      color: map.get($theme, link-hover);
-    }
-  }
+/* ============================================================
+   SISTEMA DE TEMAS — Starter Kit (2026)
+   ------------------------------------------------------------
+   Cada tema aplica variáveis CSS ao <html>.
+   O JavaScript define a classe: `${theme}-theme`
+   O layout usa var(--bg), var(--text-primary), var(--accent), etc.
+============================================================ */
+html.light-theme {
+  --bg: #ffffff;
+  --text-primary: #000000;
+  --accent: #0000ff;
+  --link: #0077cc;
+  --link-hover: #005fa3;
+   // → resolve para /css/img/themes/...
+  --bg-img: url('../img/themes/light-bg.jpg');
 }
 
-/* ---------------------------------------------------------
-   Classes de tema aplicáveis no HTML
---------------------------------------------------------- */
-
-.light-theme {
-  @include apply-theme(light.$theme);
+html.dark-theme {
+  --bg: #101010;
+  --text-primary: #ffffff;
+  --accent: #00ffea;
+  --link: #ffffff;
+  --link-hover: #00ffea;
+  --bg-img: url('../img/themes/dark-bg.jpg');
 }
 
-.dark-theme {
-  @include apply-theme(dark.$theme);
+html.hydra-theme {
+  --bg: #0a0a0a;
+  --text-primary: #00ff00;
+  --accent: #b6ffb6;
+  --link: #00ff00;
+  --link-hover: #b6ffb6;
+  --bg-img: url('../img/themes/hydra-bg.jpg');
 }
 
-.hydra-theme {
-  @include apply-theme(hydra.$theme);
+html.solarized-theme {
+  --bg: #fdf6e3;
+  --text-primary: #657b83;
+  --accent: #586e75;
+  --link: #586e75;
+  --link-hover: #000000;
+  --bg-img: url('../img/themes/solarized-bg.jpg');
 }
 
-.solarized-theme {
-  @include apply-theme(solarized.$theme);
+html.dracula-theme {
+  --bg: #282a36;
+  --text-primary: #f8f8f2;
+  --accent: #bd93f9;
+  --link: #bd93f9;
+  --link-hover: #ff79c6;
+  --bg-img: url('../img/themes/dracula-bg.jpg');
 }
 
-.dracula-theme {
-  @include apply-theme(dracula.$theme);
-}
-
-.neon-theme {
-  @include apply-theme(neon.$theme);
+html.neon-theme {
+  --bg: #0aff9d;
+  --text-primary: #000000;
+  --accent: #ffffff;
+  --link: #000000;
+  --link-hover: #ffffff;
+  --bg-img: url('../img/themes/neon-bg.jpg');
 }

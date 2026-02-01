@@ -1,82 +1,16 @@
 @charset "UTF-8";
 /* ============================
-   Configurações Globais
+   1. Variáveis e funções base
 ============================ */
 /* ============================
    Tipografia — Escala Modular
    ============================ */
-/* ---------------------------------------------------------
-   Mixin universal para aplicar variáveis de um tema
---------------------------------------------------------- */
-/* ---------------------------------------------------------
-   Classes de tema aplicáveis no HTML
---------------------------------------------------------- */
-.light-theme {
-  background-color: #ffffff;
-  color: #333333;
-}
-.light-theme a {
-  color: #000000;
-}
-.light-theme a:hover {
-  color: #555555;
-}
-
-.dark-theme {
-  background-color: #101010;
-  color: #ffffff;
-}
-.dark-theme a {
-  color: #ffffff;
-}
-.dark-theme a:hover {
-  color: #00ffea;
-}
-
-.hydra-theme {
-  background-color: #0a0a0a;
-  color: #00ff00;
-}
-.hydra-theme a {
-  color: #00ff00;
-}
-.hydra-theme a:hover {
-  color: #b6ffb6;
-}
-
-.solarized-theme {
-  background-color: #fdf6e3;
-  color: #657b83;
-}
-.solarized-theme a {
-  color: #586e75;
-}
-.solarized-theme a:hover {
-  color: #000000;
-}
-
-.dracula-theme {
-  background-color: #282a36;
-  color: #f8f8f2;
-}
-.dracula-theme a {
-  color: #bd93f9;
-}
-.dracula-theme a:hover {
-  color: #ff79c6;
-}
-
-.neon-theme {
-  background-color: #0aff9d;
-  color: #000000;
-}
-.neon-theme a {
-  color: #000000;
-}
-.neon-theme a:hover {
-  color: #ffffff;
-}
-
+/* ============================
+   2. Mixins e responsive
+============================ */
+/* ============================
+   3. Reset + Heal (juntos)
+============================ */
 /* ============================================
    _reset.scss — Hydra Reset (2026)
    Remove apenas o essencial.
@@ -145,20 +79,6 @@ em {
 
 /* 11. Tabelas sem bordas e espaçamentos inesperados */
 /* fim do _reset.scss */
-/* ============================
-   Hydra Healing Layer Overrides
-   (ativar/desativar tratamentos)
-============================ */
-/*
-  Estes valores controlam o comportamento do heal.scss.
-  Coloca-os ANTES do @use 'modules/heal' para que Sass
-  consiga sobrescrever os defaults do módulo.
-eample:
-$heal-box-model: false;     // desativa cura do box-model
-$heal-media-shift: false;   // desativa cura de CLS em imagens/vídeos
-$heal-forms: false;         // desativa uniformização de inputs/botões
-
-*/
 /* ============================================================
    heal.scss — Hydra Healing Layer (2026)
    ------------------------------------------------------------
@@ -239,115 +159,354 @@ a {
    Fim do Hydra Healing Layer
 ============================================================ */
 /* ============================
-   Configurações Globais
+   4. Tokens de design
 ============================ */
-/* -----------------------------------------
-   Base reutilizável para parágrafos da main
------------------------------------------- */
-body .main_paragraph2, body .main_paragraph1 {
-  font-weight: 700;
-  line-height: 1.6;
-}
-body .main_paragraph2:hover, body .main_paragraph1:hover {
-  color: #d3d3d3;
+/* ============================
+   5. Temas (ANTES do layout!)
+============================ */
+/* ============================================================
+   SISTEMA DE TEMAS — Starter Kit (2026)
+   ------------------------------------------------------------
+   Cada tema aplica variáveis CSS ao <html>.
+   O JavaScript define a classe: `${theme}-theme`
+   O layout usa var(--bg), var(--text-primary), var(--accent), etc.
+============================================================ */
+html.light-theme {
+  --bg: #ffffff;
+  --text-primary: #000000;
+  --accent: #0000ff;
+  --link: #0077cc;
+  --link-hover: #005fa3;
+  --bg-img: url('../img/themes/light-bg.jpg');
 }
 
-/* -----------------------------------------
-   Layout principal
------------------------------------------- */
-body {
-  background-color: #fff;
-  color: #333;
+html.dark-theme {
+  --bg: #101010;
+  --text-primary: #ffffff;
+  --accent: #00ffea;
+  --link: #ffffff;
+  --link-hover: #00ffea;
+  --bg-img: url('../img/themes/dark-bg.jpg');
 }
-body .main {
+
+html.hydra-theme {
+  --bg: #0a0a0a;
+  --text-primary: #00ff00;
+  --accent: #b6ffb6;
+  --link: #00ff00;
+  --link-hover: #b6ffb6;
+  --bg-img: url('../img/themes/hydra-bg.jpg');
+}
+
+html.solarized-theme {
+  --bg: #fdf6e3;
+  --text-primary: #657b83;
+  --accent: #586e75;
+  --link: #586e75;
+  --link-hover: #000000;
+  --bg-img: url('../img/themes/solarized-bg.jpg');
+}
+
+html.dracula-theme {
+  --bg: #282a36;
+  --text-primary: #f8f8f2;
+  --accent: #bd93f9;
+  --link: #bd93f9;
+  --link-hover: #ff79c6;
+  --bg-img: url('../img/themes/dracula-bg.jpg');
+}
+
+html.neon-theme {
+  --bg: #0aff9d;
+  --text-primary: #000000;
+  --accent: #ffffff;
+  --link: #000000;
+  --link-hover: #ffffff;
+  --bg-img: url('../img/themes/neon-bg.jpg');
+}
+
+/* ============================
+   6. Estrutura global
+============================ */
+/* ============================================================
+   LAYOUT GLOBAL — Starter Kit
+   ------------------------------------------------------------
+   Usa apenas variáveis CSS (var(--bg), var(--text-primary), etc.)
+   Compatível com todos os temas e com o theme.js
+============================================================ */
+/* ============================================================
+   LAYOUT GLOBAL — Starter Kit
+============================================================ */
+/* Evita flicker de tema */
+html {
+  visibility: hidden;
+}
+
+html.light-theme,
+html.dark-theme,
+html.hydra-theme,
+html.dracula-theme,
+html.neon-theme,
+html.solarized-theme {
+  visibility: visible;
+}
+
+/* Agora sim, o layout */
+body {
+  background-color: var(--bg);
+  color: var(--text-primary);
+  background-image: var(--bg-img);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family, "Inter", sans-serif);
+}
+
+/* LINKS */
+a {
+  color: var(--link);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--link-hover);
+}
+
+/* MAIN WRAPPER */
+.main {
   display: flex;
   justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  width: 80%;
+  align-items: flex-start;
+  width: min(90%, 1200px);
   margin: 0 auto;
   gap: 2rem;
-}
-@media (max-width: 1024px) {
-  body .main {
-    width: 90%;
-    gap: 1rem;
-  }
-}
-@media (max-width: 768px) {
-  body .main {
-    flex-direction: column;
-    width: 95%;
-    gap: 0.5rem;
-  }
-}
-body .main_paragraph2:hover {
-  color: #ff0;
-}
-@media (max-width: 1024px) {
-  body .main_paragraph2 {
-    max-width: 90%;
-    text-align: center;
-  }
-}
-@media (max-width: 768px) {
-  body .main_paragraph2 {
-    font-size: 0.875rem;
-    text-align: center;
-  }
+  padding: 2rem 0;
 }
 
-.nav {
-  background: transparent;
+/* PARÁGRAFOS — estilo base */
+.main_paragraph1,
+.main_paragraph2 {
+  font-weight: 600;
+  line-height: 1.6;
+  transition: color 0.2s ease;
 }
-.nav .menu-nav {
-  list-style: none;
-  display: flex;
-  gap: 1rem;
+
+/* Hover do parágrafo 1 — destaque forte */
+.main_paragraph1:hover {
+  color: var(--accent);
 }
-.nav .menu-nav .menu-nav_item.active .menu-nav_link {
-  color: cyan;
-  font-weight: bold;
+
+/* Parágrafo 2 herda tudo, mas tem hover diferente */
+.main_paragraph2:hover {
+  color: var(--link-hover);
 }
-.nav .menu-nav .menu-nav_item .menu-nav_link {
-  color: white;
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .main {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
+@media (max-width: 480px) {
+  .main {
+    width: 95%;
+    gap: 1rem;
+  }
+  .main_paragraph1,
+  .main_paragraph2 {
+    font-size: 0.9rem;
+    text-align: center;
+  }
+}
+/* ============================
+   7. Componentes
+============================ */
+/* ============================================================
+   LOGO SK — Círculo Dinâmico
+   ------------------------------------------------------------
+   - Círculo animado atrás do texto "SK"
+   - Animação suave e contínua
+   - Integração com temas (usa var(--accent))
+============================================================ */
+.logo-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
+  cursor: pointer;
+  /* Ajusta o tamanho total do logo */
+  width: 60px;
+  height: 60px;
+}
+
+/* CÍRCULO ANIMADO */
+.logo-circle {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--accent, #4fc3f7); /* fallback */
+  z-index: -1;
+  animation: logoPulse 3s ease-in-out infinite;
+}
+
+/* TEXTO SK */
+.logo-text {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-primary, #fff);
+  letter-spacing: 1px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+
+/* ANIMAÇÃO DO CÍRCULO */
+@keyframes logoPulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.18);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+}
+.site-header {
+  width: 100%;
+  padding: 0.4rem 2rem;
+  position: relative;
+  z-index: 10;
+}
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.site-header {
+  /* LOGO — FIXO NO CANTO ESQUERDO */
+}
+.site-header .logo-wrapper {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
   display: flex;
   align-items: center;
   gap: 0.5rem;
-}
-.nav .menu-nav .menu-nav_item .menu-nav_link:hover {
-  color: cyan;
-}
-
-.menu-btn {
-  display: none;
+  z-index: 20;
   cursor: pointer;
 }
-.menu-btn .menu-btn_burguer {
-  width: 30px;
-  height: 3px;
-  background: white;
-  transition: 0.3s ease;
+.site-header {
+  /* CÍRCULO SK — CONTROLADO PELO TEMA */
+}
+.site-header .logo-circle {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: var(--accent); /* muda conforme o tema */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--text-on-accent, #fff); /* opcional: texto adaptado ao tema */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+.site-header {
+  /* NAV — FIXA NO CANTO DIREITO */
+}
+.site-header .nav-wrapper {
+  position: fixed;
+  right: 2rem;
+  top: 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  z-index: 20;
+}
+.site-header .nav .menu-nav {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.site-header .nav {
+  /* DROPDOWN */
+}
+.site-header .nav .menu-nav_dropdown {
+  position: relative;
+}
+.site-header .nav .menu-nav_dropdown .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: var(--bg);
+  padding: 0.5rem 1rem;
+  list-style: none;
+  display: none;
+  z-index: 30;
+  border: 1px solid var(--border, rgba(255, 255, 255, 0.1));
+  border-radius: 4px;
+}
+.site-header .nav .menu-nav_dropdown .dropdown-menu li {
+  margin: 0.4rem 0;
+}
+.site-header .nav .menu-nav_dropdown .dropdown-menu li a {
+  color: var(--link);
+  text-decoration: none;
+}
+.site-header .nav .menu-nav_dropdown .dropdown-menu li a:hover {
+  color: var(--link-hover);
+}
+.site-header .nav .menu-nav_dropdown:hover .dropdown-menu {
+  display: block;
+}
+.site-header {
+  /* BURGER MENU */
+}
+.site-header .menu-btn {
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.site-header .menu-btn .menu-btn_burguer {
+  width: 24px;
+  height: 2px;
+  background: var(--link);
+  position: relative;
+  transition: 0.2s ease;
+}
+.site-header .menu-btn .menu-btn_burguer::before, .site-header .menu-btn .menu-btn_burguer::after {
+  content: "";
+  position: absolute;
+  width: 24px;
+  height: 2px;
+  background: var(--link);
+  left: 0;
+  transition: 0.2s ease;
+}
+.site-header .menu-btn .menu-btn_burguer::before {
+  top: -8px;
+}
+.site-header .menu-btn .menu-btn_burguer::after {
+  top: 8px;
 }
 
-@media (max-width: 768px) {
-  .menu-btn {
-    display: block;
-  }
-  .menu-nav {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    flex-direction: column;
-    background: #000;
-    width: 70%;
-    height: 100vh;
-    padding-top: 5rem;
-    transition: right 0.4s ease;
-  }
-  .menu-nav.open {
-    right: 0;
-  }
-}
+/* ============================
+   8. Animações
+============================ */
 /*# sourceMappingURL=main.css.map */

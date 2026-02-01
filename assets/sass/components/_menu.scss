@@ -1,64 +1,133 @@
-.nav {
-  background: transparent;
+.site-header {
+  width: 100%;
+  padding: 0.4rem 2rem;
+  position: relative;
+  z-index: 10;
 
-  .menu-nav {
-    list-style: none;
+  .container {
     display: flex;
-    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
 
-    .menu-nav_item {
-      &.active .menu-nav_link {
-        color: cyan;
-        font-weight: bold;
+  /* LOGO — FIXO NO CANTO ESQUERDO */
+  .logo-wrapper {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    z-index: 20;
+    cursor: pointer;
+  }
+
+  /* CÍRCULO SK — CONTROLADO PELO TEMA */
+  .logo-circle {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: var(--accent);   /* muda conforme o tema */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text-on-accent, #fff); /* opcional: texto adaptado ao tema */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+  }
+
+  /* NAV — FIXA NO CANTO DIREITO */
+    .nav-wrapper {
+    position: fixed;
+    right: 2rem;
+    top: 2.5rem; // ← tweakzto aqui
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    z-index: 20;
+  }
+
+
+  .nav {
+    .menu-nav {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* DROPDOWN */
+    .menu-nav_dropdown {
+      position: relative;
+
+      .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: var(--bg);
+        padding: 0.5rem 1rem;
+        list-style: none;
+        display: none;
+        z-index: 30;
+        border: 1px solid var(--border, rgba(255,255,255,0.1));
+        border-radius: 4px;
+
+        li {
+          margin: 0.4rem 0;
+
+          a {
+            color: var(--link);
+            text-decoration: none;
+
+            &:hover {
+              color: var(--link-hover);
+            }
+          }
+        }
       }
 
-      .menu-nav_link {
-        color: white;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        gap: .5rem;
-
-        &:hover {
-          color: cyan;
-        }
+      &:hover .dropdown-menu {
+        display: block;
       }
     }
   }
-}
 
-// HAMBURGUER
-.menu-btn {
-  display: none;
-  cursor: pointer;
-
-  .menu-btn_burguer {
-    width: 30px;
-    height: 3px;
-    background: white;
-    transition: .3s ease;
-  }
-}
-
-// MOBILE
-@media (max-width: 768px) {
+  /* BURGER MENU */
   .menu-btn {
-    display: block;
-  }
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
 
-  .menu-nav {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    flex-direction: column;
-    background: #000;
-    width: 70%;
-    height: 100vh;
-    padding-top: 5rem;
-    transition: right .4s ease;
-  }
+    .menu-btn_burguer {
+      width: 24px;
+      height: 2px;
+      background: var(--link);
+      position: relative;
+      transition: 0.2s ease;
 
-  .menu-nav.open {
-    right: 0;
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        width: 24px;
+        height: 2px;
+        background: var(--link);
+        left: 0;
+        transition: 0.2s ease;
+      }
+
+      &::before {
+        top: -8px;
+      }
+
+      &::after {
+        top: 8px;
+      }
+    }
   }
 }

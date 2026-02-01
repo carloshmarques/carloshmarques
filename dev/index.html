@@ -1,55 +1,64 @@
 <!DOCTYPE html>
 <html lang="pt">
   <head>
+    <script>
+      const savedTheme = localStorage.getItem('sk-theme') || 'light';
+      document.documentElement.className = savedTheme + '-theme';
+      
+    </script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CM | Home</title>
-    <link rel="icon" href="/assets/img/favicon.ico" type="image/x-icon">
+    <title>SK | Home</title>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com" type="image/png">
     <meta name="description" content="A portfolio template available on GitHub.">
+    <meta name="keywords" content="portfolio, template, github, web development">
+    <meta name="author" content="Carlos H. Marques">
+    <meta name="environment" content="development">
+    <script>
+      //- Passa o array de temas do Gulp para o cliente
+      window.availableThemes = ["light","dark","solarized","dracula","hydra","neon"];
+      
+    </script>
     <meta name="environment" content="development">
     <script>window.availableThemes = ["light","dark","solarized","dracula","hydra","neon"];
+      
+      
       
     </script>
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
   </head>
-  <body class="dark-theme">
+  <body>
     <header class="site-header">
-      <div class="container"><a class="logo" href="index.html"><img src="/assets/img/logo.svg" alt="CM Logo"><span class="sr-only">CM</span></a>
-        <h1 class="site-title">CM</h1>
-      </div>
-      <div class="menu-btn"><span class="menu-btn_burguer"></span></div>
-      <nav class="nav">
-        <ul class="menu-nav">
-          <li class="menu-nav_item active"><a class="menu-nav_link" href="index.html"><i class="fas fa-home"></i> Home</a></li>
-          <li class="menu-nav_item"><a class="menu-nav_link" href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
-          <li class="menu-nav_item"><a class="menu-nav_link" href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
-          <li class="menu-nav_item"><a class="menu-nav_link" href="projects.html"><i class="fas fa-code"></i> Projects</a></li>
-          <!-- DROPDOWN DE TEMAS-->
-          <li class="menu-nav_item menu-nav_dropdown"><a class="menu-nav_link" href="themes.html"><i class="fas fa-palette"></i> Themes</a>
-            <ul class="dropdown-menu">
-              <li><a href="themes.html?theme=light">light</a></li>
-              <li><a href="themes.html?theme=dark">dark</a></li>
-              <li><a href="themes.html?theme=solarized">solarized</a></li>
-              <li><a href="themes.html?theme=dracula">dracula</a></li>
-              <li><a href="themes.html?theme=hydra">hydra</a></li>
-              <li><a href="themes.html?theme=neon">neon</a></li>
+      <div class="container"><a class="logo-wrapper" href="index.html">
+          <div class="logo-circle"></div><span class="logo-text">SK</span></a>
+        <div class="nav-wrapper">
+          <nav class="nav">
+            <ul class="menu-nav">
+              <li class="menu-nav_item active"><a class="menu-nav_link" href="index.html"><i class="fas fa-home"></i> Home</a></li>
+              <li class="menu-nav_item"><a class="menu-nav_link" href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+              <li class="menu-nav_item"><a class="menu-nav_link" href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+              <li class="menu-nav_item"><a class="menu-nav_link" href="projects.html"><i class="fas fa-code"></i> Projects</a></li>
+              <li class="menu-nav_item menu-nav_dropdown"><a class="menu-nav_link" href="themes.html"><i class="fas fa-palette"></i> Themes</a>
+                <ul class="dropdown-menu">
+                  <li><a href="themes.html?theme=light">light</a></li>
+                  <li><a href="themes.html?theme=dark">dark</a></li>
+                  <li><a href="themes.html?theme=solarized">solarized</a></li>
+                  <li><a href="themes.html?theme=dracula">dracula</a></li>
+                  <li><a href="themes.html?theme=hydra">hydra</a></li>
+                  <li><a href="themes.html?theme=neon">neon</a></li>
+                </ul>
+              </li>
             </ul>
-          </li>
-          <!-- ADMIN OPCIONAL-->
-        </ul>
-      </nav>
-    </header>
-    <main class="site-main">
-      <div class="container">
-        <div class="main">
-          <p class="main_paragraph1">"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
-          <p class="main_paragraph2">"1914 translation by H. Rackham, But I m  p "For a tutorial on this topic, see: "(href="https://youtu.be/_a5j7KoflTs?t=1831") tutorialust explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?"</p>
+          </nav>
+          <button class="menu-btn"><span class="menu-btn_burguer"></span></button>
         </div>
       </div>
+    </header>
+    <main class="site-main">
     </main>
     <footer class="site-footer">
-      <p>© 2026 CM. All rights reserved.</p>
+      <p>© 2026 SK. All rights reserved.</p>
       <nav class="footer-nav">
         <ul class="footer-list">
           <li class="footer-item"><a class="footer-link" href="#privacy">Privacy Policy</a></li>

@@ -1,8 +1,15 @@
 .site-header {
   width: 100%;
+  
   padding: 0.4rem 2rem;
-  position: relative;
+  background: rgba(0, 0, 0, 0.6); 
+  backdrop-filter: blur(6px); 
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  right: 0;
   z-index: 10;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
   .container {
     display: flex;
@@ -12,16 +19,15 @@
   }
 
   /* LOGO — FIXO NO CANTO ESQUERDO */
-  .logo-wrapper {
-    position: fixed;
-    top: 1rem;
-    left: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    z-index: 20;
-    cursor: pointer;
-  }
+.logo-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 20;
+  cursor: pointer;
+}
+
 
   /* CÍRCULO SK — CONTROLADO PELO TEMA */
   .logo-circle {
@@ -40,15 +46,14 @@
 
   /* NAV — FIXA NO CANTO DIREITO */
     .nav-wrapper {
-    position: fixed;
-    right: 2rem;
-    top: 2.5rem; // ← tweakzto aqui
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    z-index: 20;
-  }
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  z-index: 20;
+}
 
+/* MENU NAV */
 
   .nav {
     .menu-nav {

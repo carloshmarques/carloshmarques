@@ -18,6 +18,7 @@
 
 /* ============================
    4. Tokens de design
+   (cores, espaçamentos, tipografia, sombras)
 ============================ */
 @use 'modules/colors';
 @use 'modules/spacing';
@@ -31,20 +32,24 @@
 
 /* ============================
    6. Estrutura global
+   (layout, config, botões)
 ============================ */
-@use 'modules/layout';
-
-@use 'modules/buttons';
+@use 'modules/config' as *;
+@use 'modules/layout' as *;
+@use 'modules/buttons' as *;
 
 /* ============================
    7. Componentes
+   (hero, features, footer, etc.)
 ============================ */
-@use 'components/logo';
-@use 'components/home';
-@use 'components/menu';
-@use 'components/about';
-@use 'components/projects';
-@use 'components/contact';
+// @use 'components/hero' as *;
+// @use 'components/features' as *;
+// @use 'components/footer' as *;
+// @use 'components/menu' as *;
+// @use 'components/logo' as *;
+// @use 'components/about' as *;
+// @use 'components/projects' as *;
+// @use 'components/contact' as *;
 
 /* ============================
    8. Animações

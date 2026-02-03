@@ -1,0 +1,15 @@
+.hero {
+  text-align: center;
+  padding: 2rem 0; // igual à .main
+  margin-top: 1rem; // separa do header sem exagero
+}
+
+.hero_description {
+  font-size: 1.2rem;
+  color: var(--accent);
+}
+
+.hero_description--last {
+  font-weight: bold;
+  color: var(--link-hover);
+}

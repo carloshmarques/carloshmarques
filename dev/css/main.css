@@ -5,6 +5,226 @@
 /* ============================
    Tipografia — Escala Modular
    ============================ */
+/* ============================================================
+   LOGO SK — Círculo Dinâmico
+   ------------------------------------------------------------
+   - Círculo animado atrás do texto "SK"
+   - Animação suave e contínua
+   - Integração com temas (usa var(--accent))
+============================================================ */
+.logo-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+  /* Ajusta o tamanho total do logo */
+  width: 60px;
+  height: 60px;
+}
+
+/* CÍRCULO ANIMADO */
+.logo-circle {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--accent, #4fc3f7); /* fallback */
+  z-index: -1;
+  animation: logoPulse 3s ease-in-out infinite;
+}
+
+/* TEXTO SK */
+.logo-text {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-primary, #fff);
+  letter-spacing: 1px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+
+/* ANIMAÇÃO DO CÍRCULO */
+@keyframes logoPulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.18);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+}
+.hero {
+  text-align: center;
+  padding: 2rem 0;
+  margin-top: 1rem;
+}
+
+.hero_description {
+  font-size: 1.2rem;
+  color: var(--accent);
+}
+
+.hero_description--last {
+  font-weight: bold;
+  color: var(--link-hover);
+}
+
+.site-footer {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: var(--text-primary);
+}
+
+.social-media {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+.social-media a {
+  color: var(--link);
+  transition: color 0.3s ease;
+}
+.social-media a:hover {
+  color: var(--accent);
+}
+
+.site-header {
+  width: 100%;
+  padding: 0.4rem 2rem;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(6px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.site-header {
+  /* LOGO — FIXO NO CANTO ESQUERDO */
+}
+.site-header .logo-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 20;
+  cursor: pointer;
+}
+.site-header {
+  /* CÍRCULO SK — CONTROLADO PELO TEMA */
+}
+.site-header .logo-circle {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: var(--accent); /* muda conforme o tema */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--text-on-accent, #fff); /* opcional: texto adaptado ao tema */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+.site-header {
+  /* NAV — FIXA NO CANTO DIREITO */
+}
+.site-header .nav-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  z-index: 20;
+}
+.site-header {
+  /* MENU NAV */
+}
+.site-header .nav .menu-nav {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.site-header .nav {
+  /* DROPDOWN */
+}
+.site-header .nav .menu-nav_dropdown {
+  position: relative;
+}
+.site-header .nav .menu-nav_dropdown .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: var(--bg);
+  padding: 0.5rem 1rem;
+  list-style: none;
+  display: none;
+  z-index: 30;
+  border: 1px solid var(--border, rgba(255, 255, 255, 0.1));
+  border-radius: 4px;
+}
+.site-header .nav .menu-nav_dropdown .dropdown-menu li {
+  margin: 0.4rem 0;
+}
+.site-header .nav .menu-nav_dropdown .dropdown-menu li a {
+  color: var(--link);
+  text-decoration: none;
+}
+.site-header .nav .menu-nav_dropdown .dropdown-menu li a:hover {
+  color: var(--link-hover);
+}
+.site-header .nav .menu-nav_dropdown:hover .dropdown-menu {
+  display: block;
+}
+.site-header {
+  /* BURGER MENU */
+}
+.site-header .menu-btn {
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.site-header .menu-btn .menu-btn_burguer {
+  width: 24px;
+  height: 2px;
+  background: var(--link);
+  position: relative;
+  transition: 0.2s ease;
+}
+.site-header .menu-btn .menu-btn_burguer::before, .site-header .menu-btn .menu-btn_burguer::after {
+  content: "";
+  position: absolute;
+  width: 24px;
+  height: 2px;
+  background: var(--link);
+  left: 0;
+  transition: 0.2s ease;
+}
+.site-header .menu-btn .menu-btn_burguer::before {
+  top: -8px;
+}
+.site-header .menu-btn .menu-btn_burguer::after {
+  top: 8px;
+}
+
 /* ============================
    2. Mixins e responsive
 ============================ */
@@ -160,6 +380,7 @@ a {
 ============================================================ */
 /* ============================
    4. Tokens de design
+   (cores, espaçamentos, tipografia, sombras)
 ============================ */
 /* ============================
    5. Temas (ANTES do layout!)
@@ -227,6 +448,7 @@ html.neon-theme {
 
 /* ============================
    6. Estrutura global
+   (layout, config, botões)
 ============================ */
 /* ============================================================
    LAYOUT GLOBAL — Starter Kit
@@ -325,187 +547,8 @@ a:hover {
 }
 /* ============================
    7. Componentes
+   (hero, features, footer, etc.)
 ============================ */
-/* ============================================================
-   LOGO SK — Círculo Dinâmico
-   ------------------------------------------------------------
-   - Círculo animado atrás do texto "SK"
-   - Animação suave e contínua
-   - Integração com temas (usa var(--accent))
-============================================================ */
-.logo-wrapper {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  cursor: pointer;
-  /* Ajusta o tamanho total do logo */
-  width: 60px;
-  height: 60px;
-}
-
-/* CÍRCULO ANIMADO */
-.logo-circle {
-  position: absolute;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: var(--accent, #4fc3f7); /* fallback */
-  z-index: -1;
-  animation: logoPulse 3s ease-in-out infinite;
-}
-
-/* TEXTO SK */
-.logo-text {
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: var(--text-primary, #fff);
-  letter-spacing: 1px;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
-}
-
-/* ANIMAÇÃO DO CÍRCULO */
-@keyframes logoPulse {
-  0% {
-    transform: scale(1);
-    opacity: 0.7;
-  }
-  50% {
-    transform: scale(1.18);
-    opacity: 0.4;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 0.7;
-  }
-}
-.site-header {
-  width: 100%;
-  padding: 0.4rem 2rem;
-  position: relative;
-  z-index: 10;
-}
-.site-header .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-}
-.site-header {
-  /* LOGO — FIXO NO CANTO ESQUERDO */
-}
-.site-header .logo-wrapper {
-  position: fixed;
-  top: 1rem;
-  left: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  z-index: 20;
-  cursor: pointer;
-}
-.site-header {
-  /* CÍRCULO SK — CONTROLADO PELO TEMA */
-}
-.site-header .logo-circle {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  background-color: var(--accent); /* muda conforme o tema */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  font-size: 1rem;
-  color: var(--text-on-accent, #fff); /* opcional: texto adaptado ao tema */
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
-}
-.site-header {
-  /* NAV — FIXA NO CANTO DIREITO */
-}
-.site-header .nav-wrapper {
-  position: fixed;
-  right: 2rem;
-  top: 2.5rem;
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  z-index: 20;
-}
-.site-header .nav .menu-nav {
-  display: flex;
-  gap: 1.5rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.site-header .nav {
-  /* DROPDOWN */
-}
-.site-header .nav .menu-nav_dropdown {
-  position: relative;
-}
-.site-header .nav .menu-nav_dropdown .dropdown-menu {
-  position: absolute;
-  top: 100%;
-  right: 0;
-  background: var(--bg);
-  padding: 0.5rem 1rem;
-  list-style: none;
-  display: none;
-  z-index: 30;
-  border: 1px solid var(--border, rgba(255, 255, 255, 0.1));
-  border-radius: 4px;
-}
-.site-header .nav .menu-nav_dropdown .dropdown-menu li {
-  margin: 0.4rem 0;
-}
-.site-header .nav .menu-nav_dropdown .dropdown-menu li a {
-  color: var(--link);
-  text-decoration: none;
-}
-.site-header .nav .menu-nav_dropdown .dropdown-menu li a:hover {
-  color: var(--link-hover);
-}
-.site-header .nav .menu-nav_dropdown:hover .dropdown-menu {
-  display: block;
-}
-.site-header {
-  /* BURGER MENU */
-}
-.site-header .menu-btn {
-  background: none;
-  border: none;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-}
-.site-header .menu-btn .menu-btn_burguer {
-  width: 24px;
-  height: 2px;
-  background: var(--link);
-  position: relative;
-  transition: 0.2s ease;
-}
-.site-header .menu-btn .menu-btn_burguer::before, .site-header .menu-btn .menu-btn_burguer::after {
-  content: "";
-  position: absolute;
-  width: 24px;
-  height: 2px;
-  background: var(--link);
-  left: 0;
-  transition: 0.2s ease;
-}
-.site-header .menu-btn .menu-btn_burguer::before {
-  top: -8px;
-}
-.site-header .menu-btn .menu-btn_burguer::after {
-  top: 8px;
-}
-
 /* ============================
    8. Animações
 ============================ */

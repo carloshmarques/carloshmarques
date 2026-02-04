@@ -99,8 +99,8 @@
 .site-header {
   width: 100%;
   padding: 0.4rem 2rem;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(6px);
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
   position: fixed;
   top: 0;
   left: 0;
@@ -115,7 +115,7 @@
   width: 100%;
 }
 .site-header {
-  /* LOGO — FIXO NO CANTO ESQUERDO */
+  /* LOGO */
 }
 .site-header .logo-wrapper {
   position: relative;
@@ -125,24 +125,21 @@
   z-index: 20;
   cursor: pointer;
 }
-.site-header {
-  /* CÍRCULO SK — CONTROLADO PELO TEMA */
-}
 .site-header .logo-circle {
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  background-color: var(--accent); /* muda conforme o tema */
+  background-color: var(--accent);
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 700;
   font-size: 1rem;
-  color: var(--text-on-accent, #fff); /* opcional: texto adaptado ao tema */
+  color: var(--text-on-accent, #fff);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
 }
 .site-header {
-  /* NAV — FIXA NO CANTO DIREITO */
+  /* NAV */
 }
 .site-header .nav-wrapper {
   position: relative;
@@ -151,15 +148,34 @@
   gap: 1.5rem;
   z-index: 20;
 }
-.site-header {
-  /* MENU NAV */
-}
 .site-header .nav .menu-nav {
   display: flex;
   gap: 1.5rem;
   list-style: none;
   margin: 0;
   padding: 0;
+}
+.site-header .nav {
+  /* ITEM */
+}
+.site-header .nav .menu-nav_item {
+  display: flex;
+  align-items: center;
+}
+.site-header .nav .menu-nav_link {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--link);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+.site-header .nav .menu-nav_link:hover {
+  color: var(--accent);
+}
+.site-header .nav .menu-nav_link i {
+  font-size: 1rem;
 }
 .site-header .nav {
   /* DROPDOWN */

@@ -1,12 +1,11 @@
 .site-header {
   width: 100%;
-  
   padding: 0.4rem 2rem;
-  background: rgba(0, 0, 0, 0.6); 
-  backdrop-filter: blur(6px); 
-  position: fixed; 
-  top: 0; 
-  left: 0; 
+  background: rgba(0, 0, 0, 0.75); // ← mais escuro 
+  backdrop-filter: blur(8px); // ← blur mais forte
+  position: fixed;
+  top: 0;
+  left: 0;
   right: 0;
   z-index: 10;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -18,42 +17,38 @@
     width: 100%;
   }
 
-  /* LOGO — FIXO NO CANTO ESQUERDO */
-.logo-wrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  z-index: 20;
-  cursor: pointer;
-}
+  /* LOGO */
+  .logo-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    z-index: 20;
+    cursor: pointer;
+  }
 
-
-  /* CÍRCULO SK — CONTROLADO PELO TEMA */
   .logo-circle {
     width: 42px;
     height: 42px;
     border-radius: 50%;
-    background-color: var(--accent);   /* muda conforme o tema */
+    background-color: var(--accent);
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: 700;
     font-size: 1rem;
-    color: var(--text-on-accent, #fff); /* opcional: texto adaptado ao tema */
+    color: var(--text-on-accent, #fff);
     box-shadow: 0 2px 6px rgba(0,0,0,0.25);
   }
 
-  /* NAV — FIXA NO CANTO DIREITO */
-    .nav-wrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  z-index: 20;
-}
-
-/* MENU NAV */
+  /* NAV */
+  .nav-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    z-index: 20;
+  }
 
   .nav {
     .menu-nav {
@@ -62,6 +57,30 @@
       list-style: none;
       margin: 0;
       padding: 0;
+    }
+
+    /* ITEM */
+    .menu-nav_item {
+      display: flex;
+      align-items: center;
+    }
+
+    .menu-nav_link {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--link);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: var(--accent);
+      }
+
+      i {
+        font-size: 1rem;
+      }
     }
 
     /* DROPDOWN */

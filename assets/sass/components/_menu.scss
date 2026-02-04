@@ -1,7 +1,8 @@
 .site-header {
   width: 100%;
   padding: 0.4rem 2rem;
-  background: rgba(0, 0, 0, 0.25); // ← mais escuro 
+  background: transparent;
+  backdrop-filter: saturate(180%) blur(4px);
   backdrop-filter: blur(8px); // ← blur mais forte
   position: fixed;
   top: 0;

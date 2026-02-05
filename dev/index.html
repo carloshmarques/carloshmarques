@@ -9,12 +9,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SK | Home</title>
-    <link rel="icon" href="https://cdn-icons-png.flaticon.com" type="image/png">
+    <link rel="icon" href="/img/icons/default/rocket-solid.svg" type="image/svg+xml">
     <meta name="description" content="A portfolio template available on GitHub.">
     <meta name="keywords" content="portfolio, template, github, web development">
     <meta name="author" content="Carlos H. Marques">
     <meta name="environment" content="development">
-    <script src="https://kit.fontawesome.com/6f7d0688fd.js" crossorigin="anonymous"></script>
     <script>
       //- Passa o array de temas do Gulp para o cliente
       window.availableThemes = ["light","dark","solarized","dracula","hydra","neon"];
@@ -36,13 +35,12 @@
         <div class="nav-wrapper">
           <nav class="nav">
             <ul class="menu-nav">
-              <li class="menu-nav_item active"><a class="menu-nav_link" href="index.html"><i class="fas fa-home"></i>Home</a></li>
-              <li class="menu-nav_item"><a class="menu-nav_link" href="features.html"><i class="fas fa-star"></i>Featured</a></li>
-              <li class="menu-nav_item"><a class="menu-nav_link" href="projects.html"><i class="fas fa-code"></i>Projects</a></li>
-              <li class="menu-nav_item"><a class="menu-nav_link" href="news.html"><i class="fas fa-newspaper"></i>News</a></li>
-              <li class="menu-nav_item"><a class="menu-nav_link" href="about.html"><i class="fas fa-info-circle"></i>About</a></li>
-              <li class="menu-nav_item"><a class="menu-nav_link" href="contact.html"><i class="fas fa-envelope"></i>Contact</a></li>
-              <li class="menu-nav_item menu-nav_dropdown"><a class="menu-nav_link" href="themes.html"><i class="fas fa-palette"></i>Themes</a>
+              <li class="menu-nav_item active"><a class="menu-nav_link" href="index.html"><img class="icon" src="/img/nav/house-solid.svg" alt="Home">Home</a></li>
+              <li class="menu-nav_item"><a class="menu-nav_link" href="about.html"><img class="icon" src="/img/nav/circle-info-solid.svg" alt="About">About</a></li>
+              <li class="menu-nav_item"><a class="menu-nav_link" href="features.html"><img class="icon" src="/img/nav/star-solid.svg" alt="Features">Features</a></li>
+              <li class="menu-nav_item"><a class="menu-nav_link" href="projects.html"><img class="icon" src="/img/nav/code-solid.svg" alt="Projects">Projects</a></li>
+              <li class="menu-nav_item"><a class="menu-nav_link" href="news.html"><img class="icon" src="/img/nav/newspaper-solid.svg" alt="News">News</a></li>
+              <li class="menu-nav_item menu-nav_dropdown"><a class="menu-nav_link" href="themes.html"><img class="icon" src="/img/nav/palette-solid.svg" alt="Themes">Themes</a>
                 <ul class="dropdown-menu">
                   <li><a href="themes.html?theme=light">light</a></li>
                   <li><a href="themes.html?theme=dark">dark</a></li>
@@ -52,6 +50,7 @@
                   <li><a href="themes.html?theme=neon">neon</a></li>
                 </ul>
               </li>
+              <li class="menu-nav_item"><a class="menu-nav_link" href="contact.html"><img class="icon" src="/img/nav/envelope-solid.svg" alt="Contact">Contact</a></li>
             </ul>
           </nav>
           <button class="menu-btn"><span class="menu-btn_burguer"></span></button>

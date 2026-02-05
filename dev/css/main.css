@@ -100,8 +100,8 @@
   width: 100%;
   padding: 0.4rem 2rem;
   background: transparent;
-  backdrop-filter: saturate(180%) blur(4px);
-  backdrop-filter: blur(8px);
+  background-clip: padding-box;
+  backdrop-filter: saturate(100%);
   position: fixed;
   top: 0;
   left: 0;
@@ -399,6 +399,37 @@ a {
    4. Tokens de design
    (cores, espaçamentos, tipografia, sombras)
 ============================ */
+/* ============================
+   Tokens de design: Ícones
+    (cores, espaçamentos, tipografia, sombras)
+============================ */
+.icon {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  vertical-align: middle;
+  transition: filter 0.2s ease;
+}
+
+/* Classe utilitária para componentes escuros */
+.dark-ui .icon {
+  filter: invert(1);
+}
+
+/* Tema claro → ícones pretos */
+.light-theme .icon {
+  filter: invert(0);
+}
+
+/* Temas escuros → ícones brancos */
+.dark-theme .icon,
+.neon-theme .icon,
+.dracula-theme .icon,
+.solarized-theme .icon,
+.hydra-theme .icon {
+  filter: invert(1);
+}
+
 /* ============================
    5. Temas (ANTES do layout!)
 ============================ */

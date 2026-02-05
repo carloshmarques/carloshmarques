@@ -25,6 +25,7 @@ const sourcemaps = require('gulp-sourcemaps');
 const rename = require('gulp-rename');
 const browserSync = require('browser-sync').create();
 
+
 /* Browserify (JS modular) */
 const browserify = require('browserify');
 const source = require('vinyl-source-stream');
@@ -119,10 +120,10 @@ function html() {
       locals: {
         env,
         title: 'SK',
-        description: 'A portfolio template available on GitHub.',
+        description: 'A starter kit for web development projects, featuring Sass, Pug, Browserify, and BrowserSync.',
         name: '',
         themes: ['light', 'dark', 'solarized', 'dracula', 'hydra', 'neon'],
-        tags: ['portfolio', 'template', 'github', 'web development'],
+        tags: ['starter-kit', 'template', 'html', 'web development', 'pug', 'sass', 'gulp', 'browserify', 'browser-sync '],
         theme: null,
         currentPage: 'home',
         siteName: 'SK',
@@ -192,16 +193,17 @@ function serve() {
 }
 
 /* ============================================================
-   (Opcional) Task: Clean
-   - Apaga a pasta de output antes de um build
+   Task: Clean (compatível com CJS + Node 22)
 ============================================================ */
-/*
-const del = require('del');
-function clean() {
-  return del([outputDir + '**', '!' + outputDir]);
+const del = require('delete');
+
+function clean(cb) {
+  del([outputDir + '**'], cb);
 }
-exports.clean = clean;
-*/
+
+
+
+
 
 /* ============================================================
    Tarefas públicas
@@ -211,22 +213,25 @@ exports.js = bundleJS;
 exports.html = html;
 exports.images = images;
 exports.serve = serve;
-
+exports.clean = clean;
 /* ============================================================
    Default (modo desenvolvimento)
 ============================================================ */
 exports.default = gulp.series(
+  clean,
   gulp.parallel(css, bundleJS, html, images),
   serve
 );
+
 
 /* ============================================================
    Build (produção, staging, deployment)
 ============================================================ */
 exports.build = gulp.series(
-  // clean, // ativa se quiseres limpeza automática
-  gulp.parallel(css, bundleJS, html, images)
+  clean,
+  gulp.parallel(css, bundleJS, html, images, serve)
 );
+
 /* ============================================================
    COMO USAR ESTE GULPFILE — Starter Kit 2026
    ------------------------------------------------------------

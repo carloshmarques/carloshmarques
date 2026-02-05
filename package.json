@@ -36,6 +36,8 @@
     "browser-sync": "^3.0.4",
     "browserify": "^17.0.1",
     "cssnano": "^7.1.2",
+    "del": "^8.0.1",
+    "delete": "^1.1.0",
     "gulp": "^5.0.1",
     "gulp-cached": "^1.1.1",
     "gulp-imagemin": "^6.2.0",

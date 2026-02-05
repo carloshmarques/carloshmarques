@@ -551,6 +551,7 @@ a:hover {
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  /* Fim da 1ª parte de tutorial que serve como base para o layout global, 'https://youtu.be/_a5j7KoflTs?t=1946'*/
   width: min(90%, 1200px);
   margin: 0 auto;
   gap: 2rem;

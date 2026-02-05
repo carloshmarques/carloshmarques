@@ -2,8 +2,8 @@
   width: 100%;
   padding: 0.4rem 2rem;
   background: transparent;
-  backdrop-filter: saturate(180%) blur(4px);
-  backdrop-filter: blur(8px); // ← blur mais forte
+  background-clip: padding-box;
+  backdrop-filter: saturate(100%); //blur(2px); //→ válido
   position: fixed;
   top: 0;
   left: 0;

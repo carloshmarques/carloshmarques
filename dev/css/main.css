@@ -62,9 +62,26 @@
   }
 }
 .hero {
+  padding-top: 7rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
-  padding: 2rem 0;
-  margin-top: 1rem;
+  min-height: calc(100vh - 7rem - 6rem);
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-bottom: 4rem;
+  /* IMPORTANTE: nada de gap aqui */
+}
+
+.hero .container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem; /* espaçamento correto entre título, texto e botão */
+}
+
+.hero .container .hero_btn {
+  align-self: center; /* alinhamento do botão */
 }
 
 .hero_description {
@@ -78,21 +95,47 @@
 }
 
 .site-footer {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(6px);
   color: var(--text-primary);
+  padding: 2rem 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  margin-top: auto;
 }
 
-.social-media {
+.social-icons {
   display: flex;
   justify-content: center;
-  gap: 1rem;
-  padding: 1rem 0;
+  gap: 1.2rem;
 }
-.social-media a {
+.social-icons a {
+  color: var(--link);
+  font-size: 1.4rem;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+.social-icons a:hover {
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.footer-nav .footer-list {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  padding: 0;
+}
+.footer-nav .footer-list .footer-item {
+  list-style: none;
+}
+.footer-nav .footer-list .footer-item .footer-link {
   color: var(--link);
   transition: color 0.3s ease;
 }
-.social-media a:hover {
+.footer-nav .footer-list .footer-item .footer-link:hover {
   color: var(--accent);
 }
 
@@ -240,6 +283,39 @@
 }
 .site-header .menu-btn .menu-btn_burguer::after {
   top: 8px;
+}
+
+/* ============================================================
+   Buttons Module — Starter Kit (2026)
+   ------------------------------------------------------------
+   .button          → base universal
+   .button-primary  → estilo principal (accent)
+   .hero_btn        → layout específico da hero (sem estilos)
+============================================================ */
+.button, .hero_btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.button-primary:hover, .hero_btn:hover {
+  background-color: var(--accent-hover);
+  color: var(--bg);
+  filter: brightness(1.15);
+  box-shadow: 0 0 10px var(--accent-hover);
+}
+
+/* Hero button — APENAS layout, sem duplicar estilos */
+.hero_btn {
+  align-self: center;
+  border-radius: 6px;
 }
 
 /* ============================
@@ -442,10 +518,11 @@ a {
 ============================================================ */
 html.light-theme {
   background-blend-mode: soft-light;
-  opacity: 0.98; /* Reduz ligeiramente o brilho agressivo */
+  opacity: 0.98;
   --bg: #ffffff;
   --text-primary: #000000;
   --accent: #0000ff;
+  --accent-hover: #4d4dff; /* azul elétrico */
   --link: #0077cc;
   --link-hover: #005fa3;
   --bg-img: url('../img/themes/light-bg.jpg');
@@ -455,6 +532,7 @@ html.dark-theme {
   --bg: #101010;
   --text-primary: #ffffff;
   --accent: #00ffea;
+  --accent-hover: #00fff6; /* ciano neon */
   --link: #ffffff;
   --link-hover: #00ffea;
   --bg-img: url('../img/themes/dark-bg.jpg');
@@ -464,6 +542,7 @@ html.hydra-theme {
   --bg: #0a0a0a;
   --text-primary: #00ff00;
   --accent: #b6ffb6;
+  --accent-hover: #00ff00; /* verde Hydra puro */
   --link: #00ff00;
   --link-hover: #b6ffb6;
   --bg-img: url('../img/themes/hydra-bg.jpg');
@@ -472,9 +551,10 @@ html.hydra-theme {
 html.solarized-theme {
   --bg: #fdf6e3;
   --text-primary: #657b83;
-  --accent: #d9a441; /* amarelo bourbon suave */
+  --accent: #d9a441;
+  --accent-hover: #ffb700; /* dourado vivo */
   --link: #586e75;
-  --link-hover: #b58900; /* hover claro e visível */
+  --link-hover: #b58900;
   --bg-img: url('../img/themes/solarized-bg.jpg');
 }
 
@@ -482,6 +562,7 @@ html.dracula-theme {
   --bg: #282a36;
   --text-primary: #f8f8f2;
   --accent: #bd93f9;
+  --accent-hover: #d6b3ff; /* roxo neon suave */
   --link: #bd93f9;
   --link-hover: #ff79c6;
   --bg-img: url('../img/themes/dracula-bg.jpg');
@@ -491,6 +572,7 @@ html.neon-theme {
   --bg: #0aff9d;
   --text-primary: #000000;
   --accent: #ffffff;
+  --accent-hover: #00ffea; /* ciano neon para contraste */
   --link: #000000;
   --link-hover: #ffffff;
   --bg-img: url('../img/themes/neon-bg.jpg');
@@ -523,8 +605,16 @@ html.solarized-theme {
   visibility: visible;
 }
 
+/* Evita blink da animação da hero */
+html:not(.ready) .hero_description--last {
+  opacity: 0 !important;
+}
+
 /* Agora sim, o layout */
 body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   background-color: var(--bg);
   color: var(--text-primary);
   background-image: var(--bg-img);
@@ -607,4 +697,26 @@ a:hover {
 /* ============================
    8. Animações
 ============================ */
+/* ============================================================
+   Hero Description Animations
+   ------------------------------------------------------------
+   Animação suave para a última linha da hero
+============================================================ */
+/* Estado inicial */
+.hero_description--last {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+/* Estado animado */
+.hero_description--last.animate {
+  animation: heroLastFade 0.8s ease forwards 0.3s;
+}
+
+@keyframes heroLastFade {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 /*# sourceMappingURL=main.css.map */

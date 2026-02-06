@@ -1,0 +1,22 @@
+/* ============================================================
+   Hero Description Animations
+   ------------------------------------------------------------
+   Animação suave para a última linha da hero
+============================================================ */
+/* Estado inicial */
+.hero_description--last {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+/* Estado animado */
+.hero_description--last.animate {
+  animation: heroLastFade 0.8s ease forwards 0.3s;
+}
+
+@keyframes heroLastFade {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

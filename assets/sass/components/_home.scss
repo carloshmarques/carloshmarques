@@ -1,7 +1,27 @@
 .hero {
+  padding-top: 7rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
-  padding: 2rem 0; // igual à .main
-  margin-top: 1rem; // separa do header sem exagero
+
+  min-height: calc(100vh - 7rem - 6rem);
+
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-bottom: 4rem;
+
+  /* IMPORTANTE: nada de gap aqui */
+}
+
+.hero .container { 
+  display: flex;
+  flex-direction: column;
+  gap: 2rem; /* espaçamento correto entre título, texto e botão */
+}
+
+.hero .container .hero_btn {
+  align-self: center; /* alinhamento do botão */
 }
 
 .hero_description {

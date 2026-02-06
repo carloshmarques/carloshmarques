@@ -5,60 +5,88 @@
    O JavaScript define a classe: `${theme}-theme`
    O layout usa var(--bg), var(--text-primary), var(--accent), etc.
 ============================================================ */
+
 html.light-theme {
-    background-blend-mode: soft-light;
-    opacity: 0.98; /* Reduz ligeiramente o brilho agressivo */
+  background-blend-mode: soft-light;
+  opacity: 0.98;
+
   --bg: #ffffff;
   --text-primary: #000000;
+
   --accent: #0000ff;
+  --accent-hover: #4d4dff; /* azul elétrico */
+
   --link: #0077cc;
   --link-hover: #005fa3;
-   // → resolve para /css/img/themes/...
+
   --bg-img: url('../img/themes/light-bg.jpg');
 }
 
 html.dark-theme {
   --bg: #101010;
   --text-primary: #ffffff;
-  --accent: #00ffea;
+
+ --accent: #00ffea;
+ --accent-hover: #00fff6; /* ciano neon */
+
+
   --link: #ffffff;
   --link-hover: #00ffea;
+
   --bg-img: url('../img/themes/dark-bg.jpg');
 }
 
 html.hydra-theme {
   --bg: #0a0a0a;
   --text-primary: #00ff00;
+
   --accent: #b6ffb6;
+  --accent-hover: #00ff00; /* verde Hydra puro */
+
+
   --link: #00ff00;
   --link-hover: #b6ffb6;
+
   --bg-img: url('../img/themes/hydra-bg.jpg');
 }
 
 html.solarized-theme {
   --bg: #fdf6e3;
   --text-primary: #657b83;
-  --accent: #d9a441; /* amarelo bourbon suave */
+
+  --accent: #d9a441;
+  --accent-hover: #ffb700; /* dourado vivo */
+
+
   --link: #586e75;
-  --link-hover: #b58900; /* hover claro e visível */
+  --link-hover: #b58900;
+
   --bg-img: url('../img/themes/solarized-bg.jpg');
 }
-
 
 html.dracula-theme {
   --bg: #282a36;
   --text-primary: #f8f8f2;
+
   --accent: #bd93f9;
+  --accent-hover: #d6b3ff; /* roxo neon suave */
+
   --link: #bd93f9;
   --link-hover: #ff79c6;
+
   --bg-img: url('../img/themes/dracula-bg.jpg');
 }
 
 html.neon-theme {
   --bg: #0aff9d;
   --text-primary: #000000;
+
   --accent: #ffffff;
+  --accent-hover: #00ffea; /* ciano neon para contraste */
+
+
   --link: #000000;
   --link-hover: #ffffff;
+
   --bg-img: url('../img/themes/neon-bg.jpg');
 }

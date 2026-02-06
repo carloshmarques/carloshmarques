@@ -120,7 +120,7 @@ function html() {
       locals: {
         env,
         title: 'SK',
-        description: 'A starter kit for web development projects, featuring Sass, Pug, Browserify, and BrowserSync.',
+        description: 'A starter kit for web development projects, fwith features like Sass, Pug, Browserify, and BrowserSync, among others!',
         name: '',
         themes: ['light', 'dark', 'solarized', 'dracula', 'hydra', 'neon'],
         tags: ['starter-kit', 'template', 'html', 'web development', 'pug', 'sass', 'gulp', 'browserify', 'browser-sync '],

@@ -6,6 +6,8 @@
    O layout usa var(--bg), var(--text-primary), var(--accent), etc.
 ============================================================ */
 html.light-theme {
+    background-blend-mode: soft-light;
+    opacity: 0.98; /* Reduz ligeiramente o brilho agressivo */
   --bg: #ffffff;
   --text-primary: #000000;
   --accent: #0000ff;
@@ -36,11 +38,12 @@ html.hydra-theme {
 html.solarized-theme {
   --bg: #fdf6e3;
   --text-primary: #657b83;
-  --accent: #586e75;
+  --accent: #d9a441; /* amarelo bourbon suave */
   --link: #586e75;
-  --link-hover: #000000;
+  --link-hover: #b58900; /* hover claro e visível */
   --bg-img: url('../img/themes/solarized-bg.jpg');
 }
+
 
 html.dracula-theme {
   --bg: #282a36;

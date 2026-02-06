@@ -6,6 +6,8 @@ import { Theme } from "./theme.js";
 import { log } from "./modules/logger.js";
 
 document.addEventListener("DOMContentLoaded", () => {
+  document.documentElement.classList.add("ready");
+
   log.info("Sistema iniciado");
 
   Core.init();

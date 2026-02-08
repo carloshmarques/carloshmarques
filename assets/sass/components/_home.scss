@@ -1,16 +1,14 @@
 .hero {
   padding-top: 7rem;
+
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-
-  min-height: calc(100vh - 7rem - 6rem);
-
+  min-height: 62.7vh;
   padding-left: 2rem;
   padding-right: 2rem;
-  padding-bottom: 4rem;
-
+  padding-bottom: 1.5rem;
   /* IMPORTANTE: nada de gap aqui */
 }
 
@@ -33,3 +31,30 @@
   font-weight: bold;
   color: var(--link-hover);
 }
+#home {
+  display: none;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.home-section .main {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* duas colunas iguais */
+  gap: 2rem; /* espaço entre as colunas */
+}
+
+.home-section p {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+}
+
+
+
+#home.visible {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+

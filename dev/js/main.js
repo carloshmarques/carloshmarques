@@ -11,6 +11,46 @@ document.addEventListener("DOMContentLoaded", function () {
   _core.Core.init();
   _theme.Theme.init();
   (0, _navigation.initNavigation)();
+
+  // ---------------------------------------------------------
+  // Função de scroll suave com easing
+  // ---------------------------------------------------------
+  var smoothScrollTo = function smoothScrollTo(targetY) {
+    var duration = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 900;
+    var startY = window.scrollY;
+    var diff = targetY - startY;
+    var start;
+    var _step = function step(timestamp) {
+      if (!start) start = timestamp;
+      var time = timestamp - start;
+      var percent = Math.min(time / duration, 1);
+
+      // Ease-out cubic
+      var easing = 1 - Math.pow(1 - percent, 3);
+      window.scrollTo(0, startY + diff * easing);
+      if (time < duration) requestAnimationFrame(_step);
+    };
+    requestAnimationFrame(_step);
+  };
+
+  // ---------------------------------------------------------
+  // Smooth Reveal da section-home
+  // ---------------------------------------------------------
+  var exploreBtn = document.querySelector(".hero_btn");
+  var homeSection = document.querySelector("#home");
+  if (exploreBtn && homeSection) {
+    exploreBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+
+      // Mostrar a secção
+      homeSection.classList.add("visible");
+      exploreBtn.classList.add("hidden");
+
+      // Scroll suave
+      var targetY = homeSection.getBoundingClientRect().top + window.scrollY;
+      smoothScrollTo(targetY, 2000);
+    });
+  }
   _logger.log.info("Document ready for code injection");
 });
 

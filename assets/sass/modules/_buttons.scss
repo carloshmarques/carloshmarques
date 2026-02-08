@@ -32,5 +32,13 @@
   @extend .button; 
   @extend .button-primary; 
   align-self: center;
-  border-radius: 6px; // opcional
+  border-radius: 6px;
+  /* Transição correta */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.hero_btn.hidden { 
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
 }

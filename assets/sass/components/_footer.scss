@@ -1,53 +1,174 @@
-.site-footer {
-  background-color: rgba(0, 0, 0, 0.75);
-  backdrop-filter: blur(6px);
-  color: var(--text-primary);
-  padding: 2rem 1rem;
-  text-align: center;
+/* ============================================================
+   Footer — Starter Kit (2026)
+============================================================ */
 
+.site-footer {
+  width: 100%;
+  padding: 3rem 4rem; /* igual à section-home */
+}
+
+/* GRID PRINCIPAL */
+.footer-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  max-width: 1200px; /* ou 1300px, depende do teu layout */
+  margin: auto;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* ============================================================
+   COLUNA 1 — Branding + tagline + social icons
+============================================================ */
+
+.footer-col {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 1.2rem;
-
-  margin-top: auto; // cola ao fundo sem ser fixed
+  gap: 1.5rem;
 }
 
-.social-icons {
+.footer-text-block {
+  margin-left: auto;
   display: flex;
-  justify-content: center;
-  gap: 1.2rem;
-
-  a {
-    color: var(--link);
-    font-size: 1.4rem;
-    transition: color 0.3s ease, transform 0.2s ease;
-
-    &:hover {
-      color: var(--accent);
-      transform: translateY(-2px);
-    }
-  }
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+  max-width: 260px;
 }
 
-.footer-nav {
-  .footer-list {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    padding: 0;
-
-    .footer-item {
-      list-style: none;
-
-      .footer-link {
-        color: var(--link);
-        transition: color 0.3s ease;
-
-        &:hover {
-          color: var(--accent);
-        }
-      }
-    }
-  }
+.footer-brand-name {
+  font-weight: 700;
+  font-size: 1.1rem;
 }
+
+.footer-tagline-row {
+  display: flex;
+  align-items: center;
+  margin-top: 0.5rem;
+  gap: 0.6rem;
+}
+
+.footer-tagline {
+  font-size: 0.9rem;
+  opacity: 0.7;
+  white-space: nowrap;
+}
+
+/* Rocket */
+.footer-rocket {
+  width: 24px;
+  height: 24px;
+  background: url("/img/icons/default/rocket-solid.svg") no-repeat center / contain;
+  transition: transform 0.4s ease, filter 0.4s ease;
+  cursor: pointer;
+}
+
+.footer-rocket:hover {
+  transform: translate(6px, -6px) rotate(12deg);
+  filter: drop-shadow(0 0 8px var(--accent));
+}
+
+/* Social icons */
+.footer-social-icons {
+  display: flex;
+  gap: 12px;
+  margin-top: 0.75rem;
+}
+
+.footer-social-icons a i {
+  font-size: 1.1rem;
+  color: #fff;
+  opacity: 0.7;
+  transition: 0.3s ease;
+}
+
+.footer-social-icons a i:hover {
+  opacity: 1;
+  transform: translateY(-3px);
+  color: var(--accent);
+}
+
+/* ============================================================
+   RESTO DAS COLUNAS
+============================================================ */
+
+.footer-heading {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.footer-address {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  opacity: 0.7;
+}
+
+.footer-list {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-list .footer-link {
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+  font-size: 0.9rem;
+  display: block;
+  margin-bottom: 0.6rem;
+  transition: color 0.3s ease;
+}
+
+.footer-list .footer-link:hover {
+  color: var(--accent);
+}
+
+/* Créditos */
+.footer-credits {
+  font-size: 0.85rem;
+  opacity: 0.8;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+
+  /* CORREÇÃO DO TEU PROBLEMA */
+  margin-top: 0.1rem; /* agora fica alinhado com as outras colunas */
+  
+}
+
+.footer-credits a {
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-credits a:hover {
+  color: var(--accent);
+}
+
+.section-home {
+  padding: 4rem 4rem;
+}
+
+/* ------------------------------------------------------------
+   NOTA — Manter alinhamento vertical entre colunas
+   ------------------------------------------------------------
+   O alinhamento das colunas depende do conteúdo interno.
+   Se alguém alterar:
+     - tamanho da morada (coluna 2)
+     - número de links (colunas 3 e 4)
+     - número de social icons (coluna 1)
+     - créditos (coluna 5)
+
+   e as colunas ficarem com alturas diferentes, NÃO alterar o grid.
+
+   Ajustar apenas dentro da coluna afetada:
+     - aumentar/reduzir margin-top ou margin-bottom
+     - ajustar o gap interno da .footer-col
+     - evitar definir height fixa
+     - manter consistência no número de linhas de texto
+
+   Dica prática:
+   Se os social icons subirem/descerem quando o texto muda,
+   ajustar apenas o margin-top da .footer-social-icons.
+------------------------------------------------------------ */

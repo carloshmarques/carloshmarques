@@ -67,10 +67,10 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  min-height: calc(100vh - 7rem - 6rem);
+  min-height: 62.7vh;
   padding-left: 2rem;
   padding-right: 2rem;
-  padding-bottom: 4rem;
+  padding-bottom: 1.5rem;
   /* IMPORTANTE: nada de gap aqui */
 }
 
@@ -94,51 +94,200 @@
   color: var(--link-hover);
 }
 
+#home {
+  display: none;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.home-section .main {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* duas colunas iguais */
+  gap: 2rem; /* espaço entre as colunas */
+}
+
+.home-section p {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+}
+
+#home.visible {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================================
+   Footer — Starter Kit (2026)
+============================================================ */
 .site-footer {
-  background-color: rgba(0, 0, 0, 0.75);
-  backdrop-filter: blur(6px);
-  color: var(--text-primary);
-  padding: 2rem 1rem;
-  text-align: center;
+  width: 100%;
+  padding: 3rem 4rem; /* igual à section-home */
+}
+
+/* GRID PRINCIPAL */
+.footer-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  max-width: 1200px; /* ou 1300px, depende do teu layout */
+  margin: auto;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* ============================================================
+   COLUNA 1 — Branding + tagline + social icons
+============================================================ */
+.footer-col {
   display: flex;
   flex-direction: column;
+  gap: 1.5rem;
+}
+
+.footer-text-block {
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+  max-width: 260px;
+}
+
+.footer-brand-name {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.footer-tagline-row {
+  display: flex;
   align-items: center;
-  gap: 1.2rem;
-  margin-top: auto;
+  margin-top: 0.5rem;
+  gap: 0.6rem;
 }
 
-.social-icons {
+.footer-tagline {
+  font-size: 0.9rem;
+  opacity: 0.7;
+  white-space: nowrap;
+}
+
+/* Rocket */
+.footer-rocket {
+  width: 24px;
+  height: 24px;
+  background: url("/img/icons/default/rocket-solid.svg") no-repeat center/contain;
+  transition: transform 0.4s ease, filter 0.4s ease;
+  cursor: pointer;
+}
+
+.footer-rocket:hover {
+  transform: translate(6px, -6px) rotate(12deg);
+  filter: drop-shadow(0 0 8px var(--accent));
+}
+
+/* Social icons */
+.footer-social-icons {
   display: flex;
-  justify-content: center;
-  gap: 1.2rem;
+  gap: 12px;
+  margin-top: 0.75rem;
 }
-.social-icons a {
-  color: var(--link);
-  font-size: 1.4rem;
-  transition: color 0.3s ease, transform 0.2s ease;
+
+.footer-social-icons a i {
+  font-size: 1.1rem;
+  color: #fff;
+  opacity: 0.7;
+  transition: 0.3s ease;
 }
-.social-icons a:hover {
+
+.footer-social-icons a i:hover {
+  opacity: 1;
+  transform: translateY(-3px);
   color: var(--accent);
-  transform: translateY(-2px);
 }
 
-.footer-nav .footer-list {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
+/* ============================================================
+   RESTO DAS COLUNAS
+============================================================ */
+.footer-heading {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.footer-address {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  opacity: 0.7;
+}
+
+.footer-list {
+  list-style: none;
   padding: 0;
 }
-.footer-nav .footer-list .footer-item {
-  list-style: none;
-}
-.footer-nav .footer-list .footer-item .footer-link {
-  color: var(--link);
+
+.footer-list .footer-link {
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  font-size: 0.9rem;
+  display: block;
+  margin-bottom: 0.6rem;
   transition: color 0.3s ease;
 }
-.footer-nav .footer-list .footer-item .footer-link:hover {
+
+.footer-list .footer-link:hover {
   color: var(--accent);
 }
 
+/* Créditos */
+.footer-credits {
+  font-size: 0.85rem;
+  opacity: 0.8;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  /* CORREÇÃO DO TEU PROBLEMA */
+  margin-top: 0.1rem; /* agora fica alinhado com as outras colunas */
+}
+
+.footer-credits a {
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-credits a:hover {
+  color: var(--accent);
+}
+
+.section-home {
+  padding: 4rem 4rem;
+}
+
+/* ------------------------------------------------------------
+   NOTA — Manter alinhamento vertical entre colunas
+   ------------------------------------------------------------
+   O alinhamento das colunas depende do conteúdo interno.
+   Se alguém alterar:
+     - tamanho da morada (coluna 2)
+     - número de links (colunas 3 e 4)
+     - número de social icons (coluna 1)
+     - créditos (coluna 5)
+
+   e as colunas ficarem com alturas diferentes, NÃO alterar o grid.
+
+   Ajustar apenas dentro da coluna afetada:
+     - aumentar/reduzir margin-top ou margin-bottom
+     - ajustar o gap interno da .footer-col
+     - evitar definir height fixa
+     - manter consistência no número de linhas de texto
+
+   Dica prática:
+   Se os social icons subirem/descerem quando o texto muda,
+   ajustar apenas o margin-top da .footer-social-icons.
+------------------------------------------------------------ */
 .site-header {
   width: 100%;
   padding: 0.4rem 2rem;
@@ -316,6 +465,14 @@
 .hero_btn {
   align-self: center;
   border-radius: 6px;
+  /* Transição correta */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.hero_btn.hidden {
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
 }
 
 /* ============================

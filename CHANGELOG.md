@@ -564,3 +564,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Ritual
 - Workflow executado com dignidade.
 - Fluxo de bytes analisado e transformado.
+
+## [0.2.28] - 2026-02-09
+
+### Added
+- stats.json regenerado automaticamente.
+- language_stats.png atualizado com base nos dados reais.
+- README sincronizado entre texto e imagem.
+
+### Changed
+- Ajustes estéticos no painel cerimonial.
+- Altura uniforme dos gráficos para harmonia visual.
+
+### Ritual
+- Workflow executado com dignidade.
+- Fluxo de bytes analisado e transformado.

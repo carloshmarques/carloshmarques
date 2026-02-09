@@ -1,92 +1,148 @@
 /* ============================================================
    SISTEMA DE TEMAS — Starter Kit (2026)
-   ------------------------------------------------------------
-   Cada tema aplica variáveis CSS ao <html>.
-   O JavaScript define a classe: `${theme}-theme`
-   O layout usa var(--bg), var(--text-primary), var(--accent), etc.
 ============================================================ */
 
-html.light-theme {
-  background-blend-mode: soft-light;
-  opacity: 0.98;
-
+:root {
   --bg: #ffffff;
   --text-primary: #000000;
+  --text-heading: #000000;
 
   --accent: #0000ff;
-  --accent-hover: #4d4dff; /* azul elétrico */
+  --accent-hover: #0000cc;
+  --accent-rgb: 0, 0, 255;
 
-  --link: #0077cc;
-  --link-hover: #005fa3;
+  --bg-img: none;
+
+  /* Texto em cima do accent */
+  --text-on-accent: #ffffff;
+
+  /* Links globais (header, burger, dropdown) */
+  --link: #333;
+  --link-hover: #000;
+}
+
+/* LIGHT THEME */
+html.light-theme {
+  --bg: #ffffff;
+  --text-primary: #1a1a1a;
+  --text-heading: #000000;
+
+  --accent: #0055ff;
+  --accent-hover: #0044cc;
+  --accent-rgb: 0, 85, 255;
+
+  --text-on-accent: #ffffff;
+
+  --link: #1a1a1a;
+  --link-hover: #0055ff;
 
   --bg-img: url('../img/themes/light-bg.jpg');
 }
 
+/* DARK THEME */
 html.dark-theme {
-  --bg: #101010;
-  --text-primary: #ffffff;
+  --bg: #0d0d0d;
+  --text-primary: #e0e0e0;
+  --text-heading: #ffffff;
 
- --accent: #00ffea;
- --accent-hover: #00fff6; /* ciano neon */
+  --accent: #00ffea;
+  --accent-hover: #00d1c1;
+  --accent-rgb: 0, 255, 234;
 
+  --text-on-accent: #000000;
 
-  --link: #ffffff;
+  --link: #e0e0e0;
   --link-hover: #00ffea;
 
   --bg-img: url('../img/themes/dark-bg.jpg');
 }
 
+/* HYDRA THEME */
 html.hydra-theme {
-  --bg: #0a0a0a;
-  --text-primary: #00ff00;
+  --bg: #050505;
+  --text-primary: #00ff41;
+  --text-heading: #d1ffd1;
 
-  --accent: #b6ffb6;
-  --accent-hover: #00ff00; /* verde Hydra puro */
+  --accent: #00ff41;
+  --accent-hover: #00cc33;
+  --accent-rgb: 0, 255, 65;
 
+  --text-on-accent: #000000;
 
-  --link: #00ff00;
-  --link-hover: #b6ffb6;
+  --link: #00ff41;
+  --link-hover: #00cc33;
 
   --bg-img: url('../img/themes/hydra-bg.jpg');
 }
 
+/* SOLARIZED THEME */
 html.solarized-theme {
   --bg: #fdf6e3;
   --text-primary: #657b83;
+  --text-heading: #073642;
 
-  --accent: #d9a441;
-  --accent-hover: #ffb700; /* dourado vivo */
+  --accent: #b58900;
+  --accent-hover: #856404;
+  --accent-rgb: 181, 137, 0;
 
+  --text-on-accent: #ffffff;
 
-  --link: #586e75;
+  --link: #657b83;
   --link-hover: #b58900;
 
   --bg-img: url('../img/themes/solarized-bg.jpg');
 }
 
+/* DRACULA THEME */
 html.dracula-theme {
   --bg: #282a36;
   --text-primary: #f8f8f2;
+  --text-heading: #ffffff;
 
   --accent: #bd93f9;
-  --accent-hover: #d6b3ff; /* roxo neon suave */
+  --accent-hover: #a371f7;
+  --accent-rgb: 189, 147, 249;
 
-  --link: #bd93f9;
-  --link-hover: #ff79c6;
+  --text-on-accent: #000000;
+
+  --link: #f8f8f2;
+  --link-hover: #bd93f9;
 
   --bg-img: url('../img/themes/dracula-bg.jpg');
 }
 
+/* NEON THEME */
 html.neon-theme {
-  --bg: #0aff9d;
-  --text-primary: #000000;
+  --bg: #000c08;
+  --text-primary: #0aff9d;
+  --text-heading: #ffffff;
 
-  --accent: #ffffff;
-  --accent-hover: #00ffea; /* ciano neon para contraste */
+  --accent: #0aff9d;
+  --accent-hover: #0ccf87;
+  --accent-rgb: 10, 255, 157;
 
+  --text-on-accent: #000000;
 
-  --link: #000000;
-  --link-hover: #ffffff;
+  --link: #0aff9d;
+  --link-hover: #0ccf87;
 
   --bg-img: url('../img/themes/neon-bg.jpg');
+}
+
+/* ============================================================
+   BACKGROUND GLOBAL + FOOTER
+============================================================ */
+
+html {
+  background-color: var(--bg);
+  background-image: var(--bg-img);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  transition: background 0.5s ease-in-out;
+}
+
+footer {
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
 }

@@ -1,44 +1,95 @@
 /* ============================================================
    Buttons Module — Starter Kit (2026)
    ------------------------------------------------------------
-   .button          → base universal
-   .button-primary  → estilo principal (accent)
-   .hero_btn        → layout específico da hero (sem estilos)
+   Focado no fundo (background) e no brilho pulsante.
 ============================================================ */
+button.menu-btn {
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 
-.button {
+  .menu-btn_burguer {
+    width: 24px;
+    height: 2px;
+    background: var(--link);
+    position: relative;
+    transition: 0.2s ease;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      width: 24px;
+      height: 2px;
+      background: var(--link);
+      left: 0;
+      transition: 0.2s ease;
+    }
+
+    &::before {
+      top: -8px;
+    }
+
+    &::after {
+      top: 8px;
+    }
+  }
+}
+.button, .hero_btn, .hero_explore {
   display: inline-block;
-  padding: 0.75rem 1.5rem;
+  padding: 0.8rem 2.2rem;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 700;
   text-align: center;
   text-decoration: none;
   border: none;
-  border-radius: 4px;
+  border-radius: 50px;
   cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  
+  /* Cor base vinda do teu theme.js */
+  background-color: var(--accent);
+  color: #ffffff; /* Letra sempre branca para contraste */
+  
+  /* Transição suave para o HOVER do fundo */
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  
+  /* Pulsação de fundo (8s) - Sincronizada com o Blob */
+  animation: button-glow 8s infinite ease-in-out;
 }
 
-.button-primary:hover {
-  background-color: var(--accent-hover);
-  color: var(--bg);
-  filter: brightness(1.15);
-  box-shadow: 0 0 10px var(--accent-hover);
+/* O HOVER: Mudança de fundo e sombra */
+.button:hover, .hero_btn:hover, .hero_explore:hover {
+  /* Muda para a cor de destaque do tema */
+  background-color: var(--accent-hover); 
+  
+  /* Levanta ligeiramente o botão */
+  transform: translateY(-3px);
+  
+  /* Brilho fixo e forte no hover */
+  box-shadow: 0 8px 20px rgba(var(--accent-rgb), 0.6);
+  
+  /* Para a animação de pulsação para focar na cor de hover */
+  animation-play-state: paused; 
 }
 
-
-/* Hero button — APENAS layout, sem duplicar estilos */
-.hero_btn { 
-  @extend .button; 
-  @extend .button-primary; 
-  align-self: center;
-  border-radius: 6px;
-  /* Transição correta */
-  transition: opacity 0.3s ease, transform 0.3s ease;
+/* Animação que faz o fundo "respirar" */
+@keyframes button-glow {
+  0%, 100% { 
+    box-shadow: 0 0 10px rgba(var(--accent-rgb), 0.2);
+    filter: brightness(1);
+  }
+  50% { 
+    box-shadow: 0 0 25px rgba(var(--accent-rgb), 0.5); 
+    filter: brightness(1.15); /* Faz o fundo brilhar no meio do ciclo */
+  }
 }
 
+/* Caso queiras esconder o botão na animação inicial da hero */
 .hero_btn.hidden { 
   opacity: 0;
-  transform: translateY(-10px);
+  transform: translateY(10px);
   pointer-events: none;
 }
+

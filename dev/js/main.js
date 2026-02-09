@@ -175,27 +175,16 @@ var Theme = exports.Theme = {
   },
   apply: function apply(theme) {
     var _document$documentEle;
-    // Lista de temas disponíveis
     var themes = ["light-theme", "dark-theme", "solarized-theme", "dracula-theme", "hydra-theme", "neon-theme"];
-
-    // Remover temas antigos
     (_document$documentEle = document.documentElement.classList).remove.apply(_document$documentEle, themes);
-
-    // Aplicar novo tema
     document.documentElement.classList.add("".concat(theme, "-theme"));
-
-    // Guardar no localStorage
     localStorage.setItem(this.key, theme);
-
-    // Reiniciar animação da hero
     var el = document.querySelector(".hero_description--last");
     if (el) {
       el.classList.remove("animate");
       void el.offsetWidth; // força reflow
       el.classList.add("animate");
     }
-
-    // Emitir evento
     _events.Events.emit("themeChanged", theme);
     _logger.log.info("Tema aplicado: ".concat(theme));
   },

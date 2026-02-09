@@ -1,15 +1,28 @@
 .site-header {
   width: 100%;
   padding: 0.4rem 2rem;
-  background: transparent;
+  
+  /* Usa a variável de fundo do tema com 5% de opacidade para simular o footer */
+  background: rgba(var(--accent-rgb), 0.05); 
+  
   background-clip: padding-box;
-  backdrop-filter: saturate(100%); //blur(2px); //→ válido
+  
+  /* Mantido o teu blur original */
+  backdrop-filter: saturate(100%) blur(2px);
+  -webkit-backdrop-filter: saturate(100%) blur(2px); 
+
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 10;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
+  /* Sombra dinâmica baseada no tema */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  
+  /* Garante que a transição de cor acompanha a troca de tema no JS */
+  transition: background 0.3s ease;
+
 
   .container {
     display: flex;
@@ -28,19 +41,23 @@
     cursor: pointer;
   }
 
+
+
+/* Círculo + SK sempre juntos e acima de tudo */ 
   .logo-circle {
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    background-color: var(--accent);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 1rem;
-    color: var(--text-on-accent, #fff);
-    box-shadow: 0 2px 6px rgba(0,0,0,0.25);
-  }
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background-color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--text-on-accent);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+    }
+
 
   /* NAV */
   .nav-wrapper {
@@ -127,7 +144,7 @@
     display: flex;
     align-items: center;
     cursor: pointer;
-
+   // https://youtu.be/_a5j7KoflTs?t=3540
     .menu-btn_burguer {
       width: 24px;
       height: 2px;

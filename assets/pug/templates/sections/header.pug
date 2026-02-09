@@ -32,6 +32,11 @@ header.site-header
               img.icon(src="/img/nav/newspaper-solid.svg" alt="News")
               | News
 
+          li.menu-nav_item(class=currentPage === 'contact' ? 'active' : '')
+            a.menu-nav_link(href="contact.html")
+              img.icon(src="/img/nav/envelope-solid.svg" alt="Contact")
+              | Contact
+
           li.menu-nav_item.menu-nav_dropdown(class=currentPage === 'themes' ? 'active' : '')
             a.menu-nav_link(href="themes.html")
               img.icon(src="/img/nav/palette-solid.svg" alt="Themes")
@@ -42,10 +47,7 @@ header.site-header
                 li
                   a(href=`themes.html?theme=${themeName}`) #{themeName}
 
-          li.menu-nav_item(class=currentPage === 'contact' ? 'active' : '')
-            a.menu-nav_link(href="contact.html")
-              img.icon(src="/img/nav/envelope-solid.svg" alt="Contact")
-              | Contact
+          
 
           if showAdmin
             li.menu-nav_item(class=currentPage === 'admin' ? 'active' : '')

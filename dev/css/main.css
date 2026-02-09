@@ -67,7 +67,7 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  min-height: 62.7vh;
+  min-height: 64.25vh; /* altura mínima para ocupar a tela inteira, considerando header e footer */
   padding-left: 2rem;
   padding-right: 2rem;
   padding-bottom: 1.5rem;
@@ -95,8 +95,12 @@
 }
 
 #home {
+  position: relative;
+  z-index: 1;
+  min-height: 50vh;
+  padding-top: 6rem;
   display: none;
-  opacity: 0;
+  opacity: 1;
   transform: translateY(40px);
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
@@ -105,6 +109,13 @@
   display: grid;
   grid-template-columns: 1fr 1fr; /* duas colunas iguais */
   gap: 2rem; /* espaço entre as colunas */
+}
+
+.home-heading {
+  font-size: 1.6rem;
+  margin-bottom: 2rem;
+  color: var(--text-heading);
+  text-align: center;
 }
 
 .home-section p {
@@ -122,6 +133,11 @@
 /* ============================================================
    Footer — Starter Kit (2026)
 ============================================================ */
+footer {
+  background: var(--bg-footer);
+  color: var(--text-primary);
+}
+
 .site-footer {
   width: 100%;
   padding: 3rem 4rem; /* igual à section-home */
@@ -291,15 +307,21 @@
 .site-header {
   width: 100%;
   padding: 0.4rem 2rem;
-  background: transparent;
+  /* Usa a variável de fundo do tema com 5% de opacidade para simular o footer */
+  background: rgba(var(--accent-rgb), 0.05);
   background-clip: padding-box;
-  backdrop-filter: saturate(100%);
+  /* Mantido o teu blur original */
+  backdrop-filter: saturate(100%) blur(2px);
+  -webkit-backdrop-filter: saturate(100%) blur(2px);
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 10;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* Sombra dinâmica baseada no tema */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  /* Garante que a transição de cor acompanha a troca de tema no JS */
+  transition: background 0.3s ease;
 }
 .site-header .container {
   display: flex;
@@ -318,6 +340,9 @@
   z-index: 20;
   cursor: pointer;
 }
+.site-header {
+  /* Círculo + SK sempre juntos e acima de tudo */
+}
 .site-header .logo-circle {
   width: 42px;
   height: 42px;
@@ -328,7 +353,7 @@
   justify-content: center;
   font-weight: 700;
   font-size: 1rem;
-  color: var(--text-on-accent, #fff);
+  color: var(--text-on-accent);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
 }
 .site-header {
@@ -437,41 +462,84 @@
 /* ============================================================
    Buttons Module — Starter Kit (2026)
    ------------------------------------------------------------
-   .button          → base universal
-   .button-primary  → estilo principal (accent)
-   .hero_btn        → layout específico da hero (sem estilos)
+   Focado no fundo (background) e no brilho pulsante.
 ============================================================ */
-.button, .hero_btn {
+button.menu-btn {
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+button.menu-btn .menu-btn_burguer {
+  width: 24px;
+  height: 2px;
+  background: var(--link);
+  position: relative;
+  transition: 0.2s ease;
+}
+button.menu-btn .menu-btn_burguer::before, button.menu-btn .menu-btn_burguer::after {
+  content: "";
+  position: absolute;
+  width: 24px;
+  height: 2px;
+  background: var(--link);
+  left: 0;
+  transition: 0.2s ease;
+}
+button.menu-btn .menu-btn_burguer::before {
+  top: -8px;
+}
+button.menu-btn .menu-btn_burguer::after {
+  top: 8px;
+}
+
+.button, .hero_btn, .hero_explore {
   display: inline-block;
-  padding: 0.75rem 1.5rem;
+  padding: 0.8rem 2.2rem;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 700;
   text-align: center;
   text-decoration: none;
   border: none;
-  border-radius: 4px;
+  border-radius: 50px;
   cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  /* Cor base vinda do teu theme.js */
+  background-color: var(--accent);
+  color: #ffffff; /* Letra sempre branca para contraste */
+  /* Transição suave para o HOVER do fundo */
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  /* Pulsação de fundo (8s) - Sincronizada com o Blob */
+  animation: button-glow 8s infinite ease-in-out;
 }
 
-.button-primary:hover, .hero_btn:hover {
+/* O HOVER: Mudança de fundo e sombra */
+.button:hover, .hero_btn:hover, .hero_explore:hover {
+  /* Muda para a cor de destaque do tema */
   background-color: var(--accent-hover);
-  color: var(--bg);
-  filter: brightness(1.15);
-  box-shadow: 0 0 10px var(--accent-hover);
+  /* Levanta ligeiramente o botão */
+  transform: translateY(-3px);
+  /* Brilho fixo e forte no hover */
+  box-shadow: 0 8px 20px rgba(var(--accent-rgb), 0.6);
+  /* Para a animação de pulsação para focar na cor de hover */
+  animation-play-state: paused;
 }
 
-/* Hero button — APENAS layout, sem duplicar estilos */
-.hero_btn {
-  align-self: center;
-  border-radius: 6px;
-  /* Transição correta */
-  transition: opacity 0.3s ease, transform 0.3s ease;
+/* Animação que faz o fundo "respirar" */
+@keyframes button-glow {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(var(--accent-rgb), 0.2);
+    filter: brightness(1);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(var(--accent-rgb), 0.5);
+    filter: brightness(1.15); /* Faz o fundo brilhar no meio do ciclo */
+  }
 }
-
+/* Caso queiras esconder o botão na animação inicial da hero */
 .hero_btn.hidden {
   opacity: 0;
-  transform: translateY(-10px);
+  transform: translateY(10px);
   pointer-events: none;
 }
 
@@ -668,71 +736,121 @@ a {
 ============================ */
 /* ============================================================
    SISTEMA DE TEMAS — Starter Kit (2026)
-   ------------------------------------------------------------
-   Cada tema aplica variáveis CSS ao <html>.
-   O JavaScript define a classe: `${theme}-theme`
-   O layout usa var(--bg), var(--text-primary), var(--accent), etc.
 ============================================================ */
-html.light-theme {
-  background-blend-mode: soft-light;
-  opacity: 0.98;
+:root {
   --bg: #ffffff;
   --text-primary: #000000;
+  --text-heading: #000000;
   --accent: #0000ff;
-  --accent-hover: #4d4dff; /* azul elétrico */
-  --link: #0077cc;
-  --link-hover: #005fa3;
+  --accent-hover: #0000cc;
+  --accent-rgb: 0, 0, 255;
+  --bg-img: none;
+  /* Texto em cima do accent */
+  --text-on-accent: #ffffff;
+  /* Links globais (header, burger, dropdown) */
+  --link: #333;
+  --link-hover: #000;
+}
+
+/* LIGHT THEME */
+html.light-theme {
+  --bg: #ffffff;
+  --text-primary: #1a1a1a;
+  --text-heading: #000000;
+  --accent: #0055ff;
+  --accent-hover: #0044cc;
+  --accent-rgb: 0, 85, 255;
+  --text-on-accent: #ffffff;
+  --link: #1a1a1a;
+  --link-hover: #0055ff;
   --bg-img: url('../img/themes/light-bg.jpg');
 }
 
+/* DARK THEME */
 html.dark-theme {
-  --bg: #101010;
-  --text-primary: #ffffff;
+  --bg: #0d0d0d;
+  --text-primary: #e0e0e0;
+  --text-heading: #ffffff;
   --accent: #00ffea;
-  --accent-hover: #00fff6; /* ciano neon */
-  --link: #ffffff;
+  --accent-hover: #00d1c1;
+  --accent-rgb: 0, 255, 234;
+  --text-on-accent: #000000;
+  --link: #e0e0e0;
   --link-hover: #00ffea;
   --bg-img: url('../img/themes/dark-bg.jpg');
 }
 
+/* HYDRA THEME */
 html.hydra-theme {
-  --bg: #0a0a0a;
-  --text-primary: #00ff00;
-  --accent: #b6ffb6;
-  --accent-hover: #00ff00; /* verde Hydra puro */
-  --link: #00ff00;
-  --link-hover: #b6ffb6;
+  --bg: #050505;
+  --text-primary: #00ff41;
+  --text-heading: #d1ffd1;
+  --accent: #00ff41;
+  --accent-hover: #00cc33;
+  --accent-rgb: 0, 255, 65;
+  --text-on-accent: #000000;
+  --link: #00ff41;
+  --link-hover: #00cc33;
   --bg-img: url('../img/themes/hydra-bg.jpg');
 }
 
+/* SOLARIZED THEME */
 html.solarized-theme {
   --bg: #fdf6e3;
   --text-primary: #657b83;
-  --accent: #d9a441;
-  --accent-hover: #ffb700; /* dourado vivo */
-  --link: #586e75;
+  --text-heading: #073642;
+  --accent: #b58900;
+  --accent-hover: #856404;
+  --accent-rgb: 181, 137, 0;
+  --text-on-accent: #ffffff;
+  --link: #657b83;
   --link-hover: #b58900;
   --bg-img: url('../img/themes/solarized-bg.jpg');
 }
 
+/* DRACULA THEME */
 html.dracula-theme {
   --bg: #282a36;
   --text-primary: #f8f8f2;
+  --text-heading: #ffffff;
   --accent: #bd93f9;
-  --accent-hover: #d6b3ff; /* roxo neon suave */
-  --link: #bd93f9;
-  --link-hover: #ff79c6;
+  --accent-hover: #a371f7;
+  --accent-rgb: 189, 147, 249;
+  --text-on-accent: #000000;
+  --link: #f8f8f2;
+  --link-hover: #bd93f9;
   --bg-img: url('../img/themes/dracula-bg.jpg');
 }
 
+/* NEON THEME */
 html.neon-theme {
-  --bg: #0aff9d;
-  --text-primary: #000000;
-  --accent: #ffffff;
-  --accent-hover: #00ffea; /* ciano neon para contraste */
-  --link: #000000;
-  --link-hover: #ffffff;
+  --bg: #000c08;
+  --text-primary: #0aff9d;
+  --text-heading: #ffffff;
+  --accent: #0aff9d;
+  --accent-hover: #0ccf87;
+  --accent-rgb: 10, 255, 157;
+  --text-on-accent: #000000;
+  --link: #0aff9d;
+  --link-hover: #0ccf87;
   --bg-img: url('../img/themes/neon-bg.jpg');
+}
+
+/* ============================================================
+   BACKGROUND GLOBAL + FOOTER
+============================================================ */
+html {
+  background-color: var(--bg);
+  background-image: var(--bg-img);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  transition: background 0.5s ease-in-out;
+}
+
+footer {
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
 }
 
 /* ============================
@@ -744,9 +862,6 @@ html.neon-theme {
    ------------------------------------------------------------
    Usa apenas variáveis CSS (var(--bg), var(--text-primary), etc.)
    Compatível com todos os temas e com o theme.js
-============================================================ */
-/* ============================================================
-   LAYOUT GLOBAL — Starter Kit
 ============================================================ */
 /* Evita flicker de tema */
 html {
@@ -778,10 +893,79 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  min-height: 100vh;
   margin: 0;
   padding: 0;
-  font-family: var(--font-family, "Inter", sans-serif);
+  font-family: var(--font-family, "Segoe Ui", "Tahoma", "Geneva", "Verdana", sans-serif);
+}
+
+/* ============================================================
+   BLOB GLOBAL — Versão Intensa (Mais Carregada)
+============================================================ */
+.layout {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.layout::before,
+.layout::after {
+  content: "";
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  z-index: -1;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+}
+
+/* Onda Exterior - Mais densa */
+.layout::before {
+  width: 950px;
+  height: 950px;
+  background: radial-gradient(circle, rgba(var(--accent-rgb), 0.4) 0%, rgba(var(--accent-rgb), 0.1) 40%, transparent 75%);
+  filter: blur(60px); /* Reduzi o blur para a cor ficar mais nítida */
+  animation: wave-outer 3s infinite ease-in-out; /* Velocidade: Ajustada para 8s para o movimento ser mais percetível */
+}
+
+/* Onda Interior - Núcleo forte */
+.layout::after {
+  width: 550px;
+  height: 550px;
+  background: radial-gradient(circle, rgba(var(--accent-rgb), 0.5) 0%, rgba(var(--accent-rgb), 0.2) 50%, transparent 80%);
+  filter: blur(30px); /* Menos blur = mais impacto visual */
+  animation: wave-inner 3s infinite ease-in-out; /* Velocidade: 8s para sincronizar com a onda exterior */
+}
+
+@keyframes wave-outer {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0.5;
+  }
+}
+@keyframes wave-inner {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 1;
+  }
+}
+/* ============================================================
+   HEADINGS
+============================================================ */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-heading);
+  margin: 0;
+  padding: 0;
+  font-weight: 700;
+  line-height: 1.2;
 }
 
 /* LINKS */
@@ -800,7 +984,6 @@ a:hover {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  /* Fim da 1ª parte de tutorial que serve como base para o layout global, 'https://youtu.be/_a5j7KoflTs?t=1946' */
   width: min(90%, 1200px);
   margin: 0 auto;
   gap: 2rem;
@@ -843,10 +1026,6 @@ a:hover {
   filter: brightness(1.15);
 }
 
-/* ============================================================
-   TEMAS — Starter Kit
-   ------------------------------------------------------------
-   /* O JavaScript define a classe: \${theme}-theme */
 /* ============================
    7. Componentes
    (hero, features, footer, etc.)

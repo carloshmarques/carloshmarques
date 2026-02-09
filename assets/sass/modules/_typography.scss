@@ -3,7 +3,23 @@
 /* ============================
    Tipografia — Escala Modular
    ============================ */
-$typo-font-family: 'Arial, sans-serif';
+$typo-font-family: 'Arial, sans-serif', 'Segoe UI, Helvetica', 
+'Roboto, Helvetica Neue', 
+'Tahoma, sans-serif', 
+'Verdana, sans-serif', 
+'Trebuchet MS, Helvetica', 
+'Georgia, serif', 
+'Times New Roman, serif', 
+'Garamond, serif',
+'Courier New, monospace',
+'Lucida Console, monospace',
+'Brush Script MT, cursive',
+'Comic Sans MS, cursive',
+'Impact, sans-serif',
+'Palatino Linotype, serif',
+'Arial Black, sans-serif',
+'Geneva, sans-serif',
+'Franklin Gothic Medium, sans-serif';
 
 $font-weights: (
   normal: 400,

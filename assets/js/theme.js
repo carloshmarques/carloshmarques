@@ -11,26 +11,15 @@ export const Theme = {
   },
 
   apply(theme) {
-    // Lista de temas disponíveis
     const themes = [
-      "light-theme",
-      "dark-theme",
-      "solarized-theme",
-      "dracula-theme",
-      "hydra-theme",
-      "neon-theme"
+      "light-theme", "dark-theme", "solarized-theme", 
+      "dracula-theme", "hydra-theme", "neon-theme"
     ];
 
-    // Remover temas antigos
     document.documentElement.classList.remove(...themes);
-
-    // Aplicar novo tema
     document.documentElement.classList.add(`${theme}-theme`);
-
-    // Guardar no localStorage
     localStorage.setItem(this.key, theme);
 
-    // Reiniciar animação da hero
     const el = document.querySelector(".hero_description--last");
     if (el) {
       el.classList.remove("animate");
@@ -38,9 +27,7 @@ export const Theme = {
       el.classList.add("animate");
     }
 
-    // Emitir evento
     Events.emit("themeChanged", theme);
-
     log.info(`Tema aplicado: ${theme}`);
   },
 
@@ -50,4 +37,3 @@ export const Theme = {
     log.info("Sistema de temas inicializado");
   }
 };
-

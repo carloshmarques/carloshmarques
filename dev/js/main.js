@@ -34,20 +34,30 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   // ---------------------------------------------------------
-  // Smooth Reveal da section-home
+  // Smooth Reveal da section-home + esconder hero
   // ---------------------------------------------------------
   var exploreBtn = document.querySelector(".hero_btn");
   var homeSection = document.querySelector("#home");
-  if (exploreBtn && homeSection) {
+  var hero = document.querySelector(".hero");
+  var header = document.querySelector(".site-header");
+  if (exploreBtn && homeSection && hero) {
     exploreBtn.addEventListener("click", function (e) {
       e.preventDefault();
 
-      // Mostrar a secção
-      homeSection.classList.add("visible");
+      // esconder hero
+      hero.classList.add("hidden");
       exploreBtn.classList.add("hidden");
 
-      // Scroll suave
-      var targetY = homeSection.getBoundingClientRect().top + window.scrollY;
+      // mostrar home
+      homeSection.classList.add("visible");
+
+      // compensar header fixo
+      var headerHeight = header.offsetHeight;
+
+      // destino real
+      var targetY = homeSection.getBoundingClientRect().top + window.scrollY - headerHeight;
+
+      // scroll suave
       smoothScrollTo(targetY, 2000);
     });
   }

@@ -1,28 +1,21 @@
 .site-header {
   width: 100%;
   padding: 0.4rem 2rem;
-  
-  /* Usa a variável de fundo do tema com 5% de opacidade para simular o footer */
-  background: rgba(var(--accent-rgb), 0.05); 
-  
+
+  /* Vidro fosco real */
+  background: rgba(var(--accent-rgb), 0.08);
+  backdrop-filter: blur(40px) saturate(180%);
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
   background-clip: padding-box;
-  
-  /* Mantido o teu blur original */
-  backdrop-filter: saturate(100%) blur(50px);
-  -webkit-backdrop-filter: saturate(100%) blur(50px); 
 
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 10;
-  
-  /* Sombra dinâmica baseada no tema */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-  
-  /* Garante que a transição de cor acompanha a troca de tema no JS */
-  transition: background 0.3s ease;
+  z-index: 100; /* aumenta para engolir a hero */
 
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+  transition: background 0.3s ease;
 
   .container {
     display: flex;
@@ -31,7 +24,6 @@
     width: 100%;
   }
 
-  /* LOGO */
   .logo-wrapper {
     position: relative;
     display: flex;
@@ -41,9 +33,7 @@
     cursor: pointer;
   }
 
-
-
- .logo-circle {
+  .logo-circle {
     width: 42px;
     height: 42px;
     border-radius: 50%;
@@ -57,9 +47,6 @@
     box-shadow: 0 2px 6px rgba(0,0,0,0.25);
   }
 
-
-
-  /* NAV */
   .nav-wrapper {
     position: relative;
     display: flex;
@@ -77,7 +64,6 @@
       padding: 0;
     }
 
-    /* ITEM */
     .menu-nav_item {
       display: flex;
       align-items: center;
@@ -101,7 +87,6 @@
       }
     }
 
-    /* DROPDOWN */
     .menu-nav_dropdown {
       position: relative;
 
@@ -137,14 +122,13 @@
     }
   }
 
-  /* BURGER MENU */
   .menu-btn {
-      background: none;
-      border: none;
-      display: flex;
-      align-items: center;
-      cursor: pointer;
-   // https://youtu.be/_a5j7KoflTs?t=3540
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
     .menu-btn_burguer {
       width: 24px;
       height: 2px;

@@ -50,18 +50,6 @@
   grid-template-columns: 1fr 1fr; /* duas colunas iguais */
   gap: 2rem; /* espaço entre as colunas */
 }
-h1, .home-heading {
-  color: var(--text-heading);
-  font-weight: 900 !important; /* Máxima espessura */
-  letter-spacing: -1.5px;      /* Letras mais densas e unidas */
-  
-  /* No Neon, adicionamos este "punch" */
-  html.neon-theme & {
-    text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.2); // Um leve brilho por trás do preto
-    filter: drop-shadow(0 0 1px rgba(0,0,0,0.1));
-  }
-}
-
 .home-heading {
   font-size: 1.6rem;
   margin-bottom: 2rem;
@@ -82,5 +70,3 @@ h1, .home-heading {
   opacity: 1;
   transform: translateY(0);
 }
-
-

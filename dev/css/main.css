@@ -111,17 +111,6 @@
   gap: 2rem; /* espaço entre as colunas */
 }
 
-h1, .home-heading {
-  color: var(--text-heading);
-  font-weight: 900 !important; /* Máxima espessura */
-  letter-spacing: -1.5px; /* Letras mais densas e unidas */
-  /* No Neon, adicionamos este "punch" */
-}
-html.neon-theme h1, html.neon-theme .home-heading {
-  text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.2);
-  filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.1));
-}
-
 .home-heading {
   font-size: 1.6rem;
   margin-bottom: 2rem;
@@ -256,20 +245,17 @@ footer {
 .site-header {
   width: 100%;
   padding: 0.4rem 2rem;
-  /* Usa a variável de fundo do tema com 5% de opacidade para simular o footer */
-  background: rgba(var(--accent-rgb), 0.05);
+  /* Vidro fosco real */
+  background: rgba(var(--accent-rgb), 0.08);
+  backdrop-filter: blur(40px) saturate(180%);
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
   background-clip: padding-box;
-  /* Mantido o teu blur original */
-  backdrop-filter: saturate(100%) blur(50px);
-  -webkit-backdrop-filter: saturate(100%) blur(50px);
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 10;
-  /* Sombra dinâmica baseada no tema */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-  /* Garante que a transição de cor acompanha a troca de tema no JS */
+  z-index: 100; /* aumenta para engolir a hero */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
   transition: background 0.3s ease;
 }
 .site-header .container {
@@ -277,9 +263,6 @@ footer {
   align-items: center;
   justify-content: space-between;
   width: 100%;
-}
-.site-header {
-  /* LOGO */
 }
 .site-header .logo-wrapper {
   position: relative;
@@ -302,9 +285,6 @@ footer {
   color: var(--text-on-accent, #fff);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
 }
-.site-header {
-  /* NAV */
-}
 .site-header .nav-wrapper {
   position: relative;
   display: flex;
@@ -318,9 +298,6 @@ footer {
   list-style: none;
   margin: 0;
   padding: 0;
-}
-.site-header .nav {
-  /* ITEM */
 }
 .site-header .nav .menu-nav_item {
   display: flex;
@@ -340,9 +317,6 @@ footer {
 }
 .site-header .nav .menu-nav_link i {
   font-size: 1rem;
-}
-.site-header .nav {
-  /* DROPDOWN */
 }
 .site-header .nav .menu-nav_dropdown {
   position: relative;
@@ -371,9 +345,6 @@ footer {
 }
 .site-header .nav .menu-nav_dropdown:hover .dropdown-menu {
   display: block;
-}
-.site-header {
-  /* BURGER MENU */
 }
 .site-header .menu-btn {
   background: none;
@@ -407,8 +378,6 @@ footer {
 
 /* ============================================================
    Buttons Module — Starter Kit (2026)
-   ------------------------------------------------------------
-   Focado no fundo (background) e no brilho pulsante.
 ============================================================ */
 button.menu-btn {
   background: none;
@@ -450,31 +419,21 @@ button.menu-btn .menu-btn_burguer::after {
   border: none;
   border-radius: 50px;
   cursor: pointer;
-  /* CORRIGIDO: Usa a variável de contraste do tema */
   background-color: var(--accent);
-  color: var(--text-on-accent) !important;
-  /* Melhora a legibilidade no Neon Theme */
+  color: var(--text-on-accent) !important; /* cor contraste com background-color do tema */
   text-transform: uppercase;
   letter-spacing: 1px;
-  /* Transição suave para o HOVER do fundo */
   transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-  /* Pulsação de fundo (8s) - Sincronizada com o Blob */
   animation: button-glow 8s infinite ease-in-out;
 }
 
-/* O HOVER: Mudança de fundo e sombra */
 .button:hover, .hero_btn:hover, .hero_explore:hover {
-  /* Muda para a cor de destaque do tema */
   background-color: var(--accent-hover);
-  /* Levanta ligeiramente o botão */
   transform: translateY(-3px);
-  /* Brilho fixo e forte no hover */
   box-shadow: 0 8px 20px rgba(var(--accent-rgb), 0.6);
-  /* Para a animação de pulsação para focar na cor de hover */
   animation-play-state: paused;
 }
 
-/* Animação que faz o fundo "respirar" */
 @keyframes button-glow {
   0%, 100% {
     box-shadow: 0 0 10px rgba(var(--accent-rgb), 0.2);
@@ -482,10 +441,9 @@ button.menu-btn .menu-btn_burguer::after {
   }
   50% {
     box-shadow: 0 0 25px rgba(var(--accent-rgb), 0.5);
-    filter: brightness(1.15); /* Faz o fundo brilhar no meio do ciclo */
+    filter: brightness(1.15);
   }
 }
-/* Caso queiras esconder o botão na animação inicial da hero */
 .hero_btn.hidden {
   opacity: 0;
   transform: translateY(10px);

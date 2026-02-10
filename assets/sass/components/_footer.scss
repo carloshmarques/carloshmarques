@@ -4,175 +4,120 @@
 footer {
   background: var(--bg-footer);
   color: var(--text-primary);
+  flex-shrink: 0; // Garante que o footer não encolhe
 }
 
 .site-footer {
+  backdrop-filter: saturate(100%) blur(2px);
+  -webkit-backdrop-filter: saturate(100%) blur(2px); 
   width: 100%;
-  padding: 3rem 4rem; /* igual à section-home */
+  padding: 1.5rem 4rem; // Padding reduzido para o "sapato 40"
 }
 
-/* GRID PRINCIPAL */
 .footer-container {
+  
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  max-width: 1200px; /* ou 1300px, depende do teu layout */
+  grid-template-columns: repeat(5, 1fr); 
+  max-width: 1200px;
   margin: auto;
   gap: 2rem;
-  align-items: start;
+  align-items: stretch; // Estica as colunas para o flex-grow funcionar
 }
 
-/* ============================================================
-   COLUNA 1 — Branding + tagline + social icons
-============================================================ */
-
+/* ESTRUTURA DE COLUNA UNIFICADA */
 .footer-col {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  height: 100%;
+
+  // Títulos (Branding e Headings) alinhados no mesmo nível
+  .footer-brand-name, 
+  .footer-heading {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    height: 1.2rem; // Altura fixa para alinhar a primeira linha de texto
+    display: flex;
+    align-items: center;
+  }
+
+  // O conteúdo do meio expande para empurrar o fundo
+  .footer-text-block,
+  .footer-address,
+  .footer-list {
+    flex: 1; 
+  }
+
+  // Elementos de fundo (Ícones e Créditos) alinhados na base
+  .footer-social-icons,
+  .footer-credits {
+    margin-top: auto; 
+    padding-top: 1rem;
+  }
 }
 
+/* AJUSTES ESPECÍFICOS */
 .footer-text-block {
-  margin-left: auto;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 2rem;
+  gap: 0.5rem;
   max-width: 260px;
-}
-
-.footer-brand-name {
-  font-weight: 700;
-  font-size: 1.1rem;
 }
 
 .footer-tagline-row {
   display: flex;
   align-items: center;
-  margin-top: 0.5rem;
   gap: 0.6rem;
 }
 
-.footer-tagline {
-  font-size: 0.9rem;
-  opacity: 0.7;
-  white-space: nowrap;
-}
-
-/* Rocket */
 .footer-rocket {
   width: 24px;
   height: 24px;
   background: url("/img/icons/default/rocket-solid.svg") no-repeat center / contain;
-  transition: transform 0.4s ease, filter 0.4s ease;
-  cursor: pointer;
+  transition: transform 0.4s ease;
+  margin-top: 0.2rem; // Ajuste fino para o foguetão "pousar" na linha
+  
+  &:hover {
+    transform: translate(4px, -4px) rotate(12deg);
+    filter: drop-shadow(0 0 8px var(--accent));
+  }
 }
 
-.footer-rocket:hover {
-  transform: translate(6px, -6px) rotate(12deg);
-  filter: drop-shadow(0 0 8px var(--accent));
-}
-
-/* Social icons */
 .footer-social-icons {
   display: flex;
   gap: 12px;
-  margin-top: 0.75rem;
-}
-
-.footer-social-icons a i {
-  font-size: 1.1rem;
-  color: #fff;
-  opacity: 0.7;
-  transition: 0.3s ease;
-}
-
-.footer-social-icons a i:hover {
-  opacity: 1;
-  transform: translateY(-3px);
-  color: var(--accent);
-}
-
-/* ============================================================
-   RESTO DAS COLUNAS
-============================================================ */
-
-.footer-heading {
-  font-size: 1rem;
-  margin-bottom: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.footer-address {
-  font-size: 0.9rem;
-  line-height: 1.6;
-  opacity: 0.7;
+  
+  a i {
+    font-size: 1.1rem;
+    color: var(--text-primary); // Usa a cor do tema
+    opacity: 0.7;
+    transition: 0.3s ease;
+    
+    &:hover {
+      opacity: 1;
+      transform: translateY(-3px);
+      color: var(--accent);
+    }
+  }
 }
 
 .footer-list {
   list-style: none;
   padding: 0;
-}
-
-.footer-list .footer-link {
-  color: rgba(255,255,255,0.6);
-  text-decoration: none;
-  font-size: 0.9rem;
-  display: block;
-  margin-bottom: 0.6rem;
-  transition: color 0.3s ease;
-}
-
-.footer-list .footer-link:hover {
-  color: var(--accent);
-}
-
-/* Créditos */
-.footer-credits {
-  font-size: 0.85rem;
-  opacity: 0.8;
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-
-  /* CORREÇÃO DO TEU PROBLEMA */
-  margin-top: 0.1rem; /* agora fica alinhado com as outras colunas */
   
+  .footer-link {
+    color: var(--text-primary);
+    opacity: 0.6;
+    text-decoration: none;
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 0.6rem;
+    transition: 0.3s;
+
+    &:hover {
+      opacity: 1;
+      color: var(--accent);
+      padding-left: 5px; // Pequeno efeito de slide no hover
+    }
+  }
 }
-
-.footer-credits a {
-  color: rgba(255,255,255,0.6);
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.footer-credits a:hover {
-  color: var(--accent);
-}
-
-.section-home {
-  padding: 4rem 4rem;
-}
-
-/* ------------------------------------------------------------
-   NOTA — Manter alinhamento vertical entre colunas
-   ------------------------------------------------------------
-   O alinhamento das colunas depende do conteúdo interno.
-   Se alguém alterar:
-     - tamanho da morada (coluna 2)
-     - número de links (colunas 3 e 4)
-     - número de social icons (coluna 1)
-     - créditos (coluna 5)
-
-   e as colunas ficarem com alturas diferentes, NÃO alterar o grid.
-
-   Ajustar apenas dentro da coluna afetada:
-     - aumentar/reduzir margin-top ou margin-bottom
-     - ajustar o gap interno da .footer-col
-     - evitar definir height fixa
-     - manter consistência no número de linhas de texto
-
-   Dica prática:
-   Se os social icons subirem/descerem quando o texto muda,
-   ajustar apenas o margin-top da .footer-social-icons.
------------------------------------------------------------- */

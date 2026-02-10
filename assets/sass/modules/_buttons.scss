@@ -47,10 +47,12 @@ button.menu-btn {
   border: none;
   border-radius: 50px;
   cursor: pointer;
-  
-  /* Cor base vinda do teu theme.js */
+   /* CORRIGIDO: Usa a variável de contraste do tema */
   background-color: var(--accent);
-  color: #ffffff; /* Letra sempre branca para contraste */
+  color: var(--text-on-accent) !important; //-< cor constraste com background-color do tema
+  /* Melhora a legibilidade no Neon Theme */
+  text-transform: uppercase;
+  letter-spacing: 1px;
   
   /* Transição suave para o HOVER do fundo */
   transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;

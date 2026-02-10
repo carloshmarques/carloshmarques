@@ -8,8 +8,8 @@
   background-clip: padding-box;
   
   /* Mantido o teu blur original */
-  backdrop-filter: saturate(100%) blur(2px);
-  -webkit-backdrop-filter: saturate(100%) blur(2px); 
+  backdrop-filter: saturate(100%) blur(50px);
+  -webkit-backdrop-filter: saturate(100%) blur(50px); 
 
   position: fixed;
   top: 0;
@@ -43,20 +43,20 @@
 
 
 
-/* Círculo + SK sempre juntos e acima de tudo */ 
-  .logo-circle {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      background-color: var(--accent);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 1rem;
-      color: var(--text-on-accent);
-      box-shadow: 0 2px 6px rgba(0,0,0,0.25);
-    }
+ .logo-circle {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text-on-accent, #fff);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+  }
+
 
 
   /* NAV */
@@ -139,11 +139,11 @@
 
   /* BURGER MENU */
   .menu-btn {
-    background: none;
-    border: none;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
+      background: none;
+      border: none;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
    // https://youtu.be/_a5j7KoflTs?t=3540
     .menu-btn_burguer {
       width: 24px;

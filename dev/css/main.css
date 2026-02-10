@@ -111,6 +111,17 @@
   gap: 2rem; /* espaço entre as colunas */
 }
 
+h1, .home-heading {
+  color: var(--text-heading);
+  font-weight: 900 !important; /* Máxima espessura */
+  letter-spacing: -1.5px; /* Letras mais densas e unidas */
+  /* No Neon, adicionamos este "punch" */
+}
+html.neon-theme h1, html.neon-theme .home-heading {
+  text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.2);
+  filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.1));
+}
+
 .home-heading {
   font-size: 1.6rem;
   margin-bottom: 2rem;
@@ -136,174 +147,112 @@
 footer {
   background: var(--bg-footer);
   color: var(--text-primary);
+  flex-shrink: 0;
 }
 
 .site-footer {
+  backdrop-filter: saturate(100%) blur(2px);
+  -webkit-backdrop-filter: saturate(100%) blur(2px);
   width: 100%;
-  padding: 3rem 4rem; /* igual à section-home */
+  padding: 1.5rem 4rem;
 }
 
-/* GRID PRINCIPAL */
 .footer-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  max-width: 1200px; /* ou 1300px, depende do teu layout */
+  grid-template-columns: repeat(5, 1fr);
+  max-width: 1200px;
   margin: auto;
   gap: 2rem;
-  align-items: start;
+  align-items: stretch;
 }
 
-/* ============================================================
-   COLUNA 1 — Branding + tagline + social icons
-============================================================ */
+/* ESTRUTURA DE COLUNA UNIFICADA */
 .footer-col {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  height: 100%;
 }
-
-.footer-text-block {
-  margin-left: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 2rem;
-  max-width: 260px;
-}
-
-.footer-brand-name {
+.footer-col .footer-brand-name,
+.footer-col .footer-heading {
   font-weight: 700;
   font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  height: 1.2rem;
+  display: flex;
+  align-items: center;
+}
+.footer-col .footer-text-block,
+.footer-col .footer-address,
+.footer-col .footer-list {
+  flex: 1;
+}
+.footer-col .footer-social-icons,
+.footer-col .footer-credits {
+  margin-top: auto;
+  padding-top: 1rem;
+}
+
+/* AJUSTES ESPECÍFICOS */
+.footer-text-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 260px;
 }
 
 .footer-tagline-row {
   display: flex;
   align-items: center;
-  margin-top: 0.5rem;
   gap: 0.6rem;
 }
 
-.footer-tagline {
-  font-size: 0.9rem;
-  opacity: 0.7;
-  white-space: nowrap;
-}
-
-/* Rocket */
 .footer-rocket {
   width: 24px;
   height: 24px;
   background: url("/img/icons/default/rocket-solid.svg") no-repeat center/contain;
-  transition: transform 0.4s ease, filter 0.4s ease;
-  cursor: pointer;
+  transition: transform 0.4s ease;
+  margin-top: 0.2rem;
 }
-
 .footer-rocket:hover {
-  transform: translate(6px, -6px) rotate(12deg);
+  transform: translate(4px, -4px) rotate(12deg);
   filter: drop-shadow(0 0 8px var(--accent));
 }
 
-/* Social icons */
 .footer-social-icons {
   display: flex;
   gap: 12px;
-  margin-top: 0.75rem;
 }
-
 .footer-social-icons a i {
   font-size: 1.1rem;
-  color: #fff;
+  color: var(--text-primary);
   opacity: 0.7;
   transition: 0.3s ease;
 }
-
 .footer-social-icons a i:hover {
   opacity: 1;
   transform: translateY(-3px);
   color: var(--accent);
 }
 
-/* ============================================================
-   RESTO DAS COLUNAS
-============================================================ */
-.footer-heading {
-  font-size: 1rem;
-  margin-bottom: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.footer-address {
-  font-size: 0.9rem;
-  line-height: 1.6;
-  opacity: 0.7;
-}
-
 .footer-list {
   list-style: none;
   padding: 0;
 }
-
 .footer-list .footer-link {
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--text-primary);
+  opacity: 0.6;
   text-decoration: none;
   font-size: 0.9rem;
   display: block;
   margin-bottom: 0.6rem;
-  transition: color 0.3s ease;
+  transition: 0.3s;
 }
-
 .footer-list .footer-link:hover {
+  opacity: 1;
   color: var(--accent);
+  padding-left: 5px;
 }
 
-/* Créditos */
-.footer-credits {
-  font-size: 0.85rem;
-  opacity: 0.8;
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-  /* CORREÇÃO DO TEU PROBLEMA */
-  margin-top: 0.1rem; /* agora fica alinhado com as outras colunas */
-}
-
-.footer-credits a {
-  color: rgba(255, 255, 255, 0.6);
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.footer-credits a:hover {
-  color: var(--accent);
-}
-
-.section-home {
-  padding: 4rem 4rem;
-}
-
-/* ------------------------------------------------------------
-   NOTA — Manter alinhamento vertical entre colunas
-   ------------------------------------------------------------
-   O alinhamento das colunas depende do conteúdo interno.
-   Se alguém alterar:
-     - tamanho da morada (coluna 2)
-     - número de links (colunas 3 e 4)
-     - número de social icons (coluna 1)
-     - créditos (coluna 5)
-
-   e as colunas ficarem com alturas diferentes, NÃO alterar o grid.
-
-   Ajustar apenas dentro da coluna afetada:
-     - aumentar/reduzir margin-top ou margin-bottom
-     - ajustar o gap interno da .footer-col
-     - evitar definir height fixa
-     - manter consistência no número de linhas de texto
-
-   Dica prática:
-   Se os social icons subirem/descerem quando o texto muda,
-   ajustar apenas o margin-top da .footer-social-icons.
------------------------------------------------------------- */
 .site-header {
   width: 100%;
   padding: 0.4rem 2rem;
@@ -311,8 +260,8 @@ footer {
   background: rgba(var(--accent-rgb), 0.05);
   background-clip: padding-box;
   /* Mantido o teu blur original */
-  backdrop-filter: saturate(100%) blur(2px);
-  -webkit-backdrop-filter: saturate(100%) blur(2px);
+  backdrop-filter: saturate(100%) blur(50px);
+  -webkit-backdrop-filter: saturate(100%) blur(50px);
   position: fixed;
   top: 0;
   left: 0;
@@ -340,9 +289,6 @@ footer {
   z-index: 20;
   cursor: pointer;
 }
-.site-header {
-  /* Círculo + SK sempre juntos e acima de tudo */
-}
 .site-header .logo-circle {
   width: 42px;
   height: 42px;
@@ -353,7 +299,7 @@ footer {
   justify-content: center;
   font-weight: 700;
   font-size: 1rem;
-  color: var(--text-on-accent);
+  color: var(--text-on-accent, #fff);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
 }
 .site-header {
@@ -504,9 +450,12 @@ button.menu-btn .menu-btn_burguer::after {
   border: none;
   border-radius: 50px;
   cursor: pointer;
-  /* Cor base vinda do teu theme.js */
+  /* CORRIGIDO: Usa a variável de contraste do tema */
   background-color: var(--accent);
-  color: #ffffff; /* Letra sempre branca para contraste */
+  color: var(--text-on-accent) !important;
+  /* Melhora a legibilidade no Neon Theme */
+  text-transform: uppercase;
+  letter-spacing: 1px;
   /* Transição suave para o HOVER do fundo */
   transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
   /* Pulsação de fundo (8s) - Sincronizada com o Blob */
@@ -754,6 +703,8 @@ a {
 
 /* LIGHT THEME */
 html.light-theme {
+  background-blend-mode: soft-light;
+  opacity: 0.98;
   --bg: #ffffff;
   --text-primary: #1a1a1a;
   --text-heading: #000000;
@@ -794,17 +745,14 @@ html.hydra-theme {
   --bg-img: url('../img/themes/hydra-bg.jpg');
 }
 
-/* SOLARIZED THEME */
 html.solarized-theme {
   --bg: #fdf6e3;
   --text-primary: #657b83;
-  --text-heading: #073642;
+  --text-heading: #073642; /* Azul escuro original do Solarized */
   --accent: #b58900;
-  --accent-hover: #856404;
-  --accent-rgb: 181, 137, 0;
   --text-on-accent: #ffffff;
-  --link: #657b83;
-  --link-hover: #b58900;
+  --accent-rgb: 181, 137, 0;
+  --bg-img: linear-gradient(135deg, #fdf6e3 0%, #eee8d5 100%);
   --bg-img: url('../img/themes/solarized-bg.jpg');
 }
 
@@ -822,17 +770,17 @@ html.dracula-theme {
   --bg-img: url('../img/themes/dracula-bg.jpg');
 }
 
-/* NEON THEME */
+/* NEON THEME — Contraste Máximo */
 html.neon-theme {
-  --bg: #000c08;
-  --text-primary: #0aff9d;
-  --text-heading: #ffffff;
-  --accent: #0aff9d;
-  --accent-hover: #0ccf87;
-  --accent-rgb: 10, 255, 157;
-  --text-on-accent: #000000;
-  --link: #0aff9d;
-  --link-hover: #0ccf87;
+  --bg: #0aff9d;
+  --text-primary: #000000;
+  --text-heading: #000000; /* Títulos pretos para "furar" o verde */
+  --accent: #000000;
+  --text-on-accent: #0aff9d;
+  --accent-rgb: 0, 0, 0; /* Blob preto cria sombras pulsantes no verde */
+  --link: #000000;
+  --link-hover: #ffffff;
+  --bg-img: linear-gradient(135deg, #fdf6e3 0%, #eee8d5 100%);
   --bg-img: url('../img/themes/neon-bg.jpg');
 }
 
@@ -898,6 +846,18 @@ body {
   font-family: var(--font-family, "Segoe Ui", "Tahoma", "Geneva", "Verdana", sans-serif);
 }
 
+.hero {
+  flex: 1; /* Esta secção vai esticar para empurrar o footer para o fundo */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centra o conteúdo da hero verticalmente */
+}
+
+footer {
+  margin-top: auto; /* Garante o empurrão final */
+  width: 100%;
+}
+
 /* ============================================================
    BLOB GLOBAL — Versão Intensa (Mais Carregada)
 ============================================================ */
@@ -939,22 +899,22 @@ body {
 
 @keyframes wave-outer {
   0%, 100% {
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 0.9;
+    transform: translate(-50%, -50%) scale(0.7);
+    opacity: 0.2;
   }
   50% {
-    transform: translate(-50%, -50%) scale(1.2);
-    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(1.6); /* Estica muito mais */
+    opacity: 0.7; /* Fica bem carregado no meio do ciclo */
   }
 }
 @keyframes wave-inner {
   0%, 100% {
-    transform: translate(-50%, -50%) scale(1.2);
-    opacity: 0.6;
+    transform: translate(-50%, -50%) scale(1.4);
+    opacity: 0.3;
   }
   50% {
-    transform: translate(-50%, -50%) scale(0.8);
-    opacity: 1;
+    transform: translate(-50%, -50%) scale(0.6);
+    opacity: 0.8;
   }
 }
 /* ============================================================

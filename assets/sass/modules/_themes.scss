@@ -23,6 +23,8 @@
 
 /* LIGHT THEME */
 html.light-theme {
+   background-blend-mode: soft-light;
+   opacity: 0.98;
   --bg: #ffffff;
   --text-primary: #1a1a1a;
   --text-heading: #000000;
@@ -75,23 +77,17 @@ html.hydra-theme {
   --bg-img: url('../img/themes/hydra-bg.jpg');
 }
 
-/* SOLARIZED THEME */
 html.solarized-theme {
   --bg: #fdf6e3;
   --text-primary: #657b83;
-  --text-heading: #073642;
-
+  --text-heading: #073642; /* Azul escuro original do Solarized */
   --accent: #b58900;
-  --accent-hover: #856404;
-  --accent-rgb: 181, 137, 0;
-
   --text-on-accent: #ffffff;
-
-  --link: #657b83;
-  --link-hover: #b58900;
-
+  --accent-rgb: 181, 137, 0;
+  --bg-img: linear-gradient(135deg, #fdf6e3 0%, #eee8d5 100%);
   --bg-img: url('../img/themes/solarized-bg.jpg');
 }
+
 
 /* DRACULA THEME */
 html.dracula-theme {
@@ -111,23 +107,23 @@ html.dracula-theme {
   --bg-img: url('../img/themes/dracula-bg.jpg');
 }
 
-/* NEON THEME */
+
+
+/* NEON THEME — Contraste Máximo */
 html.neon-theme {
-  --bg: #000c08;
-  --text-primary: #0aff9d;
-  --text-heading: #ffffff;
-
-  --accent: #0aff9d;
-  --accent-hover: #0ccf87;
-  --accent-rgb: 10, 255, 157;
-
-  --text-on-accent: #000000;
-
-  --link: #0aff9d;
-  --link-hover: #0ccf87;
-
+  --bg: #0aff9d;
+  --text-primary: #000000;
+  --text-heading: #000000; /* Títulos pretos para "furar" o verde */
+  --accent: #000000;
+  --text-on-accent: #0aff9d;
+  --accent-rgb: 0, 0, 0;    /* Blob preto cria sombras pulsantes no verde */
+  
+  --link: #000000;
+  --link-hover: #ffffff;
+  --bg-img: linear-gradient(135deg, #fdf6e3 0%, #eee8d5 100%);
   --bg-img: url('../img/themes/neon-bg.jpg');
 }
+
 
 /* ============================================================
    BACKGROUND GLOBAL + FOOTER
@@ -141,6 +137,7 @@ html {
   background-attachment: fixed;
   transition: background 0.5s ease-in-out;
 }
+
 
 footer {
   background: rgba(0, 0, 0, 0.2);

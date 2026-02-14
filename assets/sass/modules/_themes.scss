@@ -41,52 +41,59 @@ html.light-theme {
   --bg-img: url('../img/themes/light-bg.jpg');
 }
 
-/* DARK THEME */
+/* DARK THEME - Focado em Cinzas e Pretos */
 html.dark-theme {
-  --bg: #0d0d0d;
-  --text-primary: #e0e0e0;
-  --text-heading: #ffffff;
+  --bg: #0a0a0a;           /* Preto profundo */
+  --text-primary: #b0b0b0;  /* Cinza suave para leitura */
+  --text-heading: #ffffff;  /* Branco puro para títulos */
 
-  --accent: #00ffea;
-  --accent-hover: #00d1c1;
-  --accent-rgb: 0, 255, 234;
+  --accent: #3498db;        /* Azul discreto (substitui o ciano) */
+  --accent-hover: #2980b9;
+  --accent-rgb: 52, 152, 219;
 
-  --text-on-accent: #000000;
-
-  --link: #e0e0e0;
-  --link-hover: #00ffea;
+  --text-on-accent: #ffffff;
+  --link: #3498db;
+  --link-hover: #ffffff;
 
   --bg-img: url('../img/themes/dark-bg.jpg');
 }
-
-/* HYDRA THEME */
+// “Continuar o tema Hydra / Conky / lifecicles”
+/* HYDRA THEME - Estilo Hacker clássico */
 html.hydra-theme {
-  --bg: #050505;
-  --text-primary: #00ff41;
-  --text-heading: #d1ffd1;
+  --bg: #020202;           /* Quase preto total */
+  --text-primary: #00cc00;  /* Verde terminal (menos agressivo que o ff) */
+  --text-heading: #33ff33;  /* Verde brilhante para destaque */
 
-  --accent: #00ff41;
-  --accent-hover: #00cc33;
+  --accent: #00ff41;        /* Verde neon Bugtraq */
+  --accent-hover: #008f11;
   --accent-rgb: 0, 255, 65;
 
   --text-on-accent: #000000;
-
   --link: #00ff41;
   --link-hover: #00cc33;
 
   --bg-img: url('../img/themes/hydra-bg.jpg');
 }
 
+
 html.solarized-theme {
   --bg: #fdf6e3;
-  --text-primary: #657b83;
-  --text-heading: #073642; /* Azul escuro original do Solarized */
-  --accent: #b58900;
-  --text-on-accent: #ffffff;
+  /* Trocado de #657b83 (base1) para #586e75 (base01) - Mais escuro */
+  --text-primary: #475b62; 
+  /* Trocado de #073642 para #002b36 (base03) - Quase preto azulado */
+  --text-heading: #002b36; 
+
+  --accent: #b58900;       /* Amarelo Ocre clássico */
+  --accent-hover: #859900; /* Verde Solarized para o hover */
   --accent-rgb: 181, 137, 0;
-  --bg-img: linear-gradient(135deg, #fdf6e3 0%, #eee8d5 100%);
+
+  --text-on-accent: #ffffff;
+  --link: #268bd2;         /* Azul Solarized para links */
+  --link-hover: #cb4b16;   /* Laranja para hover de links */
+
   --bg-img: url('../img/themes/solarized-bg.jpg');
 }
+
 
 
 /* DRACULA THEME */

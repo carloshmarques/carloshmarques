@@ -67,10 +67,10 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  min-height: 64.25vh; /* altura mínima para ocupar a tela inteira, considerando header e footer */
+  min-height: 25vh; /* altura mínima para ocupar a tela inteira, considerando header e footer */
   padding-left: 2rem;
   padding-right: 2rem;
-  padding-bottom: 1.5rem;
+  padding-bottom: 10rem;
   /* IMPORTANTE: nada de gap aqui */
 }
 
@@ -97,12 +97,21 @@
 #home {
   position: relative;
   z-index: 1;
-  min-height: 50vh;
-  padding-top: 6rem;
+  /* estado escondido — ocupa ZERO espaço */
   display: none;
-  opacity: 1;
+  opacity: 0;
   transform: translateY(40px);
+  /* só animação aqui */
   transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+#home.visible {
+  display: block;
+  /* layout só quando visível */
+  min-height: 60vh;
+  padding-top: 6rem;
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .home-section .main {
@@ -122,12 +131,6 @@
   text-align: justify;
   text-justify: inter-word;
   hyphens: auto;
-}
-
-#home.visible {
-  display: block;
-  opacity: 1;
-  transform: translateY(0);
 }
 
 /* ============================================================
@@ -245,16 +248,15 @@ footer {
 .site-header {
   width: 100%;
   padding: 0.4rem 2rem;
-  /* Vidro fosco real */
   background: rgba(var(--accent-rgb), 0.08);
   backdrop-filter: blur(40px) saturate(180%);
   -webkit-backdrop-filter: blur(40px) saturate(180%);
   background-clip: padding-box;
   position: fixed;
+  z-index: index 10;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 100; /* aumenta para engolir a hero */
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
   transition: background 0.3s ease;
 }
@@ -379,6 +381,7 @@ footer {
 /* ============================================================
    Buttons Module — Starter Kit (2026)
 ============================================================ */
+/* MENU BUTTON (hamburger) */
 button.menu-btn {
   background: none;
   border: none;
@@ -409,7 +412,12 @@ button.menu-btn .menu-btn_burguer::after {
   top: 8px;
 }
 
-.button, .hero_btn, .hero_explore {
+/* ============================================================
+   PRIMARY BUTTONS (hero, explore, generic)
+============================================================ */
+.button,
+.hero_btn,
+.hero_explore {
   display: inline-block;
   padding: 0.8rem 2.2rem;
   font-size: 1rem;
@@ -419,21 +427,26 @@ button.menu-btn .menu-btn_burguer::after {
   border: none;
   border-radius: 50px;
   cursor: pointer;
+  /* CORREÇÃO IMPORTANTE */
   background-color: var(--accent);
-  color: var(--text-on-accent) !important; /* cor contraste com background-color do tema */
+  color: var(--text-on-accent); /* sem !important */
   text-transform: uppercase;
   letter-spacing: 1px;
   transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-  animation: button-glow 8s infinite ease-in-out;
+  /* brilho suave */
+  animation: button-glow 2s infinite ease-in-out;
 }
 
-.button:hover, .hero_btn:hover, .hero_explore:hover {
+.button:hover,
+.hero_btn:hover,
+.hero_explore:hover {
   background-color: var(--accent-hover);
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(var(--accent-rgb), 0.6);
   animation-play-state: paused;
 }
 
+/* animação */
 @keyframes button-glow {
   0%, 100% {
     box-shadow: 0 0 10px rgba(var(--accent-rgb), 0.2);
@@ -444,6 +457,7 @@ button.menu-btn .menu-btn_burguer::after {
     filter: brightness(1.15);
   }
 }
+/* estado escondido */
 .hero_btn.hidden {
   opacity: 0;
   transform: translateY(10px);
@@ -659,42 +673,47 @@ a {
   --link-hover: #000;
 }
 
-/* LIGHT THEME */
+/* ============================================================
+   LIGHT THEME
+============================================================ */
 html.light-theme {
   background-blend-mode: soft-light;
   opacity: 0.98;
   --bg: #ffffff;
   --text-primary: #1a1a1a;
   --text-heading: #000000;
-  --accent: #0055ff;
-  --accent-hover: #0044cc;
+  --accent-hover: #ffffff; /* branco forte */
+  --text-on-accent: #000000; /* texto preto no hover */
   --accent-rgb: 0, 85, 255;
-  --text-on-accent: #ffffff;
   --link: #1a1a1a;
   --link-hover: #0055ff;
   --bg-img: url('../img/themes/light-bg.jpg');
 }
 
-/* DARK THEME - Focado em Cinzas e Pretos */
+/* ============================================================
+   DARK THEME — Cinzas e Pretos
+============================================================ */
 html.dark-theme {
-  --bg: #0a0a0a; /* Preto profundo */
-  --text-primary: #b0b0b0; /* Cinza suave para leitura */
-  --text-heading: #ffffff; /* Branco puro para títulos */
-  --accent: #3498db; /* Azul discreto (substitui o ciano) */
+  --bg: #0a0a0a;
+  --text-primary: #b0b0b0;
+  --text-heading: #ffffff;
+  --accent: #ffffff;
   --accent-hover: #2980b9;
   --accent-rgb: 52, 152, 219;
-  --text-on-accent: #ffffff;
+  --text-on-accent: #000000;
   --link: #3498db;
   --link-hover: #ffffff;
   --bg-img: url('../img/themes/dark-bg.jpg');
 }
 
-/* HYDRA THEME - Estilo Hacker clássico */
+/* ============================================================
+   HYDRA THEME — Estilo Hacker
+============================================================ */
 html.hydra-theme {
-  --bg: #020202; /* Quase preto total */
-  --text-primary: #00cc00; /* Verde terminal (menos agressivo que o ff) */
-  --text-heading: #33ff33; /* Verde brilhante para destaque */
-  --accent: #00ff41; /* Verde neon Bugtraq */
+  --bg: #020202;
+  --text-primary: #00cc00;
+  --text-heading: #33ff33;
+  --accent: #00ff41;
   --accent-hover: #008f11;
   --accent-rgb: 0, 255, 65;
   --text-on-accent: #000000;
@@ -703,46 +722,51 @@ html.hydra-theme {
   --bg-img: url('../img/themes/hydra-bg.jpg');
 }
 
+/* ============================================================
+   SOLARIZED THEME
+============================================================ */
 html.solarized-theme {
   --bg: #fdf6e3;
-  /* Trocado de #657b83 (base1) para #586e75 (base01) - Mais escuro */
   --text-primary: #475b62;
-  /* Trocado de #073642 para #002b36 (base03) - Quase preto azulado */
   --text-heading: #002b36;
-  --accent: #b58900; /* Amarelo Ocre clássico */
-  --accent-hover: #859900; /* Verde Solarized para o hover */
+  --accent: #b58900;
+  --accent-hover: #859900;
   --accent-rgb: 181, 137, 0;
   --text-on-accent: #ffffff;
-  --link: #268bd2; /* Azul Solarized para links */
-  --link-hover: #cb4b16; /* Laranja para hover de links */
+  --link: #268bd2;
+  --link-hover: #cb4b16;
   --bg-img: url('../img/themes/solarized-bg.jpg');
 }
 
-/* DRACULA THEME */
+/* ============================================================
+   DRACULA THEME
+============================================================ */
 html.dracula-theme {
   --bg: #282a36;
   --text-primary: #f8f8f2;
   --text-heading: #ffffff;
-  --accent: #bd93f9;
-  --accent-hover: #a371f7;
+  --accent: #bd93f9; /* roxo base */
+  --accent-hover: #36013F ; /* roxo mais claro, mas não branco */
+  --text-on-accent: #000000; /* texto preto no hover */
   --accent-rgb: 189, 147, 249;
-  --text-on-accent: #000000;
   --link: #f8f8f2;
   --link-hover: #bd93f9;
   --bg-img: url('../img/themes/dracula-bg.jpg');
 }
 
-/* NEON THEME — Contraste Máximo */
+/* ============================================================
+   NEON THEME — Contraste Máximo
+============================================================ */
 html.neon-theme {
   --bg: #0aff9d;
   --text-primary: #000000;
-  --text-heading: #000000; /* Títulos pretos para "furar" o verde */
+  --text-heading: #000000;
   --accent: #000000;
+  --accent-hover: #222222;
+  --accent-rgb: 0, 0, 0;
   --text-on-accent: #0aff9d;
-  --accent-rgb: 0, 0, 0; /* Blob preto cria sombras pulsantes no verde */
   --link: #000000;
   --link-hover: #ffffff;
-  --bg-img: linear-gradient(135deg, #fdf6e3 0%, #eee8d5 100%);
   --bg-img: url('../img/themes/neon-bg.jpg');
 }
 
@@ -769,9 +793,6 @@ footer {
 ============================ */
 /* ============================================================
    LAYOUT GLOBAL — Starter Kit
-   ------------------------------------------------------------
-   Usa apenas variáveis CSS (var(--bg), var(--text-primary), etc.)
-   Compatível com todos os temas e com o theme.js
 ============================================================ */
 /* Evita flicker de tema */
 html {
@@ -797,36 +818,29 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: var(--bg);
+  /* CORREÇÃO IMPORTANTE */
+  background-color: transparent !important;
+  background-image: none !important;
   color: var(--text-primary);
-  background-image: var(--bg-img);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   margin: 0;
   padding: 0;
   font-family: var(--font-family, "Segoe Ui", "Tahoma", "Geneva", "Verdana", sans-serif);
 }
 
-.hero {
-  flex: 1; /* Esta secção vai esticar para empurrar o footer para o fundo */
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* Centra o conteúdo da hero verticalmente */
-}
-
 footer {
-  margin-top: auto; /* Garante o empurrão final */
+  margin-top: auto;
   width: 100%;
 }
 
 /* ============================================================
-   BLOB GLOBAL — Versão Intensa (Mais Carregada)
+   BLOB GLOBAL — Versão Intensa
 ============================================================ */
 .layout {
+  min-height: 12.5vh;
   position: relative;
   isolation: isolate;
   overflow: hidden;
+  z-index: 0;
 }
 
 .layout::before,
@@ -841,22 +855,20 @@ footer {
   transform: translate(-50%, -50%);
 }
 
-/* Onda Exterior - Mais densa */
 .layout::before {
   width: 950px;
   height: 950px;
   background: radial-gradient(circle, rgba(var(--accent-rgb), 0.4) 0%, rgba(var(--accent-rgb), 0.1) 40%, transparent 75%);
-  filter: blur(60px); /* Reduzi o blur para a cor ficar mais nítida */
-  animation: wave-outer 3s infinite ease-in-out; /* Velocidade: Ajustada para 8s para o movimento ser mais percetível */
+  filter: blur(60px);
+  animation: wave-outer 3s infinite ease-in-out;
 }
 
-/* Onda Interior - Núcleo forte */
 .layout::after {
   width: 550px;
   height: 550px;
   background: radial-gradient(circle, rgba(var(--accent-rgb), 0.5) 0%, rgba(var(--accent-rgb), 0.2) 50%, transparent 80%);
-  filter: blur(30px); /* Menos blur = mais impacto visual */
-  animation: wave-inner 3s infinite ease-in-out; /* Velocidade: 8s para sincronizar com a onda exterior */
+  filter: blur(30px);
+  animation: wave-inner 3s infinite ease-in-out;
 }
 
 @keyframes wave-outer {
@@ -865,8 +877,8 @@ footer {
     opacity: 0.2;
   }
   50% {
-    transform: translate(-50%, -50%) scale(1.6); /* Estica muito mais */
-    opacity: 0.7; /* Fica bem carregado no meio do ciclo */
+    transform: translate(-50%, -50%) scale(1.6);
+    opacity: 0.7;
   }
 }
 @keyframes wave-inner {
@@ -912,12 +924,22 @@ a:hover {
   padding: 2rem 0;
 }
 
-/* PARÁGRAFOS — estilo base */
+/* PARÁGRAFOS */
 .main_paragraph1,
 .main_paragraph2 {
   font-weight: 600;
   line-height: 1.6;
   transition: color 0.2s ease;
+}
+
+.main_paragraph1:hover {
+  color: var(--accent);
+  filter: brightness(1.25);
+}
+
+.main_paragraph2:hover {
+  color: var(--link-hover);
+  filter: brightness(1.15);
 }
 
 /* RESPONSIVE */
@@ -938,16 +960,6 @@ a:hover {
     text-align: center;
   }
 }
-.main_paragraph1:hover {
-  color: var(--accent);
-  filter: brightness(1.25);
-}
-
-.main_paragraph2:hover {
-  color: var(--link-hover);
-  filter: brightness(1.15);
-}
-
 /* ============================
    7. Componentes
    (hero, features, footer, etc.)

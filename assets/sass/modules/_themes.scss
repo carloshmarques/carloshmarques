@@ -21,92 +21,105 @@
   --link-hover: #000;
 }
 
-/* LIGHT THEME */
+/* ============================================================
+   LIGHT THEME
+============================================================ */
+
 html.light-theme {
-   background-blend-mode: soft-light;
-   opacity: 0.98;
+  background-blend-mode: soft-light;
+  opacity: 0.98;
+
   --bg: #ffffff;
   --text-primary: #1a1a1a;
   --text-heading: #000000;
 
-  --accent: #0055ff;
-  --accent-hover: #0044cc;
+  --accent-hover: #ffffff; /* branco forte */ 
+  --text-on-accent: #000000; /* texto preto no hover */
   --accent-rgb: 0, 85, 255;
-
-  --text-on-accent: #ffffff;
-
   --link: #1a1a1a;
   --link-hover: #0055ff;
 
   --bg-img: url('../img/themes/light-bg.jpg');
 }
 
-/* DARK THEME - Focado em Cinzas e Pretos */
-html.dark-theme {
-  --bg: #0a0a0a;           /* Preto profundo */
-  --text-primary: #b0b0b0;  /* Cinza suave para leitura */
-  --text-heading: #ffffff;  /* Branco puro para títulos */
+/* ============================================================
+   DARK THEME — Cinzas e Pretos
+============================================================ */
 
-  --accent: #3498db;        /* Azul discreto (substitui o ciano) */
+html.dark-theme {
+  --bg: #0a0a0a;
+  --text-primary: #b0b0b0;
+  --text-heading: #ffffff;
+
+  --accent: #ffffff;
   --accent-hover: #2980b9;
   --accent-rgb: 52, 152, 219;
 
-  --text-on-accent: #ffffff;
+  --text-on-accent: #000000;
+
+
+
   --link: #3498db;
   --link-hover: #ffffff;
 
   --bg-img: url('../img/themes/dark-bg.jpg');
 }
-// “Continuar o tema Hydra / Conky / lifecicles”
-/* HYDRA THEME - Estilo Hacker clássico */
-html.hydra-theme {
-  --bg: #020202;           /* Quase preto total */
-  --text-primary: #00cc00;  /* Verde terminal (menos agressivo que o ff) */
-  --text-heading: #33ff33;  /* Verde brilhante para destaque */
 
-  --accent: #00ff41;        /* Verde neon Bugtraq */
+/* ============================================================
+   HYDRA THEME — Estilo Hacker
+============================================================ */
+
+html.hydra-theme {
+  --bg: #020202;
+  --text-primary: #00cc00;
+  --text-heading: #33ff33;
+
+  --accent: #00ff41;
   --accent-hover: #008f11;
   --accent-rgb: 0, 255, 65;
 
   --text-on-accent: #000000;
+
   --link: #00ff41;
   --link-hover: #00cc33;
 
   --bg-img: url('../img/themes/hydra-bg.jpg');
 }
 
+/* ============================================================
+   SOLARIZED THEME
+============================================================ */
 
 html.solarized-theme {
   --bg: #fdf6e3;
-  /* Trocado de #657b83 (base1) para #586e75 (base01) - Mais escuro */
-  --text-primary: #475b62; 
-  /* Trocado de #073642 para #002b36 (base03) - Quase preto azulado */
-  --text-heading: #002b36; 
+  --text-primary: #475b62;
+  --text-heading: #002b36;
 
-  --accent: #b58900;       /* Amarelo Ocre clássico */
-  --accent-hover: #859900; /* Verde Solarized para o hover */
+  --accent: #b58900;
+  --accent-hover: #859900;
   --accent-rgb: 181, 137, 0;
 
   --text-on-accent: #ffffff;
-  --link: #268bd2;         /* Azul Solarized para links */
-  --link-hover: #cb4b16;   /* Laranja para hover de links */
+
+  --link: #268bd2;
+  --link-hover: #cb4b16;
 
   --bg-img: url('../img/themes/solarized-bg.jpg');
 }
 
+/* ============================================================
+   DRACULA THEME
+============================================================ */
 
-
-/* DRACULA THEME */
 html.dracula-theme {
-  --bg: #282a36;
-  --text-primary: #f8f8f2;
-  --text-heading: #ffffff;
-
-  --accent: #bd93f9;
-  --accent-hover: #a371f7;
+  --bg: #282a36; 
+  --text-primary: #f8f8f2; 
+  --text-heading: #ffffff; 
+  --accent: #bd93f9; /* roxo base */ 
+  --accent-hover: #36013F ; /* roxo mais claro, mas não branco */ 
+  --text-on-accent: #000000; /* texto preto no hover */ 
   --accent-rgb: 189, 147, 249;
 
-  --text-on-accent: #000000;
 
   --link: #f8f8f2;
   --link-hover: #bd93f9;
@@ -114,37 +127,39 @@ html.dracula-theme {
   --bg-img: url('../img/themes/dracula-bg.jpg');
 }
 
+/* ============================================================
+   NEON THEME — Contraste Máximo
+============================================================ */
 
-
-/* NEON THEME — Contraste Máximo */
 html.neon-theme {
   --bg: #0aff9d;
   --text-primary: #000000;
-  --text-heading: #000000; /* Títulos pretos para "furar" o verde */
+  --text-heading: #000000;
+
   --accent: #000000;
+  --accent-hover: #222222;
+  --accent-rgb: 0, 0, 0;
+
   --text-on-accent: #0aff9d;
-  --accent-rgb: 0, 0, 0;    /* Blob preto cria sombras pulsantes no verde */
-  
+
   --link: #000000;
   --link-hover: #ffffff;
-  --bg-img: linear-gradient(135deg, #fdf6e3 0%, #eee8d5 100%);
+
   --bg-img: url('../img/themes/neon-bg.jpg');
 }
-
 
 /* ============================================================
    BACKGROUND GLOBAL + FOOTER
 ============================================================ */
 
 html {
-  background-color: var(--bg);
+  background-color: var(--bg); 
   background-image: var(--bg-img);
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   transition: background 0.5s ease-in-out;
 }
-
 
 footer {
   background: rgba(0, 0, 0, 0.2);

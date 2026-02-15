@@ -2,17 +2,17 @@
   width: 100%;
   padding: 0.4rem 2rem;
 
-  /* Vidro fosco real */
   background: rgba(var(--accent-rgb), 0.08);
   backdrop-filter: blur(40px) saturate(180%);
   -webkit-backdrop-filter: blur(40px) saturate(180%);
   background-clip: padding-box;
 
-  position: fixed;
+  position: fixed; 
+  z-index: index 10;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 100; /* aumenta para engolir a hero */
+  
 
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
   transition: background 0.3s ease;

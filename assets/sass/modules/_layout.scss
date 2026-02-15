@@ -1,8 +1,5 @@
 /* ============================================================
    LAYOUT GLOBAL — Starter Kit
-   ------------------------------------------------------------
-   Usa apenas variáveis CSS (var(--bg), var(--text-primary), etc.)
-   Compatível com todos os temas e com o theme.js
 ============================================================ */
 
 /* Evita flicker de tema */
@@ -29,41 +26,39 @@ body {
   display: flex; 
   flex-direction: column;
   min-height: 100vh;
-  background-color: var(--bg);
+
+  /* CORREÇÃO IMPORTANTE */
+  background-color: transparent !important;
+  background-image: none !important;
+
   color: var(--text-primary);
-  background-image: var(--bg-img);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   margin: 0;
   padding: 0;
   font-family: var(--font-family, "Segoe Ui", "Tahoma", 'Geneva' ,'Verdana' , sans-serif);
 }
-.hero {
-  flex: 1; /* Esta secção vai esticar para empurrar o footer para o fundo */
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* Centra o conteúdo da hero verticalmente */
-}
+
 
 footer {
-  margin-top: auto; /* Garante o empurrão final */
+  margin-top: auto;
   width: 100%;
 }
+
 /* ============================================================
-   BLOB GLOBAL — Versão Intensa (Mais Carregada)
+   BLOB GLOBAL — Versão Intensa
 ============================================================ */
 
 .layout {
+  min-height: 12.5vh;
   position: relative;
   isolation: isolate;
-  overflow: hidden; 
+  overflow: hidden;
+  z-index: 0;
 }
 
-.layout::before,/* Onda Exterior - Mais densa */
+.layout::before,
 .layout::after {
   content: "";
-  position: fixed; 
+  position: fixed;
   top: 50%;
   left: 50%;
   border-radius: 50%;
@@ -72,56 +67,53 @@ footer {
   transform: translate(-50%, -50%);
 }
 
-/* Onda Exterior - Mais densa */
 .layout::before {
   width: 950px;
   height: 950px;
   background: radial-gradient(
     circle,
-    rgba(var(--accent-rgb), 0.4) 0%,      /* Aumentado de 0.2 para 0.4 */
-    rgba(var(--accent-rgb), 0.1) 40%, 
+    rgba(var(--accent-rgb), 0.4) 0%,
+    rgba(var(--accent-rgb), 0.1) 40%,
     transparent 75%
   );
-  filter: blur(60px);                     /* Reduzi o blur para a cor ficar mais nítida */
-  animation: wave-outer 3s infinite ease-in-out;/* Velocidade: Ajustada para 8s para o movimento ser mais percetível */
+  filter: blur(60px);
+  animation: wave-outer 3s infinite ease-in-out;
 }
 
-/* Onda Interior - Núcleo forte */
 .layout::after {
   width: 550px;
   height: 550px;
   background: radial-gradient(
     circle,
-    rgba(var(--accent-rgb), 0.5) 0%,      /* Aumentado de 0.15 para 0.5 */
+    rgba(var(--accent-rgb), 0.5) 0%,
     rgba(var(--accent-rgb), 0.2) 50%,
     transparent 80%
   );
-  filter: blur(30px);                     /* Menos blur = mais impacto visual */
-  animation: wave-inner 3s infinite ease-in-out;/* Velocidade: 8s para sincronizar com a onda exterior */
+  filter: blur(30px);
+  animation: wave-inner 3s infinite ease-in-out;
 }
 
 @keyframes wave-outer {
-  0%, 100% { 
-    transform: translate(-50%, -50%) scale(0.7); 
-    opacity: 0.2; 
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(0.7);
+    opacity: 0.2;
   }
-  50% { 
-    transform: translate(-50%, -50%) scale(1.6); /* Estica muito mais */
-    opacity: 0.7; /* Fica bem carregado no meio do ciclo */
+  50% {
+    transform: translate(-50%, -50%) scale(1.6);
+    opacity: 0.7;
   }
 }
 
 @keyframes wave-inner {
-  0%, 100% { 
-    transform: translate(-50%, -50%) scale(1.4); 
-    opacity: 0.3; 
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1.4);
+    opacity: 0.3;
   }
-  50% { 
-    transform: translate(-50%, -50%) scale(0.6); 
-    opacity: 0.8; 
+  50% {
+    transform: translate(-50%, -50%) scale(0.6);
+    opacity: 0.8;
   }
 }
-
 
 /* ============================================================
    HEADINGS
@@ -157,12 +149,22 @@ a:hover {
   padding: 2rem 0;
 }
 
-/* PARÁGRAFOS — estilo base */
+/* PARÁGRAFOS */
 .main_paragraph1,
 .main_paragraph2 {
   font-weight: 600;
   line-height: 1.6;
   transition: color 0.2s ease;
+}
+
+.main_paragraph1:hover {
+  color: var(--accent);
+  filter: brightness(1.25);
+}
+
+.main_paragraph2:hover {
+  color: var(--link-hover);
+  filter: brightness(1.15);
 }
 
 /* RESPONSIVE */
@@ -184,14 +186,4 @@ a:hover {
     font-size: 0.9rem;
     text-align: center;
   }
-}
-
-.main_paragraph1:hover {
-  color: var(--accent);
-  filter: brightness(1.25);
-}
-
-.main_paragraph2:hover {
-  color: var(--link-hover);
-  filter: brightness(1.15);
 }

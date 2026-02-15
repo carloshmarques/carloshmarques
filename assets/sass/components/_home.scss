@@ -5,10 +5,10 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  min-height: 64.25vh; /* altura mínima para ocupar a tela inteira, considerando header e footer */
+  min-height: 25vh; /* altura mínima para ocupar a tela inteira, considerando header e footer */
   padding-left: 2rem;
   padding-right: 2rem;
-  padding-bottom: 1.5rem;
+  padding-bottom: 10rem;
   /* IMPORTANTE: nada de gap aqui */
 }
 
@@ -34,14 +34,27 @@
 #home {
   position: relative; 
   z-index: 1;
-  min-height: 50vh;
-  padding-top: 6rem;
 
+  /* estado escondido — ocupa ZERO espaço */
   display: none;
-  opacity: 1;
+  opacity: 0;
   transform: translateY(40px);
+
+  /* só animação aqui */
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
+
+#home.visible {
+  display: block;
+
+  /* layout só quando visível */
+  min-height: 60vh;
+  padding-top: 6rem;
+
+  opacity: 1;
+  transform: translateY(0);
+}
+
 
 
 
@@ -63,10 +76,3 @@
   hyphens: auto;
 }
 
-
-
-#home.visible {
-  display: block;
-  opacity: 1;
-  transform: translateY(0);
-}

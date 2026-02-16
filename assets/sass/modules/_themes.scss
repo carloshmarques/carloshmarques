@@ -1,53 +1,58 @@
 /* ============================================================
-   SISTEMA DE TEMAS — Starter Kit (2026)
+   THEMES — Bridge entre Sass Tokens e CSS Variables
 ============================================================ */
+
+@use 'colors' as c;
+
+/* ------------------------------------------------------------
+   1. ROOT — valores base derivados dos tokens Sass
+------------------------------------------------------------ */
 
 :root {
-  --bg: #ffffff;
-  --text-primary: #000000;
-  --text-heading: #000000;
+  --bg: #{c.$light-background};
+  --text-primary: #{c.$light-text};
+  --text-heading: #{c.$text-heading};
 
-  --accent: #0000ff;
-  --accent-hover: #0000cc;
-  --accent-rgb: 0, 0, 255;
+  --accent: #{c.$accent};
+  --accent-hover: #{c.$accent};
+  --accent-rgb: 0, 0, 0; /* substituído pelos temas */
+
+  --text-on-accent: #{c.$white};
+
+  --link: #{c.$darkGray};
+  --link-hover: #{c.$black};
 
   --bg-img: none;
-
-  /* Texto em cima do accent */
-  --text-on-accent: #ffffff;
-
-  /* Links globais (header, burger, dropdown) */
-  --link: #333;
-  --link-hover: #000;
 }
 
-/* ============================================================
-   LIGHT THEME
-============================================================ */
+/* ------------------------------------------------------------
+   2. LIGHT THEME
+------------------------------------------------------------ */
 
 html.light-theme {
   background-blend-mode: soft-light;
   opacity: 0.98;
 
-  --bg: #ffffff;
+  --bg: #{c.$light-background};
   --text-primary: #1a1a1a;
   --text-heading: #000000;
 
-  --accent-hover: #ffffff; /* branco forte */ 
-  --text-on-accent: #000000; /* texto preto no hover */
+  --accent-hover: #ffffff;
+  --text-on-accent: #000000;
   --accent-rgb: 0, 85, 255;
+
   --link: #1a1a1a;
   --link-hover: #0055ff;
 
   --bg-img: url('../img/themes/light-bg.jpg');
 }
 
-/* ============================================================
-   DARK THEME — Cinzas e Pretos
-============================================================ */
+/* ------------------------------------------------------------
+   3. DARK THEME
+------------------------------------------------------------ */
 
 html.dark-theme {
-  --bg: #0a0a0a;
+  --bg: #{c.$dark-background};
   --text-primary: #b0b0b0;
   --text-heading: #ffffff;
 
@@ -57,17 +62,15 @@ html.dark-theme {
 
   --text-on-accent: #000000;
 
-
-
   --link: #3498db;
   --link-hover: #ffffff;
 
   --bg-img: url('../img/themes/dark-bg.jpg');
 }
 
-/* ============================================================
-   HYDRA THEME — Estilo Hacker
-============================================================ */
+/* ------------------------------------------------------------
+   4. HYDRA THEME
+------------------------------------------------------------ */
 
 html.hydra-theme {
   --bg: #020202;
@@ -86,9 +89,9 @@ html.hydra-theme {
   --bg-img: url('../img/themes/hydra-bg.jpg');
 }
 
-/* ============================================================
-   SOLARIZED THEME
-============================================================ */
+/* ------------------------------------------------------------
+   5. SOLARIZED THEME
+------------------------------------------------------------ */
 
 html.solarized-theme {
   --bg: #fdf6e3;
@@ -107,19 +110,20 @@ html.solarized-theme {
   --bg-img: url('../img/themes/solarized-bg.jpg');
 }
 
-/* ============================================================
-   DRACULA THEME
-============================================================ */
+/* ------------------------------------------------------------
+   6. DRACULA THEME
+------------------------------------------------------------ */
 
 html.dracula-theme {
-  --bg: #282a36; 
-  --text-primary: #f8f8f2; 
-  --text-heading: #ffffff; 
-  --accent: #bd93f9; /* roxo base */ 
-  --accent-hover: #36013F ; /* roxo mais claro, mas não branco */ 
-  --text-on-accent: #000000; /* texto preto no hover */ 
+  --bg: #282a36;
+  --text-primary: #f8f8f2;
+  --text-heading: #ffffff;
+
+  --accent: #bd93f9;
+  --accent-hover: #36013f;
   --accent-rgb: 189, 147, 249;
 
+  --text-on-accent: #000000;
 
   --link: #f8f8f2;
   --link-hover: #bd93f9;
@@ -127,9 +131,9 @@ html.dracula-theme {
   --bg-img: url('../img/themes/dracula-bg.jpg');
 }
 
-/* ============================================================
-   NEON THEME — Contraste Máximo
-============================================================ */
+/* ------------------------------------------------------------
+   7. NEON THEME
+------------------------------------------------------------ */
 
 html.neon-theme {
   --bg: #0aff9d;
@@ -148,12 +152,12 @@ html.neon-theme {
   --bg-img: url('../img/themes/neon-bg.jpg');
 }
 
-/* ============================================================
-   BACKGROUND GLOBAL + FOOTER
-============================================================ */
+/* ------------------------------------------------------------
+   8. BACKGROUND GLOBAL + FOOTER
+------------------------------------------------------------ */
 
 html {
-  background-color: var(--bg); 
+  background-color: var(--bg);
   background-image: var(--bg-img);
   background-size: cover;
   background-position: center;

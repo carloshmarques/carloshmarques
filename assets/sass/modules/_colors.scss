@@ -1,72 +1,72 @@
-$red: #ff0000;
-$venus: #915d91;
+/* ============================================================
+   COLORS — Design Tokens
+============================================================ */
+
+/* 1. Core colors */
 $white: #ffffff;
-$gold: #ffd700;
-$blue: #0000ff;
-$warmGray: #808080;
-$green: #00ff00;
 $black: #000000;
+
+$red: #ff0000;
+$blue: #0000ff;
+$green: #00ff00;
+$yellow: #ffff00;
+$orange: #ffa500;
+$pink: #ffc0cb;
+$purple: #915d91;
+
 $lightGray: #d3d3d3;
 $darkGray: #a9a9a9;
-$lime: #00ff00;
-$limeGreen: #32cd32;
-$accent-color: #ff00ff;
-$primary: #007bff;
-$secondary: #6c757d;
-$jetBlack: #343a40;
-$redOrange: #ff4500;
-$yellow: #ffff00;
-$goldenRod: #daa520;
-$goldYellow: #ffdf00;
-$orange: #ffa500;
-$darkOrange: #ff8c00;
-$bourbon: #ae5d29;
-$bronze: #cd7f32;
-$carrett: #ff7f50;
-$coral: #ff7f50;
-$vibrantOrange: #ff5e00;
-$pink: #ffc0cb;
-$lightPink: #ffb6c1;
 
-$primary-color: #fff;
-$secondary-color: $bourbon;
-$text-color: #333;
+/* 2. Brand colors */
+$primary: #4f46e5;
+$secondary: #9333ea;
+$accent: #22d3ee;
+
+/* 3. Semantic colors */
+$success: #32cd32;
+$error: #ff4500;
+$warning: #daa520;
+$info: #0c5460;
+
+/* 4. Theme tokens */
 $light-background: #ffffff;
 $light-text: #000000;
 
 $dark-background: #101010;
 $dark-text: #ffffff;
 
-$border-radius: 4px;
-$border-color: $lightGray;
+$text-primary: #e2e8f0;
+$text-heading: #f8fafc;
 
-$button-primary-background-color: $green;
-$button-primary-text-color: $white;
+/* 5. Component tokens */
+$button-primary-bg: $green;
+$button-primary-text: $white;
 
-$button-secondary-background-color: $black;
-$button-secondary-text-color: $white;
+$button-secondary-bg: $black;
+$button-secondary-text: $white;
 
-$alert-success-background-color: #d4edda;
-$alert-success-text-color: #155724;
+$alert-success-bg: #d4edda;
+$alert-success-text: #155724;
 
-$alert-error-background-color: #f8d7da;
-$alert-error-text-color: #721c24;
+$alert-error-bg: #f8d7da;
+$alert-error-text: #721c24;
 
-$alert-warning-background-color: #fff3cd;
-$alert-warning-text-color: #856404;
+$alert-warning-bg: #fff3cd;
+$alert-warning-text: #856404;
 
-$alert-info-background-color: #d1ecf1;
-$alert-info-text-color: #0c5460;
+$alert-info-bg: #d1ecf1;
+$alert-info-text: #0c5460;
 
-$modal-background-color: rgba(0, 0, 0, 0.5);
-$modal-content-background-color: $white;
+$modal-bg: rgba(0, 0, 0, 0.5);
+$modal-content-bg: $white;
 
-$tooltip-background-color: $black;
-$tooltip-text-color: $white;
+$tooltip-bg: $black;
+$tooltip-text: $white;
 
-$navbar-background-color: $white;
-$navbar-text-color: $darkGray;
+$navbar-bg: $white;
+$navbar-text: $darkGray;
 
-$footer-background-color: $black;
-$footer-text-color: $white;
+$footer-bg: $black;
+$footer-text: $white;
+
 $highlight-color: #ff0;

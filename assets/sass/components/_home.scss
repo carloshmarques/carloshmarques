@@ -1,25 +1,36 @@
+/* ============================================================
+   HOME PAGE — HERO + HOME SECTION
+============================================================ */
+
+/* Imports globais (mixins, breakpoints, etc.) */
+@use '../modules/responsive' as *;
+
+/* ============================================================
+   HERO SECTION — Corrigido e Responsivo
+============================================================ */
+
 .hero {
   padding-top: 7rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-bottom: 10rem;
 
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  min-height: 25vh; /* altura mínima para ocupar a tela inteira, considerando header e footer */
-  padding-left: 2rem;
-  padding-right: 2rem;
-  padding-bottom: 10rem;
-  /* IMPORTANTE: nada de gap aqui */
+
+  min-height: 25vh;
 }
 
-.hero .container { 
+.hero .container {
   display: flex;
   flex-direction: column;
-  gap: 2rem; /* espaçamento correto entre título, texto e botão */
+  gap: 2rem;
 }
 
 .hero .container .hero_btn {
-  align-self: center; /* alinhamento do botão */
+  align-self: center;
 }
 
 .hero_description {
@@ -31,23 +42,49 @@
   font-weight: bold;
   color: var(--link-hover);
 }
+
+/* HERO — RESPONSIVE */
+@include respond(tablet) {
+  .hero {
+    padding-top: 5rem;
+    padding-bottom: 6rem;
+  }
+
+  .hero_description {
+    font-size: 1.1rem;
+  }
+}
+
+@include respond(mobile) {
+  .hero {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .hero_description {
+    font-size: 1rem;
+  }
+}
+
+/* ============================================================
+   HOME SECTION — Corrigido
+============================================================ */
+
 #home {
-  position: relative; 
+  position: relative;
   z-index: 1;
 
-  /* estado escondido — ocupa ZERO espaço */
   display: none;
   opacity: 0;
   transform: translateY(40px);
 
-  /* só animação aqui */
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 #home.visible {
   display: block;
-
-  /* layout só quando visível */
   min-height: 60vh;
   padding-top: 6rem;
 
@@ -55,14 +92,11 @@
   transform: translateY(0);
 }
 
-
-
-
-.home-section .main {
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* duas colunas iguais */
-  gap: 2rem; /* espaço entre as colunas */
+.home-section .container {
+  width: min(90%, 1200px);
+  margin: 0 auto;
 }
+
 .home-heading {
   font-size: 1.6rem;
   margin-bottom: 2rem;
@@ -70,9 +104,35 @@
   text-align: center;
 }
 
+/* MAIN — usa flex, não grid */
+.home-section .main {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+
+  @include respond(tablet) {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  @include respond(mobile) {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+
+/* Parágrafos */
 .home-section p {
   text-align: justify;
   text-justify: inter-word;
   hyphens: auto;
-}
 
+  @include respond(mobile) {
+    font-size: 0.9rem;
+    text-align: center;
+  }
+}

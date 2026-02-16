@@ -1,10 +1,9 @@
-@forward 'reset';
+/* ============================================================
+   TOKENS INDEX — apenas design tokens
+============================================================ */
+
 @forward 'variables';
 @forward 'colors';
 @forward 'spacing';
 @forward 'typography';
-@forward 'functions';
-@forward 'mixins';
-@forward 'breakpoints';
-@forward 'responsive';
-
+@forward 'shadows';

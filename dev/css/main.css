@@ -2,9 +2,348 @@
 /* ============================
    1. Variáveis e funções base
 ============================ */
+/* ============================================================
+   VARIABLES — apenas variáveis puras (sem imports)
+============================================================ */
 /* ============================
    Tipografia — Escala Modular
    ============================ */
+/* ============================
+   2. Mixins e responsive
+============================ */
+/* ============================================================
+   COLORS — Design Tokens
+============================================================ */
+/* 1. Core colors */
+/* 2. Brand colors */
+/* 3. Semantic colors */
+/* 4. Theme tokens */
+/* 5. Component tokens */
+/* ============================
+   3. Reset + Heal (juntos)
+============================ */
+/* ============================================
+   _reset.scss — Hydra Reset (2026)
+   Remove apenas o essencial.
+   Não destrói estilos úteis.
+   Trabalha em conjunto com normalize.scss.
+============================================ */
+/* 1. Remove margens padrão dos elementos mais problemáticos */
+body, h1, h2, h3, h4, h5, h6, p, figure {
+  margin: 0;
+}
+
+/* 2. Remove padding inesperado */
+ul, ol {
+  padding: 0;
+}
+
+/* 3. Remove bullets padrão (o normalize já trata de parte disto) */
+ul, ol {
+  list-style: none;
+}
+
+/* 4. Garantir que botões não têm estilos nativos inconsistentes */
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* 5. Inputs e buttons sem estilos herdados estranhos */
+input, button, textarea, select {
+  font: inherit;
+  color: inherit;
+}
+
+/* 6. Remove bordas e outlines agressivos (mas mantém acessibilidade) */
+input, textarea, select {
+  border: none;
+  outline: none;
+}
+
+/* 7. Garantir que imagens não têm bordas antigas (IE legacy) */
+img {
+  border-style: none;
+}
+
+/* 8. Remove estilos nativos de anchors */
+a {
+  text-decoration: none;
+}
+
+/* 9. Remove comportamento estranho de <strong> e <em> em alguns browsers */
+strong {
+  font-weight: bold;
+}
+
+em {
+  font-style: italic;
+}
+
+/* 10. Remove espaçamento entre elementos inline-block */
+:where(*) {
+  letter-spacing: normal;
+  word-spacing: normal;
+}
+
+/* 11. Tabelas sem bordas e espaçamentos inesperados */
+/* fim do _reset.scss */
+/* ============================================================
+   heal.scss — Hydra Healing Layer (2026)
+   ------------------------------------------------------------
+   Este módulo atua como um "soro corretivo" para o layout.
+   Corrige malfunctions comuns antes de o design entrar em cena.
+   Modular, opcional e expansível.
+============================================================ */
+/* ------------------------------------------------------------
+   1. Configurações (ativar/desativar tratamentos)
+------------------------------------------------------------ */
+/* ------------------------------------------------------------
+   2. Box Model Healing
+------------------------------------------------------------ */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* ------------------------------------------------------------
+   3. Media Healing (imagens, vídeos, canvas, svg)
+------------------------------------------------------------ */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  content-visibility: auto;
+}
+
+/* ------------------------------------------------------------
+   4. Typography Healing
+------------------------------------------------------------ */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  margin: 0;
+}
+
+/* ------------------------------------------------------------
+   5. Forms Healing
+------------------------------------------------------------ */
+button, input, select, textarea {
+  font: inherit;
+  color: inherit;
+}
+
+textarea {
+  resize: vertical;
+}
+
+/* ------------------------------------------------------------
+   6. Lists Healing
+------------------------------------------------------------ */
+ul, ol {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* ------------------------------------------------------------
+   7. Tables Healing
+------------------------------------------------------------ */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* ------------------------------------------------------------
+   8. Interaction Healing (anchors)
+------------------------------------------------------------ */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ============================================================
+   Fim do Hydra Healing Layer
+============================================================ */
+/* ============================
+   4. Tokens de design
+   (cores, espaçamentos, tipografia, sombras)
+============================ */
+/* ============================
+   Tokens de design: Ícones
+    (cores, espaçamentos, tipografia, sombras)
+============================ */
+.icon {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  vertical-align: middle;
+  transition: filter 0.2s ease;
+}
+
+/* Classe utilitária para componentes escuros */
+.dark-ui .icon {
+  filter: invert(1);
+}
+
+/* Tema claro → ícones pretos */
+.light-theme .icon {
+  filter: invert(0);
+}
+
+/* Temas escuros → ícones brancos */
+.dark-theme .icon,
+.neon-theme .icon,
+.dracula-theme .icon,
+.solarized-theme .icon,
+.hydra-theme .icon {
+  filter: invert(1);
+}
+
+/* ============================
+   5. Temas (ANTES do layout!)
+============================ */
+/* ============================================================
+   THEMES — Bridge entre Sass Tokens e CSS Variables
+============================================================ */
+/* ------------------------------------------------------------
+   1. ROOT — valores base derivados dos tokens Sass
+------------------------------------------------------------ */
+:root {
+  --bg: #ffffff;
+  --text-primary: #000000;
+  --text-heading: #f8fafc;
+  --accent: #22d3ee;
+  --accent-hover: #22d3ee;
+  --accent-rgb: 0, 0, 0; /* substituído pelos temas */
+  --text-on-accent: #ffffff;
+  --link: #a9a9a9;
+  --link-hover: #000000;
+  --bg-img: none;
+}
+
+/* ------------------------------------------------------------
+   2. LIGHT THEME
+------------------------------------------------------------ */
+html.light-theme {
+  background-blend-mode: soft-light;
+  opacity: 0.98;
+  --bg: #ffffff;
+  --text-primary: #1a1a1a;
+  --text-heading: #000000;
+  --accent-hover: #ffffff;
+  --text-on-accent: #000000;
+  --accent-rgb: 0, 85, 255;
+  --link: #1a1a1a;
+  --link-hover: #0055ff;
+  --bg-img: url('../img/themes/light-bg.jpg');
+}
+
+/* ------------------------------------------------------------
+   3. DARK THEME
+------------------------------------------------------------ */
+html.dark-theme {
+  --bg: #101010;
+  --text-primary: #b0b0b0;
+  --text-heading: #ffffff;
+  --accent: #ffffff;
+  --accent-hover: #2980b9;
+  --accent-rgb: 52, 152, 219;
+  --text-on-accent: #000000;
+  --link: #3498db;
+  --link-hover: #ffffff;
+  --bg-img: url('../img/themes/dark-bg.jpg');
+}
+
+/* ------------------------------------------------------------
+   4. HYDRA THEME
+------------------------------------------------------------ */
+html.hydra-theme {
+  --bg: #020202;
+  --text-primary: #00cc00;
+  --text-heading: #33ff33;
+  --accent: #00ff41;
+  --accent-hover: #008f11;
+  --accent-rgb: 0, 255, 65;
+  --text-on-accent: #000000;
+  --link: #00ff41;
+  --link-hover: #00cc33;
+  --bg-img: url('../img/themes/hydra-bg.jpg');
+}
+
+/* ------------------------------------------------------------
+   5. SOLARIZED THEME
+------------------------------------------------------------ */
+html.solarized-theme {
+  --bg: #fdf6e3;
+  --text-primary: #475b62;
+  --text-heading: #002b36;
+  --accent: #b58900;
+  --accent-hover: #859900;
+  --accent-rgb: 181, 137, 0;
+  --text-on-accent: #ffffff;
+  --link: #268bd2;
+  --link-hover: #cb4b16;
+  --bg-img: url('../img/themes/solarized-bg.jpg');
+}
+
+/* ------------------------------------------------------------
+   6. DRACULA THEME
+------------------------------------------------------------ */
+html.dracula-theme {
+  --bg: #282a36;
+  --text-primary: #f8f8f2;
+  --text-heading: #ffffff;
+  --accent: #bd93f9;
+  --accent-hover: #36013f;
+  --accent-rgb: 189, 147, 249;
+  --text-on-accent: #000000;
+  --link: #f8f8f2;
+  --link-hover: #bd93f9;
+  --bg-img: url('../img/themes/dracula-bg.jpg');
+}
+
+/* ------------------------------------------------------------
+   7. NEON THEME
+------------------------------------------------------------ */
+html.neon-theme {
+  --bg: #0aff9d;
+  --text-primary: #000000;
+  --text-heading: #000000;
+  --accent: #000000;
+  --accent-hover: #222222;
+  --accent-rgb: 0, 0, 0;
+  --text-on-accent: #0aff9d;
+  --link: #000000;
+  --link-hover: #ffffff;
+  --bg-img: url('../img/themes/neon-bg.jpg');
+}
+
+/* ------------------------------------------------------------
+   8. BACKGROUND GLOBAL + FOOTER
+------------------------------------------------------------ */
+html {
+  background-color: var(--bg);
+  background-image: var(--bg-img);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  transition: background 0.5s ease-in-out;
+}
+
+footer {
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+/* ============================
+   6. Estrutura global
+   (layout, config, botões)
+============================ */
 /* ============================================================
    LOGO SK — Círculo Dinâmico
    ------------------------------------------------------------
@@ -61,27 +400,33 @@
     opacity: 0.7;
   }
 }
+/* ============================================================
+   HOME PAGE — HERO + HOME SECTION
+============================================================ */
+/* Imports globais (mixins, breakpoints, etc.) */
+/* ============================================================
+   HERO SECTION — Corrigido e Responsivo
+============================================================ */
 .hero {
   padding-top: 7rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-bottom: 10rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  min-height: 25vh; /* altura mínima para ocupar a tela inteira, considerando header e footer */
-  padding-left: 2rem;
-  padding-right: 2rem;
-  padding-bottom: 10rem;
-  /* IMPORTANTE: nada de gap aqui */
+  min-height: 25vh;
 }
 
 .hero .container {
   display: flex;
   flex-direction: column;
-  gap: 2rem; /* espaçamento correto entre título, texto e botão */
+  gap: 2rem;
 }
 
 .hero .container .hero_btn {
-  align-self: center; /* alinhamento do botão */
+  align-self: center;
 }
 
 .hero_description {
@@ -94,30 +439,50 @@
   color: var(--link-hover);
 }
 
+/* HERO — RESPONSIVE */
+@media (max-width: 1024px) {
+  .hero {
+    padding-top: 5rem;
+    padding-bottom: 6rem;
+  }
+  .hero_description {
+    font-size: 1.1rem;
+  }
+}
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  .hero_description {
+    font-size: 1rem;
+  }
+}
+/* ============================================================
+   HOME SECTION — Corrigido
+============================================================ */
 #home {
   position: relative;
   z-index: 1;
-  /* estado escondido — ocupa ZERO espaço */
   display: none;
   opacity: 0;
   transform: translateY(40px);
-  /* só animação aqui */
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 #home.visible {
   display: block;
-  /* layout só quando visível */
   min-height: 60vh;
   padding-top: 6rem;
   opacity: 1;
   transform: translateY(0);
 }
 
-.home-section .main {
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* duas colunas iguais */
-  gap: 2rem; /* espaço entre as colunas */
+.home-section .container {
+  width: min(90%, 1200px);
+  margin: 0 auto;
 }
 
 .home-heading {
@@ -127,10 +492,40 @@
   text-align: center;
 }
 
+/* MAIN — usa flex, não grid */
+.home-section .main {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+}
+@media (max-width: 1024px) {
+  .home-section .main {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+}
+@media (max-width: 768px) {
+  .home-section .main {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+
+/* Parágrafos */
 .home-section p {
   text-align: justify;
   text-justify: inter-word;
   hyphens: auto;
+}
+@media (max-width: 768px) {
+  .home-section p {
+    font-size: 0.9rem;
+    text-align: center;
+  }
 }
 
 /* ============================================================
@@ -379,419 +774,6 @@ footer {
 }
 
 /* ============================================================
-   Buttons Module — Starter Kit (2026)
-============================================================ */
-/* MENU BUTTON (hamburger) */
-button.menu-btn {
-  background: none;
-  border: none;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-}
-button.menu-btn .menu-btn_burguer {
-  width: 24px;
-  height: 2px;
-  background: var(--link);
-  position: relative;
-  transition: 0.2s ease;
-}
-button.menu-btn .menu-btn_burguer::before, button.menu-btn .menu-btn_burguer::after {
-  content: "";
-  position: absolute;
-  width: 24px;
-  height: 2px;
-  background: var(--link);
-  left: 0;
-  transition: 0.2s ease;
-}
-button.menu-btn .menu-btn_burguer::before {
-  top: -8px;
-}
-button.menu-btn .menu-btn_burguer::after {
-  top: 8px;
-}
-
-/* ============================================================
-   PRIMARY BUTTONS (hero, explore, generic)
-============================================================ */
-.button,
-.hero_btn,
-.hero_explore {
-  display: inline-block;
-  padding: 0.8rem 2.2rem;
-  font-size: 1rem;
-  font-weight: 700;
-  text-align: center;
-  text-decoration: none;
-  border: none;
-  border-radius: 50px;
-  cursor: pointer;
-  /* CORREÇÃO IMPORTANTE */
-  background-color: var(--accent);
-  color: var(--text-on-accent); /* sem !important */
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-  /* brilho suave */
-  animation: button-glow 2s infinite ease-in-out;
-}
-
-.button:hover,
-.hero_btn:hover,
-.hero_explore:hover {
-  background-color: var(--accent-hover);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(var(--accent-rgb), 0.6);
-  animation-play-state: paused;
-}
-
-/* animação */
-@keyframes button-glow {
-  0%, 100% {
-    box-shadow: 0 0 10px rgba(var(--accent-rgb), 0.2);
-    filter: brightness(1);
-  }
-  50% {
-    box-shadow: 0 0 25px rgba(var(--accent-rgb), 0.5);
-    filter: brightness(1.15);
-  }
-}
-/* estado escondido */
-.hero_btn.hidden {
-  opacity: 0;
-  transform: translateY(10px);
-  pointer-events: none;
-}
-
-/* ============================
-   2. Mixins e responsive
-============================ */
-/* ============================
-   3. Reset + Heal (juntos)
-============================ */
-/* ============================================
-   _reset.scss — Hydra Reset (2026)
-   Remove apenas o essencial.
-   Não destrói estilos úteis.
-   Trabalha em conjunto com normalize.scss.
-============================================ */
-/* 1. Remove margens padrão dos elementos mais problemáticos */
-body, h1, h2, h3, h4, h5, h6, p, figure {
-  margin: 0;
-}
-
-/* 2. Remove padding inesperado */
-ul, ol {
-  padding: 0;
-}
-
-/* 3. Remove bullets padrão (o normalize já trata de parte disto) */
-ul, ol {
-  list-style: none;
-}
-
-/* 4. Garantir que botões não têm estilos nativos inconsistentes */
-button {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-}
-
-/* 5. Inputs e buttons sem estilos herdados estranhos */
-input, button, textarea, select {
-  font: inherit;
-  color: inherit;
-}
-
-/* 6. Remove bordas e outlines agressivos (mas mantém acessibilidade) */
-input, textarea, select {
-  border: none;
-  outline: none;
-}
-
-/* 7. Garantir que imagens não têm bordas antigas (IE legacy) */
-img {
-  border-style: none;
-}
-
-/* 8. Remove estilos nativos de anchors */
-a {
-  text-decoration: none;
-}
-
-/* 9. Remove comportamento estranho de <strong> e <em> em alguns browsers */
-strong {
-  font-weight: bold;
-}
-
-em {
-  font-style: italic;
-}
-
-/* 10. Remove espaçamento entre elementos inline-block */
-:where(*) {
-  letter-spacing: normal;
-  word-spacing: normal;
-}
-
-/* 11. Tabelas sem bordas e espaçamentos inesperados */
-/* fim do _reset.scss */
-/* ============================================================
-   heal.scss — Hydra Healing Layer (2026)
-   ------------------------------------------------------------
-   Este módulo atua como um "soro corretivo" para o layout.
-   Corrige malfunctions comuns antes de o design entrar em cena.
-   Modular, opcional e expansível.
-============================================================ */
-/* ------------------------------------------------------------
-   1. Configurações (ativar/desativar tratamentos)
------------------------------------------------------------- */
-/* ------------------------------------------------------------
-   2. Box Model Healing
------------------------------------------------------------- */
-*, *::before, *::after {
-  box-sizing: border-box;
-}
-
-/* ------------------------------------------------------------
-   3. Media Healing (imagens, vídeos, canvas, svg)
------------------------------------------------------------- */
-img, picture, video, canvas, svg {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  content-visibility: auto;
-}
-
-/* ------------------------------------------------------------
-   4. Typography Healing
------------------------------------------------------------- */
-html {
-  -webkit-text-size-adjust: 100%;
-  text-rendering: optimizeLegibility;
-}
-
-body {
-  margin: 0;
-}
-
-/* ------------------------------------------------------------
-   5. Forms Healing
------------------------------------------------------------- */
-button, input, select, textarea {
-  font: inherit;
-  color: inherit;
-}
-
-textarea {
-  resize: vertical;
-}
-
-/* ------------------------------------------------------------
-   6. Lists Healing
------------------------------------------------------------- */
-ul, ol {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
-
-/* ------------------------------------------------------------
-   7. Tables Healing
------------------------------------------------------------- */
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-/* ------------------------------------------------------------
-   8. Interaction Healing (anchors)
------------------------------------------------------------- */
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-/* ============================================================
-   Fim do Hydra Healing Layer
-============================================================ */
-/* ============================
-   4. Tokens de design
-   (cores, espaçamentos, tipografia, sombras)
-============================ */
-/* ============================
-   Tokens de design: Ícones
-    (cores, espaçamentos, tipografia, sombras)
-============================ */
-.icon {
-  width: 20px;
-  height: 20px;
-  display: inline-block;
-  vertical-align: middle;
-  transition: filter 0.2s ease;
-}
-
-/* Classe utilitária para componentes escuros */
-.dark-ui .icon {
-  filter: invert(1);
-}
-
-/* Tema claro → ícones pretos */
-.light-theme .icon {
-  filter: invert(0);
-}
-
-/* Temas escuros → ícones brancos */
-.dark-theme .icon,
-.neon-theme .icon,
-.dracula-theme .icon,
-.solarized-theme .icon,
-.hydra-theme .icon {
-  filter: invert(1);
-}
-
-/* ============================
-   5. Temas (ANTES do layout!)
-============================ */
-/* ============================================================
-   SISTEMA DE TEMAS — Starter Kit (2026)
-============================================================ */
-:root {
-  --bg: #ffffff;
-  --text-primary: #000000;
-  --text-heading: #000000;
-  --accent: #0000ff;
-  --accent-hover: #0000cc;
-  --accent-rgb: 0, 0, 255;
-  --bg-img: none;
-  /* Texto em cima do accent */
-  --text-on-accent: #ffffff;
-  /* Links globais (header, burger, dropdown) */
-  --link: #333;
-  --link-hover: #000;
-}
-
-/* ============================================================
-   LIGHT THEME
-============================================================ */
-html.light-theme {
-  background-blend-mode: soft-light;
-  opacity: 0.98;
-  --bg: #ffffff;
-  --text-primary: #1a1a1a;
-  --text-heading: #000000;
-  --accent-hover: #ffffff; /* branco forte */
-  --text-on-accent: #000000; /* texto preto no hover */
-  --accent-rgb: 0, 85, 255;
-  --link: #1a1a1a;
-  --link-hover: #0055ff;
-  --bg-img: url('../img/themes/light-bg.jpg');
-}
-
-/* ============================================================
-   DARK THEME — Cinzas e Pretos
-============================================================ */
-html.dark-theme {
-  --bg: #0a0a0a;
-  --text-primary: #b0b0b0;
-  --text-heading: #ffffff;
-  --accent: #ffffff;
-  --accent-hover: #2980b9;
-  --accent-rgb: 52, 152, 219;
-  --text-on-accent: #000000;
-  --link: #3498db;
-  --link-hover: #ffffff;
-  --bg-img: url('../img/themes/dark-bg.jpg');
-}
-
-/* ============================================================
-   HYDRA THEME — Estilo Hacker
-============================================================ */
-html.hydra-theme {
-  --bg: #020202;
-  --text-primary: #00cc00;
-  --text-heading: #33ff33;
-  --accent: #00ff41;
-  --accent-hover: #008f11;
-  --accent-rgb: 0, 255, 65;
-  --text-on-accent: #000000;
-  --link: #00ff41;
-  --link-hover: #00cc33;
-  --bg-img: url('../img/themes/hydra-bg.jpg');
-}
-
-/* ============================================================
-   SOLARIZED THEME
-============================================================ */
-html.solarized-theme {
-  --bg: #fdf6e3;
-  --text-primary: #475b62;
-  --text-heading: #002b36;
-  --accent: #b58900;
-  --accent-hover: #859900;
-  --accent-rgb: 181, 137, 0;
-  --text-on-accent: #ffffff;
-  --link: #268bd2;
-  --link-hover: #cb4b16;
-  --bg-img: url('../img/themes/solarized-bg.jpg');
-}
-
-/* ============================================================
-   DRACULA THEME
-============================================================ */
-html.dracula-theme {
-  --bg: #282a36;
-  --text-primary: #f8f8f2;
-  --text-heading: #ffffff;
-  --accent: #bd93f9; /* roxo base */
-  --accent-hover: #36013F ; /* roxo mais claro, mas não branco */
-  --text-on-accent: #000000; /* texto preto no hover */
-  --accent-rgb: 189, 147, 249;
-  --link: #f8f8f2;
-  --link-hover: #bd93f9;
-  --bg-img: url('../img/themes/dracula-bg.jpg');
-}
-
-/* ============================================================
-   NEON THEME — Contraste Máximo
-============================================================ */
-html.neon-theme {
-  --bg: #0aff9d;
-  --text-primary: #000000;
-  --text-heading: #000000;
-  --accent: #000000;
-  --accent-hover: #222222;
-  --accent-rgb: 0, 0, 0;
-  --text-on-accent: #0aff9d;
-  --link: #000000;
-  --link-hover: #ffffff;
-  --bg-img: url('../img/themes/neon-bg.jpg');
-}
-
-/* ============================================================
-   BACKGROUND GLOBAL + FOOTER
-============================================================ */
-html {
-  background-color: var(--bg);
-  background-image: var(--bg-img);
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  transition: background 0.5s ease-in-out;
-}
-
-footer {
-  background: rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(10px);
-}
-
-/* ============================
-   6. Estrutura global
-   (layout, config, botões)
-============================ */
-/* ============================================================
    LAYOUT GLOBAL — Starter Kit
 ============================================================ */
 /* Evita flicker de tema */
@@ -960,6 +942,92 @@ a:hover {
     text-align: center;
   }
 }
+/* ============================================================
+   Buttons Module — Starter Kit (2026)
+============================================================ */
+/* MENU BUTTON (hamburger) */
+button.menu-btn {
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+button.menu-btn .menu-btn_burguer {
+  width: 24px;
+  height: 2px;
+  background: var(--link);
+  position: relative;
+  transition: 0.2s ease;
+}
+button.menu-btn .menu-btn_burguer::before, button.menu-btn .menu-btn_burguer::after {
+  content: "";
+  position: absolute;
+  width: 24px;
+  height: 2px;
+  background: var(--link);
+  left: 0;
+  transition: 0.2s ease;
+}
+button.menu-btn .menu-btn_burguer::before {
+  top: -8px;
+}
+button.menu-btn .menu-btn_burguer::after {
+  top: 8px;
+}
+
+/* ============================================================
+   PRIMARY BUTTONS (hero, explore, generic)
+============================================================ */
+.button,
+.hero_btn,
+.hero_explore {
+  display: inline-block;
+  padding: 0.8rem 2.2rem;
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  /* CORREÇÃO IMPORTANTE */
+  background-color: var(--accent);
+  color: var(--text-on-accent); /* sem !important */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  /* brilho suave */
+  animation: button-glow 2s infinite ease-in-out;
+}
+
+.button:hover,
+.hero_btn:hover,
+.hero_explore:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(var(--accent-rgb), 0.6);
+  animation-play-state: paused;
+}
+
+/* animação */
+@keyframes button-glow {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(var(--accent-rgb), 0.2);
+    filter: brightness(1);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(var(--accent-rgb), 0.5);
+    filter: brightness(1.15);
+  }
+}
+/* estado escondido */
+.hero_btn.hidden {
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+}
+
 /* ============================
    7. Componentes
    (hero, features, footer, etc.)

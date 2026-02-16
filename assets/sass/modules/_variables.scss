@@ -1,6 +1,9 @@
-@forward 'colors';
-@forward 'typography';
-@forward 'spacing';
-@forward 'shadows';
-@forward 'config';
-@forward 'buttons';
+/* ============================================================
+   VARIABLES — apenas variáveis puras (sem imports)
+============================================================ */
+
+$radius-small: 4px;
+$radius-medium: 8px;
+$radius-large: 16px;
+
+$border-radius: 4px;

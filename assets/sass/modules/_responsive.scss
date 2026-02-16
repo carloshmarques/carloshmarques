@@ -1,8 +1,6 @@
-// modules/_responsive.scss
 @use './breakpoints' as bp;
 @use 'sass:map';
 
-// Mapa central de breakpoints
 $breakpoints: (
   mobile: bp.$mobile,
   tablet: bp.$tablet,
@@ -12,16 +10,16 @@ $breakpoints: (
   ultra-wide: bp.$ultra-wide
 );
 
-// Mixin universal de media queries
 @mixin respond($size) {
   $value: map.get($breakpoints, $size);
 
   @if $value == null {
-    @error "O breakpoint `#{$size}` não existe no mapa de breakpoints.";
+    @error "O breakpoint `#{$size}` não existe.";
   }
 
   @media (max-width: $value) {
     @content;
   }
 }
+
 

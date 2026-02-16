@@ -1,8 +1,11 @@
-@use '../modules/colors' as clr;
+// modules/_mixins.scss
+@use "breakpoints" as bp;
 
-@use '../modules/breakpoints' as bp;
-@use 'sass:meta'; 
-@use 'sass:map';
+@mixin mobile {
+  @media (max-width: bp.$mobile) { @content; }
+}
+
+
 
 
 @mixin flex-center($direction : 'row') {

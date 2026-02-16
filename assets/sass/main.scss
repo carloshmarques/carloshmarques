@@ -1,59 +1,32 @@
-/* ============================
-   1. Variáveis e funções base
-============================ */
-@use 'modules/variables' as *;
-@use 'modules/functions' as *;
+/* ============================================================
+   MAIN.SCSS — Organizado por Camadas
+============================================================ */
 
-/* ============================
-   2. Mixins e responsive
-============================ */
-@use 'modules/mixins' as *;
-@use 'modules/responsive' as resp;
+/* 1. FERRAMENTAS & TOKENS (Lógica e Definições) */
+// Carrega tudo o que é variável/mixin de uma vez só.
+@use 'modules/tools' as *;
 
-/* ============================
-   3. Reset + Heal (juntos)
-============================ */
+/* 2. RESET & HEALING (Preparação do Terreno) */
 @use 'modules/reset';
 @use 'modules/heal';
 
-/* ============================
-   4. Tokens de design
-   (cores, espaçamentos, tipografia, sombras)
-============================ */
-@use 'modules/colors';
-@use 'modules/spacing';
-@use 'modules/typography';
-@use 'modules/icons';
-@use 'modules/shadows';
-
-/* ============================
-   5. Temas (ANTES do layout!)
-============================ */
+/* 3. TEMAS (Configuração de Cores Globais) */
 @use 'modules/themes';
 
-/* ============================
-   6. Estrutura global
-   (layout, config, botões)
-============================ */
+/* 4. ESTRUTURA GLOBAL (Gera o CSS do Layout e Base) */
 @use 'modules/config' as *;
 @use 'modules/layout' as *;
 @use 'modules/buttons' as *;
+@use 'modules/icons';
 
-/* ============================
-   7. Componentes
-   (hero, features, footer, etc.)
-============================ */
-// @use 'components/hero' as *;
-// @use 'components/features' as *;
-// @use 'components/footer' as *;
-// @use 'components/menu' as *;
-// @use 'components/logo' as *;
-// @use 'components/about' as *;
-// @use 'components/projects' as *;
-// @use 'components/contact' as *;
+/* 5. COMPONENTES (O que o PUG injeta) */
+@use 'components/logo';
+@use 'components/menu';
 
-/* ============================
-   8. Animações
-============================ */
+// @use 'components/about';
+// @use 'components/projects';
+// @use 'components/footer';
+
+/* 6. ANIMAÇÕES & RESPONSIVE (Ajustes Finais) */
 @use 'animations/animations';
-
+@use 'modules/responsive' as resp;

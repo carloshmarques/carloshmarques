@@ -1,7 +1,8 @@
 /* ============================================================
    LAYOUT GLOBAL — Starter Kit
 ============================================================ */
-
+// modules/_layout.scss
+@use 'tools' as *; 
 /* Evita flicker de tema */
 html {
   visibility: hidden;
@@ -167,14 +168,19 @@ a:hover {
   filter: brightness(1.15);
 }
 
-/* RESPONSIVE */
-@media (max-width: 768px) {
+/* ============================
+   RESPONSIVE — Via Mixins
+   ============================ */
+
+// Substitui o antigo @media (max-width: 768px)
+@include tablet { 
   .main {
     flex-direction: column;
     gap: 1.5rem;
   }
 }
 
+// Para ecrãs muito pequenos (Mobile Portrait)
 @media (max-width: 480px) {
   .main {
     width: 95%;

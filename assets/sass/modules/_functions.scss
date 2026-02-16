@@ -1,6 +1,6 @@
+// No modules/_functions.scss
 @use 'sass:map';
-@use '../modules/typography' as typo;
 
-@function weight($weight-name) {
-   @return map.get(typo.$font-weights, $weight-name);
+@function weight($map, $weight-name) {
+   @return map.get($map, $weight-name);
 }

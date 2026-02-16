@@ -1,27 +1,12 @@
 @charset "UTF-8";
-/* ============================
-   1. Variáveis e funções base
-============================ */
+/* ============================================================
+   MAIN.SCSS — Organizado por Camadas
+============================================================ */
+/* 1. FERRAMENTAS & TOKENS (Lógica e Definições) */
 /* ============================================================
    VARIABLES — apenas variáveis puras (sem imports)
 ============================================================ */
-/* ============================
-   Tipografia — Escala Modular
-   ============================ */
-/* ============================
-   2. Mixins e responsive
-============================ */
-/* ============================================================
-   COLORS — Design Tokens
-============================================================ */
-/* 1. Core colors */
-/* 2. Brand colors */
-/* 3. Semantic colors */
-/* 4. Theme tokens */
-/* 5. Component tokens */
-/* ============================
-   3. Reset + Heal (juntos)
-============================ */
+/* 2. RESET & HEALING (Preparação do Terreno) */
 /* ============================================
    _reset.scss — Hydra Reset (2026)
    Remove apenas o essencial.
@@ -169,47 +154,18 @@ a {
 /* ============================================================
    Fim do Hydra Healing Layer
 ============================================================ */
-/* ============================
-   4. Tokens de design
-   (cores, espaçamentos, tipografia, sombras)
-============================ */
-/* ============================
-   Tokens de design: Ícones
-    (cores, espaçamentos, tipografia, sombras)
-============================ */
-.icon {
-  width: 20px;
-  height: 20px;
-  display: inline-block;
-  vertical-align: middle;
-  transition: filter 0.2s ease;
-}
-
-/* Classe utilitária para componentes escuros */
-.dark-ui .icon {
-  filter: invert(1);
-}
-
-/* Tema claro → ícones pretos */
-.light-theme .icon {
-  filter: invert(0);
-}
-
-/* Temas escuros → ícones brancos */
-.dark-theme .icon,
-.neon-theme .icon,
-.dracula-theme .icon,
-.solarized-theme .icon,
-.hydra-theme .icon {
-  filter: invert(1);
-}
-
-/* ============================
-   5. Temas (ANTES do layout!)
-============================ */
+/* 3. TEMAS (Configuração de Cores Globais) */
 /* ============================================================
    THEMES — Bridge entre Sass Tokens e CSS Variables
 ============================================================ */
+/* ============================================================
+   COLORS — Design Tokens
+============================================================ */
+/* 1. Core colors */
+/* 2. Brand colors */
+/* 3. Semantic colors */
+/* 4. Theme tokens */
+/* 5. Component tokens */
 /* ------------------------------------------------------------
    1. ROOT — valores base derivados dos tokens Sass
 ------------------------------------------------------------ */
@@ -340,10 +296,7 @@ footer {
   backdrop-filter: blur(10px);
 }
 
-/* ============================
-   6. Estrutura global
-   (layout, config, botões)
-============================ */
+/* 4. ESTRUTURA GLOBAL (Gera o CSS do Layout e Base) */
 /* ============================================================
    LOGO SK — Círculo Dinâmico
    ------------------------------------------------------------
@@ -401,6 +354,14 @@ footer {
   }
 }
 /* ============================================================
+   MAIN.SCSS — Organizado por Camadas
+============================================================ */
+/* 1. FERRAMENTAS & TOKENS (Lógica e Definições) */
+/* ============================================================
+   HOME PAGE — HERO + HOME SECTION
+============================================================ */
+/* Importa ferramentas centrais (mixins, variáveis, breakpoints) */
+/* ============================================================
    HOME PAGE — HERO + HOME SECTION
 ============================================================ */
 /* Imports globais (mixins, breakpoints, etc.) */
@@ -408,15 +369,15 @@ footer {
    HERO SECTION — Corrigido e Responsivo
 ============================================================ */
 .hero {
-  padding-top: 7rem;
+  padding-top: 2em;
   padding-left: 2rem;
   padding-right: 2rem;
-  padding-bottom: 10rem;
+  padding-bottom: 5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  min-height: 25vh;
+  min-height: 30vh;
 }
 
 .hero .container {
@@ -529,6 +490,21 @@ footer {
 }
 
 /* ============================================================
+   MAIN.SCSS — Organizado por Camadas
+============================================================ */
+/* 1. FERRAMENTAS & TOKENS (Lógica e Definições) */
+/* ============================================================
+   HOME PAGE — HERO + HOME SECTION
+============================================================ */
+/* Importa ferramentas centrais (mixins, variáveis, breakpoints) */
+/* ============================================================
+   HOME PAGE — HERO + HOME SECTION
+============================================================ */
+/* Imports globais (mixins, breakpoints, etc.) */
+/* ============================================================
+   Footer — Alinhamentos Específicos
+============================================================ */
+/* ============================================================
    Footer — Starter Kit (2026)
 ============================================================ */
 footer {
@@ -541,19 +517,21 @@ footer {
   backdrop-filter: saturate(100%) blur(2px);
   -webkit-backdrop-filter: saturate(100%) blur(2px);
   width: 100%;
-  padding: 1.5rem 4rem;
+  padding: 1rem 1rem;
 }
 
 .footer-container {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  max-width: 1200px;
+  max-width: 1240px;
   margin: auto;
-  gap: 2rem;
+  gap: 1.5rem;
   align-items: stretch;
 }
 
-/* ESTRUTURA DE COLUNA UNIFICADA */
+/* ============================================================
+   Estrutura de Coluna Unificada
+============================================================ */
 .footer-col {
   display: flex;
   flex-direction: column;
@@ -564,7 +542,7 @@ footer {
   font-weight: 700;
   font-size: 1.1rem;
   margin-bottom: 1.5rem;
-  height: 1.2rem;
+  height: 1rem;
   display: flex;
   align-items: center;
 }
@@ -576,21 +554,23 @@ footer {
 .footer-col .footer-social-icons,
 .footer-col .footer-credits {
   margin-top: auto;
-  padding-top: 1rem;
+  padding-top: 0.1rem;
 }
 
-/* AJUSTES ESPECÍFICOS */
+/* ============================================================
+   Ajustes Específicos
+============================================================ */
 .footer-text-block {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.1rem;
   max-width: 260px;
 }
 
 .footer-tagline-row {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.1rem;
 }
 
 .footer-rocket {
@@ -607,7 +587,7 @@ footer {
 
 .footer-social-icons {
   display: flex;
-  gap: 12px;
+  gap: 1rem;
 }
 .footer-social-icons a i {
   font-size: 1.1rem;
@@ -640,6 +620,50 @@ footer {
   padding-left: 5px;
 }
 
+/* ============================================================
+   Footer — Responsividade (Sistema respond())
+============================================================ */
+/* ↓ 1280px — 4 colunas */
+@media (max-width: 1280px) {
+  .footer-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+/* ↓ 1024px — 3 colunas */
+@media (max-width: 1024px) {
+  .footer-container {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+}
+/* ↓ 768px — 2 colunas */
+@media (max-width: 768px) {
+  .footer-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+  }
+  .footer-col .footer-brand-name,
+  .footer-col .footer-heading {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+}
+/* ↓ 480px — 1 coluna */
+@media (max-width: 768px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+  .site-footer {
+    padding: 1.5rem 1rem;
+  }
+  .footer-col .footer-text-block {
+    max-width: 100%;
+  }
+  .footer-col .footer-social-icons {
+    gap: 0.8rem;
+  }
+}
 .site-header {
   width: 100%;
   padding: 0.4rem 2rem;
@@ -773,6 +797,10 @@ footer {
   top: 8px;
 }
 
+/* ============================================================
+   MAIN.SCSS — Organizado por Camadas
+============================================================ */
+/* 1. FERRAMENTAS & TOKENS (Lógica e Definições) */
 /* ============================================================
    LAYOUT GLOBAL — Starter Kit
 ============================================================ */
@@ -924,8 +952,10 @@ a:hover {
   filter: brightness(1.15);
 }
 
-/* RESPONSIVE */
-@media (max-width: 768px) {
+/* ============================
+   RESPONSIVE — Via Mixins
+   ============================ */
+@media (max-width: 1024px) {
   .main {
     flex-direction: column;
     gap: 1.5rem;
@@ -1029,12 +1059,38 @@ button.menu-btn .menu-btn_burguer::after {
 }
 
 /* ============================
-   7. Componentes
-   (hero, features, footer, etc.)
+   Tokens de design: Ícones
+    (cores, espaçamentos, tipografia, sombras)
 ============================ */
-/* ============================
-   8. Animações
-============================ */
+.icon {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  vertical-align: middle;
+  transition: filter 0.2s ease;
+}
+
+/* Classe utilitária para componentes escuros */
+.dark-ui .icon {
+  filter: invert(1);
+}
+
+/* Tema claro → ícones pretos */
+.light-theme .icon {
+  filter: invert(0);
+}
+
+/* Temas escuros → ícones brancos */
+.dark-theme .icon,
+.neon-theme .icon,
+.dracula-theme .icon,
+.solarized-theme .icon,
+.hydra-theme .icon {
+  filter: invert(1);
+}
+
+/* 5. COMPONENTES (O que o PUG injeta) */
+/* 6. ANIMAÇÕES & RESPONSIVE (Ajustes Finais) */
 /* ============================================================
    Hero Description Animations
    ------------------------------------------------------------
@@ -1057,4 +1113,12 @@ button.menu-btn .menu-btn_burguer::after {
     transform: translateY(0);
   }
 }
+/* ============================================================
+   HOME PAGE — HERO + HOME SECTION
+============================================================ */
+/* Importa ferramentas centrais (mixins, variáveis, breakpoints) */
+/* ============================================================
+   HOME PAGE — HERO + HOME SECTION
+============================================================ */
+/* Imports globais (mixins, breakpoints, etc.) */
 /*# sourceMappingURL=main.css.map */

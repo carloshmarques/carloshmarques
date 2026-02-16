@@ -1,73 +1,82 @@
 /* ============================================================
+   Footer — Alinhamentos Específicos
+============================================================ */
+@use '../modules/tools' as *;
+@use '../modules/responsive' as *;
+
+/* ============================================================
    Footer — Starter Kit (2026)
 ============================================================ */
+
 footer {
   background: var(--bg-footer);
   color: var(--text-primary);
-  flex-shrink: 0; // Garante que o footer não encolhe
+  flex-shrink: 0;
 }
 
 .site-footer {
   backdrop-filter: saturate(100%) blur(2px);
-  -webkit-backdrop-filter: saturate(100%) blur(2px); 
+  -webkit-backdrop-filter: saturate(100%) blur(2px);
   width: 100%;
-  padding: 1.5rem 4rem; // Padding reduzido para o "sapato 40"
+  padding: 1rem 1rem;
 }
 
 .footer-container {
-  
   display: grid;
-  grid-template-columns: repeat(5, 1fr); 
-  max-width: 1200px;
+  grid-template-columns: repeat(5, 1fr);
+  max-width: 1240px;
   margin: auto;
-  gap: 2rem;
-  align-items: stretch; // Estica as colunas para o flex-grow funcionar
+  gap: 1.5rem;
+  align-items: stretch;
 }
 
-/* ESTRUTURA DE COLUNA UNIFICADA */
+/* ============================================================
+   Estrutura de Coluna Unificada
+============================================================ */
+
 .footer-col {
   display: flex;
   flex-direction: column;
   height: 100%;
 
-  // Títulos (Branding e Headings) alinhados no mesmo nível
-  .footer-brand-name, 
+  .footer-brand-name,
   .footer-heading {
     font-weight: 700;
     font-size: 1.1rem;
     margin-bottom: 1.5rem;
-    height: 1.2rem; // Altura fixa para alinhar a primeira linha de texto
+    height: 1rem;
     display: flex;
     align-items: center;
   }
 
-  // O conteúdo do meio expande para empurrar o fundo
   .footer-text-block,
   .footer-address,
   .footer-list {
-    flex: 1; 
+    flex: 1;
   }
 
-  // Elementos de fundo (Ícones e Créditos) alinhados na base
   .footer-social-icons,
   .footer-credits {
-    margin-top: auto; 
-    padding-top: 1rem;
+    margin-top: auto;
+    padding-top: 0.1rem;
   }
 }
 
-/* AJUSTES ESPECÍFICOS */
+/* ============================================================
+   Ajustes Específicos
+============================================================ */
+
 .footer-text-block {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.1rem;
   max-width: 260px;
 }
 
 .footer-tagline-row {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.1rem;
 }
 
 .footer-rocket {
@@ -75,8 +84,8 @@ footer {
   height: 24px;
   background: url("/img/icons/default/rocket-solid.svg") no-repeat center / contain;
   transition: transform 0.4s ease;
-  margin-top: 0.2rem; // Ajuste fino para o foguetão "pousar" na linha
-  
+  margin-top: 0.2rem;
+
   &:hover {
     transform: translate(4px, -4px) rotate(12deg);
     filter: drop-shadow(0 0 8px var(--accent));
@@ -85,14 +94,14 @@ footer {
 
 .footer-social-icons {
   display: flex;
-  gap: 12px;
-  
+  gap: 1rem;
+
   a i {
     font-size: 1.1rem;
-    color: var(--text-primary); // Usa a cor do tema
+    color: var(--text-primary);
     opacity: 0.7;
     transition: 0.3s ease;
-    
+
     &:hover {
       opacity: 1;
       transform: translateY(-3px);
@@ -104,7 +113,7 @@ footer {
 .footer-list {
   list-style: none;
   padding: 0;
-  
+
   .footer-link {
     color: var(--text-primary);
     opacity: 0.6;
@@ -117,7 +126,64 @@ footer {
     &:hover {
       opacity: 1;
       color: var(--accent);
-      padding-left: 5px; // Pequeno efeito de slide no hover
+      padding-left: 5px;
+    }
+  }
+}
+
+/* ============================================================
+   Footer — Responsividade (Sistema respond())
+============================================================ */
+
+/* ↓ 1280px — 4 colunas */
+@include respond(laptop) {
+  .footer-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ↓ 1024px — 3 colunas */
+@include respond(tablet) {
+  .footer-container {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+}
+
+/* ↓ 768px — 2 colunas */
+@include respond(mobile) {
+  .footer-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+  }
+
+  .footer-col {
+    .footer-brand-name,
+    .footer-heading {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+/* ↓ 480px — 1 coluna */
+@include respond(mobile) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  .site-footer {
+    padding: 1.5rem 1rem;
+  }
+
+  .footer-col {
+    .footer-text-block {
+      max-width: 100%;
+    }
+
+    .footer-social-icons {
+      gap: 0.8rem;
     }
   }
 }

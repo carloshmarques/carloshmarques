@@ -192,7 +192,7 @@ By donating, you will help the development of this project, and *you will be fea
 ## 🎞️ You Tube Channel
 
 <!-- BEGIN YOUTUBE-CARDS -->
-
+[![How to clear cache & browser history](https://ytcards.demolab.com/?id=RSdRh2PESvg&title=How+to+clear+cache+%26+browser+history&lang=en&timestamp=1678997486&background_color=%230d1117&title_color=%23ffffff&stats_color=%23dedede&max_title_lines=1&width=250&border_radius=5 "How to clear cache & browser history")](https://www.youtube.com/watch?v=RSdRh2PESvg)
 <!-- END YOUTUBE-CARDS -->
 
 ---

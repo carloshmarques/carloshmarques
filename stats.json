@@ -1,15 +1,16 @@
 {
     "C#": 1071147,
-    "CSS": 813893,
+    "CSS": 815279,
     "Jupyter Notebook": 272158,
     "QML": 121088,
-    "JavaScript": 86117,
+    "JavaScript": 103314,
+    "SCSS": 37841,
     "Python": 22126,
-    "HTML": 10454,
-    "SCSS": 3490,
+    "Pug": 17342,
+    "HTML": 11416,
     "Shell": 2092,
     "PowerShell": 1403,
-    "Pug": 1304,
+    "Ruby": 1307,
     "colors": {
         "C#": "#00bfff",
         "CSS": "#ff00ff",
@@ -20,7 +21,8 @@
         "Pug": "#ff4444",
         "Python": "#44ff44",
         "QML": "#ffcc00",
-        "SCSS": "#cc00ff",
-        "Shell": "#00bfff"
+        "Ruby": "#cc00ff",
+        "SCSS": "#00bfff",
+        "Shell": "#ff00ff"
     }
 }

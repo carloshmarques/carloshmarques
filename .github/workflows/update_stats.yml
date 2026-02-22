@@ -75,13 +75,12 @@ jobs:
           # Adiciona apenas os ficheiros permitidos
           while read file; do
             git add "$file"
-          done < allowed.txt
-          
-          echo "" >> allowed.txt
-
+          done < allowed.txt          
+          echo "" >> allowed.txt  
           git pull
           git commit -m "Atualização automática das linguagens" || echo "Nada para commitar"
-          git push origin master
+          git push origin main
+
           
          
 

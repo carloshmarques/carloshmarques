@@ -95,8 +95,8 @@ style="border:2px solid #00ffff; border-radius:6px;">
 <li><strong style="color:#00bfff">C#</strong> — 1071147 bytes de código</li>
 <li><strong style="color:#ff00ff">CSS</strong> — 815279 bytes de código</li>
 <li><strong style="color:#00ffff">Jupyter Notebook</strong> — 272158 bytes de código</li>
+<li><strong style="color:#9933ff">JavaScript</strong> — 159862 bytes de código</li>
 <li><strong style="color:#ffcc00">QML</strong> — 121088 bytes de código</li>
-<li><strong style="color:#9933ff">JavaScript</strong> — 91717 bytes de código</li>
 
 </ul>
 </td>

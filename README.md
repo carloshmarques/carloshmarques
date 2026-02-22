@@ -96,7 +96,7 @@ style="border:2px solid #00ffff; border-radius:6px;">
 <li><strong style="color:#ff00ff">CSS</strong> — 815279 bytes de código</li>
 <li><strong style="color:#00ffff">Jupyter Notebook</strong> — 272158 bytes de código</li>
 <li><strong style="color:#ffcc00">QML</strong> — 121088 bytes de código</li>
-<li><strong style="color:#9933ff">JavaScript</strong> — 103314 bytes de código</li>
+<li><strong style="color:#9933ff">JavaScript</strong> — 91717 bytes de código</li>
 
 </ul>
 </td>
@@ -138,27 +138,27 @@ style="border:2px solid #00ffff; border-radius:6px;">
 <!--TREE-START-->
 ```
 .
-|-- CHANGELOG.md
-|-- LICENSE
-|-- README.md
-|-- directory_tree.txt
-|-- screenshots
-|   |-- evolucao_linguagens.png
-|   |-- fundo_adn.png
-|   |-- kennedy.jpg
-|   |-- language_pie.png
-|   |-- language_stats.png
-|   `-- painel_mutacao.png
-|-- scripts
-|   |-- generate_language_image.py
-|   |-- generate_language_pie.py
-|   |-- update_changelog.py
-|   |-- update_stats.py
-|   `-- update_tree.py
-|-- stats-lock.json
-`-- stats.json
+├── CHANGELOG.md
+├── LICENSE
+├── README.md
+├── directory_tree.txt
+├── screenshots
+│   ├── evolucao_linguagens.png
+│   ├── fundo_adn.png
+│   ├── kennedy.jpg
+│   ├── language_pie.png
+│   ├── language_stats.png
+│   └── painel_mutacao.png
+├── scripts
+│   ├── generate_language_image.py
+│   ├── generate_language_pie.py
+│   ├── update_changelog.py
+│   ├── update_stats.py
+│   └── update_tree.py
+├── stats-lock.json
+└── stats.json
 
-2 directories, 17 files
+3 directories, 17 files
 ```
 <!--TREE-END-->
 </details>

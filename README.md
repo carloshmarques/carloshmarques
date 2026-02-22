@@ -138,10 +138,27 @@ style="border:2px solid #00ffff; border-radius:6px;">
 <!--TREE-START-->
 ```
 .
-├── screenshots
-└── scripts
+|-- CHANGELOG.md
+|-- LICENSE
+|-- README.md
+|-- directory_tree.txt
+|-- screenshots
+|   |-- evolucao_linguagens.png
+|   |-- fundo_adn.png
+|   |-- kennedy.jpg
+|   |-- language_pie.png
+|   |-- language_stats.png
+|   `-- painel_mutacao.png
+|-- scripts
+|   |-- generate_language_image.py
+|   |-- generate_language_pie.py
+|   |-- update_changelog.py
+|   |-- update_stats.py
+|   `-- update_tree.py
+|-- stats-lock.json
+`-- stats.json
 
-3 directories
+2 directories, 17 files
 ```
 <!--TREE-END-->
 </details>

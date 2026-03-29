@@ -17,17 +17,17 @@
 @use 'modules/config' as *;
 @use 'modules/layout' as *;
 @use 'modules/buttons' as *;
-@use 'modules/icons';
+@use 'modules/icons' as *;
 
 /* 5. COMPONENTES (O que o PUG injeta) */
-@use 'components/logo';
-@use 'components/menu';
+@use 'components/logo' as *;
+@use 'components/menu' as *;
 
 // @use 'components/about';
 // @use 'components/projects';
 // @use 'components/footer';
 
 /* 6. ANIMAÇÕES & RESPONSIVE (Ajustes Finais) */
-@use 'animations/animations';
+@use 'animations/animations' as *;
 @use 'modules/responsive' as *;
 

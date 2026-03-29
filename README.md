@@ -95,7 +95,7 @@ style="border:2px solid #00ffff; border-radius:6px;">
 <li><strong style="color:#00bfff">C#</strong> — 1122341 bytes de código</li>
 <li><strong style="color:#ff00ff">CSS</strong> — 815279 bytes de código</li>
 <li><strong style="color:#00ffff">Jupyter Notebook</strong> — 272154 bytes de código</li>
-<li><strong style="color:#9933ff">JavaScript</strong> — 159862 bytes de código</li>
+<li><strong style="color:#9933ff">JavaScript</strong> — 176900 bytes de código</li>
 <li><strong style="color:#ffcc00">QML</strong> — 121088 bytes de código</li>
 
 </ul>
@@ -141,7 +141,133 @@ style="border:2px solid #00ffff; border-radius:6px;">
 ├── CHANGELOG.md
 ├── LICENSE
 ├── README.md
+├── assets
+│   ├── img
+│   │   ├── icons
+│   │   │   ├── burger
+│   │   │   │   ├── bars-solid.svg
+│   │   │   │   └── xmark-solid.svg
+│   │   │   └── default
+│   │   │       ├── folder-solid.svg
+│   │   │       ├── gear-solid.svg
+│   │   │       ├── magnifying-glass-solid.svg
+│   │   │       ├── rocket-solid.svg
+│   │   │       ├── terminal-solid.svg
+│   │   │       └── user-solid.svg
+│   │   ├── nav
+│   │   │   ├── circle-info-solid.svg
+│   │   │   ├── code-solid.svg
+│   │   │   ├── envelope-solid.svg
+│   │   │   ├── house-solid.svg
+│   │   │   ├── newspaper-solid.svg
+│   │   │   ├── palette-solid.svg
+│   │   │   ├── star-solid.svg
+│   │   │   └── user-shield-solid.svg
+│   │   ├── social
+│   │   │   ├── disqus-brands-solid.svg
+│   │   │   ├── facebook-brands-solid.svg
+│   │   │   ├── github-brands-solid.svg
+│   │   │   ├── instagram-brands-solid.svg
+│   │   │   ├── linkedin-brands-solid.svg
+│   │   │   ├── tiktok-brands-solid.svg
+│   │   │   ├── twitter-brands-solid.svg
+│   │   │   └── youtube-brands-solid-full.svg
+│   │   ├── themes
+│   │   │   ├── dark-bg.jpg
+│   │   │   ├── dracula-bg.jpg
+│   │   │   ├── hydra-bg.jpg
+│   │   │   ├── light-bg.jpg
+│   │   │   ├── neon-bg.jpg
+│   │   │   ├── section-hero-bg.jpg
+│   │   │   └── solarized-bg.jpg
+│   │   └── ui
+│   │       ├── arrow-down-solid.svg
+│   │       ├── arrow-right-solid.svg
+│   │       ├── bolt-solid.svg
+│   │       ├── chevron-down-solid.svg
+│   │       ├── chevron-right-solid.svg
+│   │       ├── circle-check-solid.svg
+│   │       ├── info-solid.svg
+│   │       └── rocket-solid.svg
+│   ├── js
+│   │   ├── dom.js
+│   │   ├── main.js
+│   │   ├── modules
+│   │   │   ├── animation.js
+│   │   │   ├── app.js
+│   │   │   ├── core.js
+│   │   │   ├── events.js
+│   │   │   ├── logger.js
+│   │   │   ├── navigation.js
+│   │   │   └── portfolio.js
+│   │   ├── theme.js
+│   │   └── utils.js
+│   ├── pug
+│   │   └── templates
+│   │       ├── contents
+│   │       │   ├── features
+│   │       │   │   ├── features-content.pug
+│   │       │   │   └── sections
+│   │       │   │       ├── section-body.pug
+│   │       │   │       └── section-features.pug
+│   │       │   └── index
+│   │       │       ├── index-content.pug
+│   │       │       └── sections
+│   │       │           ├── section-body.pug
+│   │       │           ├── section-hero.pug
+│   │       │           └── section-home.pug
+│   │       ├── pages
+│   │       │   ├── about.pug
+│   │       │   ├── admin.pug
+│   │       │   ├── contact.pug
+│   │       │   ├── features.pug
+│   │       │   ├── index.pug
+│   │       │   ├── news.pug
+│   │       │   ├── projects.pug
+│   │       │   └── themes.pug
+│   │       └── sections
+│   │           ├── body.pug
+│   │           ├── footer.pug
+│   │           ├── header.pug
+│   │           ├── layout.pug
+│   │           └── test.pug
+│   └── sass
+│       ├── animations
+│       │   └── _animations.scss
+│       ├── components
+│       │   ├── _about.scss
+│       │   ├── _contact.scss
+│       │   ├── _features.scss
+│       │   ├── _footer.scss
+│       │   ├── _home.scss
+│       │   ├── _logo.scss
+│       │   ├── _menu.scss
+│       │   ├── _news.scss
+│       │   └── _projects.scss
+│       ├── main.scss
+│       ├── modules
+│       │   ├── _breakpoints.scss
+│       │   ├── _buttons.scss
+│       │   ├── _colors.scss
+│       │   ├── _config.scss
+│       │   ├── _functions.scss
+│       │   ├── _heal.scss
+│       │   ├── _icons.scss
+│       │   ├── _index.scss
+│       │   ├── _layout.scss
+│       │   ├── _mixins.scss
+│       │   ├── _reset.scss
+│       │   ├── _responsive.scss
+│       │   ├── _shadows.scss
+│       │   ├── _spacing.scss
+│       │   ├── _themes.scss
+│       │   ├── _tools.scss
+│       │   ├── _typography.scss
+│       │   └── _variables.scss
+│       └── normalize.scss
 ├── directory_tree.txt
+├── gulpfile.cjs
+├── package.json
 ├── screenshots
 │   ├── evolucao_linguagens.png
 │   ├── fundo_adn.png
@@ -158,7 +284,7 @@ style="border:2px solid #00ffff; border-radius:6px;">
 ├── stats-lock.json
 └── stats.json
 
-3 directories, 17 files
+27 directories, 119 files
 ```
 <!--TREE-END-->
 </details>
@@ -209,7 +335,7 @@ By donating, you will help the development of this project, and *you will be fea
 ## 🎞️ You Tube Channel
 
 <!-- BEGIN YOUTUBE-CARDS -->
-[![How to clear cache & browser history](https://ytcards.demolab.com/?id=RSdRh2PESvg&title=How+to+clear+cache+%26+browser+history&lang=en&timestamp=1678997486&background_color=%230d1117&title_color=%23ffffff&stats_color=%23dedede&max_title_lines=1&width=250&border_radius=5 "How to clear cache & browser history")](https://www.youtube.com/watch?v=RSdRh2PESvg)
+
 <!-- END YOUTUBE-CARDS -->
 
 ---

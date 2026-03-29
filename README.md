@@ -93,9 +93,9 @@ style="border:2px solid #00ffff; border-radius:6px;">
 <h3>Linguagens mais usadas (atualizado automaticamente)</h3>
 <ul>
 <li><strong style="color:#00bfff">C#</strong> — 1122341 bytes de código</li>
-<li><strong style="color:#ff00ff">CSS</strong> — 815279 bytes de código</li>
+<li><strong style="color:#ff00ff">CSS</strong> — 816665 bytes de código</li>
 <li><strong style="color:#00ffff">Jupyter Notebook</strong> — 272154 bytes de código</li>
-<li><strong style="color:#9933ff">JavaScript</strong> — 176900 bytes de código</li>
+<li><strong style="color:#9933ff">JavaScript</strong> — 194097 bytes de código</li>
 <li><strong style="color:#ffcc00">QML</strong> — 121088 bytes de código</li>
 
 </ul>
@@ -265,8 +265,137 @@ style="border:2px solid #00ffff; border-radius:6px;">
 │       │   ├── _typography.scss
 │       │   └── _variables.scss
 │       └── normalize.scss
+├── dev
+│   ├── about.html
+│   ├── admin.html
+│   ├── contact.html
+│   ├── css
+│   │   ├── main.css
+│   │   ├── main.css.map
+│   │   ├── normalize.css
+│   │   └── normalize.css.map
+│   ├── features.html
+│   ├── img
+│   │   ├── icons
+│   │   │   ├── burger
+│   │   │   │   ├── bars-solid.svg
+│   │   │   │   └── xmark-solid.svg
+│   │   │   └── default
+│   │   │       ├── folder-solid.svg
+│   │   │       ├── gear-solid.svg
+│   │   │       ├── magnifying-glass-solid.svg
+│   │   │       ├── rocket-solid.svg
+│   │   │       ├── terminal-solid.svg
+│   │   │       └── user-solid.svg
+│   │   ├── nav
+│   │   │   ├── circle-info-solid.svg
+│   │   │   ├── code-solid.svg
+│   │   │   ├── envelope-solid.svg
+│   │   │   ├── house-solid.svg
+│   │   │   ├── newspaper-solid.svg
+│   │   │   ├── palette-solid.svg
+│   │   │   ├── star-solid.svg
+│   │   │   └── user-shield-solid.svg
+│   │   ├── social
+│   │   │   ├── disqus-brands-solid.svg
+│   │   │   ├── facebook-brands-solid.svg
+│   │   │   ├── github-brands-solid.svg
+│   │   │   ├── instagram-brands-solid.svg
+│   │   │   ├── linkedin-brands-solid.svg
+│   │   │   ├── tiktok-brands-solid.svg
+│   │   │   ├── twitter-brands-solid.svg
+│   │   │   └── youtube-brands-solid-full.svg
+│   │   ├── themes
+│   │   │   ├── dark-bg.jpg
+│   │   │   ├── dracula-bg.jpg
+│   │   │   ├── hydra-bg.jpg
+│   │   │   ├── light-bg.jpg
+│   │   │   ├── neon-bg.jpg
+│   │   │   ├── section-hero-bg.jpg
+│   │   │   └── solarized-bg.jpg
+│   │   └── ui
+│   │       ├── arrow-down-solid.svg
+│   │       ├── arrow-right-solid.svg
+│   │       ├── bolt-solid.svg
+│   │       ├── chevron-down-solid.svg
+│   │       ├── chevron-right-solid.svg
+│   │       ├── circle-check-solid.svg
+│   │       ├── info-solid.svg
+│   │       └── rocket-solid.svg
+│   ├── index.html
+│   ├── js
+│   │   ├── main.js
+│   │   └── main.js.map
+│   ├── news.html
+│   ├── projects.html
+│   └── themes.html
 ├── directory_tree.txt
+├── dist
+│   ├── about.html
+│   ├── admin.html
+│   ├── contact.html
+│   ├── css
+│   │   ├── main.min.css
+│   │   ├── main.min.css.map
+│   │   ├── normalize.min.css
+│   │   └── normalize.min.css.map
+│   ├── features.html
+│   ├── img
+│   │   ├── icons
+│   │   │   ├── burger
+│   │   │   │   ├── bars-solid.svg
+│   │   │   │   └── xmark-solid.svg
+│   │   │   └── default
+│   │   │       ├── folder-solid.svg
+│   │   │       ├── gear-solid.svg
+│   │   │       ├── magnifying-glass-solid.svg
+│   │   │       ├── rocket-solid.svg
+│   │   │       ├── terminal-solid.svg
+│   │   │       └── user-solid.svg
+│   │   ├── nav
+│   │   │   ├── circle-info-solid.svg
+│   │   │   ├── code-solid.svg
+│   │   │   ├── envelope-solid.svg
+│   │   │   ├── house-solid.svg
+│   │   │   ├── newspaper-solid.svg
+│   │   │   ├── palette-solid.svg
+│   │   │   ├── star-solid.svg
+│   │   │   └── user-shield-solid.svg
+│   │   ├── social
+│   │   │   ├── disqus-brands-solid.svg
+│   │   │   ├── facebook-brands-solid.svg
+│   │   │   ├── github-brands-solid.svg
+│   │   │   ├── instagram-brands-solid.svg
+│   │   │   ├── linkedin-brands-solid.svg
+│   │   │   ├── tiktok-brands-solid.svg
+│   │   │   ├── twitter-brands-solid.svg
+│   │   │   └── youtube-brands-solid-full.svg
+│   │   ├── themes
+│   │   │   ├── dark-bg.jpg
+│   │   │   ├── dracula-bg.jpg
+│   │   │   ├── hydra-bg.jpg
+│   │   │   ├── light-bg.jpg
+│   │   │   ├── neon-bg.jpg
+│   │   │   ├── section-hero-bg.jpg
+│   │   │   └── solarized-bg.jpg
+│   │   └── ui
+│   │       ├── arrow-down-solid.svg
+│   │       ├── arrow-right-solid.svg
+│   │       ├── bolt-solid.svg
+│   │       ├── chevron-down-solid.svg
+│   │       ├── chevron-right-solid.svg
+│   │       ├── circle-check-solid.svg
+│   │       ├── info-solid.svg
+│   │       └── rocket-solid.svg
+│   ├── index.html
+│   ├── js
+│   │   ├── main.min.js
+│   │   └── main.min.js.map
+│   ├── news.html
+│   ├── projects.html
+│   └── themes.html
 ├── gulpfile.cjs
+├── package-lock.json
 ├── package.json
 ├── screenshots
 │   ├── evolucao_linguagens.png
@@ -281,10 +410,74 @@ style="border:2px solid #00ffff; border-radius:6px;">
 │   ├── update_changelog.py
 │   ├── update_stats.py
 │   └── update_tree.py
+├── staging
+│   ├── about.html
+│   ├── admin.html
+│   ├── contact.html
+│   ├── css
+│   │   ├── main.min.css
+│   │   ├── main.min.css.map
+│   │   ├── normalize.min.css
+│   │   └── normalize.min.css.map
+│   ├── features.html
+│   ├── img
+│   │   ├── icons
+│   │   │   ├── burger
+│   │   │   │   ├── bars-solid.svg
+│   │   │   │   └── xmark-solid.svg
+│   │   │   └── default
+│   │   │       ├── folder-solid.svg
+│   │   │       ├── gear-solid.svg
+│   │   │       ├── magnifying-glass-solid.svg
+│   │   │       ├── rocket-solid.svg
+│   │   │       ├── terminal-solid.svg
+│   │   │       └── user-solid.svg
+│   │   ├── nav
+│   │   │   ├── circle-info-solid.svg
+│   │   │   ├── code-solid.svg
+│   │   │   ├── envelope-solid.svg
+│   │   │   ├── house-solid.svg
+│   │   │   ├── newspaper-solid.svg
+│   │   │   ├── palette-solid.svg
+│   │   │   ├── star-solid.svg
+│   │   │   └── user-shield-solid.svg
+│   │   ├── social
+│   │   │   ├── disqus-brands-solid.svg
+│   │   │   ├── facebook-brands-solid.svg
+│   │   │   ├── github-brands-solid.svg
+│   │   │   ├── instagram-brands-solid.svg
+│   │   │   ├── linkedin-brands-solid.svg
+│   │   │   ├── tiktok-brands-solid.svg
+│   │   │   ├── twitter-brands-solid.svg
+│   │   │   └── youtube-brands-solid-full.svg
+│   │   ├── themes
+│   │   │   ├── dark-bg.jpg
+│   │   │   ├── dracula-bg.jpg
+│   │   │   ├── hydra-bg.jpg
+│   │   │   ├── light-bg.jpg
+│   │   │   ├── neon-bg.jpg
+│   │   │   ├── section-hero-bg.jpg
+│   │   │   └── solarized-bg.jpg
+│   │   └── ui
+│   │       ├── arrow-down-solid.svg
+│   │       ├── arrow-right-solid.svg
+│   │       ├── bolt-solid.svg
+│   │       ├── chevron-down-solid.svg
+│   │       ├── chevron-right-solid.svg
+│   │       ├── circle-check-solid.svg
+│   │       ├── info-solid.svg
+│   │       └── rocket-solid.svg
+│   ├── index.html
+│   ├── js
+│   │   ├── main.min.js
+│   │   └── main.min.js.map
+│   ├── news.html
+│   ├── projects.html
+│   └── themes.html
 ├── stats-lock.json
 └── stats.json
 
-27 directories, 119 files
+60 directories, 279 files
 ```
 <!--TREE-END-->
 </details>

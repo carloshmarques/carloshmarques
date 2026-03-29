@@ -1,0 +1,72 @@
+/* ============================================================
+   COLORS — Design Tokens
+============================================================ */
+
+/* 1. Core colors */
+$white: #ffffff;
+$black: #000000;
+
+$red: #ff0000;
+$blue: #0000ff;
+$green: #00ff00;
+$yellow: #ffff00;
+$orange: #ffa500;
+$pink: #ffc0cb;
+$purple: #915d91;
+
+$lightGray: #d3d3d3;
+$darkGray: #a9a9a9;
+
+/* 2. Brand colors */
+$primary: #4f46e5;
+$secondary: #9333ea;
+$accent: #22d3ee;
+
+/* 3. Semantic colors */
+$success: #32cd32;
+$error: #ff4500;
+$warning: #daa520;
+$info: #0c5460;
+
+/* 4. Theme tokens */
+$light-background: #ffffff;
+$light-text: #000000;
+
+$dark-background: #101010;
+$dark-text: #ffffff;
+
+$text-primary: #e2e8f0;
+$text-heading: #f8fafc;
+
+/* 5. Component tokens */
+$button-primary-bg: $green;
+$button-primary-text: $white;
+
+$button-secondary-bg: $black;
+$button-secondary-text: $white;
+
+$alert-success-bg: #d4edda;
+$alert-success-text: #155724;
+
+$alert-error-bg: #f8d7da;
+$alert-error-text: #721c24;
+
+$alert-warning-bg: #fff3cd;
+$alert-warning-text: #856404;
+
+$alert-info-bg: #d1ecf1;
+$alert-info-text: #0c5460;
+
+$modal-bg: rgba(0, 0, 0, 0.5);
+$modal-content-bg: $white;
+
+$tooltip-bg: $black;
+$tooltip-text: $white;
+
+$navbar-bg: $white;
+$navbar-text: $darkGray;
+
+$footer-bg: $black;
+$footer-text: $white;
+
+$highlight-color: #ff0;

@@ -1,0 +1,195 @@
+/* ============================================================
+   LAYOUT GLOBAL — Starter Kit
+============================================================ */
+// modules/_layout.scss
+@use 'tools' as *; 
+/* Evita flicker de tema */
+html {
+  visibility: hidden;
+}
+
+html.light-theme,
+html.dark-theme,
+html.hydra-theme,
+html.dracula-theme,
+html.neon-theme,
+html.solarized-theme {
+  visibility: visible;
+}
+
+/* Evita blink da animação da hero */
+html:not(.ready) .hero_description--last {
+  opacity: 0 !important;
+}
+
+/* Agora sim, o layout */
+body {
+  display: flex; 
+  flex-direction: column;
+  min-height: 100vh;
+
+  /* CORREÇÃO IMPORTANTE */
+  background-color: transparent !important;
+  background-image: none !important;
+
+  color: var(--text-primary);
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family, "Segoe Ui", "Tahoma", 'Geneva' ,'Verdana' , sans-serif);
+}
+
+
+footer {
+  margin-top: auto;
+  width: 100%;
+}
+
+/* ============================================================
+   BLOB GLOBAL — Versão Intensa
+============================================================ */
+
+.layout {
+  min-height: 12.5vh;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.layout::before,
+.layout::after {
+  content: "";
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  z-index: -1;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+}
+
+.layout::before {
+  width: 950px;
+  height: 950px;
+  background: radial-gradient(
+    circle,
+    rgba(var(--accent-rgb), 0.4) 0%,
+    rgba(var(--accent-rgb), 0.1) 40%,
+    transparent 75%
+  );
+  filter: blur(60px);
+  animation: wave-outer 3s infinite ease-in-out;
+}
+
+.layout::after {
+  width: 550px;
+  height: 550px;
+  background: radial-gradient(
+    circle,
+    rgba(var(--accent-rgb), 0.5) 0%,
+    rgba(var(--accent-rgb), 0.2) 50%,
+    transparent 80%
+  );
+  filter: blur(30px);
+  animation: wave-inner 3s infinite ease-in-out;
+}
+
+@keyframes wave-outer {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(0.7);
+    opacity: 0.2;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.6);
+    opacity: 0.7;
+  }
+}
+
+@keyframes wave-inner {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1.4);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(0.6);
+    opacity: 0.8;
+  }
+}
+
+/* ============================================================
+   HEADINGS
+============================================================ */
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-heading);
+  margin: 0;
+  padding: 0;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* LINKS */
+a {
+  color: var(--link);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--link-hover);
+}
+
+/* MAIN WRAPPER */
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: min(90%, 1200px);
+  margin: 0 auto;
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+/* PARÁGRAFOS */
+.main_paragraph1,
+.main_paragraph2 {
+  font-weight: 600;
+  line-height: 1.6;
+  transition: color 0.2s ease;
+}
+
+.main_paragraph1:hover {
+  color: var(--accent);
+  filter: brightness(1.25);
+}
+
+.main_paragraph2:hover {
+  color: var(--link-hover);
+  filter: brightness(1.15);
+}
+
+/* ============================
+   RESPONSIVE — Via Mixins
+   ============================ */
+
+// Substitui o antigo @media (max-width: 768px)
+@include tablet { 
+  .main {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
+
+// Para ecrãs muito pequenos (Mobile Portrait)
+@media (max-width: 480px) {
+  .main {
+    width: 95%;
+    gap: 1rem;
+  }
+
+  .main_paragraph1,
+  .main_paragraph2 {
+    font-size: 0.9rem;
+    text-align: center;
+  }
+}

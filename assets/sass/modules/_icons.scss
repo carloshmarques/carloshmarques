@@ -1,0 +1,31 @@
+// modules/_icons.scss
+/* ============================
+   Tokens de design: Ícones
+    (cores, espaçamentos, tipografia, sombras)
+============================ */
+.icon {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  vertical-align: middle;
+  transition: filter 0.2s ease;
+}
+/* Classe utilitária para componentes escuros */ 
+.dark-ui .icon { 
+    filter: invert(1); 
+}
+/* Tema claro → ícones pretos */
+.light-theme .icon {
+  filter: invert(0);
+}
+
+/* Temas escuros → ícones brancos */
+.dark-theme .icon,
+.neon-theme .icon,
+.dracula-theme .icon,
+.solarized-theme .icon,
+.hydra-theme .icon {
+  filter: invert(1);
+}
+
+

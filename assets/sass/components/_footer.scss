@@ -1,0 +1,192 @@
+/* ============================================================
+   Footer — Alinhamentos Específicos
+============================================================ */
+@use '../modules/tools' as *;
+@use '../modules/responsive' as *;
+
+/* ============================================================
+   Footer — Starter Kit (2026)
+============================================================ */
+
+footer {
+  background: var(--bg-footer);
+  color: var(--text-primary);
+  flex-shrink: 0;
+}
+
+.site-footer {
+  backdrop-filter: saturate(100%) blur(2px);
+  -webkit-backdrop-filter: saturate(100%) blur(2px);
+  width: 100%;
+  padding: 1rem 1rem;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.5rem;
+}
+
+
+
+
+/* ============================================================
+   Estrutura de Coluna Unificada
+============================================================ */
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  .footer-brand-name,
+  .footer-heading {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+    height: 1rem;
+    display: flex;
+    align-items: flex-end;
+  }
+
+
+  .footer-text-block,
+  .footer-address,
+  .footer-list {
+    flex: 1;
+  }
+
+  .footer-social-icons,
+  .footer-credits {
+    margin-top: auto;
+    padding-top: 0.1rem;
+    align-items: center;
+  }
+}
+
+
+/* ============================================================
+   Ajustes Específicos
+============================================================ */
+
+.footer-text-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  max-width: 260px;
+}
+
+.footer-tagline-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.1rem;
+}
+
+.footer-rocket {
+  width: 24px;
+  height: 24px;
+  background: url("/img/icons/default/rocket-solid.svg") no-repeat center / contain;
+  transition: transform 0.4s ease;
+  margin-top: auto;
+
+  &:hover {
+    transform: translate(4px, -4px) rotate(12deg);
+    filter: drop-shadow(0 0 8px var(--accent));
+  }
+}
+
+.footer-social-icons {
+  display: flex;
+  gap: 1rem;
+
+  a i {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    opacity: 0.7;
+    transition: 0.3s ease;
+
+    &:hover {
+      opacity: 1;
+      transform: translateY(-3px);
+      color: var(--accent);
+    }
+  }
+}
+
+.footer-list {
+  list-style: none;
+  padding: 0;
+
+  .footer-link {
+    color: var(--text-primary);
+    opacity: 0.6;
+    text-decoration: none;
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 0.6rem;
+    transition: 0.3s;
+
+    &:hover {
+      opacity: 1;
+      color: var(--accent);
+      padding-left: 5px;
+    }
+  }
+}
+
+/* ============================================================
+   Footer — Responsividade (Sistema respond())
+============================================================ */
+
+/* ↓ 1280px — 4 colunas */
+@include respond(laptop) {
+  .footer-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ↓ 1024px — 3 colunas */
+@include respond(tablet) {
+  .footer-container {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+}
+
+/* ↓ 768px — 2 colunas */
+@include respond(mobile) {
+  .footer-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+  }
+
+  .footer-col {
+    .footer-brand-name,
+    .footer-heading {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+/* ↓ 480px — 1 coluna */
+@include respond(phone) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  .site-footer {
+    padding: 1.5rem 1rem;
+  }
+
+  .footer-col {
+    .footer-text-block {
+      max-width: 100%;
+    }
+
+    .footer-social-icons {
+      gap: 0.8rem;
+    }
+  }
+}

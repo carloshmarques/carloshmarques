@@ -1,0 +1,41 @@
+// modules/_typography.scss
+// Tipografia e estilos de fonte
+/* ============================
+   Tipografia — Escala Modular
+   ============================ */
+$typo-font-family: 'Arial, sans-serif', 'Segoe UI, Helvetica', 
+'Roboto, Helvetica Neue', 
+'Tahoma, sans-serif', 
+'Verdana, sans-serif', 
+'Trebuchet MS, Helvetica', 
+'Georgia, serif', 
+'Times New Roman, serif', 
+'Garamond, serif',
+'Courier New, monospace',
+'Lucida Console, monospace',
+'Brush Script MT, cursive',
+'Comic Sans MS, cursive',
+'Impact, sans-serif',
+'Palatino Linotype, serif',
+'Arial Black, sans-serif',
+'Geneva, sans-serif',
+'Franklin Gothic Medium, sans-serif';
+
+$font-weights: (
+  normal: 400,
+  medium: 500,
+  bold: 700,
+);
+
+// Base
+$font-size-base: 16px;   // 1rem
+$line-height-base: 1.5;
+
+// Escala tipográfica
+$font-size-xs: 0.75rem;   // 12px
+$font-size-sm: 0.875rem;  // 14px
+$font-size-md: 1rem;      // 16px
+$font-size-lg: 1.25rem;   // 20px
+$font-size-xl: 1.5rem;    // 24px
+$font-size-xxl: 2rem;     // 32px
+$font-size-xxxl: 3rem;    // 48px

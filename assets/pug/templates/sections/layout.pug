@@ -1,0 +1,63 @@
+doctype html
+html(lang="pt")
+  head
+    //- script de tema imediato para evitar flicker
+    script.
+      const savedTheme = localStorage.getItem('sk-theme') || 'light';
+      document.documentElement.className = savedTheme + '-theme';
+
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+
+    //- Título dinâmico usando os locals: title ('SK') e pageTitle
+    - const displayPageTitle = pageTitle ? pageTitle.charAt(0).toUpperCase() + pageTitle.slice(1) : 'Home'
+    title #{title} | #{displayPageTitle}
+
+    //- Favicon, usando um ícone local, substituindo o link anterior
+    link(rel="icon" href="/img/icons/default/rocket-solid.svg" type="image/svg+xml")
+
+
+    //- Metadados usando as variáveis do Gulp
+    meta(name="description" content=description)
+    meta(name="keywords" content=tags.join(', '))
+    meta(name="author" content="Carlos H. Marques")
+    meta(name="co-author" content="Microsoft Copilot")
+    meta(name="repository" content=repository)
+    meta(name="version" content=version)
+    meta(name="theme" content=theme)
+    meta(name="buildDate" content=buildDate)
+    meta(name="environment" content=env)
+   
+    script.
+      //- Passa o array de temas do Gulp para o cliente
+      window.availableThemes = !{JSON.stringify(themes)};
+
+    meta(name="environment" content=env)
+
+    script.
+      window.availableThemes = !{JSON.stringify(themes)};
+ 
+
+
+    if env === 'production'
+      link(rel="stylesheet", href="css/normalize.min.css")
+      link(rel="stylesheet", href="css/main.min.css")
+    else
+      link(rel="stylesheet", href="css/normalize.css")
+      link(rel="stylesheet", href="css/main.css")
+  body
+    .layout
+    include header.pug
+    
+    main.site-main
+      block content
+
+    include footer.pug
+
+    script(src="https://code.jquery.com/jquery-3.7.1.min.js")
+    script(src="https://kit.fontawesome.com/6f7d0688fd.js" crossorigin="anonymous")
+
+    if env === 'production'
+      script(src="js/main.min.js")
+    else
+      script(src="js/main.js")

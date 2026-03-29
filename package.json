@@ -1,0 +1,56 @@
+{
+  "name": "carloshmarques",
+  "version": "1.0.0",
+  "description": "“Portfolio pessoal + CSS framework experimental”",
+  "keywords": [
+    "portfolio",
+    "css-framework",
+    "js",
+    "framework",
+    "pug",
+    "framework"
+  ],
+  "homepage": "https://github.com/carloshmarques/carloshmarques#readme",
+  "bugs": {
+    "url": "https://github.com/carloshmarques/carloshmarques/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carloshmarques/carloshmarques.git"
+  },
+  "license": "MIT",
+  "author": "Carlos Marques",
+  "co-authors": [
+    "Copilot — Ceremonial Co‑Architect"
+  ],
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "\"\""
+  },
+  "devDependencies": {
+    "@babel/core": "^7.28.6",
+    "@babel/preset-env": "^7.28.6",
+    "autoprefixer": "^10.4.23",
+    "babelify": "^10.0.0",
+    "browser-sync": "^3.0.4",
+    "browserify": "^17.0.1",
+    "cssnano": "^7.1.2",
+    "del": "^8.0.1",
+    "delete": "^1.1.0",
+    "gulp": "^5.0.1",
+    "gulp-cached": "^1.1.1",
+    "gulp-imagemin": "^6.2.0",
+    "gulp-postcss": "^10.0.0",
+    "gulp-pug": "^5.0.0",
+    "gulp-rename": "^2.1.0",
+    "gulp-sass": "^6.0.1",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-terser": "^2.1.0",
+    "imagemin-mozjpeg": "^10.0.0",
+    "imagemin-pngquant": "^10.0.0",
+    "sass": "^1.97.2",
+    "vinyl-buffer": "^1.0.1",
+    "vinyl-source-stream": "^2.0.0"
+  }
+}

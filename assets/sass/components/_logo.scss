@@ -1,0 +1,57 @@
+/* ============================================================
+   LOGO SK — Círculo Dinâmico
+   ------------------------------------------------------------
+   - Círculo animado atrás do texto "SK"
+   - Animação suave e contínua
+   - Integração com temas (usa var(--accent))
+============================================================ */
+
+.logo-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+
+  /* Ajusta o tamanho total do logo */
+  width: 60px;
+  height: 60px;
+}
+
+/* CÍRCULO ANIMADO */
+.logo-circle {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--accent, #4fc3f7); /* fallback */
+  z-index: -1;
+
+  animation: logoPulse 3s ease-in-out infinite;
+}
+
+/* TEXTO SK */
+.logo-text {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-primary, #fff);
+  letter-spacing: 1px;
+  user-select: none;
+}
+
+/* ANIMAÇÃO DO CÍRCULO */
+@keyframes logoPulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.18);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+}

@@ -1,0 +1,33 @@
+/* ============================================================
+   MAIN.SCSS — Organizado por Camadas
+============================================================ */
+
+/* 1. FERRAMENTAS & TOKENS (Lógica e Definições) */
+// Carrega tudo o que é variável/mixin de uma vez só.
+@use 'modules/tools' as *;
+
+/* 2. RESET & HEALING (Preparação do Terreno) */
+@use 'modules/reset';
+@use 'modules/heal';
+
+/* 3. TEMAS (Configuração de Cores Globais) */
+@use 'modules/themes';
+
+/* 4. ESTRUTURA GLOBAL (Gera o CSS do Layout e Base) */
+@use 'modules/config' as *;
+@use 'modules/layout' as *;
+@use 'modules/buttons' as *;
+@use 'modules/icons';
+
+/* 5. COMPONENTES (O que o PUG injeta) */
+@use 'components/logo';
+@use 'components/menu';
+
+// @use 'components/about';
+// @use 'components/projects';
+// @use 'components/footer';
+
+/* 6. ANIMAÇÕES & RESPONSIVE (Ajustes Finais) */
+@use 'animations/animations';
+@use 'modules/responsive' as *;
+

@@ -92,11 +92,11 @@ style="border:2px solid #00ffff; border-radius:6px;">
 <td width="50%" style="vertical-align:top; padding:10px;">
 <h3>Linguagens mais usadas (atualizado automaticamente)</h3>
 <ul>
-<li><strong style="color:#00bfff">C#</strong> — 1025300 bytes de código</li>
-<li><strong style="color:#ff00ff">CSS</strong> — 401372 bytes de código</li>
+<li><strong style="color:#00bfff">C#</strong> — 1122341 bytes de código</li>
+<li><strong style="color:#ff00ff">CSS</strong> — 815279 bytes de código</li>
 <li><strong style="color:#00ffff">Jupyter Notebook</strong> — 272154 bytes de código</li>
-<li><strong style="color:#9933ff">JavaScript</strong> — 172842 bytes de código</li>
-<li><strong style="color:#00bfff">SCSS</strong> — 75218 bytes de código</li>
+<li><strong style="color:#9933ff">JavaScript</strong> — 200361 bytes de código</li>
+<li><strong style="color:#ffcc00">QML</strong> — 121088 bytes de código</li>
 
 </ul>
 </td>

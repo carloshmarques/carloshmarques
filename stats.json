@@ -1,5 +1,5 @@
 {
-    "C#": 1207537,
+    "C#": 1216245,
     "CSS": 815279,
     "Jupyter Notebook": 272154,
     "JavaScript": 212123,
@@ -8,9 +8,9 @@
     "HTML": 67163,
     "Pug": 49418,
     "Python": 24587,
-    "Shell": 3882,
-    "PowerShell": 3252,
+    "PowerShell": 1403,
     "Ruby": 1307,
+    "Shell": 1178,
     "colors": {
         "C#": "#00bfff",
         "CSS": "#ff00ff",

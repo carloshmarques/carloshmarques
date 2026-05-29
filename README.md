@@ -92,7 +92,7 @@ style="border:2px solid #00ffff; border-radius:6px;">
 <td width="50%" style="vertical-align:top; padding:10px;">
 <h3>Linguagens mais usadas (atualizado automaticamente)</h3>
 <ul>
-<li><strong style="color:#ff00ff">C#</strong> — 1225287 bytes de código</li>
+<li><strong style="color:#ff00ff">C#</strong> — 1225599 bytes de código</li>
 <li><strong style="color:#00ffcc">CSS</strong> — 816728 bytes de código</li>
 <li><strong style="color:#ff8800">Jupyter Notebook</strong> — 272154 bytes de código</li>
 <li><strong style="color:#00ffff">JavaScript</strong> — 218059 bytes de código</li>

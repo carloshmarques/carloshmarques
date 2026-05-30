@@ -1,0 +1,10 @@
+@use 'components/logo';
+@use 'components/home' as *; // ✅ correto
+@use 'components/footer';
+@use 'components/menu';
+@use 'components/about';
+@use 'components/projects';
+@use 'components/contact';
+@use 'components/features';
+@use 'components/news';
+ 

@@ -1,0 +1,92 @@
+/* ============================================================
+   Buttons Module — Starter Kit (2026)
+============================================================ */
+
+/* MENU BUTTON (hamburger) */
+button.menu-btn {
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  .menu-btn_burguer {
+    width: 24px;
+    height: 2px;
+    background: var(--link);
+    position: relative;
+    transition: 0.2s ease;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      width: 24px;
+      height: 2px;
+      background: var(--link);
+      left: 0;
+      transition: 0.2s ease;
+    }
+
+    &::before { top: -8px; }
+    &::after { top: 8px; }
+  }
+}
+
+/* ============================================================
+   PRIMARY BUTTONS (hero, explore, generic)
+============================================================ */
+
+.button,
+.hero_btn,
+.hero_explore {
+  display: inline-block;
+  padding: 0.8rem 2.2rem;
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+
+  /* CORREÇÃO IMPORTANTE */
+  background-color: var(--accent);
+  color: var(--text-on-accent); /* sem !important */
+
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+
+  /* brilho suave */
+  animation: button-glow 2s infinite ease-in-out;
+}
+
+.button:hover,
+.hero_btn:hover,
+.hero_explore:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(var(--accent-rgb), 0.6);
+  animation-play-state: paused;
+}
+
+/* animação */
+@keyframes button-glow {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(var(--accent-rgb), 0.2);
+    filter: brightness(1);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(var(--accent-rgb), 0.5);
+    filter: brightness(1.15);
+  }
+}
+
+/* estado escondido */
+.hero_btn.hidden {
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+}

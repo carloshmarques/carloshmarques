@@ -1,0 +1,44 @@
+// modules/_mixins.scss
+@use "breakpoints" as bp;
+
+@mixin mobile {
+  @media (max-width: bp.$mobile) { @content; }
+}
+
+
+
+
+@mixin flex-center($direction : 'row') {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+}
+
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+
+
+@mixin mobile {
+  @media (max-width: bp.$mobile) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media (max-width: bp.$tablet) {
+    @content;
+  }
+}   
+
+@mixin desktop {
+  @media (min-width: bp.$desktop) {
+    @content;
+  }
+}
+

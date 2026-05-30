@@ -1,0 +1,59 @@
+header.site-header
+  .container
+    a.logo-wrapper(href="index.html")
+      .logo-circle
+      span.logo-text #{siteName}
+    .nav-wrapper
+      nav.nav
+        ul.menu-nav
+
+          li.menu-nav_item(class=currentPage === 'home' ? 'active' : '')
+            a.menu-nav_link(href="index.html")
+              img.icon(src="/img/nav/house-solid.svg" alt="Home")
+              | Home
+
+          li.menu-nav_item(class=currentPage === 'about' ? 'active' : '')
+            a.menu-nav_link(href="about.html")
+              img.icon(src="/img/nav/circle-info-solid.svg" alt="About")
+              | About
+
+          li.menu-nav_item(class=currentPage === 'features' ? 'active' : '')
+            a.menu-nav_link(href="features.html")
+              img.icon(src="/img/nav/star-solid.svg" alt="Features")
+              | Features
+
+          li.menu-nav_item(class=currentPage === 'projects' ? 'active' : '')
+            a.menu-nav_link(href="projects.html")
+              img.icon(src="/img/nav/code-solid.svg" alt="Projects")
+              | Projects
+
+          li.menu-nav_item(class=currentPage === 'news' ? 'active' : '')
+            a.menu-nav_link(href="news.html")
+              img.icon(src="/img/nav/newspaper-solid.svg" alt="News")
+              | News
+
+          li.menu-nav_item(class=currentPage === 'contact' ? 'active' : '')
+            a.menu-nav_link(href="contact.html")
+              img.icon(src="/img/nav/envelope-solid.svg" alt="Contact")
+              | Contact
+
+          li.menu-nav_item.menu-nav_dropdown(class=currentPage === 'themes' ? 'active' : '')
+            a.menu-nav_link(href="themes.html")
+              img.icon(src="/img/nav/palette-solid.svg" alt="Themes")
+              | Themes
+
+            ul.dropdown-menu
+              each themeName in themes
+                li
+                  a(href=`themes.html?theme=${themeName}`) #{themeName}
+
+          
+
+          if showAdmin
+            li.menu-nav_item(class=currentPage === 'admin' ? 'active' : '')
+              a.menu-nav_link(href="admin.html")
+                img.icon(src="/img/nav/user-shield-solid.svg" alt="Admin")
+                | Admin
+
+      button.menu-btn
+        span.menu-btn_burguer

@@ -1,0 +1,80 @@
+name: Update Language Stats
+
+on:
+  push:
+    branches:
+      - main
+      - master
+      - gh-pages
+  schedule:
+    - cron: '0 0 1 * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    if: |
+      github.ref == 'refs/heads/main' ||
+      github.ref == 'refs/heads/master' ||
+      github.ref == 'refs/heads/gh-pages'
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install PyGithub matplotlib cairosvg pillow
+
+      - name: Generate directory tree
+        run: tree -d -L 2 > directory_tree.txt
+
+      - name: Update directory tree in README
+        run: python scripts/update_tree.py
+
+      - name: Update README and generate images
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
+          python scripts/update_stats.py
+          python scripts/generate_language_image.py
+          python scripts/generate_language_pie.py
+          python scripts/generate_evolution.py
+
+      - name: Update changelog
+        run: python scripts/update_changelog.py
+
+      - name: Commit only allowed files
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
+          git config user.name "CarlosBot"
+          git config user.email "bot@carlos.dev"
+          git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git
+
+          git diff --name-only > changed.txt
+
+          grep -E 'README.md|stats.json|language_stats.png|language_pie.png|evolucao_linguagens.png|CHANGELOG.md|directory_tree.txt' changed.txt > allowed.txt || true
+
+          if [ ! -s allowed.txt ]; then
+            echo "Nenhuma alteração permitida encontrada. Push cancelado."
+            exit 0
+          fi
+
+          while read file; do
+            git add "$file"
+          done < allowed.txt
+
+          git pull
+          git commit -m "Atualização automática das linguagens" || echo "Nada para commitar"
+          git push origin HEAD

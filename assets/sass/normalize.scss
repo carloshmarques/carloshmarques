@@ -1,0 +1,78 @@
+/* ============================================
+   normalize.scss — Hydra Edition (2026)
+   Corrige inconsistências sem apagar estilos.
+   Mantém temas intactos. Mantém layout estável.
+============================================ */
+
+/* 1. Box-model consistente em todos os browsers */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove margens padrão que causam “layout shift” */
+body {
+  margin: 0;
+}
+
+/* 3. Tipografia previsível */
+html {
+  -webkit-text-size-adjust: 100%; // evita zoom automático no mobile
+  text-rendering: optimizeLegibility;
+}
+
+/* 4. Imagens e media nunca quebram o layout */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* 5. Botões e inputs herdam fonte corretamente */
+button, input, select, textarea {
+  font: inherit;
+  color: inherit;
+}
+
+/* 6. Remove estilos agressivos de anchors */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* 7. Listas sem bullets inesperados */
+ul, ol {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* 8. Tabelas previsíveis */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* 9. Form controls mais consistentes */
+textarea {
+  resize: vertical;
+}
+
+/* 10. Evita “layout shift” em elementos carregados tarde */
+img, video {
+  content-visibility: auto;
+}
+
+/* 11. Ganchos futuros (desativados por agora)
+   Mantidos como referência, mas não ativados.
+   Não way José, kkk.
+*/
+/*
+iframe {
+  loading: lazy;
+}
+video {
+  controls: true;
+}
+*/
+
+

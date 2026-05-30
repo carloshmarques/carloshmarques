@@ -1,0 +1,159 @@
+.site-header {
+  width: 100%;
+  padding: 0.4rem 2rem;
+
+  background: rgba(var(--accent-rgb), 0.08);
+  backdrop-filter: blur(40px) saturate(180%);
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
+  background-clip: padding-box;
+
+  position: fixed; 
+  z-index: index 10;
+  top: 0;
+  left: 0;
+  right: 0;
+  
+
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+  transition: background 0.3s ease;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .logo-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    z-index: 20;
+    cursor: pointer;
+  }
+
+  .logo-circle {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text-on-accent, #fff);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+  }
+
+  .nav-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    z-index: 20;
+  }
+
+  .nav {
+    .menu-nav {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .menu-nav_item {
+      display: flex;
+      align-items: center;
+    }
+
+    .menu-nav_link {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--link);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: var(--accent);
+      }
+
+      i {
+        font-size: 1rem;
+      }
+    }
+
+    .menu-nav_dropdown {
+      position: relative;
+
+      .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: var(--bg);
+        padding: 0.5rem 1rem;
+        list-style: none;
+        display: none;
+        z-index: 30;
+        border: 1px solid var(--border, rgba(255,255,255,0.1));
+        border-radius: 4px;
+
+        li {
+          margin: 0.4rem 0;
+
+          a {
+            color: var(--link);
+            text-decoration: none;
+
+            &:hover {
+              color: var(--link-hover);
+            }
+          }
+        }
+      }
+
+      &:hover .dropdown-menu {
+        display: block;
+      }
+    }
+  }
+
+  .menu-btn {
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    .menu-btn_burguer {
+      width: 24px;
+      height: 2px;
+      background: var(--link);
+      position: relative;
+      transition: 0.2s ease;
+
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        width: 24px;
+        height: 2px;
+        background: var(--link);
+        left: 0;
+        transition: 0.2s ease;
+      }
+
+      &::before {
+        top: -8px;
+      }
+
+      &::after {
+        top: 8px;
+      }
+    }
+  }
+}

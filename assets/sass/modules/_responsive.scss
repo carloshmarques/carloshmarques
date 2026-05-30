@@ -1,0 +1,25 @@
+@use './breakpoints' as bp;
+@use 'sass:map';
+
+$breakpoints: (
+  phone: bp.$phone,
+  mobile: bp.$mobile,
+  tablet: bp.$tablet,
+  laptop: bp.$laptop,
+  desktop: bp.$desktop,
+  wide: bp.$wide,
+  ultra-wide: bp.$ultra-wide
+);
+
+@mixin respond($size) {
+  $value: map.get($breakpoints, $size);
+
+  @if $value == null {
+    @error "O breakpoint `#{$size}` não existe.";
+  }
+
+  @media (max-width: $value) {
+    @content;
+  }
+}
+

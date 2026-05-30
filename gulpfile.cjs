@@ -262,7 +262,8 @@ Cada ambiente compila para:
 ------------------------------------------------------------
 NOTA:
 Em Windows PowerShell:
-   $env:NODE_ENV="production"; gulp build
+   $env:ls
+   "; gulp build
 
 Em Windows CMD:
    set NODE_ENV=production && gulp build

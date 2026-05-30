@@ -30,15 +30,30 @@ def collect_language_stats():
     g = Github(auth=Auth.Token(token))
     user = g.get_user("carloshmarques")
 
+    # Só queremos repositórios cuja branch principal é main, master ou gh-pages
+    ALLOWED_BRANCHES = {"main", "master", "gh-pages"}
+
     languages = {}
 
     for repo in user.get_repos():
         try:
+            default_branch = repo.default_branch
+
+            # Ignorar repositórios que não são teus
+            if default_branch not in ALLOWED_BRANCHES:
+                print(f"[Hydra] Ignorado (branch não permitida): {repo.name} ({default_branch})")
+                continue
+
+            # Repositório válido → recolher linguagens
             langs = repo.get_languages()
             for lang, count in langs.items():
                 languages[lang] = languages.get(lang, 0) + count
-        except Exception:
-            pass
+
+            print(f"[Hydra] Incluído: {repo.name} ({default_branch})")
+
+        except Exception as e:
+            print(f"[Hydra] Erro ao processar {repo.name}: {e}")
+            continue
 
     sorted_langs = sorted(languages.items(), key=lambda x: x[1], reverse=True)
     color_map = assign_stable_colors(languages.keys())
@@ -51,6 +66,7 @@ def collect_language_stats():
 
     print("[Hydra] stats.json regenerado com cores estáveis.")
     return stats
+
 
 
 # ---------------------------------------------------------

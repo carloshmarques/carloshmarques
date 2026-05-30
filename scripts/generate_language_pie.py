@@ -5,7 +5,7 @@ import os
 
 
 STATS_PATH = "stats.json"
-OUTPUT_PATH = "screenshots/evolucao_linguagens.png"
+
 
 
 # ---------------------------------------------------------

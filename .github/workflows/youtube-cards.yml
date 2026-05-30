@@ -1,9 +1,9 @@
 name: GitHub Readme YouTube Cards
 on:
   schedule:
-    # Run monthly at midnight on the first day of each month'
-    - cron: '0 0 1 * *' 
+    - cron: '0 0 1 1 *' # Run yearly
   workflow_dispatch:
+    # Run workflow manually (without waiting for the cron to be called), through the GitHub Actions Workflow page directly
 
 jobs:
   build:

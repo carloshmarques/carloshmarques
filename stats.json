@@ -7,11 +7,11 @@
     "QML": 121088,
     "HTML": 71274,
     "Pug": 49418,
-    "Python": 24587,
+    "Python": 26502,
     "PowerShell": 17258,
-    "Shell": 8803,
     "Batchfile": 2084,
     "Ruby": 1307,
+    "Shell": 1178,
     "colors": {
         "Batchfile": "#00bfff",
         "C#": "#ff00ff",

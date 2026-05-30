@@ -64,23 +64,6 @@
 
 ---
 
-## 📸 Screenshots
- 
-<details>
-  <summary>Clique para ver as capturas cerimoniais</summary>
-  <div align="center"> 
-    <img width="300" height="150"src="https://i.imgur.com/tkFcQ4p.png" alt="@carloshmarques/carloshmarques's banner">
-    <img src="screenshots/evolucao_linguagens.png" width="300" height="150"/>
-    <img src="screenshots/fundo_adn.png" width="300" height="150"/>
-    <img src="screenshots/language_pie.png" width="300" height="150"/>
-    <img src="screenshots/painel_mutacao.png" width="300" height="150"/>
-    <img src="screenshots/language_stats.png" width="300" height="150"/>
-     <img src="screenshots/kennedy.jpg" width="300" height="150"/>
-  </div>
-</details>
-
----
-
 ## 🌿 Estrutura do Projeto
 
 <details>

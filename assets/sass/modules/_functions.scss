@@ -1,6 +1,0 @@
-// No modules/_functions.scss
-@use 'sass:map';
-
-@function weight($map, $weight-name) {
-   @return map.get($map, $weight-name);
-}

@@ -1,0 +1,5 @@
+###> carloshmarques/carloshmarques ###
+
+# 2026-07-16 21:23 - ignorar ficheiros Python compilados
+__pycache__/
+###< carloshmarques/carloshmarques ###

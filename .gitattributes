@@ -1,0 +1,5 @@
+###> carloshmarques/gitattributes ###
+
+# 2026-07-16 21:31 - normalizar fim de linha
+* text=auto eol=lf
+###< carloshmarques/gitattributes ###

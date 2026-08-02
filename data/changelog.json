@@ -1,0 +1,34 @@
+{
+  "version": "0.0.2",
+  "entries": [
+    {
+      "id": "0.0.2",
+      "date": "2026-07-16",
+      "summary": "Integra\u00e7\u00e3o do sistema de CHANGELOG din\u00e2mico no kernel Python",
+      "added": [
+        "scripts/changelog.py",
+        "Marcadores HTML invis\u00edveis no CHANGELOG.md",
+        "Integra\u00e7\u00e3o da op\u00e7\u00e3o 3 no main.py",
+        "L\u00f3gica de incremento semver"
+      ],
+      "modified": [
+        "CHANGELOG.md (substitui\u00e7\u00e3o dos marcadores por coment\u00e1rios HTML invis\u00edveis)",
+        "scripts/main.py (adi\u00e7\u00e3o da op\u00e7\u00e3o 3 ao menu)"
+      ],
+      "ritual": [
+        "Refactor dos marcadores para coment\u00e1rios HTML invis\u00edveis",
+        "Consolida\u00e7\u00e3o do kernel Python como sistema modular"
+      ],
+      "supplement": [
+        "Decis\u00e3o de tornar o bloco din\u00e2mico invis\u00edvel no preview do GitHub",
+        "Alinhamento do CHANGELOG com pr\u00e1ticas profissionais de projetos grandes",
+        "Prepara\u00e7\u00e3o da infraestrutura para o futuro sistema IdeaDen",
+        "Estabiliza\u00e7\u00e3o do fluxo de vers\u00e3o semver para entradas futuras"
+      ],
+      "adenda": [
+        "Nota sobre a valida\u00e7\u00e3o do sistema invis\u00edvel de marcadores",
+        "Observa\u00e7\u00e3o sobre a prepara\u00e7\u00e3o do kernel para futuras expans\u00f5es"
+      ]
+    }
+  ]
+}

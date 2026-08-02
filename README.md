@@ -7,7 +7,7 @@
 <div align="center">
   <!-- Change your logo -->
   <a href="https://github.com/carloshmarques/carloshmarques">
-    <img width="100%" src="https://i.imgur.com/tkFcQ4p.png" alt="@carloshmarques/carloshmarques's banner">
+    <img width="100%" src="assets/img/channels4_banner.jpg" alt="banner">
   </a>
   <br>
   <a href="https://github.com/carloshmarques/carloshmarques/issues">

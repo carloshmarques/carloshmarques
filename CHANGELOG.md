@@ -18,6 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <!-- carloshmarques/changelog:start -->
 
 
+
 <!-- Template para novas entradas -->
 <!-- Este bloco será preenchido automaticamente pelo kernel Python -->
 
@@ -49,5 +50,27 @@ Integração do sistema de CHANGELOG dinâmico no kernel Python
 ### Adenda-[0.0.2]-2026-07-16
 - Nota sobre a validação do sistema invisível de marcadores
 - Observação sobre a preparação do kernel para futuras expansões
+
+## [0.0.2] - 2026-08-02
+
+### Summary
+Limpeza final do histórico e remoção do workflow automático.
+
+### Adicionado
+-  Estrutura final do template do perfil.
+-  Banner local em assets/img/.
+
+### Modificado
+-  Remoção do workflow automático que gerava commits de hora a hora.
+-  Reorganização da pasta scripts/ como toolbox universal.
+
+### Ritual
+- Consolidação do ecossistema modular.
+
+### Suplemento-[0.0.2]-2026-08-02
+- Última limpeza manual do histórico.
+
+### Adenda-[0.0.2]-2026-08-02
+- Preparação para estabilizar o repo e fechar a sessão.
 
 <!-- carloshmarques/changelog:end -->

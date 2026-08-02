@@ -74,5 +74,4 @@ Limpeza final do histórico e remoção do workflow automático.
 - Preparação para estabilizar o repo e fechar a sessão.
 
 
-
 <!-- carloshmarques/changelog:end -->

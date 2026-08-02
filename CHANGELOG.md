@@ -73,4 +73,6 @@ Limpeza final do histórico e remoção do workflow automático.
 ### Adenda-[0.0.2]-2026-08-02
 - Preparação para estabilizar o repo e fechar a sessão.
 
+
+
 <!-- carloshmarques/changelog:end -->

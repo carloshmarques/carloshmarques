@@ -73,6 +73,10 @@
 |-- CHANGELOG.md
 |-- LICENSE
 |-- README.md
+|-- assets/
+|   |-- img/
+|   |   |-- channels4_banner.jpg
+|   |   |-- me.jpg
 |-- scripts/
 |   |-- update_tree.py
 ```
